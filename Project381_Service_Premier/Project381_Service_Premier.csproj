@@ -49,6 +49,7 @@
     <Compile Include="BusinessClient.cs" />
     <Compile Include="Call.cs" />
     <Compile Include="Client.cs" />
+    <Compile Include="ClientHandler.cs" />
     <Compile Include="FileHandler.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
