@@ -21,5 +21,20 @@ namespace Project381_Service_Premier
       {
 
       }
+
+      private void label6_Click(object sender, EventArgs e)
+      {
+
+      }
+
+      private void textBox4_TextChanged(object sender, EventArgs e)
+      {
+
+      }
+
+      private void tabPage9_Click(object sender, EventArgs e)
+      {
+
+      }
    }
 }
