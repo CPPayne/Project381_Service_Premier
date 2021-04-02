@@ -8,7 +8,7 @@ namespace michal_project_classes
 {
     class BusinessClient : Client
     {
-        private string businessID;
+       
 
         public string BusinessID { get => businessID; set => businessID = value; }
 

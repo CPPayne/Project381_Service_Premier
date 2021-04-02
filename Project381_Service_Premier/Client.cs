@@ -13,6 +13,7 @@ namespace Project381_Service_Premier.Properties
         private string address;
         static Client AllClients;
         private Contract contract;
+      private String ClientID;
 
         public Client(string name, string phoneNum, string address, Contract contract)
         {

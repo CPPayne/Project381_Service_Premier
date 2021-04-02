@@ -9,7 +9,6 @@ namespace michal_project_classes
     class IndividualClient : Client
     {
         private string surname;
-        private string id;
 
         public string Surname { get => surname; set => surname = value; }
         public string Id { get => id; set => id = value; }
