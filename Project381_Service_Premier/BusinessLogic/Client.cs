@@ -6,14 +6,16 @@ using System.Threading.Tasks;
 
 namespace Project381_Service_Premier.Properties
 {
-    class Client
+   //namespace Project381_Service_Premier.businesslogic
+   class Client
     {
+      
         private string name;
         private string phoneNum;
         private string address;
         static Client AllClients;
         private Contract contract;
-      private String ClientID;
+        private String ClientID;
 
         public Client(string name, string phoneNum, string address, Contract contract)
         {
