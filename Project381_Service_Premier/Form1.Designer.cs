@@ -1306,7 +1306,7 @@ namespace Project381_Service_Premier
          // 
          // button11
          // 
-         this.button11.Location = new System.Drawing.Point(454, 549);
+         this.button11.Location = new System.Drawing.Point(454, 550);
          this.button11.Name = "button11";
          this.button11.Size = new System.Drawing.Size(244, 152);
          this.button11.TabIndex = 67;
@@ -1315,7 +1315,7 @@ namespace Project381_Service_Premier
          // 
          // button10
          // 
-         this.button10.Location = new System.Drawing.Point(704, 552);
+         this.button10.Location = new System.Drawing.Point(704, 550);
          this.button10.Name = "button10";
          this.button10.Size = new System.Drawing.Size(701, 149);
          this.button10.TabIndex = 66;
@@ -1369,7 +1369,7 @@ namespace Project381_Service_Premier
          // 
          // button8
          // 
-         this.button8.Location = new System.Drawing.Point(299, 549);
+         this.button8.Location = new System.Drawing.Point(325, 550);
          this.button8.Name = "button8";
          this.button8.Size = new System.Drawing.Size(123, 152);
          this.button8.TabIndex = 71;
