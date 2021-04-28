@@ -125,7 +125,13 @@ namespace Project381_Service_Premier
             this.button1 = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.listBox6 = new System.Windows.Forms.ListBox();
+            this.label25 = new System.Windows.Forms.Label();
+            this.textBox18 = new System.Windows.Forms.TextBox();
+            this.label24 = new System.Windows.Forms.Label();
+            this.textBox19 = new System.Windows.Forms.TextBox();
+            this.label26 = new System.Windows.Forms.Label();
+            this.listBox7 = new System.Windows.Forms.ListBox();
+            this.serviceList = new System.Windows.Forms.ListBox();
             this.button8 = new System.Windows.Forms.Button();
             this.label22 = new System.Windows.Forms.Label();
             this.button13 = new System.Windows.Forms.Button();
@@ -142,12 +148,6 @@ namespace Project381_Service_Premier
             this.tabPage10 = new System.Windows.Forms.TabPage();
             this.button12 = new System.Windows.Forms.Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.listBox7 = new System.Windows.Forms.ListBox();
-            this.textBox18 = new System.Windows.Forms.TextBox();
-            this.label24 = new System.Windows.Forms.Label();
-            this.textBox19 = new System.Windows.Forms.TextBox();
-            this.label26 = new System.Windows.Forms.Label();
-            this.label25 = new System.Windows.Forms.Label();
             this.tabPage6.SuspendLayout();
             this.tabPage5.SuspendLayout();
             this.tabControl4.SuspendLayout();
@@ -1081,7 +1081,7 @@ namespace Project381_Service_Premier
             this.tabPage1.Controls.Add(this.textBox19);
             this.tabPage1.Controls.Add(this.label26);
             this.tabPage1.Controls.Add(this.listBox7);
-            this.tabPage1.Controls.Add(this.listBox6);
+            this.tabPage1.Controls.Add(this.serviceList);
             this.tabPage1.Controls.Add(this.button8);
             this.tabPage1.Controls.Add(this.label22);
             this.tabPage1.Controls.Add(this.button13);
@@ -1103,21 +1103,70 @@ namespace Project381_Service_Premier
             this.tabPage1.Text = "Contract maintenance";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // listBox6
+            // label25
             // 
-            this.listBox6.FormattingEnabled = true;
-            this.listBox6.Location = new System.Drawing.Point(157, 620);
-            this.listBox6.Name = "listBox6";
-            this.listBox6.Size = new System.Drawing.Size(100, 95);
-            this.listBox6.TabIndex = 75;
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(275, 562);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(61, 13);
+            this.label25.TabIndex = 82;
+            this.label25.Text = "Service list:";
+            // 
+            // textBox18
+            // 
+            this.textBox18.Location = new System.Drawing.Point(112, 562);
+            this.textBox18.Name = "textBox18";
+            this.textBox18.Size = new System.Drawing.Size(100, 20);
+            this.textBox18.TabIndex = 80;
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(23, 565);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(82, 13);
+            this.label24.TabIndex = 77;
+            this.label24.Text = "Package name:";
+            // 
+            // textBox19
+            // 
+            this.textBox19.Location = new System.Drawing.Point(112, 588);
+            this.textBox19.Name = "textBox19";
+            this.textBox19.Size = new System.Drawing.Size(100, 20);
+            this.textBox19.TabIndex = 81;
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(23, 591);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(76, 13);
+            this.label26.TabIndex = 79;
+            this.label26.Text = "Package cost:";
+            // 
+            // listBox7
+            // 
+            this.listBox7.FormattingEnabled = true;
+            this.listBox7.Location = new System.Drawing.Point(827, 664);
+            this.listBox7.Name = "listBox7";
+            this.listBox7.Size = new System.Drawing.Size(172, 43);
+            this.listBox7.TabIndex = 76;
+            // 
+            // serviceList
+            // 
+            this.serviceList.FormattingEnabled = true;
+            this.serviceList.Location = new System.Drawing.Point(278, 583);
+            this.serviceList.Name = "serviceList";
+            this.serviceList.Size = new System.Drawing.Size(100, 95);
+            this.serviceList.TabIndex = 75;
             // 
             // button8
             // 
-            this.button8.Location = new System.Drawing.Point(1189, 662);
+            this.button8.Location = new System.Drawing.Point(1168, 597);
             this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(186, 23);
+            this.button8.Size = new System.Drawing.Size(112, 62);
             this.button8.TabIndex = 71;
-            this.button8.Text = "button8";
+            this.button8.Text = "Add service";
             this.button8.UseVisualStyleBackColor = true;
             // 
             // label22
@@ -1131,11 +1180,11 @@ namespace Project381_Service_Premier
             // 
             // button13
             // 
-            this.button13.Location = new System.Drawing.Point(279, 597);
+            this.button13.Location = new System.Drawing.Point(452, 604);
             this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(186, 23);
+            this.button13.Size = new System.Drawing.Size(197, 36);
             this.button13.TabIndex = 74;
-            this.button13.Text = "Remove service from selection";
+            this.button13.Text = "Remove service";
             this.button13.UseVisualStyleBackColor = true;
             // 
             // label21
@@ -1149,16 +1198,16 @@ namespace Project381_Service_Premier
             // 
             // textBox39
             // 
-            this.textBox39.Location = new System.Drawing.Point(1275, 549);
+            this.textBox39.Location = new System.Drawing.Point(899, 568);
             this.textBox39.Name = "textBox39";
             this.textBox39.Size = new System.Drawing.Size(100, 20);
             this.textBox39.TabIndex = 62;
             // 
             // button11
             // 
-            this.button11.Location = new System.Drawing.Point(279, 636);
+            this.button11.Location = new System.Drawing.Point(452, 649);
             this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(186, 23);
+            this.button11.Size = new System.Drawing.Size(197, 34);
             this.button11.TabIndex = 73;
             this.button11.Text = "Complete package";
             this.button11.UseVisualStyleBackColor = true;
@@ -1166,11 +1215,11 @@ namespace Project381_Service_Premier
             // label51
             // 
             this.label51.AutoSize = true;
-            this.label51.Location = new System.Drawing.Point(1186, 552);
+            this.label51.Location = new System.Drawing.Point(824, 568);
             this.label51.Name = "label51";
-            this.label51.Size = new System.Drawing.Size(31, 13);
+            this.label51.Size = new System.Drawing.Size(69, 13);
             this.label51.TabIndex = 59;
-            this.label51.Text = "Type";
+            this.label51.Text = "Service type:";
             // 
             // dataGridView5
             // 
@@ -1182,9 +1231,9 @@ namespace Project381_Service_Premier
             // 
             // button10
             // 
-            this.button10.Location = new System.Drawing.Point(279, 692);
+            this.button10.Location = new System.Drawing.Point(452, 565);
             this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(186, 23);
+            this.button10.Size = new System.Drawing.Size(197, 33);
             this.button10.TabIndex = 72;
             this.button10.Text = "Add service";
             this.button10.UseVisualStyleBackColor = true;
@@ -1192,11 +1241,11 @@ namespace Project381_Service_Premier
             // label52
             // 
             this.label52.AutoSize = true;
-            this.label52.Location = new System.Drawing.Point(1186, 609);
+            this.label52.Location = new System.Drawing.Point(824, 636);
             this.label52.Name = "label52";
-            this.label52.Size = new System.Drawing.Size(73, 13);
+            this.label52.Size = new System.Drawing.Size(113, 13);
             this.label52.TabIndex = 60;
-            this.label52.Text = "Specifications";
+            this.label52.Text = "Service specifications:";
             // 
             // dataGridView4
             // 
@@ -1208,7 +1257,7 @@ namespace Project381_Service_Premier
             // 
             // textBox42
             // 
-            this.textBox42.Location = new System.Drawing.Point(1275, 575);
+            this.textBox42.Location = new System.Drawing.Point(899, 601);
             this.textBox42.Name = "textBox42";
             this.textBox42.Size = new System.Drawing.Size(100, 20);
             this.textBox42.TabIndex = 63;
@@ -1216,11 +1265,11 @@ namespace Project381_Service_Premier
             // label54
             // 
             this.label54.AutoSize = true;
-            this.label54.Location = new System.Drawing.Point(1186, 585);
+            this.label54.Location = new System.Drawing.Point(824, 604);
             this.label54.Name = "label54";
-            this.label54.Size = new System.Drawing.Size(72, 13);
+            this.label54.Size = new System.Drawing.Size(75, 13);
             this.label54.TabIndex = 61;
-            this.label54.Text = "Service name";
+            this.label54.Text = "Service name:";
             // 
             // tabPage10
             // 
@@ -1245,55 +1294,6 @@ namespace Project381_Service_Premier
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
-            // 
-            // listBox7
-            // 
-            this.listBox7.FormattingEnabled = true;
-            this.listBox7.Location = new System.Drawing.Point(1275, 606);
-            this.listBox7.Name = "listBox7";
-            this.listBox7.Size = new System.Drawing.Size(100, 43);
-            this.listBox7.TabIndex = 76;
-            // 
-            // textBox18
-            // 
-            this.textBox18.Location = new System.Drawing.Point(157, 568);
-            this.textBox18.Name = "textBox18";
-            this.textBox18.Size = new System.Drawing.Size(100, 20);
-            this.textBox18.TabIndex = 80;
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(68, 571);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(35, 13);
-            this.label24.TabIndex = 77;
-            this.label24.Text = "Name";
-            // 
-            // textBox19
-            // 
-            this.textBox19.Location = new System.Drawing.Point(157, 594);
-            this.textBox19.Name = "textBox19";
-            this.textBox19.Size = new System.Drawing.Size(100, 20);
-            this.textBox19.TabIndex = 81;
-            // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(68, 597);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(28, 13);
-            this.label26.TabIndex = 79;
-            this.label26.Text = "Cost";
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(68, 636);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(48, 13);
-            this.label25.TabIndex = 82;
-            this.label25.Text = "Services";
             // 
             // Form1
             // 
@@ -1451,7 +1451,7 @@ namespace Project381_Service_Premier
       private System.Windows.Forms.Button button13;
       private System.Windows.Forms.Button button11;
       private System.Windows.Forms.Button button10;
-      private System.Windows.Forms.ListBox listBox6;
+      private System.Windows.Forms.ListBox serviceList;
         private System.Windows.Forms.ListBox listBox7;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.TextBox textBox18;
