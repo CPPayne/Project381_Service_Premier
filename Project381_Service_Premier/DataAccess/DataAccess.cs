@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Text;
 using System.Windows.Forms;
+using BusinessLogic;
 
 namespace ConsoleApp1
 {
@@ -43,6 +44,30 @@ namespace ConsoleApp1
                 MessageBox.Show("Details of new service not saved: " + ex.Message);
             }
             finally 
+            {
+                conn.Close();
+            }
+        }
+        public void addPackage(string name, double cost,List<Service> packageServices)
+        {
+            string query = @"INSERT INTO Students VALUES ( '" + sType + "', '" + sName + "', '" + sSpecifications + "' )";
+
+            conn = new SqlConnection(connect);
+
+            conn.Open();
+
+            command = new SqlCommand(query, conn);
+
+            try
+            {
+                command.ExecuteNonQuery();
+                MessageBox.Show("Service added!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Details of new service not saved: " + ex.Message);
+            }
+            finally
             {
                 conn.Close();
             }
