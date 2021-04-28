@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Text;
+using System.Windows.Forms;
 
 namespace ConsoleApp1
 {
@@ -10,9 +12,6 @@ namespace ConsoleApp1
       {
       }
 
-       //Constructor
-        public DataHandler()
-        { }
 
         //Set connection string
         string connect = "Data Source=.; Initial Catalog= premierServiceDB; Integrated Security= SSPI";
@@ -24,9 +23,9 @@ namespace ConsoleApp1
         Student objStudent = new Student();
 
         //Register method
-        public void Register(int sID, string sName, string sSurnane, string cID) 
+        public void addService(string sType, string sName, string sSpecifications) 
         {
-            string query = @"INSERT INTO Students VALUES ( '" + sID + "', '" + sName + "', '" + sSurnane + "', '" + cID + "' )";
+            string query = @"INSERT INTO Students VALUES ( '" + sType + "', '" + sName + "', '" + sSpecifications + "' )";
 
             conn = new SqlConnection(connect);
 
@@ -37,11 +36,11 @@ namespace ConsoleApp1
             try
             {
                 command.ExecuteNonQuery();
-                MessageBox.Show("Details of new student saved");
+                MessageBox.Show("Service added!");
             }
             catch (Exception ex) 
             {
-                MessageBox.Show("Details of new student not saved: " + ex.Message);
+                MessageBox.Show("Details of new service not saved: " + ex.Message);
             }
             finally 
             {
