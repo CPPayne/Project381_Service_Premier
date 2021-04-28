@@ -82,6 +82,8 @@ namespace Project381_Service_Premier
          this.richTextBox3 = new System.Windows.Forms.RichTextBox();
          this.tabControl2 = new System.Windows.Forms.TabControl();
          this.tabPage7 = new System.Windows.Forms.TabPage();
+         this.listBox3 = new System.Windows.Forms.ListBox();
+         this.label23 = new System.Windows.Forms.Label();
          this.listBox1 = new System.Windows.Forms.ListBox();
          this.label15 = new System.Windows.Forms.Label();
          this.textBox8 = new System.Windows.Forms.TextBox();
@@ -120,40 +122,40 @@ namespace Project381_Service_Premier
          this.button2 = new System.Windows.Forms.Button();
          this.button1 = new System.Windows.Forms.Button();
          this.tabControl1 = new System.Windows.Forms.TabControl();
+         this.tabPage10 = new System.Windows.Forms.TabPage();
+         this.button12 = new System.Windows.Forms.Button();
+         this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+         this.adress = new System.Windows.Forms.Label();
+         this.textBox17 = new System.Windows.Forms.TextBox();
+         this.dataGridView4 = new System.Windows.Forms.DataGridView();
+         this.tabControl5 = new System.Windows.Forms.TabControl();
+         this.tabPage15 = new System.Windows.Forms.TabPage();
+         this.textBox42 = new System.Windows.Forms.TextBox();
+         this.textBox41 = new System.Windows.Forms.TextBox();
+         this.label54 = new System.Windows.Forms.Label();
+         this.label53 = new System.Windows.Forms.Label();
+         this.label52 = new System.Windows.Forms.Label();
+         this.textBox40 = new System.Windows.Forms.TextBox();
+         this.label51 = new System.Windows.Forms.Label();
+         this.textBox39 = new System.Windows.Forms.TextBox();
+         this.tabPage14 = new System.Windows.Forms.TabPage();
+         this.textBox24 = new System.Windows.Forms.TextBox();
+         this.textBox23 = new System.Windows.Forms.TextBox();
+         this.label30 = new System.Windows.Forms.Label();
+         this.label29 = new System.Windows.Forms.Label();
+         this.label28 = new System.Windows.Forms.Label();
+         this.textBox22 = new System.Windows.Forms.TextBox();
+         this.label27 = new System.Windows.Forms.Label();
+         this.textBox21 = new System.Windows.Forms.TextBox();
+         this.dataGridView5 = new System.Windows.Forms.DataGridView();
+         this.label21 = new System.Windows.Forms.Label();
+         this.label22 = new System.Windows.Forms.Label();
          this.tabPage1 = new System.Windows.Forms.TabPage();
          this.button8 = new System.Windows.Forms.Button();
-         this.label22 = new System.Windows.Forms.Label();
-         this.label21 = new System.Windows.Forms.Label();
-         this.dataGridView5 = new System.Windows.Forms.DataGridView();
+         this.listBox4 = new System.Windows.Forms.ListBox();
          this.button10 = new System.Windows.Forms.Button();
          this.button11 = new System.Windows.Forms.Button();
-         this.tabControl5 = new System.Windows.Forms.TabControl();
-         this.tabPage14 = new System.Windows.Forms.TabPage();
-         this.textBox21 = new System.Windows.Forms.TextBox();
-         this.label27 = new System.Windows.Forms.Label();
-         this.textBox22 = new System.Windows.Forms.TextBox();
-         this.label28 = new System.Windows.Forms.Label();
-         this.label29 = new System.Windows.Forms.Label();
-         this.label30 = new System.Windows.Forms.Label();
-         this.textBox23 = new System.Windows.Forms.TextBox();
-         this.textBox24 = new System.Windows.Forms.TextBox();
-         this.tabPage15 = new System.Windows.Forms.TabPage();
-         this.listBox7 = new System.Windows.Forms.ListBox();
-         this.label50 = new System.Windows.Forms.Label();
-         this.textBox39 = new System.Windows.Forms.TextBox();
-         this.label51 = new System.Windows.Forms.Label();
-         this.textBox40 = new System.Windows.Forms.TextBox();
-         this.label52 = new System.Windows.Forms.Label();
-         this.label53 = new System.Windows.Forms.Label();
-         this.label54 = new System.Windows.Forms.Label();
-         this.textBox41 = new System.Windows.Forms.TextBox();
-         this.textBox42 = new System.Windows.Forms.TextBox();
-         this.dataGridView4 = new System.Windows.Forms.DataGridView();
-         this.tabPage10 = new System.Windows.Forms.TabPage();
-         this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-         this.button12 = new System.Windows.Forms.Button();
-         this.listBox3 = new System.Windows.Forms.ListBox();
-         this.label23 = new System.Windows.Forms.Label();
+         this.button13 = new System.Windows.Forms.Button();
          this.tabPage6.SuspendLayout();
          this.tabPage5.SuspendLayout();
          this.tabControl4.SuspendLayout();
@@ -171,14 +173,13 @@ namespace Project381_Service_Premier
          this.tabPage8.SuspendLayout();
          this.CallCentre.SuspendLayout();
          this.tabControl1.SuspendLayout();
-         this.tabPage1.SuspendLayout();
-         ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).BeginInit();
-         this.tabControl5.SuspendLayout();
-         this.tabPage14.SuspendLayout();
-         this.tabPage15.SuspendLayout();
-         ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
          this.tabPage10.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
+         this.tabControl5.SuspendLayout();
+         this.tabPage14.SuspendLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).BeginInit();
+         this.tabPage1.SuspendLayout();
          this.SuspendLayout();
          // 
          // tabPage6
@@ -652,7 +653,7 @@ namespace Project381_Service_Premier
          // 
          // richTextBox3
          // 
-         this.richTextBox3.Location = new System.Drawing.Point(343, 71);
+         this.richTextBox3.Location = new System.Drawing.Point(894, 195);
          this.richTextBox3.Name = "richTextBox3";
          this.richTextBox3.Size = new System.Drawing.Size(460, 349);
          this.richTextBox3.TabIndex = 28;
@@ -670,6 +671,8 @@ namespace Project381_Service_Premier
          // 
          // tabPage7
          // 
+         this.tabPage7.Controls.Add(this.adress);
+         this.tabPage7.Controls.Add(this.textBox17);
          this.tabPage7.Controls.Add(this.listBox3);
          this.tabPage7.Controls.Add(this.label23);
          this.tabPage7.Controls.Add(this.listBox1);
@@ -690,10 +693,31 @@ namespace Project381_Service_Premier
          this.tabPage7.Text = "Individual";
          this.tabPage7.UseVisualStyleBackColor = true;
          // 
+         // listBox3
+         // 
+         this.listBox3.FormattingEnabled = true;
+         this.listBox3.Items.AddRange(new object[] {
+            "sdfsadf",
+            "asdf",
+            "asdf"});
+         this.listBox3.Location = new System.Drawing.Point(141, 173);
+         this.listBox3.Name = "listBox3";
+         this.listBox3.Size = new System.Drawing.Size(100, 17);
+         this.listBox3.TabIndex = 29;
+         // 
+         // label23
+         // 
+         this.label23.AutoSize = true;
+         this.label23.Location = new System.Drawing.Point(52, 173);
+         this.label23.Name = "label23";
+         this.label23.Size = new System.Drawing.Size(63, 13);
+         this.label23.TabIndex = 28;
+         this.label23.Text = "Priority level";
+         // 
          // listBox1
          // 
          this.listBox1.FormattingEnabled = true;
-         this.listBox1.Location = new System.Drawing.Point(141, 125);
+         this.listBox1.Location = new System.Drawing.Point(141, 150);
          this.listBox1.Name = "listBox1";
          this.listBox1.Size = new System.Drawing.Size(100, 17);
          this.listBox1.TabIndex = 27;
@@ -701,7 +725,7 @@ namespace Project381_Service_Premier
          // label15
          // 
          this.label15.AutoSize = true;
-         this.label15.Location = new System.Drawing.Point(52, 125);
+         this.label15.Location = new System.Drawing.Point(52, 150);
          this.label15.Name = "label15";
          this.label15.Size = new System.Drawing.Size(50, 13);
          this.label15.TabIndex = 26;
@@ -725,7 +749,7 @@ namespace Project381_Service_Premier
          // 
          // textBox5
          // 
-         this.textBox5.Location = new System.Drawing.Point(141, 96);
+         this.textBox5.Location = new System.Drawing.Point(141, 121);
          this.textBox5.Name = "textBox5";
          this.textBox5.Size = new System.Drawing.Size(100, 20);
          this.textBox5.TabIndex = 25;
@@ -742,7 +766,7 @@ namespace Project381_Service_Premier
          // label7
          // 
          this.label7.AutoSize = true;
-         this.label7.Location = new System.Drawing.Point(52, 99);
+         this.label7.Location = new System.Drawing.Point(52, 124);
          this.label7.Name = "label7";
          this.label7.Size = new System.Drawing.Size(58, 13);
          this.label7.TabIndex = 24;
@@ -751,7 +775,7 @@ namespace Project381_Service_Premier
          // label8
          // 
          this.label8.AutoSize = true;
-         this.label8.Location = new System.Drawing.Point(52, 73);
+         this.label8.Location = new System.Drawing.Point(52, 98);
          this.label8.Name = "label8";
          this.label8.Size = new System.Drawing.Size(24, 13);
          this.label8.TabIndex = 20;
@@ -759,7 +783,7 @@ namespace Project381_Service_Premier
          // 
          // textBox6
          // 
-         this.textBox6.Location = new System.Drawing.Point(141, 70);
+         this.textBox6.Location = new System.Drawing.Point(141, 95);
          this.textBox6.Name = "textBox6";
          this.textBox6.Size = new System.Drawing.Size(100, 20);
          this.textBox6.TabIndex = 23;
@@ -939,9 +963,9 @@ namespace Project381_Service_Premier
          // 
          // richTextBox1
          // 
-         this.richTextBox1.Location = new System.Drawing.Point(23, 57);
+         this.richTextBox1.Location = new System.Drawing.Point(23, 51);
          this.richTextBox1.Name = "richTextBox1";
-         this.richTextBox1.Size = new System.Drawing.Size(450, 316);
+         this.richTextBox1.Size = new System.Drawing.Size(479, 383);
          this.richTextBox1.TabIndex = 2;
          this.richTextBox1.Text = "";
          // 
@@ -957,7 +981,7 @@ namespace Project381_Service_Premier
          // 
          // button3
          // 
-         this.button3.Location = new System.Drawing.Point(104, 28);
+         this.button3.Location = new System.Drawing.Point(104, 22);
          this.button3.Name = "button3";
          this.button3.Size = new System.Drawing.Size(75, 23);
          this.button3.TabIndex = 15;
@@ -1011,7 +1035,7 @@ namespace Project381_Service_Premier
          // 
          // button2
          // 
-         this.button2.Location = new System.Drawing.Point(23, 431);
+         this.button2.Location = new System.Drawing.Point(23, 622);
          this.button2.Name = "button2";
          this.button2.Size = new System.Drawing.Size(210, 23);
          this.button2.TabIndex = 3;
@@ -1020,7 +1044,7 @@ namespace Project381_Service_Premier
          // 
          // button1
          // 
-         this.button1.Location = new System.Drawing.Point(23, 28);
+         this.button1.Location = new System.Drawing.Point(23, 22);
          this.button1.Name = "button1";
          this.button1.Size = new System.Drawing.Size(75, 23);
          this.button1.TabIndex = 1;
@@ -1043,77 +1067,53 @@ namespace Project381_Service_Premier
          this.tabControl1.Size = new System.Drawing.Size(1427, 755);
          this.tabControl1.TabIndex = 0;
          // 
-         // tabPage1
+         // tabPage10
          // 
-         this.tabPage1.Controls.Add(this.button8);
-         this.tabPage1.Controls.Add(this.label22);
-         this.tabPage1.Controls.Add(this.label21);
-         this.tabPage1.Controls.Add(this.dataGridView5);
-         this.tabPage1.Controls.Add(this.button10);
-         this.tabPage1.Controls.Add(this.button11);
-         this.tabPage1.Controls.Add(this.tabControl5);
-         this.tabPage1.Controls.Add(this.dataGridView4);
-         this.tabPage1.Location = new System.Drawing.Point(4, 22);
-         this.tabPage1.Name = "tabPage1";
-         this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-         this.tabPage1.Size = new System.Drawing.Size(1419, 729);
-         this.tabPage1.TabIndex = 5;
-         this.tabPage1.Text = "Contract maintenance";
-         this.tabPage1.UseVisualStyleBackColor = true;
+         this.tabPage10.Controls.Add(this.button12);
+         this.tabPage10.Location = new System.Drawing.Point(4, 22);
+         this.tabPage10.Name = "tabPage10";
+         this.tabPage10.Padding = new System.Windows.Forms.Padding(3);
+         this.tabPage10.Size = new System.Drawing.Size(1419, 729);
+         this.tabPage10.TabIndex = 7;
+         this.tabPage10.Text = "Login";
+         this.tabPage10.UseVisualStyleBackColor = true;
          // 
-         // button8
+         // button12
          // 
-         this.button8.Location = new System.Drawing.Point(325, 550);
-         this.button8.Name = "button8";
-         this.button8.Size = new System.Drawing.Size(123, 152);
-         this.button8.TabIndex = 71;
-         this.button8.Text = "Add package";
-         this.button8.UseVisualStyleBackColor = true;
+         this.button12.Location = new System.Drawing.Point(16, 30);
+         this.button12.Name = "button12";
+         this.button12.Size = new System.Drawing.Size(142, 28);
+         this.button12.TabIndex = 5;
+         this.button12.Text = "button12";
+         this.button12.UseVisualStyleBackColor = true;
          // 
-         // label22
+         // errorProvider1
          // 
-         this.label22.AutoSize = true;
-         this.label22.Location = new System.Drawing.Point(701, 19);
-         this.label22.Name = "label22";
-         this.label22.Size = new System.Drawing.Size(48, 13);
-         this.label22.TabIndex = 70;
-         this.label22.Text = "Services";
+         this.errorProvider1.ContainerControl = this;
          // 
-         // label21
+         // adress
          // 
-         this.label21.AutoSize = true;
-         this.label21.Location = new System.Drawing.Point(12, 19);
-         this.label21.Name = "label21";
-         this.label21.Size = new System.Drawing.Size(55, 13);
-         this.label21.TabIndex = 69;
-         this.label21.Text = "Packages";
+         this.adress.AutoSize = true;
+         this.adress.Location = new System.Drawing.Point(52, 72);
+         this.adress.Name = "adress";
+         this.adress.Size = new System.Drawing.Size(49, 13);
+         this.adress.TabIndex = 30;
+         this.adress.Text = "Surname";
          // 
-         // dataGridView5
+         // textBox17
          // 
-         this.dataGridView5.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-         this.dataGridView5.Location = new System.Drawing.Point(15, 35);
-         this.dataGridView5.Name = "dataGridView5";
-         this.dataGridView5.Size = new System.Drawing.Size(683, 486);
-         this.dataGridView5.TabIndex = 68;
+         this.textBox17.Location = new System.Drawing.Point(141, 69);
+         this.textBox17.Name = "textBox17";
+         this.textBox17.Size = new System.Drawing.Size(100, 20);
+         this.textBox17.TabIndex = 31;
          // 
-         // button10
+         // dataGridView4
          // 
-         this.button10.Location = new System.Drawing.Point(704, 550);
-         this.button10.Name = "button10";
-         this.button10.Size = new System.Drawing.Size(701, 149);
-         this.button10.TabIndex = 66;
-         this.button10.Text = "Discontinue package";
-         this.button10.UseVisualStyleBackColor = true;
-         this.button10.Click += new System.EventHandler(this.button10_Click);
-         // 
-         // button11
-         // 
-         this.button11.Location = new System.Drawing.Point(454, 550);
-         this.button11.Name = "button11";
-         this.button11.Size = new System.Drawing.Size(244, 152);
-         this.button11.TabIndex = 67;
-         this.button11.Text = "Add package";
-         this.button11.UseVisualStyleBackColor = true;
+         this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+         this.dataGridView4.Location = new System.Drawing.Point(704, 35);
+         this.dataGridView4.Name = "dataGridView4";
+         this.dataGridView4.Size = new System.Drawing.Size(701, 486);
+         this.dataGridView4.TabIndex = 50;
          // 
          // tabControl5
          // 
@@ -1125,8 +1125,83 @@ namespace Project381_Service_Premier
          this.tabControl5.Size = new System.Drawing.Size(313, 192);
          this.tabControl5.TabIndex = 62;
          // 
+         // tabPage15
+         // 
+         this.tabPage15.Location = new System.Drawing.Point(4, 22);
+         this.tabPage15.Name = "tabPage15";
+         this.tabPage15.Padding = new System.Windows.Forms.Padding(3);
+         this.tabPage15.Size = new System.Drawing.Size(305, 166);
+         this.tabPage15.TabIndex = 2;
+         this.tabPage15.Text = "Services";
+         this.tabPage15.UseVisualStyleBackColor = true;
+         // 
+         // textBox42
+         // 
+         this.textBox42.Location = new System.Drawing.Point(1275, 575);
+         this.textBox42.Name = "textBox42";
+         this.textBox42.Size = new System.Drawing.Size(100, 20);
+         this.textBox42.TabIndex = 63;
+         // 
+         // textBox41
+         // 
+         this.textBox41.Location = new System.Drawing.Point(1275, 602);
+         this.textBox41.Name = "textBox41";
+         this.textBox41.Size = new System.Drawing.Size(100, 20);
+         this.textBox41.TabIndex = 64;
+         // 
+         // label54
+         // 
+         this.label54.AutoSize = true;
+         this.label54.Location = new System.Drawing.Point(1186, 605);
+         this.label54.Name = "label54";
+         this.label54.Size = new System.Drawing.Size(72, 13);
+         this.label54.TabIndex = 61;
+         this.label54.Text = "Service name";
+         // 
+         // label53
+         // 
+         this.label53.AutoSize = true;
+         this.label53.Location = new System.Drawing.Point(1186, 631);
+         this.label53.Name = "label53";
+         this.label53.Size = new System.Drawing.Size(58, 13);
+         this.label53.TabIndex = 65;
+         this.label53.Text = "ID Number";
+         // 
+         // label52
+         // 
+         this.label52.AutoSize = true;
+         this.label52.Location = new System.Drawing.Point(1186, 578);
+         this.label52.Name = "label52";
+         this.label52.Size = new System.Drawing.Size(37, 13);
+         this.label52.TabIndex = 60;
+         this.label52.Text = "Specs";
+         // 
+         // textBox40
+         // 
+         this.textBox40.Location = new System.Drawing.Point(1275, 628);
+         this.textBox40.Name = "textBox40";
+         this.textBox40.Size = new System.Drawing.Size(100, 20);
+         this.textBox40.TabIndex = 66;
+         // 
+         // label51
+         // 
+         this.label51.AutoSize = true;
+         this.label51.Location = new System.Drawing.Point(1186, 552);
+         this.label51.Name = "label51";
+         this.label51.Size = new System.Drawing.Size(31, 13);
+         this.label51.TabIndex = 59;
+         this.label51.Text = "Type";
+         // 
+         // textBox39
+         // 
+         this.textBox39.Location = new System.Drawing.Point(1275, 549);
+         this.textBox39.Name = "textBox39";
+         this.textBox39.Size = new System.Drawing.Size(100, 20);
+         this.textBox39.TabIndex = 62;
+         // 
          // tabPage14
          // 
+         this.tabPage14.Controls.Add(this.listBox4);
          this.tabPage14.Controls.Add(this.textBox21);
          this.tabPage14.Controls.Add(this.label27);
          this.tabPage14.Controls.Add(this.textBox22);
@@ -1143,46 +1218,19 @@ namespace Project381_Service_Premier
          this.tabPage14.Text = "Packages";
          this.tabPage14.UseVisualStyleBackColor = true;
          // 
-         // textBox21
+         // textBox24
          // 
-         this.textBox21.Location = new System.Drawing.Point(91, 21);
-         this.textBox21.Name = "textBox21";
-         this.textBox21.Size = new System.Drawing.Size(100, 20);
-         this.textBox21.TabIndex = 52;
+         this.textBox24.Location = new System.Drawing.Point(91, 47);
+         this.textBox24.Name = "textBox24";
+         this.textBox24.Size = new System.Drawing.Size(100, 20);
+         this.textBox24.TabIndex = 53;
          // 
-         // label27
+         // textBox23
          // 
-         this.label27.AutoSize = true;
-         this.label27.Location = new System.Drawing.Point(2, 24);
-         this.label27.Name = "label27";
-         this.label27.Size = new System.Drawing.Size(35, 13);
-         this.label27.TabIndex = 49;
-         this.label27.Text = "Name";
-         // 
-         // textBox22
-         // 
-         this.textBox22.Location = new System.Drawing.Point(91, 100);
-         this.textBox22.Name = "textBox22";
-         this.textBox22.Size = new System.Drawing.Size(100, 20);
-         this.textBox22.TabIndex = 56;
-         // 
-         // label28
-         // 
-         this.label28.AutoSize = true;
-         this.label28.Location = new System.Drawing.Point(2, 50);
-         this.label28.Name = "label28";
-         this.label28.Size = new System.Drawing.Size(49, 13);
-         this.label28.TabIndex = 50;
-         this.label28.Text = "Surname";
-         // 
-         // label29
-         // 
-         this.label29.AutoSize = true;
-         this.label29.Location = new System.Drawing.Point(2, 103);
-         this.label29.Name = "label29";
-         this.label29.Size = new System.Drawing.Size(58, 13);
-         this.label29.TabIndex = 55;
-         this.label29.Text = "ID Number";
+         this.textBox23.Location = new System.Drawing.Point(91, 74);
+         this.textBox23.Name = "textBox23";
+         this.textBox23.Size = new System.Drawing.Size(100, 20);
+         this.textBox23.TabIndex = 54;
          // 
          // label30
          // 
@@ -1193,173 +1241,146 @@ namespace Project381_Service_Premier
          this.label30.TabIndex = 51;
          this.label30.Text = "Cell";
          // 
-         // textBox23
+         // label29
          // 
-         this.textBox23.Location = new System.Drawing.Point(91, 74);
-         this.textBox23.Name = "textBox23";
-         this.textBox23.Size = new System.Drawing.Size(100, 20);
-         this.textBox23.TabIndex = 54;
+         this.label29.AutoSize = true;
+         this.label29.Location = new System.Drawing.Point(2, 103);
+         this.label29.Name = "label29";
+         this.label29.Size = new System.Drawing.Size(58, 13);
+         this.label29.TabIndex = 55;
+         this.label29.Text = "ID Number";
          // 
-         // textBox24
+         // label28
          // 
-         this.textBox24.Location = new System.Drawing.Point(91, 47);
-         this.textBox24.Name = "textBox24";
-         this.textBox24.Size = new System.Drawing.Size(100, 20);
-         this.textBox24.TabIndex = 53;
+         this.label28.AutoSize = true;
+         this.label28.Location = new System.Drawing.Point(2, 50);
+         this.label28.Name = "label28";
+         this.label28.Size = new System.Drawing.Size(49, 13);
+         this.label28.TabIndex = 50;
+         this.label28.Text = "Surname";
          // 
-         // tabPage15
+         // textBox22
          // 
-         this.tabPage15.Controls.Add(this.listBox7);
-         this.tabPage15.Controls.Add(this.label50);
-         this.tabPage15.Controls.Add(this.textBox39);
-         this.tabPage15.Controls.Add(this.label51);
-         this.tabPage15.Controls.Add(this.textBox40);
-         this.tabPage15.Controls.Add(this.label52);
-         this.tabPage15.Controls.Add(this.label53);
-         this.tabPage15.Controls.Add(this.label54);
-         this.tabPage15.Controls.Add(this.textBox41);
-         this.tabPage15.Controls.Add(this.textBox42);
-         this.tabPage15.Location = new System.Drawing.Point(4, 22);
-         this.tabPage15.Name = "tabPage15";
-         this.tabPage15.Padding = new System.Windows.Forms.Padding(3);
-         this.tabPage15.Size = new System.Drawing.Size(305, 166);
-         this.tabPage15.TabIndex = 2;
-         this.tabPage15.Text = "Services";
-         this.tabPage15.UseVisualStyleBackColor = true;
+         this.textBox22.Location = new System.Drawing.Point(91, 100);
+         this.textBox22.Name = "textBox22";
+         this.textBox22.Size = new System.Drawing.Size(100, 20);
+         this.textBox22.TabIndex = 56;
          // 
-         // listBox7
+         // label27
          // 
-         this.listBox7.FormattingEnabled = true;
-         this.listBox7.Location = new System.Drawing.Point(91, 129);
-         this.listBox7.Name = "listBox7";
-         this.listBox7.Size = new System.Drawing.Size(100, 17);
-         this.listBox7.TabIndex = 68;
+         this.label27.AutoSize = true;
+         this.label27.Location = new System.Drawing.Point(2, 24);
+         this.label27.Name = "label27";
+         this.label27.Size = new System.Drawing.Size(35, 13);
+         this.label27.TabIndex = 49;
+         this.label27.Text = "Name";
          // 
-         // label50
+         // textBox21
          // 
-         this.label50.AutoSize = true;
-         this.label50.Location = new System.Drawing.Point(2, 129);
-         this.label50.Name = "label50";
-         this.label50.Size = new System.Drawing.Size(50, 13);
-         this.label50.TabIndex = 67;
-         this.label50.Text = "Package";
+         this.textBox21.Location = new System.Drawing.Point(91, 21);
+         this.textBox21.Name = "textBox21";
+         this.textBox21.Size = new System.Drawing.Size(100, 20);
+         this.textBox21.TabIndex = 52;
          // 
-         // textBox39
+         // dataGridView5
          // 
-         this.textBox39.Location = new System.Drawing.Point(91, 21);
-         this.textBox39.Name = "textBox39";
-         this.textBox39.Size = new System.Drawing.Size(100, 20);
-         this.textBox39.TabIndex = 62;
+         this.dataGridView5.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+         this.dataGridView5.Location = new System.Drawing.Point(15, 35);
+         this.dataGridView5.Name = "dataGridView5";
+         this.dataGridView5.Size = new System.Drawing.Size(683, 486);
+         this.dataGridView5.TabIndex = 68;
          // 
-         // label51
+         // label21
          // 
-         this.label51.AutoSize = true;
-         this.label51.Location = new System.Drawing.Point(2, 24);
-         this.label51.Name = "label51";
-         this.label51.Size = new System.Drawing.Size(35, 13);
-         this.label51.TabIndex = 59;
-         this.label51.Text = "Name";
+         this.label21.AutoSize = true;
+         this.label21.Location = new System.Drawing.Point(12, 19);
+         this.label21.Name = "label21";
+         this.label21.Size = new System.Drawing.Size(55, 13);
+         this.label21.TabIndex = 69;
+         this.label21.Text = "Packages";
          // 
-         // textBox40
+         // label22
          // 
-         this.textBox40.Location = new System.Drawing.Point(91, 100);
-         this.textBox40.Name = "textBox40";
-         this.textBox40.Size = new System.Drawing.Size(100, 20);
-         this.textBox40.TabIndex = 66;
+         this.label22.AutoSize = true;
+         this.label22.Location = new System.Drawing.Point(701, 19);
+         this.label22.Name = "label22";
+         this.label22.Size = new System.Drawing.Size(48, 13);
+         this.label22.TabIndex = 70;
+         this.label22.Text = "Services";
          // 
-         // label52
+         // tabPage1
          // 
-         this.label52.AutoSize = true;
-         this.label52.Location = new System.Drawing.Point(2, 50);
-         this.label52.Name = "label52";
-         this.label52.Size = new System.Drawing.Size(49, 13);
-         this.label52.TabIndex = 60;
-         this.label52.Text = "Surname";
+         this.tabPage1.Controls.Add(this.button8);
+         this.tabPage1.Controls.Add(this.label22);
+         this.tabPage1.Controls.Add(this.button13);
+         this.tabPage1.Controls.Add(this.label21);
+         this.tabPage1.Controls.Add(this.textBox39);
+         this.tabPage1.Controls.Add(this.button11);
+         this.tabPage1.Controls.Add(this.label51);
+         this.tabPage1.Controls.Add(this.dataGridView5);
+         this.tabPage1.Controls.Add(this.button10);
+         this.tabPage1.Controls.Add(this.textBox40);
+         this.tabPage1.Controls.Add(this.tabControl5);
+         this.tabPage1.Controls.Add(this.label52);
+         this.tabPage1.Controls.Add(this.dataGridView4);
+         this.tabPage1.Controls.Add(this.label53);
+         this.tabPage1.Controls.Add(this.textBox42);
+         this.tabPage1.Controls.Add(this.label54);
+         this.tabPage1.Controls.Add(this.textBox41);
+         this.tabPage1.Location = new System.Drawing.Point(4, 22);
+         this.tabPage1.Name = "tabPage1";
+         this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+         this.tabPage1.Size = new System.Drawing.Size(1419, 729);
+         this.tabPage1.TabIndex = 5;
+         this.tabPage1.Text = "Contract maintenance";
+         this.tabPage1.UseVisualStyleBackColor = true;
          // 
-         // label53
+         // button8
          // 
-         this.label53.AutoSize = true;
-         this.label53.Location = new System.Drawing.Point(2, 103);
-         this.label53.Name = "label53";
-         this.label53.Size = new System.Drawing.Size(58, 13);
-         this.label53.TabIndex = 65;
-         this.label53.Text = "ID Number";
+         this.button8.Location = new System.Drawing.Point(1189, 662);
+         this.button8.Name = "button8";
+         this.button8.Size = new System.Drawing.Size(186, 23);
+         this.button8.TabIndex = 71;
+         this.button8.Text = "button8";
+         this.button8.UseVisualStyleBackColor = true;
          // 
-         // label54
+         // listBox4
          // 
-         this.label54.AutoSize = true;
-         this.label54.Location = new System.Drawing.Point(2, 77);
-         this.label54.Name = "label54";
-         this.label54.Size = new System.Drawing.Size(24, 13);
-         this.label54.TabIndex = 61;
-         this.label54.Text = "Cell";
+         this.listBox4.FormattingEnabled = true;
+         this.listBox4.Items.AddRange(new object[] {
+            "Ek hou van appels",
+            "\t\t"});
+         this.listBox4.Location = new System.Drawing.Point(389, 36);
+         this.listBox4.Name = "listBox4";
+         this.listBox4.Size = new System.Drawing.Size(170, 95);
+         this.listBox4.TabIndex = 57;
          // 
-         // textBox41
+         // button10
          // 
-         this.textBox41.Location = new System.Drawing.Point(91, 74);
-         this.textBox41.Name = "textBox41";
-         this.textBox41.Size = new System.Drawing.Size(100, 20);
-         this.textBox41.TabIndex = 64;
+         this.button10.Location = new System.Drawing.Point(321, 547);
+         this.button10.Name = "button10";
+         this.button10.Size = new System.Drawing.Size(186, 23);
+         this.button10.TabIndex = 72;
+         this.button10.Text = "Add service";
+         this.button10.UseVisualStyleBackColor = true;
          // 
-         // textBox42
+         // button11
          // 
-         this.textBox42.Location = new System.Drawing.Point(91, 47);
-         this.textBox42.Name = "textBox42";
-         this.textBox42.Size = new System.Drawing.Size(100, 20);
-         this.textBox42.TabIndex = 63;
+         this.button11.Location = new System.Drawing.Point(321, 606);
+         this.button11.Name = "button11";
+         this.button11.Size = new System.Drawing.Size(186, 23);
+         this.button11.TabIndex = 73;
+         this.button11.Text = "Complete package";
+         this.button11.UseVisualStyleBackColor = true;
          // 
-         // dataGridView4
+         // button13
          // 
-         this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-         this.dataGridView4.Location = new System.Drawing.Point(704, 35);
-         this.dataGridView4.Name = "dataGridView4";
-         this.dataGridView4.Size = new System.Drawing.Size(701, 486);
-         this.dataGridView4.TabIndex = 50;
-         // 
-         // tabPage10
-         // 
-         this.tabPage10.Controls.Add(this.button12);
-         this.tabPage10.Location = new System.Drawing.Point(4, 22);
-         this.tabPage10.Name = "tabPage10";
-         this.tabPage10.Padding = new System.Windows.Forms.Padding(3);
-         this.tabPage10.Size = new System.Drawing.Size(1419, 729);
-         this.tabPage10.TabIndex = 7;
-         this.tabPage10.Text = "Login";
-         this.tabPage10.UseVisualStyleBackColor = true;
-         // 
-         // errorProvider1
-         // 
-         this.errorProvider1.ContainerControl = this;
-         // 
-         // button12
-         // 
-         this.button12.Location = new System.Drawing.Point(16, 30);
-         this.button12.Name = "button12";
-         this.button12.Size = new System.Drawing.Size(142, 28);
-         this.button12.TabIndex = 5;
-         this.button12.Text = "button12";
-         this.button12.UseVisualStyleBackColor = true;
-         // 
-         // listBox3
-         // 
-         this.listBox3.FormattingEnabled = true;
-         this.listBox3.Items.AddRange(new object[] {
-            "sdfsadf",
-            "asdf",
-            "asdf"});
-         this.listBox3.Location = new System.Drawing.Point(141, 148);
-         this.listBox3.Name = "listBox3";
-         this.listBox3.Size = new System.Drawing.Size(100, 17);
-         this.listBox3.TabIndex = 29;
-         // 
-         // label23
-         // 
-         this.label23.AutoSize = true;
-         this.label23.Location = new System.Drawing.Point(52, 148);
-         this.label23.Name = "label23";
-         this.label23.Size = new System.Drawing.Size(63, 13);
-         this.label23.TabIndex = 28;
-         this.label23.Text = "Priority level";
+         this.button13.Location = new System.Drawing.Point(321, 577);
+         this.button13.Name = "button13";
+         this.button13.Size = new System.Drawing.Size(186, 23);
+         this.button13.TabIndex = 74;
+         this.button13.Text = "Remove service from selection";
+         this.button13.UseVisualStyleBackColor = true;
          // 
          // Form1
          // 
@@ -1394,17 +1415,15 @@ namespace Project381_Service_Premier
          this.CallCentre.ResumeLayout(false);
          this.CallCentre.PerformLayout();
          this.tabControl1.ResumeLayout(false);
-         this.tabPage1.ResumeLayout(false);
-         this.tabPage1.PerformLayout();
-         ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).EndInit();
+         this.tabPage10.ResumeLayout(false);
+         ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
          this.tabControl5.ResumeLayout(false);
          this.tabPage14.ResumeLayout(false);
          this.tabPage14.PerformLayout();
-         this.tabPage15.ResumeLayout(false);
-         this.tabPage15.PerformLayout();
-         ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
-         this.tabPage10.ResumeLayout(false);
-         ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).EndInit();
+         this.tabPage1.ResumeLayout(false);
+         this.tabPage1.PerformLayout();
          this.ResumeLayout(false);
 
         }
@@ -1503,13 +1522,19 @@ namespace Project381_Service_Premier
       private System.Windows.Forms.Label label42;
       private System.Windows.Forms.Label label43;
       private System.Windows.Forms.Label label44;
+      private System.Windows.Forms.ListBox listBox3;
+      private System.Windows.Forms.Label label23;
+      private System.Windows.Forms.Button button12;
+      private System.Windows.Forms.Label adress;
+      private System.Windows.Forms.TextBox textBox17;
       private System.Windows.Forms.TabPage tabPage1;
       private System.Windows.Forms.Button button8;
       private System.Windows.Forms.Label label22;
       private System.Windows.Forms.Label label21;
+      private System.Windows.Forms.TextBox textBox39;
+      private System.Windows.Forms.Label label51;
       private System.Windows.Forms.DataGridView dataGridView5;
-      private System.Windows.Forms.Button button10;
-      private System.Windows.Forms.Button button11;
+      private System.Windows.Forms.TextBox textBox40;
       private System.Windows.Forms.TabControl tabControl5;
       private System.Windows.Forms.TabPage tabPage14;
       private System.Windows.Forms.TextBox textBox21;
@@ -1521,20 +1546,16 @@ namespace Project381_Service_Premier
       private System.Windows.Forms.TextBox textBox23;
       private System.Windows.Forms.TextBox textBox24;
       private System.Windows.Forms.TabPage tabPage15;
-      private System.Windows.Forms.ListBox listBox7;
-      private System.Windows.Forms.Label label50;
-      private System.Windows.Forms.TextBox textBox39;
-      private System.Windows.Forms.Label label51;
-      private System.Windows.Forms.TextBox textBox40;
       private System.Windows.Forms.Label label52;
+      private System.Windows.Forms.DataGridView dataGridView4;
       private System.Windows.Forms.Label label53;
+      private System.Windows.Forms.TextBox textBox42;
       private System.Windows.Forms.Label label54;
       private System.Windows.Forms.TextBox textBox41;
-      private System.Windows.Forms.TextBox textBox42;
-      private System.Windows.Forms.DataGridView dataGridView4;
-      private System.Windows.Forms.ListBox listBox3;
-      private System.Windows.Forms.Label label23;
-      private System.Windows.Forms.Button button12;
+      private System.Windows.Forms.Button button13;
+      private System.Windows.Forms.Button button11;
+      private System.Windows.Forms.Button button10;
+      private System.Windows.Forms.ListBox listBox4;
    }
 }
 
