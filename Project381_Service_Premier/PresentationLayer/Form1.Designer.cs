@@ -151,10 +151,10 @@ namespace Project381_Service_Premier
             this.dataGridView4 = new System.Windows.Forms.DataGridView();
             this.textBox42 = new System.Windows.Forms.TextBox();
             this.label54 = new System.Windows.Forms.Label();
-            this.textBox41 = new System.Windows.Forms.TextBox();
             this.tabPage10 = new System.Windows.Forms.TabPage();
             this.button12 = new System.Windows.Forms.Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.listBox7 = new System.Windows.Forms.ListBox();
             this.tabPage6.SuspendLayout();
             this.tabPage5.SuspendLayout();
             this.tabControl4.SuspendLayout();
@@ -1084,6 +1084,7 @@ namespace Project381_Service_Premier
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.listBox7);
             this.tabPage1.Controls.Add(this.listBox6);
             this.tabPage1.Controls.Add(this.button8);
             this.tabPage1.Controls.Add(this.label22);
@@ -1099,7 +1100,6 @@ namespace Project381_Service_Premier
             this.tabPage1.Controls.Add(this.dataGridView4);
             this.tabPage1.Controls.Add(this.textBox42);
             this.tabPage1.Controls.Add(this.label54);
-            this.tabPage1.Controls.Add(this.textBox41);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -1311,11 +1311,11 @@ namespace Project381_Service_Premier
             // label52
             // 
             this.label52.AutoSize = true;
-            this.label52.Location = new System.Drawing.Point(1186, 578);
+            this.label52.Location = new System.Drawing.Point(1186, 609);
             this.label52.Name = "label52";
-            this.label52.Size = new System.Drawing.Size(37, 13);
+            this.label52.Size = new System.Drawing.Size(73, 13);
             this.label52.TabIndex = 60;
-            this.label52.Text = "Specs";
+            this.label52.Text = "Specifications";
             // 
             // dataGridView4
             // 
@@ -1335,18 +1335,11 @@ namespace Project381_Service_Premier
             // label54
             // 
             this.label54.AutoSize = true;
-            this.label54.Location = new System.Drawing.Point(1186, 605);
+            this.label54.Location = new System.Drawing.Point(1186, 585);
             this.label54.Name = "label54";
             this.label54.Size = new System.Drawing.Size(72, 13);
             this.label54.TabIndex = 61;
             this.label54.Text = "Service name";
-            // 
-            // textBox41
-            // 
-            this.textBox41.Location = new System.Drawing.Point(1275, 602);
-            this.textBox41.Name = "textBox41";
-            this.textBox41.Size = new System.Drawing.Size(100, 20);
-            this.textBox41.TabIndex = 64;
             // 
             // tabPage10
             // 
@@ -1371,6 +1364,14 @@ namespace Project381_Service_Premier
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
+            // 
+            // listBox7
+            // 
+            this.listBox7.FormattingEnabled = true;
+            this.listBox7.Location = new System.Drawing.Point(1275, 606);
+            this.listBox7.Name = "listBox7";
+            this.listBox7.Size = new System.Drawing.Size(100, 43);
+            this.listBox7.TabIndex = 76;
             // 
             // Form1
             // 
@@ -1539,12 +1540,12 @@ namespace Project381_Service_Premier
       private System.Windows.Forms.DataGridView dataGridView4;
       private System.Windows.Forms.TextBox textBox42;
       private System.Windows.Forms.Label label54;
-      private System.Windows.Forms.TextBox textBox41;
       private System.Windows.Forms.Button button13;
       private System.Windows.Forms.Button button11;
       private System.Windows.Forms.Button button10;
       private System.Windows.Forms.ListBox listBox4;
       private System.Windows.Forms.ListBox listBox6;
-   }
+        private System.Windows.Forms.ListBox listBox7;
+    }
 }
 
