@@ -156,6 +156,7 @@ namespace Project381_Service_Premier
          this.button10 = new System.Windows.Forms.Button();
          this.button11 = new System.Windows.Forms.Button();
          this.button13 = new System.Windows.Forms.Button();
+         this.listBox6 = new System.Windows.Forms.ListBox();
          this.tabPage6.SuspendLayout();
          this.tabPage5.SuspendLayout();
          this.tabControl4.SuspendLayout();
@@ -1310,6 +1311,7 @@ namespace Project381_Service_Premier
          // 
          // tabPage1
          // 
+         this.tabPage1.Controls.Add(this.listBox6);
          this.tabPage1.Controls.Add(this.button8);
          this.tabPage1.Controls.Add(this.label22);
          this.tabPage1.Controls.Add(this.button13);
@@ -1381,6 +1383,14 @@ namespace Project381_Service_Premier
          this.button13.TabIndex = 74;
          this.button13.Text = "Remove service from selection";
          this.button13.UseVisualStyleBackColor = true;
+         // 
+         // listBox6
+         // 
+         this.listBox6.FormattingEnabled = true;
+         this.listBox6.Location = new System.Drawing.Point(527, 549);
+         this.listBox6.Name = "listBox6";
+         this.listBox6.Size = new System.Drawing.Size(99, 95);
+         this.listBox6.TabIndex = 75;
          // 
          // Form1
          // 
@@ -1556,6 +1566,7 @@ namespace Project381_Service_Premier
       private System.Windows.Forms.Button button11;
       private System.Windows.Forms.Button button10;
       private System.Windows.Forms.ListBox listBox4;
+      private System.Windows.Forms.ListBox listBox6;
    }
 }
 
