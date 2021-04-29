@@ -1170,6 +1170,7 @@ namespace Project381_Service_Premier
          this.button8.TabIndex = 71;
          this.button8.Text = "Add service";
          this.button8.UseVisualStyleBackColor = true;
+         this.button8.Click += new System.EventHandler(this.button8_Click);
          // 
          // label22
          // 
