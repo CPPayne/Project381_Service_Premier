@@ -1,4 +1,4 @@
-﻿namespace BusinessLogic
+﻿namespace Project381_Service_Premier.BusinessLogic
 {
    class Service
    {
