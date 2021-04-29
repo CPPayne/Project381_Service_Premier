@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Project_Wian_Se_Gedeelte_classes_
+namespace Project381_Service_Premier.businesslogic
 {
     class WorkRequest
     {

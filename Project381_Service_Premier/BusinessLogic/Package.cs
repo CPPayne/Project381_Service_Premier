@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Taak
+namespace Project381_Service_Premier.businesslogic
 {
    class Package
    {

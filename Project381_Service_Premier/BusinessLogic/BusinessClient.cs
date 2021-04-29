@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace michal_project_classes
+namespace Project381_Service_Premier.businesslogic
 {
     class BusinessClient : Client
     {

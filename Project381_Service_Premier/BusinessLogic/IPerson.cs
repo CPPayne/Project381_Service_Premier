@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Project381_Service_Premier.Properties
+namespace Project381_Service_Premier.businesslogic
 {
     interface IPerson
     {
