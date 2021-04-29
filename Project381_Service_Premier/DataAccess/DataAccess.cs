@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Text;
 using System.Windows.Forms;
-using BusinessLogic;
+using Project381_Service_Premier.BusinessLogic;
 
 namespace Project381_Service_Premier.DataAccess
 {
