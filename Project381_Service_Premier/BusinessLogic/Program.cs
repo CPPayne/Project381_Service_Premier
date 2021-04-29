@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Project381_Service_Premier.businesslogic
+namespace Project381_Service_Premier.BusinessLogic
 {
     static class Program
     {
