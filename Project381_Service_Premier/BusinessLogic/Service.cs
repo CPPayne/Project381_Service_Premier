@@ -1,4 +1,6 @@
-﻿namespace Project381_Service_Premier.BusinessLogic
+﻿using Project381_Service_Premier.DataAccess;
+
+namespace Project381_Service_Premier.BusinessLogic
 {
    class Service
    {
@@ -13,9 +15,10 @@
          this.SSpecifications = sSpecifications;
       }
 
-        public void addServiceToDB(Service service)
+      public void addServiceToDB()
       {
-
+         FileHandler dbaccess = new FileHandler();
+         dbaccess.addService(sType, sName, sSpecifications);
       }
 
       public string SType { get => sType; set => sType = value; }
