@@ -148,6 +148,7 @@ namespace Project381_Service_Premier
          this.tabPage10 = new System.Windows.Forms.TabPage();
          this.button12 = new System.Windows.Forms.Button();
          this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+         this.button14 = new System.Windows.Forms.Button();
          this.tabPage6.SuspendLayout();
          this.tabPage5.SuspendLayout();
          this.tabControl4.SuspendLayout();
@@ -907,6 +908,7 @@ namespace Project381_Service_Premier
          // 
          // CallCentre
          // 
+         this.CallCentre.Controls.Add(this.button14);
          this.CallCentre.Controls.Add(this.textBox4);
          this.CallCentre.Controls.Add(this.textBox3);
          this.CallCentre.Controls.Add(this.textBox2);
@@ -1295,6 +1297,15 @@ namespace Project381_Service_Premier
          // 
          this.errorProvider1.ContainerControl = this;
          // 
+         // button14
+         // 
+         this.button14.Location = new System.Drawing.Point(212, 22);
+         this.button14.Name = "button14";
+         this.button14.Size = new System.Drawing.Size(173, 23);
+         this.button14.TabIndex = 18;
+         this.button14.Text = "sarel die salamander";
+         this.button14.UseVisualStyleBackColor = true;
+         // 
          // Form1
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1458,6 +1469,7 @@ namespace Project381_Service_Premier
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.TextBox textBox19;
         private System.Windows.Forms.Label label26;
-    }
+      private System.Windows.Forms.Button button14;
+   }
 }
 
