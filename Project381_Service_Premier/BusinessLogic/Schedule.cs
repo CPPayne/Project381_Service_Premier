@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Project381_Service_Premier.businesslogic
+namespace Project381_Service_Premier.BusinessLogic
 {
    class Schedule
    {
