@@ -68,5 +68,15 @@ namespace Project381_Service_Premier.PresentationLayer
          tbpBusiness.Hide();
          tbpIndividual.Show();
       }
-   }
+
+        private void tabPage1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dbgService_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+    }
 }
