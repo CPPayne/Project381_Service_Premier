@@ -21,12 +21,12 @@ namespace Project381_Service_Premier.DataAccess
         SqlDataReader reader;   //Declare SqlDataReader object
 
         //Declare Student object
-        Student objStudent = new Student();
+        //Service objStudent = new Student();
 
         //Register method
         public void addService(string sType, string sName, string sSpecifications) 
         {
-            string query = @"INSERT INTO Students VALUES ( '" + sType + "', '" + sName + "', '" + sSpecifications + "' )";
+            string query = @"INSERT INTO ServiceC VALUES ( '" + sType + "', '" + sName + "', '" + sSpecifications + "' )";
 
             conn = new SqlConnection(connect);
 
@@ -48,9 +48,9 @@ namespace Project381_Service_Premier.DataAccess
                 conn.Close();
             }
         }
-        public void addPackage(string name, double cost,List<Service> packageServices)
+        public void addPackage(string pName, double pCost,List<Service> packageServices)
         {
-            string query = @"INSERT INTO Students VALUES ( '" + sType + "', '" + sName + "', '" + sSpecifications + "' )";
+            string query = @"INSERT INTO pPackage VALUES ( '" + pName + "', '" + pCost +  "' )";
 
             conn = new SqlConnection(connect);
 
@@ -61,6 +61,7 @@ namespace Project381_Service_Premier.DataAccess
             try
             {
                 command.ExecuteNonQuery();
+
                 MessageBox.Show("Service added!");
             }
             catch (Exception ex)
