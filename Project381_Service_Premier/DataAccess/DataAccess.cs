@@ -7,11 +7,11 @@ using Project381_Service_Premier.BusinessLogic;
 
 namespace Project381_Service_Premier.DataAccess
 {
-   class FileHandler
-   {
-      public FileHandler()
-      {
-      }
+    class FileHandler
+    {
+        public FileHandler()
+        {
+        }
 
 
         //Set connection string
@@ -24,7 +24,7 @@ namespace Project381_Service_Premier.DataAccess
         //Service objStudent = new Student();
 
         //Register method
-        public void addService(string sType, string sName, string sSpecifications) 
+        public void addService(string sType, string sName, string sSpecifications)
         {
             string query = @"INSERT INTO ServiceC VALUES ( '" + sType + "', '" + sName + "', '" + sSpecifications + "' )";
 
@@ -39,24 +39,27 @@ namespace Project381_Service_Premier.DataAccess
                 command.ExecuteNonQuery();
                 MessageBox.Show("Service added!");
             }
-            catch (Exception ex) 
+            catch (Exception ex)
             {
                 MessageBox.Show("Details of new service not saved: " + ex.Message);
             }
-            finally 
+            finally
             {
                 conn.Close();
             }
         }
-        public void addPackage(string pName, double pCost,List<Service> packageServices)
+        public void addPackage(string packageID, string pName, double pCost, List<Service> packageServices)
         {
-            string query = @"INSERT INTO pPackage VALUES ( '" + pName + "', '" + pCost +  "' )";
+            string query = @"INSERT INTO pPackage VALUES ( '" + packageID + "', '" + pName + "','" + pCost + "' )";
 
             conn = new SqlConnection(connect);
 
             conn.Open();
 
             command = new SqlCommand(query, conn);
+
+
+
 
             try
             {
@@ -77,7 +80,7 @@ namespace Project381_Service_Premier.DataAccess
         //Delete method
         public void Delete(int sID)
         {
-            string query = @"DELETE FROM Students WHERE StudentID = ('"+ sID +"')";
+            string query = @"DELETE FROM Students WHERE StudentID = ('" + sID + "')";
 
             conn = new SqlConnection(connect);
 
@@ -140,15 +143,96 @@ namespace Project381_Service_Premier.DataAccess
             {
                 conn.Close();
             }
-            //Return the student list
+
             return myStudent;
+        }
+
+        public string getPackageID(string name)
+        {
+
+
+            string query = @"SELECT * FROM pPackage WHERE PackageName = ('" + name + "')";
+
+            //connect
+            conn = new SqlConnection(connect);
+
+            conn.Open();
+
+            command = new SqlCommand(query, conn);
+
+            string packageID = "";
+            //run query command
+            try
+            {
+                //read data SqlDataReader
+                reader = command.ExecuteReader();
+                if (reader.Read())
+                {
+
+                    packageID = reader[0].ToString();
+
+
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+            //Return the student list
+            return packageID;
+        }
+
+
+        public string getServiceID(string name)
+        {
+
+
+            string query = @"SELECT * FROM ServiceC WHERE ServiceName = ('" + name + "')";
+
+            //connect
+            conn = new SqlConnection(connect);
+
+            conn.Open();
+
+            command = new SqlCommand(query, conn);
+
+            string ServiceID = "";
+            //run query command
+            try
+            {
+                //read data SqlDataReader
+                reader = command.ExecuteReader();
+                if (reader.Read())
+                {
+
+                    ServiceID = reader[0].ToString();
+
+
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+            //Return the student list
+            return ServiceID;
         }
 
         //Update method
         public void Update(int sID, string sName, string sSurnane, string cID)
         {
-            string query = @"UPDATE Students SET StudentID = ('" + sID + "'), FirstName = ('"+ sName + "'), " +
-                "LastName = ('"+ sSurnane + "'), CourseID = ('"+ cID + "') WHERE StudentID = ('"+ sID + "')";
+            string query = @"UPDATE Students SET StudentID = ('" + sID + "'), FirstName = ('" + sName + "'), " +
+                "LastName = ('" + sSurnane + "'), CourseID = ('" + cID + "') WHERE StudentID = ('" + sID + "')";
 
             conn = new SqlConnection(connect);
 
@@ -171,31 +255,31 @@ namespace Project381_Service_Premier.DataAccess
             }
         }
 
-      public List<Call> GetClientCallHistory()
-      {
+        public List<Call> GetClientCallHistory()
+        {
 
-      }
+        }
 
-      public void GetClientWorkHistory() { }
+        public void GetClientWorkHistory() { }
 
-      public void GetTechnicianWorkHistory() { }
+        public void GetTechnicianWorkHistory() { }
 
-      public void GetCallLog() { }
+        public void GetCallLog() { }
 
-      public override bool Equals(object obj)
-      {
-         return base.Equals(obj);
-      }
+        public override bool Equals(object obj)
+        {
+            return base.Equals(obj);
+        }
 
-      public override int GetHashCode()
-      {
-         return base.GetHashCode();
-      }
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
 
-      public override string ToString()
-      {
-         return base.ToString();
-      }
-      //Ek hou van aartappels
-   }
+        public override string ToString()
+        {
+            return base.ToString();
+        }
+        //Ek hou van aartappels
+    }
 }
