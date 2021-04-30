@@ -102,7 +102,7 @@ namespace Project381_Service_Premier.DataAccess
                 conn.Close();
             }
         }
-
+        /*
         //Search method
         public List<Student> Search(int sID)
         {
@@ -146,7 +146,7 @@ namespace Project381_Service_Premier.DataAccess
 
             return myStudent;
         }
-
+        */
         public string getPackageID(string name)
         {
 
@@ -255,10 +255,10 @@ namespace Project381_Service_Premier.DataAccess
             }
         }
 
-        public List<Call> GetClientCallHistory()
-        {
+        //public List<Call> GetClientCallHistory()
+        //{
 
-        }
+        //}
 
         public void GetClientWorkHistory() { }
 
