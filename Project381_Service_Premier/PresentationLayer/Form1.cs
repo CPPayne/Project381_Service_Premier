@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Project381_Service_Premier.BusinessLogic;
+
 
 namespace Project381_Service_Premier.PresentationLayer
 {
@@ -49,6 +51,12 @@ namespace Project381_Service_Premier.PresentationLayer
 
       private void button8_Click(object sender, EventArgs e)
       {
+            string serviceName = tbServiceName.Text;
+            string serviceType = tbServiceType.Text;
+            string serviceSpec = rtbServiceSpec.Text;
+
+            Service nService = new Service(serviceType, serviceName, serviceSpec);
+            nService.addServiceToDB();
 
       }
 
@@ -59,14 +67,14 @@ namespace Project381_Service_Premier.PresentationLayer
 
       private void rbtnBusiness_CheckedChanged(object sender, EventArgs e)
       {
-         tbpIndividual.Hide();
-         tbpBusiness.Show();
+         //tbpIndividual.Hide();
+         //tbpBusiness.Show();
       }
 
       private void rbtnIndividual_CheckedChanged(object sender, EventArgs e)
       {
-         tbpBusiness.Hide();
-         tbpIndividual.Show();
+         //tbpBusiness.Hide();
+         //tbpIndividual.Show();
       }
 
         private void tabPage1_Click(object sender, EventArgs e)
