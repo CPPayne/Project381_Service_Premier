@@ -108,6 +108,7 @@ namespace Project381_Service_Premier.PresentationLayer
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.CallCentre = new System.Windows.Forms.TabPage();
+            this.button14 = new System.Windows.Forms.Button();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
@@ -132,7 +133,7 @@ namespace Project381_Service_Premier.PresentationLayer
             this.label26 = new System.Windows.Forms.Label();
             this.listBox7 = new System.Windows.Forms.ListBox();
             this.serviceList = new System.Windows.Forms.ListBox();
-            this.button8 = new System.Windows.Forms.Button();
+            this.btnAddService = new System.Windows.Forms.Button();
             this.label22 = new System.Windows.Forms.Label();
             this.button13 = new System.Windows.Forms.Button();
             this.label21 = new System.Windows.Forms.Label();
@@ -148,7 +149,6 @@ namespace Project381_Service_Premier.PresentationLayer
             this.tabPage10 = new System.Windows.Forms.TabPage();
             this.button12 = new System.Windows.Forms.Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.button14 = new System.Windows.Forms.Button();
             this.tabPage6.SuspendLayout();
             this.tabPage5.SuspendLayout();
             this.tabControl4.SuspendLayout();
@@ -932,6 +932,15 @@ namespace Project381_Service_Premier.PresentationLayer
             this.CallCentre.Text = "CallCentre";
             this.CallCentre.UseVisualStyleBackColor = true;
             // 
+            // button14
+            // 
+            this.button14.Location = new System.Drawing.Point(212, 22);
+            this.button14.Name = "button14";
+            this.button14.Size = new System.Drawing.Size(173, 23);
+            this.button14.TabIndex = 18;
+            this.button14.Text = "sarel die salamander";
+            this.button14.UseVisualStyleBackColor = true;
+            // 
             // textBox4
             // 
             this.textBox4.Location = new System.Drawing.Point(402, 577);
@@ -1084,7 +1093,7 @@ namespace Project381_Service_Premier.PresentationLayer
             this.tabPage1.Controls.Add(this.label26);
             this.tabPage1.Controls.Add(this.listBox7);
             this.tabPage1.Controls.Add(this.serviceList);
-            this.tabPage1.Controls.Add(this.button8);
+            this.tabPage1.Controls.Add(this.btnAddService);
             this.tabPage1.Controls.Add(this.label22);
             this.tabPage1.Controls.Add(this.button13);
             this.tabPage1.Controls.Add(this.label21);
@@ -1162,15 +1171,15 @@ namespace Project381_Service_Premier.PresentationLayer
             this.serviceList.Size = new System.Drawing.Size(100, 95);
             this.serviceList.TabIndex = 75;
             // 
-            // button8
+            // btnAddService
             // 
-            this.button8.Location = new System.Drawing.Point(1168, 597);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(112, 62);
-            this.button8.TabIndex = 71;
-            this.button8.Text = "Add service";
-            this.button8.UseVisualStyleBackColor = true;
-            this.button8.Click += new System.EventHandler(this.button8_Click);
+            this.btnAddService.Location = new System.Drawing.Point(1168, 597);
+            this.btnAddService.Name = "btnAddService";
+            this.btnAddService.Size = new System.Drawing.Size(112, 62);
+            this.btnAddService.TabIndex = 71;
+            this.btnAddService.Text = "Add service";
+            this.btnAddService.UseVisualStyleBackColor = true;
+            this.btnAddService.Click += new System.EventHandler(this.button8_Click);
             // 
             // label22
             // 
@@ -1297,15 +1306,6 @@ namespace Project381_Service_Premier.PresentationLayer
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
-            // 
-            // button14
-            // 
-            this.button14.Location = new System.Drawing.Point(212, 22);
-            this.button14.Name = "button14";
-            this.button14.Size = new System.Drawing.Size(173, 23);
-            this.button14.TabIndex = 18;
-            this.button14.Text = "sarel die salamander";
-            this.button14.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -1450,7 +1450,7 @@ namespace Project381_Service_Premier.PresentationLayer
         private System.Windows.Forms.Label adress;
         private System.Windows.Forms.TextBox textBox17;
         private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button btnAddService;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.TextBox textBox39;
