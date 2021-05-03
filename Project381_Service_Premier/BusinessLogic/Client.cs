@@ -8,57 +8,54 @@ namespace Project381_Service_Premier.BusinessLogic
 {
    //namespace Project381_Service_Premier.businesslogic
    class Client
-    {
-      
-        private string name;
-        private string phoneNum;
-        private string address;
-        static Client AllClients;
-        private Contract contract;
-        private String ClientID;
+   {
 
-        public Client(string name, string phoneNum, string address, Contract contract)
-        {
-            Name = name;
-            PhoneNum = phoneNum;
-            Address = address;
-            Contract = contract;
-            Name = name;
-            PhoneNum = phoneNum;
-            Address = address;
-            Contract = contract;
-        }
+      private string name;
+      private string phoneNum;
+      private string address;
+      static Client AllClients;
+      private Contract contract;
+      private String ClientID;
 
-        public string Name { get => name; set => name = value; }
-        public string PhoneNum { get => phoneNum; set => phoneNum = value; }
-        public string Address { get => address; set => address = value; }
-        internal static Client AllClients1 { get => AllClients; set => AllClients = value; }
-       // public Contract Contract { get => contract; set => contract = value; }
+      public Client(string name, string phoneNum, string address, Contract contract, string clientID)
+      {
+         this.name = name;
+         this.phoneNum = phoneNum;
+         this.address = address;
+         this.contract = contract;
+         ClientID = clientID;
+      }
 
-        public Client get_client_by_phone(string phoneNum)
-        {
-            return null;
-        }
+      public string Name { get => name; set => name = value; }
+      public string PhoneNum { get => phoneNum; set => phoneNum = value; }
+      public string Address { get => address; set => address = value; }
+      internal static Client AllClients1 { get => AllClients; set => AllClients = value; }
+      // public Contract Contract { get => contract; set => contract = value; }
 
-        private string createClientID()
-        {
+      public Client get_client_by_phone(string phoneNum)
+      {
+         return null;
+      }
 
-            return null;
-        }
+      private string createClientID()
+      {
 
-        public override string ToString()
-        {
-            return base.ToString();
-        }
+         return null;
+      }
 
-        public override bool Equals(object obj)
-        {
-            return base.Equals(obj);
-        }
+      public override string ToString()
+      {
+         return base.ToString();
+      }
 
-        public override int GetHashCode()
-        {
-            return base.GetHashCode();
-        }
-    }
+      public override bool Equals(object obj)
+      {
+         return base.Equals(obj);
+      }
+
+      public override int GetHashCode()
+      {
+         return base.GetHashCode();
+      }
+   }
 }
