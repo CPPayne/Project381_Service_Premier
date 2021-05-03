@@ -60,13 +60,13 @@ namespace Project381_Service_Premier.DataAccess
 
             command = new SqlCommand(query, conn);
 
-
+            a
 
 
             try
             {
                 command.ExecuteNonQuery();
-                foreach ( item in collection)
+                foreach ( Service service in packageServices)
                 {
 
                 }
