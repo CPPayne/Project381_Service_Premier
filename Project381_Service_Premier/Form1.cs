@@ -16,5 +16,15 @@ namespace Project381_Service_Premier
         {
             InitializeComponent();
         }
-    }
+
+      private void Form1_Load(object sender, EventArgs e)
+      {
+
+      }
+
+      private void btnAnswerCall_Click(object sender, EventArgs e)
+      {
+
+      }
+   }
 }
