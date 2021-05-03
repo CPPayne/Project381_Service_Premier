@@ -116,22 +116,22 @@ namespace Project381_Service_Premier.PresentationLayer
             this.btnAnswerCall = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.btnEditService = new System.Windows.Forms.Button();
+            this.rtbServiceSpec = new System.Windows.Forms.RichTextBox();
             this.btnRemoveService = new System.Windows.Forms.Button();
             this.label25 = new System.Windows.Forms.Label();
-            this.txtPackageN = new System.Windows.Forms.TextBox();
+            this.textBox18 = new System.Windows.Forms.TextBox();
             this.label24 = new System.Windows.Forms.Label();
-            this.txtPackageC = new System.Windows.Forms.TextBox();
+            this.textBox19 = new System.Windows.Forms.TextBox();
             this.label26 = new System.Windows.Forms.Label();
             this.btnAddService = new System.Windows.Forms.Button();
             this.label22 = new System.Windows.Forms.Label();
-            this.btnRenoveServiceP = new System.Windows.Forms.Button();
+            this.button13 = new System.Windows.Forms.Button();
             this.label21 = new System.Windows.Forms.Label();
             this.tbServiceType = new System.Windows.Forms.TextBox();
-            this.btnCompletePackage = new System.Windows.Forms.Button();
+            this.button11 = new System.Windows.Forms.Button();
             this.label51 = new System.Windows.Forms.Label();
-            this.dgvPackage = new System.Windows.Forms.DataGridView();
-            this.btnAddServiceP = new System.Windows.Forms.Button();
+            this.dataGridView5 = new System.Windows.Forms.DataGridView();
+            this.button10 = new System.Windows.Forms.Button();
             this.label52 = new System.Windows.Forms.Label();
             this.dgvService = new System.Windows.Forms.DataGridView();
             this.tbServiceName = new System.Windows.Forms.TextBox();
@@ -139,7 +139,7 @@ namespace Project381_Service_Premier.PresentationLayer
             this.tabPage10 = new System.Windows.Forms.TabPage();
             this.button12 = new System.Windows.Forms.Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.rtbServiceSpec = new System.Windows.Forms.RichTextBox();
+            this.dataGridView4 = new System.Windows.Forms.DataGridView();
             this.tabPage6.SuspendLayout();
             this.tabPage5.SuspendLayout();
             this.tabControl4.SuspendLayout();
@@ -154,8 +154,8 @@ namespace Project381_Service_Premier.PresentationLayer
             this.tabPage2.SuspendLayout();
             this.CallCentre.SuspendLayout();
             this.tabControl1.SuspendLayout();
-            this.tPageContractMaintenance.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvPackage)).BeginInit();
+            this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvService)).BeginInit();
             this.tabPage10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
@@ -967,7 +967,7 @@ namespace Project381_Service_Premier.PresentationLayer
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Controls.Add(this.tabPage5);
-            this.tabControl1.Controls.Add(this.tPageContractMaintenance);
+            this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage6);
             this.tabControl1.Controls.Add(this.tabPage10);
             this.tabControl1.Location = new System.Drawing.Point(33, 12);
@@ -976,17 +976,16 @@ namespace Project381_Service_Premier.PresentationLayer
             this.tabControl1.Size = new System.Drawing.Size(1427, 755);
             this.tabControl1.TabIndex = 0;
             // 
-            // tPageContractMaintenance
+            // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.dataGridView4);
             this.tabPage1.Controls.Add(this.rtbServiceSpec);
-            this.tabPage1.Controls.Add(this.btnEditService);
             this.tabPage1.Controls.Add(this.btnRemoveService);
             this.tabPage1.Controls.Add(this.label25);
             this.tabPage1.Controls.Add(this.textBox18);
             this.tabPage1.Controls.Add(this.label24);
             this.tabPage1.Controls.Add(this.textBox19);
             this.tabPage1.Controls.Add(this.label26);
-            this.tabPage1.Controls.Add(this.serviceList);
             this.tabPage1.Controls.Add(this.btnAddService);
             this.tabPage1.Controls.Add(this.label22);
             this.tabPage1.Controls.Add(this.button13);
@@ -1009,7 +1008,7 @@ namespace Project381_Service_Premier.PresentationLayer
             this.tabPage1.UseVisualStyleBackColor = true;
             this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
             // 
-            // btnEditService
+            // rtbServiceSpec
             // 
             this.rtbServiceSpec.Location = new System.Drawing.Point(860, 649);
             this.rtbServiceSpec.Name = "rtbServiceSpec";
@@ -1035,12 +1034,12 @@ namespace Project381_Service_Premier.PresentationLayer
             this.label25.TabIndex = 82;
             this.label25.Text = "Service list:";
             // 
-            // txtPackageN
+            // textBox18
             // 
-            this.txtPackageN.Location = new System.Drawing.Point(112, 562);
-            this.txtPackageN.Name = "txtPackageN";
-            this.txtPackageN.Size = new System.Drawing.Size(100, 20);
-            this.txtPackageN.TabIndex = 80;
+            this.textBox18.Location = new System.Drawing.Point(112, 562);
+            this.textBox18.Name = "textBox18";
+            this.textBox18.Size = new System.Drawing.Size(100, 20);
+            this.textBox18.TabIndex = 80;
             // 
             // label24
             // 
@@ -1051,12 +1050,12 @@ namespace Project381_Service_Premier.PresentationLayer
             this.label24.TabIndex = 77;
             this.label24.Text = "Package name:";
             // 
-            // txtPackageC
+            // textBox19
             // 
-            this.txtPackageC.Location = new System.Drawing.Point(112, 588);
-            this.txtPackageC.Name = "txtPackageC";
-            this.txtPackageC.Size = new System.Drawing.Size(100, 20);
-            this.txtPackageC.TabIndex = 81;
+            this.textBox19.Location = new System.Drawing.Point(112, 588);
+            this.textBox19.Name = "textBox19";
+            this.textBox19.Size = new System.Drawing.Size(100, 20);
+            this.textBox19.TabIndex = 81;
             // 
             // label26
             // 
@@ -1086,14 +1085,14 @@ namespace Project381_Service_Premier.PresentationLayer
             this.label22.TabIndex = 70;
             this.label22.Text = "Services";
             // 
-            // btnRenoveServiceP
+            // button13
             // 
-            this.btnRenoveServiceP.Location = new System.Drawing.Point(452, 604);
-            this.btnRenoveServiceP.Name = "btnRenoveServiceP";
-            this.btnRenoveServiceP.Size = new System.Drawing.Size(197, 36);
-            this.btnRenoveServiceP.TabIndex = 74;
-            this.btnRenoveServiceP.Text = "Remove service";
-            this.btnRenoveServiceP.UseVisualStyleBackColor = true;
+            this.button13.Location = new System.Drawing.Point(452, 604);
+            this.button13.Name = "button13";
+            this.button13.Size = new System.Drawing.Size(197, 36);
+            this.button13.TabIndex = 74;
+            this.button13.Text = "Remove service";
+            this.button13.UseVisualStyleBackColor = true;
             // 
             // label21
             // 
@@ -1111,14 +1110,14 @@ namespace Project381_Service_Premier.PresentationLayer
             this.tbServiceType.Size = new System.Drawing.Size(100, 20);
             this.tbServiceType.TabIndex = 62;
             // 
-            // btnCompletePackage
+            // button11
             // 
-            this.btnCompletePackage.Location = new System.Drawing.Point(452, 649);
-            this.btnCompletePackage.Name = "btnCompletePackage";
-            this.btnCompletePackage.Size = new System.Drawing.Size(197, 34);
-            this.btnCompletePackage.TabIndex = 73;
-            this.btnCompletePackage.Text = "Complete package";
-            this.btnCompletePackage.UseVisualStyleBackColor = true;
+            this.button11.Location = new System.Drawing.Point(452, 649);
+            this.button11.Name = "button11";
+            this.button11.Size = new System.Drawing.Size(197, 34);
+            this.button11.TabIndex = 73;
+            this.button11.Text = "Complete package";
+            this.button11.UseVisualStyleBackColor = true;
             // 
             // label51
             // 
@@ -1129,24 +1128,22 @@ namespace Project381_Service_Premier.PresentationLayer
             this.label51.TabIndex = 59;
             this.label51.Text = "Service type:";
             // 
-            // dgvPackage
+            // dataGridView5
             // 
-            this.dgvPackage.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPackage.Location = new System.Drawing.Point(15, 35);
-            this.dgvPackage.Name = "dgvPackage";
-            this.dgvPackage.Size = new System.Drawing.Size(683, 486);
-            this.dgvPackage.TabIndex = 68;
-            this.dgvPackage.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView5_CellContentClick);
+            this.dataGridView5.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView5.Location = new System.Drawing.Point(15, 35);
+            this.dataGridView5.Name = "dataGridView5";
+            this.dataGridView5.Size = new System.Drawing.Size(683, 486);
+            this.dataGridView5.TabIndex = 68;
             // 
-            // btnAddServiceP
+            // button10
             // 
-            this.btnAddServiceP.Location = new System.Drawing.Point(452, 565);
-            this.btnAddServiceP.Name = "btnAddServiceP";
-            this.btnAddServiceP.Size = new System.Drawing.Size(197, 33);
-            this.btnAddServiceP.TabIndex = 72;
-            this.btnAddServiceP.Text = "Add service";
-            this.btnAddServiceP.UseVisualStyleBackColor = true;
-            this.btnAddServiceP.Click += new System.EventHandler(this.btnAddServiceP_Click);
+            this.button10.Location = new System.Drawing.Point(452, 565);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(197, 33);
+            this.button10.TabIndex = 72;
+            this.button10.Text = "Add service";
+            this.button10.UseVisualStyleBackColor = true;
             // 
             // label52
             // 
@@ -1206,13 +1203,13 @@ namespace Project381_Service_Premier.PresentationLayer
             // 
             this.errorProvider1.ContainerControl = this;
             // 
-            // rtbServiceSpec
+            // dataGridView4
             // 
-            this.rtbServiceSpec.Location = new System.Drawing.Point(860, 649);
-            this.rtbServiceSpec.Name = "rtbServiceSpec";
-            this.rtbServiceSpec.Size = new System.Drawing.Size(172, 53);
-            this.rtbServiceSpec.TabIndex = 85;
-            this.rtbServiceSpec.Text = "";
+            this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView4.Location = new System.Drawing.Point(229, 593);
+            this.dataGridView4.Name = "dataGridView4";
+            this.dataGridView4.Size = new System.Drawing.Size(167, 90);
+            this.dataGridView4.TabIndex = 86;
             // 
             // Form1
             // 
@@ -1242,9 +1239,9 @@ namespace Project381_Service_Premier.PresentationLayer
             this.CallCentre.ResumeLayout(false);
             this.CallCentre.PerformLayout();
             this.tabControl1.ResumeLayout(false);
-            this.tPageContractMaintenance.ResumeLayout(false);
-            this.tPageContractMaintenance.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvPackage)).EndInit();
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvService)).EndInit();
             this.tabPage10.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
@@ -1327,13 +1324,13 @@ namespace Project381_Service_Premier.PresentationLayer
         private System.Windows.Forms.Button button12;
         private System.Windows.Forms.Label labelSurname;
         private System.Windows.Forms.TextBox txtClientAddress;
-        private System.Windows.Forms.TabPage tPageContractMaintenance;
+        private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.Button btnAddService;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.TextBox tbServiceType;
         private System.Windows.Forms.Label label51;
-        private System.Windows.Forms.DataGridView dgvPackage;
+        private System.Windows.Forms.DataGridView dataGridView5;
         private System.Windows.Forms.Label label52;
         private System.Windows.Forms.DataGridView dgvService;
         private System.Windows.Forms.TextBox tbServiceName;
@@ -1341,28 +1338,27 @@ namespace Project381_Service_Premier.PresentationLayer
         private System.Windows.Forms.Button button13;
         private System.Windows.Forms.Button button11;
         private System.Windows.Forms.Button button10;
-        private System.Windows.Forms.ListBox serviceList;
         private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.TextBox txtPackageN;
+        private System.Windows.Forms.TextBox textBox18;
         private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.TextBox txtPackageC;
+        private System.Windows.Forms.TextBox textBox19;
         private System.Windows.Forms.Label label26;
-      private System.Windows.Forms.Label label5;
-      private System.Windows.Forms.TextBox txtName;
-      private System.Windows.Forms.Label label4;
-      private System.Windows.Forms.TextBox txtIsBusiness;
-      private System.Windows.Forms.Label label29;
-      private System.Windows.Forms.TextBox txtPackageName;
-      private System.Windows.Forms.Label label28;
-      private System.Windows.Forms.TextBox txtNumber;
-      private System.Windows.Forms.Label label27;
-      private System.Windows.Forms.TextBox txtAddress;
-      private System.Windows.Forms.Label label6;
-      private System.Windows.Forms.TextBox txtSurname;
-      private System.Windows.Forms.Label label1;
-      private System.Windows.Forms.ListBox lbxPriority;
-      private System.Windows.Forms.CheckBox cbxBusiness;
-      private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox txtName;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox txtIsBusiness;
+        private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.TextBox txtPackageName;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.TextBox txtNumber;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.TextBox txtAddress;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox txtSurname;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ListBox lbxPriority;
+        private System.Windows.Forms.CheckBox cbxBusiness;
+        private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Button btnRemoveService;
         private System.Windows.Forms.RichTextBox rtbServiceSpec;
         private System.Windows.Forms.DataGridView dataGridView4;
