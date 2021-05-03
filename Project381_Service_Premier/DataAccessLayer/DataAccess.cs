@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Text;
 using System.Windows.Forms;
-using Project381_Service_Premier.BusinessLogic;
+using Project381_Service_Premier.BusinessLayer;
 
-namespace Project381_Service_Premier.DataAccess
+namespace Project381_Service_Premier.DataAccessLayer
 {
     class FileHandler
     {
@@ -15,7 +15,7 @@ namespace Project381_Service_Premier.DataAccess
 
 
         //Set connection string
-        string connect = "Data Source=.; Initial Catalog= premierServiceDB; Integrated Security= SSPI";
+        string connect = "Data Source=.; Initial Catalog= servicePremierDB; Integrated Security= SSPI";
         SqlConnection conn;     //Declare SqlConnection object
         SqlCommand command;     //Declare SqlCommand object
         SqlDataReader reader;   //Declare SqlDataReader object
@@ -49,152 +49,152 @@ namespace Project381_Service_Premier.DataAccess
                 conn.Close();
             }
         }
-        public void addPackage( string pName, double pCost, List<Service> packageServices)
-        {
-            string packageID;
-            string serviceID;
-            string query = @"INSERT INTO pPackage VALUES ( '" + pName + "', '" + pCost +  "' )";
+        //public void addPackage( string pName, double pCost, List<Service> packageServices)
+        //{
+        //    string packageID;
+        //    string serviceID;
+        //    string query = @"INSERT INTO pPackage VALUES ( '" + pName + "', '" + pCost +  "' )";
 
-            conn = new SqlConnection(connect);
+        //    conn = new SqlConnection(connect);
 
-            conn.Open();
+        //    conn.Open();
 
-            command = new SqlCommand(query, conn);
+        //    command = new SqlCommand(query, conn);
 
             
 
 
-            try
-            {
-                command.ExecuteNonQuery();
-                packageID = getPackageID(pName);
-                foreach ( Service service in packageServices)
-                {
-                    serviceID = getServiceID(service.SName);
-                    string query2 = @"INSERT INTO Service_Packages VALUES ( '" + packageID + "', '" + serviceID + "' )";
+        //    try
+        //    {
+        //        command.ExecuteNonQuery();
+        //        packageID = getPackageID(pName);
+        //        foreach ( Service service in packageServices)
+        //        {
+        //            serviceID = getServiceID(service.SName);
+        //            string query2 = @"INSERT INTO Service_Packages VALUES ( '" + packageID + "', '" + serviceID + "' )";
 
-                    SqlCommand command2 = new SqlCommand(query2, conn);
-                    command2.ExecuteNonQuery();
-                }
+        //            SqlCommand command2 = new SqlCommand(query2, conn);
+        //            command2.ExecuteNonQuery();
+        //        }
                 
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Details of new service not saved: " + ex.Message);
-            }
-            finally
-            {
-                conn.Close();
-            }
-        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show("Details of new service not saved: " + ex.Message);
+        //    }
+        //    finally
+        //    {
+        //        conn.Close();
+        //    }
+        //}
 
-        public void addClient(string cID, string cName, string cSurname, string cAddress, string cNumber, bool isBusiness, Package package)
-        {
-            string packageID;
-            string serviceID;
-            string query = @"INSERT INTO Client VALUES ( '"+ cID + "', '" + cName + "', '" + cSurname + "', '" + cAddress + "', '" + cNumber + "', '" + isBusiness +  "' )";
+        //public void addclient(string cid, string cname, string csurname, string caddress, string cnumber, bool isbusiness, package package)
+        //{
+        //    string packageid;
+        //    string serviceid;
+        //    string query = @"insert into client values ( '"+ cid + "', '" + cname + "', '" + csurname + "', '" + caddress + "', '" + cnumber + "', '" + isbusiness +  "' )";
 
-            conn = new SqlConnection(connect);
+        //    conn = new sqlconnection(connect);
 
-            conn.Open();
+        //    conn.open();
 
-            command = new SqlCommand(query, conn);
-
-
+        //    command = new sqlcommand(query, conn);
 
 
-            try
-            {
-                command.ExecuteNonQuery();
-                packageID = getPackageID(pName);
-                foreach (Service service in packageServices)
-                {
-                    serviceID = getServiceID(service.SName);
-                    string query2 = @"INSERT INTO Service_Packages VALUES ( '" + packageID + "', '" + serviceID + "' )";
 
-                    SqlCommand command2 = new SqlCommand(query2, conn);
-                    command2.ExecuteNonQuery();
-                }
 
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Details of new service not saved: " + ex.Message);
-            }
-            finally
-            {
-                conn.Close();
-            }
-        }
+        //    try
+        //    {
+        //        command.executenonquery();
+        //        packageid = getpackageid(pname);
+        //        foreach (service service in packageservices)
+        //        {
+        //            serviceid = getserviceid(service.sname);
+        //            string query2 = @"insert into service_packages values ( '" + packageid + "', '" + serviceid + "' )";
+
+        //            sqlcommand command2 = new sqlcommand(query2, conn);
+        //            command2.executenonquery();
+        //        }
+
+        //    }
+        //    catch (exception ex)
+        //    {
+        //        messagebox.show("details of new service not saved: " + ex.message);
+        //    }
+        //    finally
+        //    {
+        //        conn.close();
+        //    }
+        //}
 
         //Delete method
-        public void Delete(int sID)
-        {
-            string query = @"DELETE FROM Students WHERE StudentID = ('" + sID + "')";
+        //public void Delete(int sID)
+        //{
+        //    string query = @"DELETE FROM Students WHERE StudentID = ('" + sID + "')";
 
-            conn = new SqlConnection(connect);
+        //    conn = new SqlConnection(connect);
 
-            conn.Open();
+        //    conn.Open();
 
-            command = new SqlCommand(query, conn);
+        //    command = new SqlCommand(query, conn);
 
-            try
-            {
-                command.ExecuteNonQuery();
-                MessageBox.Show("Deleted the details of student with Student Number: " + sID);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message);
-            }
-            finally
-            {
-                conn.Close();
-            }
-        }
+        //    try
+        //    {
+        //        command.ExecuteNonQuery();
+        //        MessageBox.Show("Deleted the details of student with Student Number: " + sID);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show("Error: " + ex.Message);
+        //    }
+        //    finally
+        //    {
+        //        conn.Close();
+        //    }
+        //}
 
-        public bool Search(int sID)
-        {
-            //query select all collumns provided stdID = value
+        //public bool Search(int sID)
+        //{
+        //    //query select all collumns provided stdID = value
 
-            string query = @"SELECT * FROM Students WHERE StudentID = ('" + sID + "')";
+        //    string query = @"SELECT * FROM Students WHERE StudentID = ('" + sID + "')";
 
-            //connect
-            conn = new SqlConnection(connect);
+        //    //connect
+        //    conn = new SqlConnection(connect);
 
-            conn.Open();
+        //    conn.Open();
 
-            command = new SqlCommand(query, conn);
-            List<Student> myStudent = new List<Student>();
+        //    command = new SqlCommand(query, conn);
+        //    List<Student> myStudent = new List<Student>();
 
-            //run query command
-            try
-            {
-                //read data SqlDataReader
-                reader = command.ExecuteReader();
-                if (reader.Read())
-                {
-                    //Store each collumn value in student class variables/field
-                    objStudent.StudentID = int.Parse(reader[0].ToString());
-                    objStudent.StudentName = reader[1].ToString();
-                    objStudent.StudentSurname = reader[2].ToString();
-                    objStudent.CourseID = reader[3].ToString();
+        //    //run query command
+        //    try
+        //    {
+        //        //read data SqlDataReader
+        //        reader = command.ExecuteReader();
+        //        if (reader.Read())
+        //        {
+        //            //Store each collumn value in student class variables/field
+        //            objStudent.StudentID = int.Parse(reader[0].ToString());
+        //            objStudent.StudentName = reader[1].ToString();
+        //            objStudent.StudentSurname = reader[2].ToString();
+        //            objStudent.CourseID = reader[3].ToString();
 
-                    //Add field values to a Student type list
-                    myStudent.Add(new Student(objStudent.StudentID, objStudent.StudentName, objStudent.StudentSurname, objStudent.CourseID));
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message);
-            }
-            finally
-            {
-                conn.Close();
-            }
+        //            //Add field values to a Student type list
+        //            myStudent.Add(new Student(objStudent.StudentID, objStudent.StudentName, objStudent.StudentSurname, objStudent.CourseID));
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show("Error: " + ex.Message);
+        //    }
+        //    finally
+        //    {
+        //        conn.Close();
+        //    }
 
-            return myStudent;
-        }
+        //    return myStudent;
+        //}
         /*
         //Search method
         public List<Student> Search(int sID)

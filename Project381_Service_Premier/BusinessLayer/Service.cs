@@ -1,6 +1,6 @@
 ﻿using Project381_Service_Premier.DataAccess;
 
-namespace Project381_Service_Premier.BusinessLogic
+namespace Project381_Service_Premier.BusinessLayer
 {
    class Service
    {
