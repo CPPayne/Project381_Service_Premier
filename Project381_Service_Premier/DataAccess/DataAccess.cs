@@ -88,6 +88,45 @@ namespace Project381_Service_Premier.DataAccess
             }
         }
 
+        public void addClient(string pName, double pCost, List<Service> packageServices)
+        {
+            string packageID;
+            string serviceID;
+            string query = @"INSERT INTO pPackage VALUES ( '" + pName + "', '" + pCost + "' )";
+
+            conn = new SqlConnection(connect);
+
+            conn.Open();
+
+            command = new SqlCommand(query, conn);
+
+
+
+
+            try
+            {
+                command.ExecuteNonQuery();
+                packageID = getPackageID(pName);
+                foreach (Service service in packageServices)
+                {
+                    serviceID = getServiceID(service.SName);
+                    string query2 = @"INSERT INTO Service_Packages VALUES ( '" + packageID + "', '" + serviceID + "' )";
+
+                    SqlCommand command2 = new SqlCommand(query2, conn);
+                    command2.ExecuteNonQuery();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Details of new service not saved: " + ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
         //Delete method
         public void Delete(int sID)
         {
