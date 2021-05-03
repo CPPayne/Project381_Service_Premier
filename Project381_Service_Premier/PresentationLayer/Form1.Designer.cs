@@ -117,7 +117,6 @@ namespace Project381_Service_Premier.PresentationLayer
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.rtbServiceSpec = new System.Windows.Forms.RichTextBox();
-            this.btnEditService = new System.Windows.Forms.Button();
             this.btnRemoveService = new System.Windows.Forms.Button();
             this.label25 = new System.Windows.Forms.Label();
             this.textBox18 = new System.Windows.Forms.TextBox();
@@ -979,7 +978,6 @@ namespace Project381_Service_Premier.PresentationLayer
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.rtbServiceSpec);
-            this.tabPage1.Controls.Add(this.btnEditService);
             this.tabPage1.Controls.Add(this.btnRemoveService);
             this.tabPage1.Controls.Add(this.label25);
             this.tabPage1.Controls.Add(this.textBox18);
@@ -1016,15 +1014,6 @@ namespace Project381_Service_Premier.PresentationLayer
             this.rtbServiceSpec.Size = new System.Drawing.Size(172, 53);
             this.rtbServiceSpec.TabIndex = 85;
             this.rtbServiceSpec.Text = "";
-            // 
-            // btnEditService
-            // 
-            this.btnEditService.Location = new System.Drawing.Point(1181, 604);
-            this.btnEditService.Name = "btnEditService";
-            this.btnEditService.Size = new System.Drawing.Size(112, 51);
-            this.btnEditService.TabIndex = 84;
-            this.btnEditService.Text = "Edit service";
-            this.btnEditService.UseVisualStyleBackColor = true;
             // 
             // btnRemoveService
             // 
@@ -1369,7 +1358,6 @@ namespace Project381_Service_Premier.PresentationLayer
       private System.Windows.Forms.ListBox lbxPriority;
       private System.Windows.Forms.CheckBox cbxBusiness;
       private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Button btnEditService;
         private System.Windows.Forms.Button btnRemoveService;
         private System.Windows.Forms.RichTextBox rtbServiceSpec;
     }
