@@ -88,11 +88,11 @@ namespace Project381_Service_Premier.DataAccess
             }
         }
 
-        public void addClient(string pName, double pCost, List<Service> packageServices)
+        public void addClient(string cID, string cName, string cSurname, string cAddress, string cNumber, bool isBusiness, Package package)
         {
             string packageID;
             string serviceID;
-            string query = @"INSERT INTO pPackage VALUES ( '" + pName + "', '" + pCost + "' )";
+            string query = @"INSERT INTO Client VALUES ( '"+ cID + "', '" + cName + "', '" + cSurname + "', '" + cAddress + "', '" + cNumber + "', '" + isBusiness +  "' )";
 
             conn = new SqlConnection(connect);
 
