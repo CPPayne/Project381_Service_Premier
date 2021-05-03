@@ -50,6 +50,7 @@
     <Compile Include="BusinessLogic\Call.cs" />
     <Compile Include="BusinessLogic\Client.cs" />
     <Compile Include="BusinessLogic\ClientHandler.cs" />
+    <Compile Include="BusinessLogic\Contract.cs" />
     <Compile Include="DataAccess\DataAccess.cs" />
     <Compile Include="PresentationLayer\Form1.cs">
       <SubType>Form</SubType>
