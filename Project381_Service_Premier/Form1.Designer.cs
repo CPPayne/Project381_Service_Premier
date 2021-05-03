@@ -89,13 +89,9 @@ namespace Project381_Service_Premier
          this.tbServiceName = new System.Windows.Forms.TextBox();
          this.label54 = new System.Windows.Forms.Label();
          this.tabPage6 = new System.Windows.Forms.TabPage();
-         this.textBox25 = new System.Windows.Forms.TextBox();
-         this.textBox26 = new System.Windows.Forms.TextBox();
          this.textBox27 = new System.Windows.Forms.TextBox();
          this.textBox28 = new System.Windows.Forms.TextBox();
          this.richTextBox4 = new System.Windows.Forms.RichTextBox();
-         this.label31 = new System.Windows.Forms.Label();
-         this.label32 = new System.Windows.Forms.Label();
          this.label33 = new System.Windows.Forms.Label();
          this.label34 = new System.Windows.Forms.Label();
          this.label35 = new System.Windows.Forms.Label();
@@ -120,6 +116,7 @@ namespace Project381_Service_Premier
          this.label18 = new System.Windows.Forms.Label();
          this.lbxPackages = new System.Windows.Forms.ListBox();
          this.label19 = new System.Windows.Forms.Label();
+         this.label20 = new System.Windows.Forms.Label();
          this.tabControl1.SuspendLayout();
          this.CallCentre.SuspendLayout();
          this.tabPage2.SuspendLayout();
@@ -504,6 +501,7 @@ namespace Project381_Service_Premier
          // 
          // tabPage4
          // 
+         this.tabPage4.Controls.Add(this.label20);
          this.tabPage4.Controls.Add(this.label13);
          this.tabPage4.Controls.Add(this.txtTechnicianName);
          this.tabPage4.Controls.Add(this.btnSearchTechnician);
@@ -537,7 +535,7 @@ namespace Project381_Service_Premier
          this.dgvTechnicians.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
          this.dgvTechnicians.Location = new System.Drawing.Point(19, 37);
          this.dgvTechnicians.Name = "dgvTechnicians";
-         this.dgvTechnicians.Size = new System.Drawing.Size(864, 319);
+         this.dgvTechnicians.Size = new System.Drawing.Size(614, 319);
          this.dgvTechnicians.TabIndex = 0;
          // 
          // tabPage1
@@ -718,13 +716,9 @@ namespace Project381_Service_Premier
          // 
          // tabPage6
          // 
-         this.tabPage6.Controls.Add(this.textBox25);
-         this.tabPage6.Controls.Add(this.textBox26);
          this.tabPage6.Controls.Add(this.textBox27);
          this.tabPage6.Controls.Add(this.textBox28);
          this.tabPage6.Controls.Add(this.richTextBox4);
-         this.tabPage6.Controls.Add(this.label31);
-         this.tabPage6.Controls.Add(this.label32);
          this.tabPage6.Controls.Add(this.label33);
          this.tabPage6.Controls.Add(this.label34);
          this.tabPage6.Controls.Add(this.label35);
@@ -737,20 +731,6 @@ namespace Project381_Service_Premier
          this.tabPage6.TabIndex = 6;
          this.tabPage6.Text = "Client Satisfaction";
          this.tabPage6.UseVisualStyleBackColor = true;
-         // 
-         // textBox25
-         // 
-         this.textBox25.Location = new System.Drawing.Point(133, 166);
-         this.textBox25.Name = "textBox25";
-         this.textBox25.Size = new System.Drawing.Size(100, 20);
-         this.textBox25.TabIndex = 29;
-         // 
-         // textBox26
-         // 
-         this.textBox26.Location = new System.Drawing.Point(133, 140);
-         this.textBox26.Name = "textBox26";
-         this.textBox26.Size = new System.Drawing.Size(100, 20);
-         this.textBox26.TabIndex = 27;
          // 
          // textBox27
          // 
@@ -773,24 +753,6 @@ namespace Project381_Service_Premier
          this.richTextBox4.Size = new System.Drawing.Size(283, 127);
          this.richTextBox4.TabIndex = 19;
          this.richTextBox4.Text = "";
-         // 
-         // label31
-         // 
-         this.label31.AutoSize = true;
-         this.label31.Location = new System.Drawing.Point(44, 169);
-         this.label31.Name = "label31";
-         this.label31.Size = new System.Drawing.Size(72, 13);
-         this.label31.TabIndex = 28;
-         this.label31.Text = "Available time";
-         // 
-         // label32
-         // 
-         this.label32.AutoSize = true;
-         this.label32.Location = new System.Drawing.Point(44, 143);
-         this.label32.Name = "label32";
-         this.label32.Size = new System.Drawing.Size(33, 13);
-         this.label32.TabIndex = 24;
-         this.label32.Text = "Other";
          // 
          // label33
          // 
@@ -1012,6 +974,16 @@ namespace Project381_Service_Premier
          this.label19.TabIndex = 102;
          this.label19.Text = "Choose Package";
          // 
+         // label20
+         // 
+         this.label20.AutoSize = true;
+         this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.label20.Location = new System.Drawing.Point(639, 14);
+         this.label20.Name = "label20";
+         this.label20.Size = new System.Drawing.Size(170, 20);
+         this.label20.TabIndex = 34;
+         this.label20.Text = "View Technicians stats";
+         // 
          // Form1
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1102,13 +1074,9 @@ namespace Project381_Service_Premier
       private System.Windows.Forms.TextBox tbServiceName;
       private System.Windows.Forms.Label label54;
       private System.Windows.Forms.TabPage tabPage6;
-      private System.Windows.Forms.TextBox textBox25;
-      private System.Windows.Forms.TextBox textBox26;
       private System.Windows.Forms.TextBox textBox27;
       private System.Windows.Forms.TextBox textBox28;
       private System.Windows.Forms.RichTextBox richTextBox4;
-      private System.Windows.Forms.Label label31;
-      private System.Windows.Forms.Label label32;
       private System.Windows.Forms.Label label33;
       private System.Windows.Forms.Label label34;
       private System.Windows.Forms.Label label35;
@@ -1134,6 +1102,7 @@ namespace Project381_Service_Premier
       private System.Windows.Forms.Button button5;
       private System.Windows.Forms.Button button4;
       private System.Windows.Forms.Button button3;
+      private System.Windows.Forms.Label label20;
    }
 }
 
