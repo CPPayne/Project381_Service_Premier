@@ -33,6 +33,7 @@ namespace Project381_Service_Premier.DataAccess
             conn.Open();
 
             command = new SqlCommand(query, conn);
+            
 
             try
             {
@@ -48,9 +49,11 @@ namespace Project381_Service_Premier.DataAccess
                 conn.Close();
             }
         }
-        public void addPackage(string packageID, string pName, double pCost, List<Service> packageServices)
+        public void addPackage( string pName, double pCost, List<Service> packageServices)
         {
-            string query = @"INSERT INTO pPackage VALUES ( '" + packageID + "', '" + pName + "','" + pCost + "' )";
+            string packageID;
+            string serviceID;
+            string query = @"INSERT INTO pPackage VALUES ( '" + pName + "', '" + pCost +  "' )";
 
             conn = new SqlConnection(connect);
 
@@ -58,14 +61,22 @@ namespace Project381_Service_Premier.DataAccess
 
             command = new SqlCommand(query, conn);
 
-
+            
 
 
             try
             {
                 command.ExecuteNonQuery();
+                packageID = getPackageID(pName);
+                foreach ( Service service in packageServices)
+                {
+                    serviceID = getServiceID(service.SName);
+                    string query2 = @"INSERT INTO Service_Packages VALUES ( '" + packageID + "', '" + serviceID + "' )";
 
-                MessageBox.Show("Service added!");
+                    SqlCommand command2 = new SqlCommand(query2, conn);
+                    command2.ExecuteNonQuery();
+                }
+                
             }
             catch (Exception ex)
             {
