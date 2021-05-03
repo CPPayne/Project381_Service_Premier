@@ -72,21 +72,21 @@ namespace Project381_Service_Premier
          this.btnSearchTechnician = new System.Windows.Forms.Button();
          this.dgvTechnicians = new System.Windows.Forms.DataGridView();
          this.tabPage1 = new System.Windows.Forms.TabPage();
-         this.dataGridView4 = new System.Windows.Forms.DataGridView();
-         this.rtbServiceSpec = new System.Windows.Forms.RichTextBox();
+         this.dgvPackageServices = new System.Windows.Forms.DataGridView();
+         this.rtbServiceSpecification = new System.Windows.Forms.RichTextBox();
          this.label25 = new System.Windows.Forms.Label();
-         this.textBox18 = new System.Windows.Forms.TextBox();
+         this.tbxAddName = new System.Windows.Forms.TextBox();
          this.label24 = new System.Windows.Forms.Label();
-         this.textBox19 = new System.Windows.Forms.TextBox();
+         this.tbxAddCost = new System.Windows.Forms.TextBox();
          this.label26 = new System.Windows.Forms.Label();
          this.label22 = new System.Windows.Forms.Label();
          this.label21 = new System.Windows.Forms.Label();
-         this.tbServiceType = new System.Windows.Forms.TextBox();
+         this.btnAddType = new System.Windows.Forms.TextBox();
          this.label51 = new System.Windows.Forms.Label();
-         this.dataGridView5 = new System.Windows.Forms.DataGridView();
+         this.dgvPackages = new System.Windows.Forms.DataGridView();
          this.label52 = new System.Windows.Forms.Label();
-         this.dgvService = new System.Windows.Forms.DataGridView();
-         this.tbServiceName = new System.Windows.Forms.TextBox();
+         this.dgvServices = new System.Windows.Forms.DataGridView();
+         this.btnAddServiceName = new System.Windows.Forms.TextBox();
          this.label54 = new System.Windows.Forms.Label();
          this.tabPage6 = new System.Windows.Forms.TabPage();
          this.textBox27 = new System.Windows.Forms.TextBox();
@@ -101,18 +101,18 @@ namespace Project381_Service_Premier
          this.button12 = new System.Windows.Forms.Button();
          this.label7 = new System.Windows.Forms.Label();
          this.label12 = new System.Windows.Forms.Label();
-         this.button1 = new System.Windows.Forms.Button();
-         this.button2 = new System.Windows.Forms.Button();
-         this.button3 = new System.Windows.Forms.Button();
-         this.button4 = new System.Windows.Forms.Button();
-         this.button5 = new System.Windows.Forms.Button();
+         this.btnCompletePackage = new System.Windows.Forms.Button();
+         this.btnCompleteService = new System.Windows.Forms.Button();
+         this.btnDeletePackage = new System.Windows.Forms.Button();
+         this.btnViewAllServices = new System.Windows.Forms.Button();
+         this.btnDeleteServices = new System.Windows.Forms.Button();
          this.label13 = new System.Windows.Forms.Label();
          this.label14 = new System.Windows.Forms.Label();
          this.label16 = new System.Windows.Forms.Label();
-         this.textBox1 = new System.Windows.Forms.TextBox();
-         this.textBox2 = new System.Windows.Forms.TextBox();
+         this.tbxPackageName = new System.Windows.Forms.TextBox();
+         this.tbxPackagelevel = new System.Windows.Forms.TextBox();
          this.label17 = new System.Windows.Forms.Label();
-         this.textBox3 = new System.Windows.Forms.TextBox();
+         this.tbxTotalInstances = new System.Windows.Forms.TextBox();
          this.label18 = new System.Windows.Forms.Label();
          this.lbxPackages = new System.Windows.Forms.ListBox();
          this.label19 = new System.Windows.Forms.Label();
@@ -123,9 +123,9 @@ namespace Project381_Service_Premier
          this.tabPage4.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.dgvTechnicians)).BeginInit();
          this.tabPage1.SuspendLayout();
-         ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.dgvService)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.dgvPackageServices)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.dgvPackages)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.dgvServices)).BeginInit();
          this.tabPage6.SuspendLayout();
          this.tabPage10.SuspendLayout();
          this.SuspendLayout();
@@ -542,35 +542,35 @@ namespace Project381_Service_Premier
          // 
          this.tabPage1.Controls.Add(this.label19);
          this.tabPage1.Controls.Add(this.lbxPackages);
-         this.tabPage1.Controls.Add(this.textBox3);
+         this.tabPage1.Controls.Add(this.tbxTotalInstances);
          this.tabPage1.Controls.Add(this.label18);
-         this.tabPage1.Controls.Add(this.textBox2);
+         this.tabPage1.Controls.Add(this.tbxPackagelevel);
          this.tabPage1.Controls.Add(this.label17);
-         this.tabPage1.Controls.Add(this.textBox1);
+         this.tabPage1.Controls.Add(this.tbxPackageName);
          this.tabPage1.Controls.Add(this.label16);
          this.tabPage1.Controls.Add(this.label14);
-         this.tabPage1.Controls.Add(this.button5);
-         this.tabPage1.Controls.Add(this.button4);
-         this.tabPage1.Controls.Add(this.button3);
-         this.tabPage1.Controls.Add(this.button2);
-         this.tabPage1.Controls.Add(this.button1);
+         this.tabPage1.Controls.Add(this.btnDeleteServices);
+         this.tabPage1.Controls.Add(this.btnViewAllServices);
+         this.tabPage1.Controls.Add(this.btnDeletePackage);
+         this.tabPage1.Controls.Add(this.btnCompleteService);
+         this.tabPage1.Controls.Add(this.btnCompletePackage);
          this.tabPage1.Controls.Add(this.label12);
          this.tabPage1.Controls.Add(this.label7);
-         this.tabPage1.Controls.Add(this.dataGridView4);
-         this.tabPage1.Controls.Add(this.rtbServiceSpec);
+         this.tabPage1.Controls.Add(this.dgvPackageServices);
+         this.tabPage1.Controls.Add(this.rtbServiceSpecification);
          this.tabPage1.Controls.Add(this.label25);
-         this.tabPage1.Controls.Add(this.textBox18);
+         this.tabPage1.Controls.Add(this.tbxAddName);
          this.tabPage1.Controls.Add(this.label24);
-         this.tabPage1.Controls.Add(this.textBox19);
+         this.tabPage1.Controls.Add(this.tbxAddCost);
          this.tabPage1.Controls.Add(this.label26);
          this.tabPage1.Controls.Add(this.label22);
          this.tabPage1.Controls.Add(this.label21);
-         this.tabPage1.Controls.Add(this.tbServiceType);
+         this.tabPage1.Controls.Add(this.btnAddType);
          this.tabPage1.Controls.Add(this.label51);
-         this.tabPage1.Controls.Add(this.dataGridView5);
+         this.tabPage1.Controls.Add(this.dgvPackages);
          this.tabPage1.Controls.Add(this.label52);
-         this.tabPage1.Controls.Add(this.dgvService);
-         this.tabPage1.Controls.Add(this.tbServiceName);
+         this.tabPage1.Controls.Add(this.dgvServices);
+         this.tabPage1.Controls.Add(this.btnAddServiceName);
          this.tabPage1.Controls.Add(this.label54);
          this.tabPage1.Location = new System.Drawing.Point(4, 22);
          this.tabPage1.Name = "tabPage1";
@@ -580,21 +580,21 @@ namespace Project381_Service_Premier
          this.tabPage1.Text = "Contract maintenance";
          this.tabPage1.UseVisualStyleBackColor = true;
          // 
-         // dataGridView4
+         // dgvPackageServices
          // 
-         this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-         this.dataGridView4.Location = new System.Drawing.Point(970, 129);
-         this.dataGridView4.Name = "dataGridView4";
-         this.dataGridView4.Size = new System.Drawing.Size(386, 196);
-         this.dataGridView4.TabIndex = 86;
+         this.dgvPackageServices.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+         this.dgvPackageServices.Location = new System.Drawing.Point(970, 129);
+         this.dgvPackageServices.Name = "dgvPackageServices";
+         this.dgvPackageServices.Size = new System.Drawing.Size(386, 196);
+         this.dgvPackageServices.TabIndex = 86;
          // 
-         // rtbServiceSpec
+         // rtbServiceSpecification
          // 
-         this.rtbServiceSpec.Location = new System.Drawing.Point(1048, 438);
-         this.rtbServiceSpec.Name = "rtbServiceSpec";
-         this.rtbServiceSpec.Size = new System.Drawing.Size(308, 83);
-         this.rtbServiceSpec.TabIndex = 85;
-         this.rtbServiceSpec.Text = "";
+         this.rtbServiceSpecification.Location = new System.Drawing.Point(1048, 438);
+         this.rtbServiceSpecification.Name = "rtbServiceSpecification";
+         this.rtbServiceSpecification.Size = new System.Drawing.Size(308, 83);
+         this.rtbServiceSpecification.TabIndex = 85;
+         this.rtbServiceSpecification.Text = "";
          // 
          // label25
          // 
@@ -605,12 +605,12 @@ namespace Project381_Service_Premier
          this.label25.TabIndex = 82;
          this.label25.Text = "Services";
          // 
-         // textBox18
+         // tbxAddName
          // 
-         this.textBox18.Location = new System.Drawing.Point(1048, 61);
-         this.textBox18.Name = "textBox18";
-         this.textBox18.Size = new System.Drawing.Size(308, 20);
-         this.textBox18.TabIndex = 80;
+         this.tbxAddName.Location = new System.Drawing.Point(1048, 61);
+         this.tbxAddName.Name = "tbxAddName";
+         this.tbxAddName.Size = new System.Drawing.Size(308, 20);
+         this.tbxAddName.TabIndex = 80;
          // 
          // label24
          // 
@@ -621,12 +621,12 @@ namespace Project381_Service_Premier
          this.label24.TabIndex = 77;
          this.label24.Text = "Name";
          // 
-         // textBox19
+         // tbxAddCost
          // 
-         this.textBox19.Location = new System.Drawing.Point(1048, 87);
-         this.textBox19.Name = "textBox19";
-         this.textBox19.Size = new System.Drawing.Size(308, 20);
-         this.textBox19.TabIndex = 81;
+         this.tbxAddCost.Location = new System.Drawing.Point(1048, 87);
+         this.tbxAddCost.Name = "tbxAddCost";
+         this.tbxAddCost.Size = new System.Drawing.Size(308, 20);
+         this.tbxAddCost.TabIndex = 81;
          // 
          // label26
          // 
@@ -657,12 +657,12 @@ namespace Project381_Service_Premier
          this.label21.TabIndex = 69;
          this.label21.Text = "Packages";
          // 
-         // tbServiceType
+         // btnAddType
          // 
-         this.tbServiceType.Location = new System.Drawing.Point(1048, 386);
-         this.tbServiceType.Name = "tbServiceType";
-         this.tbServiceType.Size = new System.Drawing.Size(308, 20);
-         this.tbServiceType.TabIndex = 62;
+         this.btnAddType.Location = new System.Drawing.Point(1048, 386);
+         this.btnAddType.Name = "btnAddType";
+         this.btnAddType.Size = new System.Drawing.Size(308, 20);
+         this.btnAddType.TabIndex = 62;
          // 
          // label51
          // 
@@ -673,13 +673,13 @@ namespace Project381_Service_Premier
          this.label51.TabIndex = 59;
          this.label51.Text = "Type";
          // 
-         // dataGridView5
+         // dgvPackages
          // 
-         this.dataGridView5.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-         this.dataGridView5.Location = new System.Drawing.Point(15, 35);
-         this.dataGridView5.Name = "dataGridView5";
-         this.dataGridView5.Size = new System.Drawing.Size(464, 486);
-         this.dataGridView5.TabIndex = 68;
+         this.dgvPackages.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+         this.dgvPackages.Location = new System.Drawing.Point(15, 35);
+         this.dgvPackages.Name = "dgvPackages";
+         this.dgvPackages.Size = new System.Drawing.Size(464, 486);
+         this.dgvPackages.TabIndex = 68;
          // 
          // label52
          // 
@@ -690,20 +690,20 @@ namespace Project381_Service_Premier
          this.label52.TabIndex = 60;
          this.label52.Text = "Specifications";
          // 
-         // dgvService
+         // dgvServices
          // 
-         this.dgvService.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-         this.dgvService.Location = new System.Drawing.Point(485, 35);
-         this.dgvService.Name = "dgvService";
-         this.dgvService.Size = new System.Drawing.Size(475, 486);
-         this.dgvService.TabIndex = 50;
+         this.dgvServices.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+         this.dgvServices.Location = new System.Drawing.Point(485, 35);
+         this.dgvServices.Name = "dgvServices";
+         this.dgvServices.Size = new System.Drawing.Size(475, 486);
+         this.dgvServices.TabIndex = 50;
          // 
-         // tbServiceName
+         // btnAddServiceName
          // 
-         this.tbServiceName.Location = new System.Drawing.Point(1048, 412);
-         this.tbServiceName.Name = "tbServiceName";
-         this.tbServiceName.Size = new System.Drawing.Size(308, 20);
-         this.tbServiceName.TabIndex = 63;
+         this.btnAddServiceName.Location = new System.Drawing.Point(1048, 412);
+         this.btnAddServiceName.Name = "btnAddServiceName";
+         this.btnAddServiceName.Size = new System.Drawing.Size(308, 20);
+         this.btnAddServiceName.TabIndex = 63;
          // 
          // label54
          // 
@@ -839,52 +839,53 @@ namespace Project381_Service_Premier
          this.label12.TabIndex = 88;
          this.label12.Text = "Add a service";
          // 
-         // button1
+         // btnCompletePackage
          // 
-         this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.button1.Location = new System.Drawing.Point(970, 331);
-         this.button1.Name = "button1";
-         this.button1.Size = new System.Drawing.Size(386, 25);
-         this.button1.TabIndex = 89;
-         this.button1.Text = "Complete package";
-         this.button1.UseVisualStyleBackColor = true;
+         this.btnCompletePackage.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.btnCompletePackage.Location = new System.Drawing.Point(970, 331);
+         this.btnCompletePackage.Name = "btnCompletePackage";
+         this.btnCompletePackage.Size = new System.Drawing.Size(386, 25);
+         this.btnCompletePackage.TabIndex = 89;
+         this.btnCompletePackage.Text = "Complete package";
+         this.btnCompletePackage.UseVisualStyleBackColor = true;
          // 
-         // button2
+         // btnCompleteService
          // 
-         this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.button2.Location = new System.Drawing.Point(970, 525);
-         this.button2.Name = "button2";
-         this.button2.Size = new System.Drawing.Size(386, 25);
-         this.button2.TabIndex = 90;
-         this.button2.Text = "Complete Service";
-         this.button2.UseVisualStyleBackColor = true;
+         this.btnCompleteService.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.btnCompleteService.Location = new System.Drawing.Point(970, 525);
+         this.btnCompleteService.Name = "btnCompleteService";
+         this.btnCompleteService.Size = new System.Drawing.Size(386, 25);
+         this.btnCompleteService.TabIndex = 90;
+         this.btnCompleteService.Text = "Complete Service";
+         this.btnCompleteService.UseVisualStyleBackColor = true;
          // 
-         // button3
+         // btnDeletePackage
          // 
-         this.button3.Location = new System.Drawing.Point(485, 526);
-         this.button3.Name = "button3";
-         this.button3.Size = new System.Drawing.Size(141, 20);
-         this.button3.TabIndex = 91;
-         this.button3.Text = "Delete package";
-         this.button3.UseVisualStyleBackColor = true;
+         this.btnDeletePackage.Location = new System.Drawing.Point(338, 525);
+         this.btnDeletePackage.Name = "btnDeletePackage";
+         this.btnDeletePackage.Size = new System.Drawing.Size(141, 20);
+         this.btnDeletePackage.TabIndex = 91;
+         this.btnDeletePackage.Text = "Delete package";
+         this.btnDeletePackage.UseVisualStyleBackColor = true;
+         this.btnDeletePackage.Click += new System.EventHandler(this.btnDeletePackage_Click);
          // 
-         // button4
+         // btnViewAllServices
          // 
-         this.button4.Location = new System.Drawing.Point(338, 525);
-         this.button4.Name = "button4";
-         this.button4.Size = new System.Drawing.Size(141, 21);
-         this.button4.TabIndex = 92;
-         this.button4.Text = "View all Services";
-         this.button4.UseVisualStyleBackColor = true;
+         this.btnViewAllServices.Location = new System.Drawing.Point(485, 525);
+         this.btnViewAllServices.Name = "btnViewAllServices";
+         this.btnViewAllServices.Size = new System.Drawing.Size(141, 21);
+         this.btnViewAllServices.TabIndex = 92;
+         this.btnViewAllServices.Text = "View all Services";
+         this.btnViewAllServices.UseVisualStyleBackColor = true;
          // 
-         // button5
+         // btnDeleteServices
          // 
-         this.button5.Location = new System.Drawing.Point(819, 525);
-         this.button5.Name = "button5";
-         this.button5.Size = new System.Drawing.Size(141, 22);
-         this.button5.TabIndex = 93;
-         this.button5.Text = "Delete Service";
-         this.button5.UseVisualStyleBackColor = true;
+         this.btnDeleteServices.Location = new System.Drawing.Point(819, 525);
+         this.btnDeleteServices.Name = "btnDeleteServices";
+         this.btnDeleteServices.Size = new System.Drawing.Size(141, 22);
+         this.btnDeleteServices.TabIndex = 93;
+         this.btnDeleteServices.Text = "Delete Service";
+         this.btnDeleteServices.UseVisualStyleBackColor = true;
          // 
          // label13
          // 
@@ -915,19 +916,19 @@ namespace Project381_Service_Premier
          this.label16.TabIndex = 95;
          this.label16.Text = "Package Name";
          // 
-         // textBox1
+         // tbxPackageName
          // 
-         this.textBox1.Location = new System.Drawing.Point(126, 585);
-         this.textBox1.Name = "textBox1";
-         this.textBox1.Size = new System.Drawing.Size(158, 20);
-         this.textBox1.TabIndex = 96;
+         this.tbxPackageName.Location = new System.Drawing.Point(126, 585);
+         this.tbxPackageName.Name = "tbxPackageName";
+         this.tbxPackageName.Size = new System.Drawing.Size(158, 20);
+         this.tbxPackageName.TabIndex = 96;
          // 
-         // textBox2
+         // tbxPackagelevel
          // 
-         this.textBox2.Location = new System.Drawing.Point(126, 612);
-         this.textBox2.Name = "textBox2";
-         this.textBox2.Size = new System.Drawing.Size(158, 20);
-         this.textBox2.TabIndex = 98;
+         this.tbxPackagelevel.Location = new System.Drawing.Point(126, 612);
+         this.tbxPackagelevel.Name = "tbxPackagelevel";
+         this.tbxPackagelevel.Size = new System.Drawing.Size(158, 20);
+         this.tbxPackagelevel.TabIndex = 98;
          // 
          // label17
          // 
@@ -938,12 +939,12 @@ namespace Project381_Service_Premier
          this.label17.TabIndex = 97;
          this.label17.Text = "Package Level";
          // 
-         // textBox3
+         // tbxTotalInstances
          // 
-         this.textBox3.Location = new System.Drawing.Point(126, 638);
-         this.textBox3.Name = "textBox3";
-         this.textBox3.Size = new System.Drawing.Size(158, 20);
-         this.textBox3.TabIndex = 100;
+         this.tbxTotalInstances.Location = new System.Drawing.Point(126, 638);
+         this.tbxTotalInstances.Name = "tbxTotalInstances";
+         this.tbxTotalInstances.Size = new System.Drawing.Size(158, 20);
+         this.tbxTotalInstances.TabIndex = 100;
          // 
          // label18
          // 
@@ -1003,9 +1004,9 @@ namespace Project381_Service_Premier
          ((System.ComponentModel.ISupportInitialize)(this.dgvTechnicians)).EndInit();
          this.tabPage1.ResumeLayout(false);
          this.tabPage1.PerformLayout();
-         ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.dgvService)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.dgvPackageServices)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.dgvPackages)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.dgvServices)).EndInit();
          this.tabPage6.ResumeLayout(false);
          this.tabPage6.PerformLayout();
          this.tabPage10.ResumeLayout(false);
@@ -1057,21 +1058,21 @@ namespace Project381_Service_Premier
       private System.Windows.Forms.Button btnSearchTechnician;
       private System.Windows.Forms.DataGridView dgvTechnicians;
       private System.Windows.Forms.TabPage tabPage1;
-      private System.Windows.Forms.DataGridView dataGridView4;
-      private System.Windows.Forms.RichTextBox rtbServiceSpec;
+      private System.Windows.Forms.DataGridView dgvPackageServices;
+      private System.Windows.Forms.RichTextBox rtbServiceSpecification;
       private System.Windows.Forms.Label label25;
-      private System.Windows.Forms.TextBox textBox18;
+      private System.Windows.Forms.TextBox tbxAddName;
       private System.Windows.Forms.Label label24;
-      private System.Windows.Forms.TextBox textBox19;
+      private System.Windows.Forms.TextBox tbxAddCost;
       private System.Windows.Forms.Label label26;
       private System.Windows.Forms.Label label22;
       private System.Windows.Forms.Label label21;
-      private System.Windows.Forms.TextBox tbServiceType;
+      private System.Windows.Forms.TextBox btnAddType;
       private System.Windows.Forms.Label label51;
-      private System.Windows.Forms.DataGridView dataGridView5;
+      private System.Windows.Forms.DataGridView dgvPackages;
       private System.Windows.Forms.Label label52;
-      private System.Windows.Forms.DataGridView dgvService;
-      private System.Windows.Forms.TextBox tbServiceName;
+      private System.Windows.Forms.DataGridView dgvServices;
+      private System.Windows.Forms.TextBox btnAddServiceName;
       private System.Windows.Forms.Label label54;
       private System.Windows.Forms.TabPage tabPage6;
       private System.Windows.Forms.TextBox textBox27;
@@ -1087,21 +1088,21 @@ namespace Project381_Service_Premier
       private System.Windows.Forms.TextBox txtTechnicianName;
       private System.Windows.Forms.Label label7;
       private System.Windows.Forms.Label label12;
-      private System.Windows.Forms.Button button1;
-      private System.Windows.Forms.Button button2;
+      private System.Windows.Forms.Button btnCompletePackage;
+      private System.Windows.Forms.Button btnCompleteService;
       private System.Windows.Forms.Label label13;
       private System.Windows.Forms.Label label19;
       private System.Windows.Forms.ListBox lbxPackages;
-      private System.Windows.Forms.TextBox textBox3;
+      private System.Windows.Forms.TextBox tbxTotalInstances;
       private System.Windows.Forms.Label label18;
-      private System.Windows.Forms.TextBox textBox2;
+      private System.Windows.Forms.TextBox tbxPackagelevel;
       private System.Windows.Forms.Label label17;
-      private System.Windows.Forms.TextBox textBox1;
+      private System.Windows.Forms.TextBox tbxPackageName;
       private System.Windows.Forms.Label label16;
       private System.Windows.Forms.Label label14;
-      private System.Windows.Forms.Button button5;
-      private System.Windows.Forms.Button button4;
-      private System.Windows.Forms.Button button3;
+      private System.Windows.Forms.Button btnDeleteServices;
+      private System.Windows.Forms.Button btnViewAllServices;
+      private System.Windows.Forms.Button btnDeletePackage;
       private System.Windows.Forms.Label label20;
    }
 }
