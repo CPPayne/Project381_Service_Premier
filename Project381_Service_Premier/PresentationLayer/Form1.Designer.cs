@@ -123,7 +123,6 @@ namespace Project381_Service_Premier.PresentationLayer
             this.label24 = new System.Windows.Forms.Label();
             this.textBox19 = new System.Windows.Forms.TextBox();
             this.label26 = new System.Windows.Forms.Label();
-            this.serviceList = new System.Windows.Forms.ListBox();
             this.btnAddService = new System.Windows.Forms.Button();
             this.label22 = new System.Windows.Forms.Label();
             this.button13 = new System.Windows.Forms.Button();
@@ -140,6 +139,7 @@ namespace Project381_Service_Premier.PresentationLayer
             this.tabPage10 = new System.Windows.Forms.TabPage();
             this.button12 = new System.Windows.Forms.Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.dataGridView4 = new System.Windows.Forms.DataGridView();
             this.tabPage6.SuspendLayout();
             this.tabPage5.SuspendLayout();
             this.tabControl4.SuspendLayout();
@@ -159,6 +159,7 @@ namespace Project381_Service_Premier.PresentationLayer
             ((System.ComponentModel.ISupportInitialize)(this.dgvService)).BeginInit();
             this.tabPage10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
             this.SuspendLayout();
             // 
             // tabPage6
@@ -977,6 +978,7 @@ namespace Project381_Service_Premier.PresentationLayer
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.dataGridView4);
             this.tabPage1.Controls.Add(this.rtbServiceSpec);
             this.tabPage1.Controls.Add(this.btnRemoveService);
             this.tabPage1.Controls.Add(this.label25);
@@ -984,7 +986,6 @@ namespace Project381_Service_Premier.PresentationLayer
             this.tabPage1.Controls.Add(this.label24);
             this.tabPage1.Controls.Add(this.textBox19);
             this.tabPage1.Controls.Add(this.label26);
-            this.tabPage1.Controls.Add(this.serviceList);
             this.tabPage1.Controls.Add(this.btnAddService);
             this.tabPage1.Controls.Add(this.label22);
             this.tabPage1.Controls.Add(this.button13);
@@ -1064,14 +1065,6 @@ namespace Project381_Service_Premier.PresentationLayer
             this.label26.Size = new System.Drawing.Size(76, 13);
             this.label26.TabIndex = 79;
             this.label26.Text = "Package cost:";
-            // 
-            // serviceList
-            // 
-            this.serviceList.FormattingEnabled = true;
-            this.serviceList.Location = new System.Drawing.Point(278, 583);
-            this.serviceList.Name = "serviceList";
-            this.serviceList.Size = new System.Drawing.Size(100, 95);
-            this.serviceList.TabIndex = 75;
             // 
             // btnAddService
             // 
@@ -1210,6 +1203,14 @@ namespace Project381_Service_Premier.PresentationLayer
             // 
             this.errorProvider1.ContainerControl = this;
             // 
+            // dataGridView4
+            // 
+            this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView4.Location = new System.Drawing.Point(229, 593);
+            this.dataGridView4.Name = "dataGridView4";
+            this.dataGridView4.Size = new System.Drawing.Size(167, 90);
+            this.dataGridView4.TabIndex = 86;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1244,6 +1245,7 @@ namespace Project381_Service_Premier.PresentationLayer
             ((System.ComponentModel.ISupportInitialize)(this.dgvService)).EndInit();
             this.tabPage10.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1336,7 +1338,6 @@ namespace Project381_Service_Premier.PresentationLayer
         private System.Windows.Forms.Button button13;
         private System.Windows.Forms.Button button11;
         private System.Windows.Forms.Button button10;
-        private System.Windows.Forms.ListBox serviceList;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.TextBox textBox18;
         private System.Windows.Forms.Label label24;
@@ -1360,6 +1361,7 @@ namespace Project381_Service_Premier.PresentationLayer
       private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Button btnRemoveService;
         private System.Windows.Forms.RichTextBox rtbServiceSpec;
+        private System.Windows.Forms.DataGridView dataGridView4;
     }
 }
 
