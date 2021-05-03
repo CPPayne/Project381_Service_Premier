@@ -116,6 +116,7 @@ namespace Project381_Service_Premier.PresentationLayer
             this.btnAnswerCall = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.rtbServiceSpec = new System.Windows.Forms.RichTextBox();
             this.btnEditService = new System.Windows.Forms.Button();
             this.btnRemoveService = new System.Windows.Forms.Button();
             this.label25 = new System.Windows.Forms.Label();
@@ -140,7 +141,6 @@ namespace Project381_Service_Premier.PresentationLayer
             this.tabPage10 = new System.Windows.Forms.TabPage();
             this.button12 = new System.Windows.Forms.Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.rtbServiceSpec = new System.Windows.Forms.RichTextBox();
             this.tabPage6.SuspendLayout();
             this.tabPage5.SuspendLayout();
             this.tabControl4.SuspendLayout();
@@ -1009,6 +1009,14 @@ namespace Project381_Service_Premier.PresentationLayer
             this.tabPage1.UseVisualStyleBackColor = true;
             this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
             // 
+            // rtbServiceSpec
+            // 
+            this.rtbServiceSpec.Location = new System.Drawing.Point(860, 649);
+            this.rtbServiceSpec.Name = "rtbServiceSpec";
+            this.rtbServiceSpec.Size = new System.Drawing.Size(172, 53);
+            this.rtbServiceSpec.TabIndex = 85;
+            this.rtbServiceSpec.Text = "";
+            // 
             // btnEditService
             // 
             this.btnEditService.Location = new System.Drawing.Point(1181, 604);
@@ -1212,14 +1220,6 @@ namespace Project381_Service_Premier.PresentationLayer
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
-            // 
-            // rtbServiceSpec
-            // 
-            this.rtbServiceSpec.Location = new System.Drawing.Point(860, 649);
-            this.rtbServiceSpec.Name = "rtbServiceSpec";
-            this.rtbServiceSpec.Size = new System.Drawing.Size(172, 53);
-            this.rtbServiceSpec.TabIndex = 85;
-            this.rtbServiceSpec.Text = "";
             // 
             // Form1
             // 
