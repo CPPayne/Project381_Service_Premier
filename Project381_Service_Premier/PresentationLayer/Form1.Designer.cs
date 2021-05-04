@@ -857,6 +857,7 @@ namespace Project381_Service_Premier
             // 
             // dgvPackages
             // 
+            this.dgvPackages.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvPackages.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPackages.Location = new System.Drawing.Point(15, 35);
             this.dgvPackages.Name = "dgvPackages";
@@ -874,6 +875,7 @@ namespace Project381_Service_Premier
             // 
             // dgvServices
             // 
+            this.dgvServices.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvServices.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvServices.Location = new System.Drawing.Point(485, 35);
             this.dgvServices.Name = "dgvServices";

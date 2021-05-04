@@ -85,6 +85,7 @@ namespace Project381_Service_Premier.DataAccessLayer
                     conn2.Open();
                     command2 = new SqlCommand(query2, conn2);
                     command2.ExecuteNonQuery();
+                    conn2.Close();
                 }
                 MessageBox.Show("Added");
 
@@ -96,7 +97,7 @@ namespace Project381_Service_Premier.DataAccessLayer
             finally
             {
                 conn.Close();
-                conn2.Close();
+              
 
             }
         }

@@ -94,13 +94,16 @@ namespace Project381_Service_Premier
         private void btnCompletePackage_Click(object sender, EventArgs e)
         {
             
-            string packageName = txtPackageName.Text;
+            string packageName = txtAddPName.Text;
             Decimal packageCost = Convert.ToDecimal(txtPackageCost.Text);
 
             if (servicesInPackage.Count != 0)
             {
                 Package newPackage = new Package(packageName, packageCost, servicesInPackage);
                 newPackage.addPackageToDB();
+                txtAddPName.Clear();
+                txtPackageCost.Clear();
+                updatePakcageDBGRID();
             }
             else {
                 MessageBox.Show("No Services Added");
