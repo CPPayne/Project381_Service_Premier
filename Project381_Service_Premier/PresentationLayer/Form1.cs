@@ -17,21 +17,33 @@ namespace Project381_Service_Premier
         {
             InitializeComponent();
         }
-        BindingSource source = new BindingSource();
+        BindingSource sourcePackage = new BindingSource();
+        BindingSource sourceServicePackage = new BindingSource();
         List<Service> allServices = new List<Service>();
+
+
+        List<Service> servicesInPackage = new List<Service>();
 
         private void updateServiceDBGRID()
         {
             Service svc = new Service();
 
             allServices = svc.getAllServices();
-            source.DataSource = allServices;
-            dgvServices.DataSource = source;
+            sourcePackage.DataSource = allServices;
+            dgvServices.DataSource = sourcePackage;
+        }
+
+        private void updatePackageServiceDBGRID()
+        {
+
+            sourceServicePackage.DataSource = servicesInPackage;
+            dgvPackageServices.DataSource = sourceServicePackage;
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
             updateServiceDBGRID();
+            updatePackageServiceDBGRID();
         }
 
       private void btnAnswerCall_Click(object sender, EventArgs e)
@@ -58,6 +70,36 @@ namespace Project381_Service_Premier
             txtAddServiceName.Clear();
             rtbServiceSpecification.Clear();
 
+        }
+
+        private void btnViewAllServices_Click(object sender, EventArgs e)
+        {
+            updateServiceDBGRID();
+        }
+
+        private void btnCompletePackage_Click(object sender, EventArgs e)
+        {
+            
+            string packageName = txtPackageName.Text;
+            double packageCost = double.Parse(txtPackageCost.Text);
+
+            if (servicesInPackage.Count != 0)
+            {
+                Package newPackage = new Package(packageName, packageCost, servicesInPackage);
+            }
+            else {
+                MessageBox.Show("No Services Added");
+            }
+            
+
+        }
+
+        private void btnAddServiceToPackage_Click(object sender, EventArgs e)
+        {
+
+
+
+            updatePackageServiceDBGRID();
         }
     }
 }

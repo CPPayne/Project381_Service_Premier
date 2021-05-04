@@ -697,6 +697,7 @@ namespace Project381_Service_Premier
             this.btnViewAllServices.TabIndex = 92;
             this.btnViewAllServices.Text = "View all Services";
             this.btnViewAllServices.UseVisualStyleBackColor = true;
+            this.btnViewAllServices.Click += new System.EventHandler(this.btnViewAllServices_Click);
             // 
             // btnDeletePackage
             // 
@@ -728,6 +729,7 @@ namespace Project381_Service_Premier
             this.btnCompletePackage.TabIndex = 89;
             this.btnCompletePackage.Text = "Complete package";
             this.btnCompletePackage.UseVisualStyleBackColor = true;
+            this.btnCompletePackage.Click += new System.EventHandler(this.btnCompletePackage_Click);
             // 
             // label12
             // 
@@ -996,6 +998,7 @@ namespace Project381_Service_Premier
             this.btnAddServiceToPackage.TabIndex = 103;
             this.btnAddServiceToPackage.Text = "Add Service";
             this.btnAddServiceToPackage.UseVisualStyleBackColor = true;
+            this.btnAddServiceToPackage.Click += new System.EventHandler(this.btnAddServiceToPackage_Click);
             // 
             // Form1
             // 
