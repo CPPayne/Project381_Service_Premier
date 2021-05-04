@@ -139,5 +139,10 @@ namespace Project381_Service_Premier
             Service NS = new Service(sType, sName, sSpec);
             MessageBox.Show(NS.getID());
         }
+
+        private void dgvPackages_SelectionChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -863,6 +863,7 @@ namespace Project381_Service_Premier
             this.dgvPackages.Name = "dgvPackages";
             this.dgvPackages.Size = new System.Drawing.Size(464, 486);
             this.dgvPackages.TabIndex = 68;
+            this.dgvPackages.SelectionChanged += new System.EventHandler(this.dgvPackages_SelectionChanged);
             // 
             // label52
             // 
