@@ -257,17 +257,15 @@ namespace Project381_Service_Premier.DataAccessLayer
             
             try
             {
-                //read data SqlDataReader
-                reader = command.ExecuteReader();
-                if (reader.Read())
-                {
-                    //Store each collumn value in student class variables/field
-                    objService.SName = reader[0].ToString();
-                    objService.SType = reader[1].ToString();
-                    objService.SSpecifications = reader[2].ToString();
-                   
 
-                    //Add field values to a Student type list
+                reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+
+                    objService.SName = reader.GetValue(0).ToString();
+                    objService.SType = reader.GetValue(1).ToString();
+                    objService.SSpecifications = reader.GetValue(2).ToString();
+
                     allServices.Add(new Service(objService.SName, objService.SType, objService.SSpecifications));
                 }
             }
@@ -279,7 +277,6 @@ namespace Project381_Service_Premier.DataAccessLayer
             {
                 conn.Close();
             }
-
             return allServices;
         }
 
