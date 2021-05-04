@@ -117,6 +117,7 @@ namespace Project381_Service_Premier
             this.button9 = new System.Windows.Forms.Button();
             this.tabPage10 = new System.Windows.Forms.TabPage();
             this.button12 = new System.Windows.Forms.Button();
+            this.btnAddServiceToPackage = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.CallCentre.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -560,6 +561,7 @@ namespace Project381_Service_Premier
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.btnAddServiceToPackage);
             this.tabPage1.Controls.Add(this.label19);
             this.tabPage1.Controls.Add(this.lbxPackages);
             this.tabPage1.Controls.Add(this.tbxTotalInstances);
@@ -709,9 +711,9 @@ namespace Project381_Service_Premier
             // btnCompleteService
             // 
             this.btnCompleteService.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCompleteService.Location = new System.Drawing.Point(970, 525);
+            this.btnCompleteService.Location = new System.Drawing.Point(1048, 525);
             this.btnCompleteService.Name = "btnCompleteService";
-            this.btnCompleteService.Size = new System.Drawing.Size(386, 25);
+            this.btnCompleteService.Size = new System.Drawing.Size(308, 25);
             this.btnCompleteService.TabIndex = 90;
             this.btnCompleteService.Text = "Create Service";
             this.btnCompleteService.UseVisualStyleBackColor = true;
@@ -720,9 +722,9 @@ namespace Project381_Service_Premier
             // btnCompletePackage
             // 
             this.btnCompletePackage.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCompletePackage.Location = new System.Drawing.Point(970, 331);
+            this.btnCompletePackage.Location = new System.Drawing.Point(1048, 331);
             this.btnCompletePackage.Name = "btnCompletePackage";
-            this.btnCompletePackage.Size = new System.Drawing.Size(386, 25);
+            this.btnCompletePackage.Size = new System.Drawing.Size(308, 25);
             this.btnCompletePackage.TabIndex = 89;
             this.btnCompletePackage.Text = "Complete package";
             this.btnCompletePackage.UseVisualStyleBackColor = true;
@@ -750,9 +752,9 @@ namespace Project381_Service_Premier
             // dgvPackageServices
             // 
             this.dgvPackageServices.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPackageServices.Location = new System.Drawing.Point(970, 129);
+            this.dgvPackageServices.Location = new System.Drawing.Point(1048, 129);
             this.dgvPackageServices.Name = "dgvPackageServices";
-            this.dgvPackageServices.Size = new System.Drawing.Size(386, 196);
+            this.dgvPackageServices.Size = new System.Drawing.Size(308, 145);
             this.dgvPackageServices.TabIndex = 86;
             // 
             // rtbServiceSpecification
@@ -766,7 +768,7 @@ namespace Project381_Service_Premier
             // label25
             // 
             this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(994, 113);
+            this.label25.Location = new System.Drawing.Point(994, 129);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(48, 13);
             this.label25.TabIndex = 82;
@@ -986,6 +988,15 @@ namespace Project381_Service_Premier
             this.button12.Text = "button12";
             this.button12.UseVisualStyleBackColor = true;
             // 
+            // btnAddServiceToPackage
+            // 
+            this.btnAddServiceToPackage.Location = new System.Drawing.Point(1048, 292);
+            this.btnAddServiceToPackage.Name = "btnAddServiceToPackage";
+            this.btnAddServiceToPackage.Size = new System.Drawing.Size(306, 23);
+            this.btnAddServiceToPackage.TabIndex = 103;
+            this.btnAddServiceToPackage.Text = "Add Service";
+            this.btnAddServiceToPackage.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1105,6 +1116,7 @@ namespace Project381_Service_Premier
       private System.Windows.Forms.Button btnViewAllServices;
       private System.Windows.Forms.Button btnDeletePackage;
       private System.Windows.Forms.Label label20;
-   }
+        private System.Windows.Forms.Button btnAddServiceToPackage;
+    }
 }
 
