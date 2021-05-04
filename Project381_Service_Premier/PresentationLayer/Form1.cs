@@ -19,13 +19,19 @@ namespace Project381_Service_Premier
         }
         BindingSource source = new BindingSource();
         List<Service> allServices = new List<Service>();
-        private void Form1_Load(object sender, EventArgs e)
+
+        private void updateServiceDBGRID()
         {
             Service svc = new Service();
 
             allServices = svc.getAllServices();
             source.DataSource = allServices;
             dgvServices.DataSource = source;
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            updateServiceDBGRID();
         }
 
       private void btnAnswerCall_Click(object sender, EventArgs e)
@@ -46,6 +52,7 @@ namespace Project381_Service_Premier
 
             Service newService = new Service(serviceType, serviceName, serviceDescription);
             newService.addServiceToDB();
+            updateServiceDBGRID();
 
             txtAddServiceType.Clear();
             txtAddServiceName.Clear();
