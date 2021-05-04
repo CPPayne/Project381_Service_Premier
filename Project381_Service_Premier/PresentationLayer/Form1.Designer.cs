@@ -74,6 +74,7 @@ namespace Project381_Service_Premier
             this.btnSearchTechnician = new System.Windows.Forms.Button();
             this.dgvTechnicians = new System.Windows.Forms.DataGridView();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.btnAddServiceToPackage = new System.Windows.Forms.Button();
             this.label19 = new System.Windows.Forms.Label();
             this.lbxPackages = new System.Windows.Forms.ListBox();
             this.tbxTotalInstances = new System.Windows.Forms.TextBox();
@@ -117,7 +118,6 @@ namespace Project381_Service_Premier
             this.button9 = new System.Windows.Forms.Button();
             this.tabPage10 = new System.Windows.Forms.TabPage();
             this.button12 = new System.Windows.Forms.Button();
-            this.btnAddServiceToPackage = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.CallCentre.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -602,6 +602,16 @@ namespace Project381_Service_Premier
             this.tabPage1.Text = "Contract maintenance";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // btnAddServiceToPackage
+            // 
+            this.btnAddServiceToPackage.Location = new System.Drawing.Point(1048, 292);
+            this.btnAddServiceToPackage.Name = "btnAddServiceToPackage";
+            this.btnAddServiceToPackage.Size = new System.Drawing.Size(306, 23);
+            this.btnAddServiceToPackage.TabIndex = 103;
+            this.btnAddServiceToPackage.Text = "Add Service";
+            this.btnAddServiceToPackage.UseVisualStyleBackColor = true;
+            this.btnAddServiceToPackage.Click += new System.EventHandler(this.btnAddServiceToPackage_Click);
+            // 
             // label19
             // 
             this.label19.AutoSize = true;
@@ -688,6 +698,7 @@ namespace Project381_Service_Premier
             this.btnDeleteServices.TabIndex = 93;
             this.btnDeleteServices.Text = "Delete Service";
             this.btnDeleteServices.UseVisualStyleBackColor = true;
+            this.btnDeleteServices.Click += new System.EventHandler(this.btnDeleteServices_Click);
             // 
             // btnViewAllServices
             // 
@@ -868,6 +879,7 @@ namespace Project381_Service_Premier
             this.dgvServices.Name = "dgvServices";
             this.dgvServices.Size = new System.Drawing.Size(475, 486);
             this.dgvServices.TabIndex = 50;
+            this.dgvServices.SelectionChanged += new System.EventHandler(this.dgvServices_SelectionChanged);
             // 
             // txtAddServiceName
             // 
@@ -989,16 +1001,6 @@ namespace Project381_Service_Premier
             this.button12.TabIndex = 5;
             this.button12.Text = "button12";
             this.button12.UseVisualStyleBackColor = true;
-            // 
-            // btnAddServiceToPackage
-            // 
-            this.btnAddServiceToPackage.Location = new System.Drawing.Point(1048, 292);
-            this.btnAddServiceToPackage.Name = "btnAddServiceToPackage";
-            this.btnAddServiceToPackage.Size = new System.Drawing.Size(306, 23);
-            this.btnAddServiceToPackage.TabIndex = 103;
-            this.btnAddServiceToPackage.Text = "Add Service";
-            this.btnAddServiceToPackage.UseVisualStyleBackColor = true;
-            this.btnAddServiceToPackage.Click += new System.EventHandler(this.btnAddServiceToPackage_Click);
             // 
             // Form1
             // 

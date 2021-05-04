@@ -17,20 +17,34 @@ namespace Project381_Service_Premier
         {
             InitializeComponent();
         }
-        BindingSource sourcePackage = new BindingSource();
+        BindingSource sourceAllService = new BindingSource();
+        BindingSource sourceAllPackages = new BindingSource();
+
         BindingSource sourceServicePackage = new BindingSource();
         List<Service> allServices = new List<Service>();
-
+        List<Package> allPackages = new List<Package>();
 
         List<Service> servicesInPackage = new List<Service>();
+
+        string sType;
+        string sName;
+        string sSpec;
 
         private void updateServiceDBGRID()
         {
             Service svc = new Service();
 
             allServices = svc.getAllServices();
-            sourcePackage.DataSource = allServices;
-            dgvServices.DataSource = sourcePackage;
+            sourceAllService.DataSource = allServices;
+            dgvServices.DataSource = sourceAllService;
+        }
+        private void updatePakcageDBGRID()
+        {
+            Package pgs = new Package();
+
+            allPackages = pgs.getAllPackages();
+            sourceAllPackages.DataSource = allPackages;
+            dgvPackages.DataSource = sourceAllPackages;
         }
 
         private void updatePackageServiceDBGRID()
@@ -43,7 +57,7 @@ namespace Project381_Service_Premier
         private void Form1_Load(object sender, EventArgs e)
         {
             updateServiceDBGRID();
-            updatePackageServiceDBGRID();
+            updatePakcageDBGRID();
         }
 
       private void btnAnswerCall_Click(object sender, EventArgs e)
@@ -81,11 +95,12 @@ namespace Project381_Service_Premier
         {
             
             string packageName = txtPackageName.Text;
-            double packageCost = double.Parse(txtPackageCost.Text);
+            Decimal packageCost = Convert.ToDecimal(txtPackageCost.Text);
 
             if (servicesInPackage.Count != 0)
             {
                 Package newPackage = new Package(packageName, packageCost, servicesInPackage);
+                newPackage.addPackageToDB();
             }
             else {
                 MessageBox.Show("No Services Added");
@@ -96,10 +111,30 @@ namespace Project381_Service_Premier
 
         private void btnAddServiceToPackage_Click(object sender, EventArgs e)
         {
+            Service newService = new Service(sType, sName, sSpec);
+            servicesInPackage.Add(newService);
+            foreach(Service serv in servicesInPackage)
+            {
+                MessageBox.Show(serv.SType);
+            }
 
+            //sourceServicePackage.DataSource = servicesInPackage;
+            //dgvPackageServices.DataSource = sourceServicePackage;
+            //updatePackageServiceDBGRID();
+        }
 
+        private void dgvServices_SelectionChanged(object sender, EventArgs e)
+        {
+            Service selectedService = (Service)sourceAllService.Current;
+            sType = selectedService.SType;
+            sName = selectedService.SName;
+            sSpec = selectedService.SSpecifications;
+        }
 
-            updatePackageServiceDBGRID();
+        private void btnDeleteServices_Click(object sender, EventArgs e)
+        {
+            Service NS = new Service(sType, sName, sSpec);
+            MessageBox.Show(NS.getID());
         }
     }
 }

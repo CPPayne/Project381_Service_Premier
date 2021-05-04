@@ -8,18 +8,22 @@ namespace Project381_Service_Premier.BusinessLayer
    class Package
    {
        private string packageName;
-       private double cost;
-       private List<Service> Services;
+       private Decimal cost;
+       private List<Service> services;
 
         public string PackageName { get => packageName; set => packageName = value; }
-        public double Cost { get => cost; set => cost = value; }
-        internal List<Service> Services1 { get => Services; set => Services = value; }
+        public Decimal Cost { get => cost; set => cost = value; }
+        internal List<Service> Services { get => services; set => services = value; }
 
-        public Package(string packageName, double cost, List<Service> services)
+        public Package(string packageName, Decimal cost, List<Service> services)
         {
             this.PackageName = packageName;
             this.Cost = cost;
-            Services1 = services;
+            Services = services;
+        }
+        public Package()
+        {
+
         }
 
         public override string ToString()
@@ -33,7 +37,14 @@ namespace Project381_Service_Premier.BusinessLayer
             fh.addPackage(this.packageName, this.cost, this.Services);
         }
 
-      public void createService()
+
+        public List<Package> getAllPackages()
+        {
+            FileHandler fh = new FileHandler();
+            return fh.getAllPackages();
+        }
+
+        public void createService()
       {
 
       }

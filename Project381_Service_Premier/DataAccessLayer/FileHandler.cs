@@ -16,16 +16,19 @@ namespace Project381_Service_Premier.DataAccessLayer
 
         //Set connection string
         string connect = "Data Source=.; Initial Catalog= servicePremierDB; Integrated Security= SSPI";
-        SqlConnection conn;     //Declare SqlConnection object
-        SqlCommand command;     //Declare SqlCommand object
-        SqlDataReader reader;   //Declare SqlDataReader object
-
+        //SqlConnection conn;
+        //SqlConnection conn2; //Declare SqlConnection object
+        //SqlCommand command;     //Declare SqlCommand object
+        //SqlDataReader reader;   //Declare SqlDataReader object
+        //SqlDataReader reader2;   //Declare SqlDataReader object
         //Declare Student object
         //Service objStudent = new Student();
 
         //Register method
         public void addService(string sType, string sName, string sSpecifications)
         {
+            SqlConnection conn;
+            SqlCommand command;
             string query = @"INSERT INTO ServiceC VALUES ( '" + sType + "', '" + sName + "', '" + sSpecifications + "' )";
 
             conn = new SqlConnection(connect);
@@ -49,13 +52,18 @@ namespace Project381_Service_Premier.DataAccessLayer
                 conn.Close();
             }
         }
-        public void addPackage(string pName, double pCost, List<Service> packageServices)
+        public void addPackage(string pName, Decimal pCost, List<Service> packageServices)
         {
-            string packageID;
-            string serviceID;
-            string query = @"INSERT INTO pPackage VALUES ( '" + pName + "', '" + pCost + "' )";
+            SqlConnection conn = new SqlConnection(connect);
+            SqlCommand command;
+            SqlConnection conn2 = new SqlConnection(connect); ;
+            SqlCommand command2;
 
-            conn = new SqlConnection(connect);
+            int packageID;
+            int serviceID;
+            string query = @"INSERT INTO PPackage VALUES ( '" + pName + "', '" + pCost + "' )";
+
+            
 
             conn.Open();
 
@@ -67,15 +75,18 @@ namespace Project381_Service_Premier.DataAccessLayer
             try
             {
                 command.ExecuteNonQuery();
-                packageID = getPackageID(pName);
+                packageID = int.Parse(getPackageID(pName));
                 foreach (Service service in packageServices)
                 {
-                    serviceID = getServiceID(service.SName);
+                    serviceID = int.Parse(getServiceID(service.SName));
                     string query2 = @"INSERT INTO Service_Packages VALUES ( '" + packageID + "', '" + serviceID + "' )";
-
-                    SqlCommand command2 = new SqlCommand(query2, conn);
+                   
+                    
+                    conn2.Open();
+                    command2 = new SqlCommand(query2, conn2);
                     command2.ExecuteNonQuery();
                 }
+                MessageBox.Show("Added");
 
             }
             catch (Exception ex)
@@ -85,6 +96,8 @@ namespace Project381_Service_Premier.DataAccessLayer
             finally
             {
                 conn.Close();
+                conn2.Close();
+
             }
         }
 
@@ -242,7 +255,9 @@ namespace Project381_Service_Premier.DataAccessLayer
 
         public List<Service> getAllServices()
         {
-            
+            SqlConnection conn = new SqlConnection(connect);
+            SqlCommand command;
+            SqlDataReader reader;
 
             string query = @"SELECT * FROM ServiceC";
 
@@ -262,9 +277,9 @@ namespace Project381_Service_Premier.DataAccessLayer
                 while (reader.Read())
                 {
 
-                    objService.SName = reader.GetValue(0).ToString();
-                    objService.SType = reader.GetValue(1).ToString();
-                    objService.SSpecifications = reader.GetValue(2).ToString();
+                    objService.SName = reader.GetValue(1).ToString();
+                    objService.SType = reader.GetValue(2).ToString();
+                    objService.SSpecifications = reader.GetValue(3).ToString();
 
                     allServices.Add(new Service(objService.SName, objService.SType, objService.SSpecifications));
                 }
@@ -280,9 +295,98 @@ namespace Project381_Service_Premier.DataAccessLayer
             return allServices;
         }
 
+        public List<Package> getAllPackages()
+        {
+            SqlConnection conn = new SqlConnection(connect);
+            SqlCommand command;
+            SqlDataReader reader;
+
+            string query = @"SELECT * FROM PPackage";
+
+            Package objPackage = new Package();
+
+            conn.Open();
+
+            command = new SqlCommand(query, conn);
+            List<Package> allPackages = new List<Package>();
+
+
+            try
+            {
+
+                reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+
+                    string packID = reader.GetValue(0).ToString();
+                    objPackage.PackageName = reader.GetValue(1).ToString();
+                    objPackage.Cost = Decimal.Parse(reader.GetValue(2).ToString());
+                    //Maybe convert string to int if error.
+                    objPackage.Services = getServicesForPackage(packID);
+
+
+
+                    allPackages.Add(new Package(objPackage.PackageName, objPackage.Cost, objPackage.Services));
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return allPackages;
+        }
+
+        public List<Service> getServicesForPackage(string packageID)
+        {
+            SqlConnection conn = new SqlConnection(connect);
+            SqlCommand command;
+            SqlDataReader reader;
+
+            string query = @"SELECT * FROM ServiceC WHERE ServiceID IN (SELECT ServiceID FROM Service_Packages WHERE PackageID = '" + packageID + "')";
+
+            Service objService = new Service();
+
+            conn.Open();
+
+            command = new SqlCommand(query, conn);
+            List<Service> servicesForPack = new List<Service>();
+
+
+            try
+            {
+
+                reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+
+                    objService.SName = reader.GetValue(1).ToString();
+                    objService.SType = reader.GetValue(2).ToString();
+                    objService.SSpecifications = reader.GetValue(3).ToString();
+
+                    servicesForPack.Add(new Service(objService.SName, objService.SType, objService.SSpecifications));
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return servicesForPack;
+        }
+
         public string getPackageID(string name)
         {
-
+            SqlConnection conn = new SqlConnection(connect);
+            SqlCommand command;
+            SqlDataReader reader;
 
             string query = @"SELECT * FROM pPackage WHERE PackageName = ('" + name + "')";
 
@@ -323,7 +427,9 @@ namespace Project381_Service_Premier.DataAccessLayer
 
         public string getServiceID(string name)
         {
-
+            SqlConnection conn = new SqlConnection(connect);
+            SqlCommand command;
+            SqlDataReader reader;
 
             string query = @"SELECT * FROM ServiceC WHERE ServiceName = ('" + name + "')";
 
@@ -364,6 +470,9 @@ namespace Project381_Service_Premier.DataAccessLayer
         //Update method
         public void Update(int sID, string sName, string sSurnane, string cID)
         {
+            SqlConnection conn = new SqlConnection(connect);
+            SqlCommand command;
+            SqlDataReader reader;
             string query = @"UPDATE Students SET StudentID = ('" + sID + "'), FirstName = ('" + sName + "'), " +
                 "LastName = ('" + sSurnane + "'), CourseID = ('" + cID + "') WHERE StudentID = ('" + sID + "')";
 

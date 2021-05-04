@@ -47,7 +47,14 @@ namespace Project381_Service_Premier.BusinessLayer
          return base.GetHashCode();
       }
 
-      public override string ToString()
+        public string getID()
+        {
+            FileHandler fh = new FileHandler();
+
+            return fh.getServiceID(this.sName);
+        }
+
+        public override string ToString()
       {
          return base.ToString();
       }
