@@ -17,11 +17,16 @@ namespace Project381_Service_Premier
         {
             InitializeComponent();
         }
+        BindingSource source = new BindingSource();
+        List<Service> allServices = new List<Service>();
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            Service svc = new Service();
 
-      private void Form1_Load(object sender, EventArgs e)
-      {
-
-      }
+            allServices = svc.getAllServices();
+            source.DataSource = allServices;
+            dgvServices.DataSource = source;
+        }
 
       private void btnAnswerCall_Click(object sender, EventArgs e)
       {

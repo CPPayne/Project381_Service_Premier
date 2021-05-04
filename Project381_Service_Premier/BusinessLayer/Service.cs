@@ -1,4 +1,5 @@
 ﻿using Project381_Service_Premier.DataAccessLayer;
+using System.Collections.Generic;
 
 namespace Project381_Service_Premier.BusinessLayer
 {
@@ -15,7 +16,18 @@ namespace Project381_Service_Premier.BusinessLayer
          this.SSpecifications = sSpecifications;
       }
 
-      public void addServiceToDB()
+      public Service()
+      {
+
+      }
+        
+        public List<Service> getAllServices()
+        {
+            FileHandler fh = new FileHandler();
+            return fh.getAllServices();
+        }
+
+        public void addServiceToDB()
       {
          FileHandler dbaccess = new FileHandler();
          dbaccess.addService(sType, sName, sSpecifications);

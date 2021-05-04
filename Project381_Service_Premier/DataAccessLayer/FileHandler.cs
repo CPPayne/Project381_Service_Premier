@@ -195,23 +195,66 @@ namespace Project381_Service_Premier.DataAccessLayer
 
         //    return myStudent;
         //}
-        /*
+        
         //Search method
-        public List<Student> Search(int sID)
+        //public List<Student> Search(int sID)
+        //{
+        //    //query select all collumns provided stdID = value
+
+        //    string query = @"SELECT * FROM Students WHERE StudentID = ('" + sID + "')";
+
+        //    //connect
+        //    conn = new SqlConnection(connect);
+
+        //    conn.Open();
+
+        //    command = new SqlCommand(query, conn);
+        //    List<Student> myStudent = new List<Student>();
+
+        //    //run query command
+        //    try
+        //    {
+        //        //read data SqlDataReader
+        //        reader = command.ExecuteReader();
+        //        if (reader.Read())
+        //        {
+        //            //Store each collumn value in student class variables/field
+        //            objStudent.StudentID = int.Parse(reader[0].ToString());
+        //            objStudent.StudentName = reader[1].ToString();
+        //            objStudent.StudentSurname = reader[2].ToString();
+        //            objStudent.CourseID = reader[3].ToString();
+
+        //            //Add field values to a Student type list
+        //            myStudent.Add(new Student(objStudent.StudentID, objStudent.StudentName, objStudent.StudentSurname, objStudent.CourseID));
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show("Error: " + ex.Message);
+        //    }
+        //    finally
+        //    {
+        //        conn.Close();
+        //    }
+
+        //    return myStudent;
+        //}
+
+        public List<Service> getAllServices()
         {
-            //query select all collumns provided stdID = value
+            
 
-            string query = @"SELECT * FROM Students WHERE StudentID = ('" + sID + "')";
+            string query = @"SELECT * FROM ServiceC";
 
-            //connect
+            Service objService = new Service();
             conn = new SqlConnection(connect);
 
             conn.Open();
 
             command = new SqlCommand(query, conn);
-            List<Student> myStudent = new List<Student>();
+            List<Service> allServices = new List<Service>();
 
-            //run query command
+            
             try
             {
                 //read data SqlDataReader
@@ -219,13 +262,13 @@ namespace Project381_Service_Premier.DataAccessLayer
                 if (reader.Read())
                 {
                     //Store each collumn value in student class variables/field
-                    objStudent.StudentID = int.Parse(reader[0].ToString());
-                    objStudent.StudentName = reader[1].ToString();
-                    objStudent.StudentSurname = reader[2].ToString();
-                    objStudent.CourseID = reader[3].ToString();
+                    objService.SName = reader[0].ToString();
+                    objService.SType = reader[1].ToString();
+                    objService.SSpecifications = reader[2].ToString();
+                   
 
                     //Add field values to a Student type list
-                    myStudent.Add(new Student(objStudent.StudentID, objStudent.StudentName, objStudent.StudentSurname, objStudent.CourseID));
+                    allServices.Add(new Service(objService.SName, objService.SType, objService.SSpecifications));
                 }
             }
             catch (Exception ex)
@@ -237,9 +280,9 @@ namespace Project381_Service_Premier.DataAccessLayer
                 conn.Close();
             }
 
-            return myStudent;
+            return allServices;
         }
-        */
+
         public string getPackageID(string name)
         {
 
