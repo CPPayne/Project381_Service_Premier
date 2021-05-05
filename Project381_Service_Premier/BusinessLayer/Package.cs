@@ -37,6 +37,12 @@ namespace Project381_Service_Premier.BusinessLayer
             fh.addPackage(this.packageName, this.cost, this.Services);
         }
 
+        public void getPackageServices()
+        {
+            FileHandler fh = new FileHandler();
+            this.services=fh.getServicesForPackage(fh.getPackageID(this.packageName));
+        }
+
 
         public List<Package> getAllPackages()
         {

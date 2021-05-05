@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Project381_Service_Premier.BusinessLayer;
+using Project381_Service_Premier.DataAccessLayer;
 
 namespace Project381_Service_Premier
 {
@@ -26,9 +27,14 @@ namespace Project381_Service_Premier
 
         List<Service> servicesInPackage = new List<Service>();
 
+
         string sType;
         string sName;
         string sSpec;
+
+        string pName;
+        Decimal pCost;
+        List<Service> servicesOfChosenPackages = new List<Service>();
 
         private void updateServiceDBGRID()
         {
@@ -38,6 +44,13 @@ namespace Project381_Service_Premier
             sourceAllService.DataSource = allServices;
             dgvServices.DataSource = sourceAllService;
         }
+
+        private void updateServiceDBGRIDpS()
+        {
+            sourceAllService.DataSource = servicesOfChosenPackages;
+            dgvServices.DataSource = sourceAllService;
+        }
+
         private void updatePakcageDBGRID()
         {
             Package pgs = new Package();
@@ -47,7 +60,7 @@ namespace Project381_Service_Premier
             dgvPackages.DataSource = sourceAllPackages;
         }
 
-        private void updatePackageServiceDBGRID()
+        private void updatePackageServiceDBGRID(List<Service> servicesInPackage)
         {
 
             sourceServicePackage.DataSource = servicesInPackage;
@@ -116,14 +129,16 @@ namespace Project381_Service_Premier
         {
             Service newService = new Service(sType, sName, sSpec);
             servicesInPackage.Add(newService);
-            foreach(Service serv in servicesInPackage)
-            {
-                MessageBox.Show(serv.SType);
-            }
+            //foreach(Service serv in servicesInPackage)
+            //{
+            //    MessageBox.Show(serv.SType);
+            //}
 
             //sourceServicePackage.DataSource = servicesInPackage;
             //dgvPackageServices.DataSource = sourceServicePackage;
-            //updatePackageServiceDBGRID();
+            //updatePackageServiceDBGRID(servicesInPackage);
+            sourceServicePackage.DataSource = servicesInPackage;
+            dgvPackageServices.DataSource = sourceServicePackage;
         }
 
         private void dgvServices_SelectionChanged(object sender, EventArgs e)
@@ -136,13 +151,25 @@ namespace Project381_Service_Premier
 
         private void btnDeleteServices_Click(object sender, EventArgs e)
         {
-            Service NS = new Service(sType, sName, sSpec);
-            MessageBox.Show(NS.getID());
+            List<Service> dispServ = new List<Service>();
+            FileHandler fh = new FileHandler();
+            dispServ=fh.getSinglePackageServices("Dan");
+
+            foreach(Service srv in dispServ)
+            {
+                MessageBox.Show(srv.SName);
+            }
         }
 
         private void dgvPackages_SelectionChanged(object sender, EventArgs e)
         {
+            Package selectedPackage = (Package)sourceAllPackages.Current;
+            pName = selectedPackage.PackageName;
+            pCost = selectedPackage.Cost;
+            selectedPackage.getPackageServices();
+            servicesOfChosenPackages = selectedPackage.Services;
 
+            updateServiceDBGRIDpS();
         }
     }
 }

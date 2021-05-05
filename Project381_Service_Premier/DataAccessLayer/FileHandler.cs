@@ -383,6 +383,54 @@ namespace Project381_Service_Premier.DataAccessLayer
             return servicesForPack;
         }
 
+        public List<Service> getSinglePackageServices(string packageName)
+        {
+            SqlConnection conn = new SqlConnection(connect);
+            SqlCommand command;
+            SqlDataReader reader;
+
+            string query = @"SELECT * FROM PPackage WHERE PackageName = '" + packageName + "')";
+
+            Package objPackage = new Package();
+
+            conn.Open();
+
+            command = new SqlCommand(query, conn);
+
+
+
+            try
+            {
+
+                reader = command.ExecuteReader();
+                if (reader.Read())
+                {
+
+                    string packID = reader.GetValue(0).ToString();
+                    objPackage.PackageName = reader.GetValue(1).ToString();
+                    objPackage.Cost = Decimal.Parse(reader.GetValue(2).ToString());
+
+                    objPackage.Services = getServicesForPackage(packID);
+
+                    foreach(Service srv in objPackage.Services)
+                    {
+                        MessageBox.Show(srv.SName);
+                    }
+
+                    
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return objPackage.Services;
+        }
+
         public string getPackageID(string name)
         {
             SqlConnection conn = new SqlConnection(connect);
