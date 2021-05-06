@@ -129,16 +129,20 @@ namespace Project381_Service_Premier
         {
             Service newService = new Service(sType, sName, sSpec);
             servicesInPackage.Add(newService);
-            //foreach(Service serv in servicesInPackage)
-            //{
-            //    MessageBox.Show(serv.SType);
-            //}
+            foreach(Service serv in servicesInPackage)
+            {
+               MessageBox.Show(serv.SType);
+            }
 
-            //sourceServicePackage.DataSource = servicesInPackage;
-            //dgvPackageServices.DataSource = sourceServicePackage;
+
             //updatePackageServiceDBGRID(servicesInPackage);
             sourceServicePackage.DataSource = servicesInPackage;
             dgvPackageServices.DataSource = sourceServicePackage;
+
+            pName = null;
+            pCost = 0;
+            servicesOfChosenPackages.Clear();
+
         }
 
         private void dgvServices_SelectionChanged(object sender, EventArgs e)

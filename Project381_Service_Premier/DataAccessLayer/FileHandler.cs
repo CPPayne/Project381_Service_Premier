@@ -76,18 +76,20 @@ namespace Project381_Service_Premier.DataAccessLayer
             {
                 command.ExecuteNonQuery();
                 packageID = int.Parse(getPackageID(pName));
-                foreach (Service service in packageServices)
-                {
-                    serviceID = int.Parse(getServiceID(service.SName));
-                    string query2 = @"INSERT INTO Service_Packages VALUES ( '" + packageID + "', '" + serviceID + "' )";
-                   
-                    
-                    conn2.Open();
-                    command2 = new SqlCommand(query2, conn2);
-                    command2.ExecuteNonQuery();
-                    conn2.Close();
-                }
-                MessageBox.Show("Added");
+                addPackageServicesToDB(packageServices, packageID);
+                //foreach (Service service in packageServices)
+                //{
+                //    serviceID = int.Parse(getServiceID(service.SName));
+                //    string query2 = @"INSERT INTO Service_Packages VALUES ( '" + packageID + "', '" + serviceID + "' )";
+
+
+                //    conn2.Open();
+                //    command2 = new SqlCommand(query2, conn2);
+                //    command2.ExecuteNonQuery();
+                //    conn2.Close();
+                //}
+                conn.Close();
+                MessageBox.Show("Package Added");
 
             }
             catch (Exception ex)
@@ -101,6 +103,42 @@ namespace Project381_Service_Premier.DataAccessLayer
 
             }
         }
+
+        public void addPackageServicesToDB(List<Service> packageServices, int packageID)
+        {
+            SqlConnection conn;
+            SqlCommand command;
+
+            int serviceID;
+            conn = new SqlConnection(connect);
+
+
+            try
+            {
+                foreach (Service service in packageServices)
+                {
+                    serviceID = int.Parse(getServiceID(service.SName));
+                    string query = @"INSERT INTO Service_Packages VALUES ( '" + packageID + "', '" + serviceID + "' )";
+                    conn.Open();
+                    command = new SqlCommand(query, conn);
+
+                    
+                    command.ExecuteNonQuery();
+                    MessageBox.Show("Services to package Added");
+                    conn.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Details of new service not saved: " + ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+
 
         //public void addclient(string cid, string cname, string csurname, string caddress, string cnumber, bool isbusiness, package package)
         //{
