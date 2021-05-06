@@ -74,72 +74,71 @@ namespace Project381_Service_Premier.DataAccessLayer
 
 
 
-         try
-         {
-            command.ExecuteNonQuery();
-            packageID = int.Parse(getPackageID(pName));
-            addPackageServicesToDB(packageServices, packageID);
-            //foreach (Service service in packageServices)
-            //{
-            //    serviceID = int.Parse(getServiceID(service.SName));
-            //    string query2 = @"INSERT INTO Service_Packages VALUES ( '" + packageID + "', '" + serviceID + "' )";
-
-
-            //    conn2.Open();
-            //    command2 = new SqlCommand(query2, conn2);
-            //    command2.ExecuteNonQuery();
-            //    conn2.Close();
-            //}
-            conn.Close();
-            MessageBox.Show("Package Added");
-
-         }
-         catch (Exception ex)
-         {
-            MessageBox.Show("Details of new ppp not saved: " + ex.Message);
-         }
-         finally
-         {
-            conn.Close();
-
-
-         }
-      }
-
-      public void addPackageServicesToDB(List<Service> packageServices, int packageID)
-      {
-         SqlConnection conn;
-         SqlCommand command;
-
-         int serviceID;
-         conn = new SqlConnection(connect);
-
-
-         try
-         {
-            foreach (Service service in packageServices)
+            try
             {
-               serviceID = int.Parse(getServiceID(service.SName));
-               string query = @"INSERT INTO Service_Packages VALUES ( '" + packageID + "', '" + serviceID + "' )";
+                command.ExecuteNonQuery();
+                packageID = int.Parse(getPackageID(pName));
+                addPackageServicesToDB(packageServices, packageID);
+                //foreach (Service service in packageServices)
+                //{
+                //    serviceID = int.Parse(getServiceID(service.SName));
+                //    string query2 = @"INSERT INTO Service_Packages VALUES ( '" + packageID + "', '" + serviceID + "' )";
 
-               conn.Open();
-               command = new SqlCommand(query, conn);
-               
 
-               command.ExecuteNonQuery();
-               MessageBox.Show("Services to package Added");
-               conn.Close();
+                //    conn2.Open();
+                //    command2 = new SqlCommand(query2, conn2);
+                //    command2.ExecuteNonQuery();
+                //    conn2.Close();
+                //}
+                conn.Close();
+                MessageBox.Show("Package Added");
+
             }
-         }
-         catch (Exception ex)
-         {
-            MessageBox.Show("Details of new service not ppppp:ddddddd " + ex.Message);
-         }
-         finally
-         {
-            conn.Close();
-         }
-      }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Details of new service not saved: " + ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+              
+
+            }
+        }
+
+        public void addPackageServicesToDB(List<Service> packageServices, int packageID)
+        {
+            SqlConnection conn;
+            SqlCommand command;
+
+            int serviceID;
+            conn = new SqlConnection(connect);
+
+
+            try
+            {
+                foreach (Service service in packageServices)
+                {
+                    serviceID = int.Parse(getServiceID(service.SName));
+                    string query = @"INSERT INTO Service_Packages VALUES ( '" + packageID + "', '" + serviceID + "' )";
+                    conn.Open();
+                    command = new SqlCommand(query, conn);
+
+                    
+                    command.ExecuteNonQuery();
+                    MessageBox.Show("Services to package Added");
+                    conn.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Details of new service not saved: " + ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
 
 
 
