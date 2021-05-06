@@ -157,12 +157,9 @@ namespace Project381_Service_Premier
         {
             List<Service> dispServ = new List<Service>();
             FileHandler fh = new FileHandler();
-            dispServ=fh.getSinglePackageServices("Dan");
 
-            foreach(Service srv in dispServ)
-            {
-                MessageBox.Show(srv.SName);
-            }
+            //MessageBox.Show(fh.Search("test"));
+            MessageBox.Show(fh.getServiceID("test"));
         }
 
         private void dgvPackages_SelectionChanged(object sender, EventArgs e)
