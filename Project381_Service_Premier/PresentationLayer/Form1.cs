@@ -28,9 +28,6 @@ namespace Project381_Service_Premier
         List<Service> servicesInPackage = new List<Service>();
 
 
-        string sType;
-        string sName;
-        string sSpec;
 
         string pName;
         Decimal pCost;
@@ -127,7 +124,11 @@ namespace Project381_Service_Premier
 
         private void btnAddServiceToPackage_Click(object sender, EventArgs e)
         {
-            Service newService = new Service(sType, sName, sSpec);
+            Service selectedService = (Service)sourceAllService.Current;
+
+
+            Service newService = new Service(selectedService.SType, selectedService.SName, selectedService.SSpecifications);
+            MessageBox.Show(newService.SType);
             servicesInPackage.Add(newService);
             foreach(Service serv in servicesInPackage)
             {
@@ -147,10 +148,10 @@ namespace Project381_Service_Premier
 
         private void dgvServices_SelectionChanged(object sender, EventArgs e)
         {
-            Service selectedService = (Service)sourceAllService.Current;
-            sType = selectedService.SType;
-            sName = selectedService.SName;
-            sSpec = selectedService.SSpecifications;
+            //Service selectedService = (Service)sourceAllService.Current;
+            //sType = selectedService.SType;
+            //sName = selectedService.SName;
+            //sSpec = selectedService.SSpecifications;
         }
 
         private void btnDeleteServices_Click(object sender, EventArgs e)

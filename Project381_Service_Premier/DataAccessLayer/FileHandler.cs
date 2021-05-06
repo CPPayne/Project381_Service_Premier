@@ -60,13 +60,15 @@ namespace Project381_Service_Premier.DataAccessLayer
             //SqlCommand command;
             //SqlConnection conn2 = new SqlConnection(connect); ;
             //SqlCommand command2;
-
+            int serviceID;
             int packageID;
             string query = @"INSERT INTO PPackage VALUES ( '" + pName + "', '" + pCost + "' )";
 
             conn = new SqlConnection(connect);
+            conn2 = new SqlConnection(connect);
 
             conn.Open();
+            conn2.Open();
 
             command = new SqlCommand(query, conn);
 
@@ -75,19 +77,19 @@ namespace Project381_Service_Premier.DataAccessLayer
             {
                 command.ExecuteNonQuery();
                 packageID = int.Parse(getPackageID(pName));
-                addPackageServicesToDB(packageServices, packageID);
-                //foreach (Service service in packageServices)
-                //{
-                //    serviceID = int.Parse(getServiceID(service.SName));
-                //    string query2 = @"INSERT INTO Service_Packages VALUES ( '" + packageID + "', '" + serviceID + "' )";
+                //addPackageServicesToDB(packageServices, packageID);
+                foreach (Service service in packageServices)
+                {
+                    serviceID = int.Parse(getServiceID(service.SName));
+                    string query2 = @"INSERT INTO Service_Packages VALUES ( '" + packageID + "', '" + serviceID + "' )";
 
 
-                //    conn2.Open();
-                //    command2 = new SqlCommand(query2, conn2);
-                //    command2.ExecuteNonQuery();
-                //    conn2.Close();
-                //}
-                conn.Close();
+                    conn2.Open();
+                    command2 = new SqlCommand(query2, conn2);
+                    command2.ExecuteNonQuery();
+                    conn2.Close();
+                }
+                //conn.Close();
                 MessageBox.Show("Package Added");
 
             }
@@ -98,7 +100,7 @@ namespace Project381_Service_Premier.DataAccessLayer
             finally
             {
                 conn.Close();
-              
+                conn2.Close();
 
             }
         }
