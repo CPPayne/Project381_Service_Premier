@@ -126,25 +126,22 @@ namespace Project381_Service_Premier
 
       }
 
-      private void btnAddServiceToPackage_Click(object sender, EventArgs e)
-      {
-         Service newService = new Service(sType, sName, sSpec);
-         servicesInPackage.Add(newService);
-         foreach (Service serv in servicesInPackage)
-         {
-            MessageBox.Show(serv.SType);
-         }
+        private void btnAddServiceToPackage_Click(object sender, EventArgs e)
+        {
+            Service newService = new Service(sType, sName, sSpec);
+            servicesInPackage.Add(newService);
+            foreach(Service serv in servicesInPackage)
+            {
+               MessageBox.Show(serv.SType);
+            }
 
 
-         //updatePackageServiceDBGRID(servicesInPackage);
-         sourceServicePackage.DataSource = servicesInPackage;
-         dgvPackageServices.DataSource = sourceServicePackage;
-
-         pName = null;
-         pCost = 0;
-         servicesOfChosenPackages.Clear();
-
-      }
+            //sourceServicePackage.DataSource = servicesInPackage;
+            //dgvPackageServices.DataSource = sourceServicePackage;
+            //updatePackageServiceDBGRID(servicesInPackage);
+            sourceServicePackage.DataSource = servicesInPackage;
+            dgvPackageServices.DataSource = sourceServicePackage;
+        }
 
       private void dgvServices_SelectionChanged(object sender, EventArgs e)
       {
