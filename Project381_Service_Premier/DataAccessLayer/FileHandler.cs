@@ -23,8 +23,74 @@ namespace Project381_Service_Premier.DataAccessLayer
         SqlCommand command2;     
 
         SqlDataReader reader;   
-        SqlDataReader reader2;   
+        SqlDataReader reader2;
 
+        public void addclient(string cId, string cName, string cSurname, string cAddress, string cNumber, bool isBusiness)
+        {
+
+            string query = @"INSERT INTO Client (ClientID,ClientName ,ClientSurname,ClientAdress,PhoneNumber,BusinessBoolean) VALUES ( '" + cId + "', '" + cName + "', '" + cSurname + "', '" + cAddress + "', '" + cNumber + "', '" + isBusiness + "' )";
+
+            conn = new SqlConnection(connect);
+            
+            conn.Open();
+
+            command = new SqlCommand(query, conn);
+
+
+
+
+            try
+            {
+                command.ExecuteNonQuery();
+                MessageBox.Show("Details of new client saved:" );
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("details of new client not saved: " + ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        public bool checkIfClientIdExists(string clientID)
+        {
+
+            bool clientExist=false;
+            string query = @"SELECT * FROM Client WHERE ClientID = ('" + clientID + "')";
+
+            //connect
+            conn = new SqlConnection(connect);
+
+            conn.Open();
+
+            command = new SqlCommand(query, conn);
+
+            //run query command
+            try
+            {
+                //read data SqlDataReader
+                reader = command.ExecuteReader();
+                if (reader.Read())
+                {
+                    clientExist = true;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+            finally
+            {
+                
+                conn.Close();
+
+            }
+            return clientExist;
+        }
 
         //Register method
         public void addService(string sType, string sName, string sSpecifications)
@@ -362,6 +428,8 @@ namespace Project381_Service_Premier.DataAccessLayer
             return packageID;
         }
 
+
+
        
 
         public string getServiceID(string name)
@@ -403,6 +471,8 @@ namespace Project381_Service_Premier.DataAccessLayer
             //Return the student list
             return ServiceID;
         }
+
+       
 
         //Update method
         public void Update(int sID, string sName, string sSurnane, string cID)
@@ -462,44 +532,7 @@ namespace Project381_Service_Premier.DataAccessLayer
         //Ek hou van aartappels
     }
 }
-//public void addclient(string cid, string cname, string csurname, string caddress, string cnumber, bool isbusiness, package package)
-//{
-//    string packageid;
-//    string serviceid;
-//    string query = @"insert into client values ( '"+ cid + "', '" + cname + "', '" + csurname + "', '" + caddress + "', '" + cnumber + "', '" + isbusiness +  "' )";
 
-//    conn = new sqlconnection(connect);
-
-//    conn.open();
-
-//    command = new sqlcommand(query, conn);
-
-
-
-
-//    try
-//    {
-//        command.executenonquery();
-//        packageid = getpackageid(pname);
-//        foreach (service service in packageservices)
-//        {
-//            serviceid = getserviceid(service.sname);
-//            string query2 = @"insert into service_packages values ( '" + packageid + "', '" + serviceid + "' )";
-
-//            sqlcommand command2 = new sqlcommand(query2, conn);
-//            command2.executenonquery();
-//        }
-
-//    }
-//    catch (exception ex)
-//    {
-//        messagebox.show("details of new service not saved: " + ex.message);
-//    }
-//    finally
-//    {
-//        conn.close();
-//    }
-//}
 
 //Delete method
 //public void Delete(int sID)

@@ -68,6 +68,8 @@ namespace Project381_Service_Premier
         {
             updateServiceDBGRID();
             updatePakcageDBGRID();
+
+
         }
 
       private void btnAnswerCall_Click(object sender, EventArgs e)
@@ -172,6 +174,41 @@ namespace Project381_Service_Premier
             servicesOfChosenPackages = selectedPackage.Services;
 
             updateServiceDBGRIDpS();
+        }
+
+        private void btnRegister_Click(object sender, EventArgs e)
+        {
+            string name = txtClientName.Text;
+            string surname = txtClientSurname.Text;
+            string address = txtClientAddress.Text;
+            string phoneNumber = txtPhoneNumber.Text;
+            bool isBusiness = cbxBusiness.Checked;
+
+            Client client = new Client(name, surname, phoneNumber, address, isBusiness);
+            client.GenerateClientID();
+            client.addClientToDB();
+            //MessageBox.Show(client.ClientID);
+
+            txtClientName.Clear();
+            txtClientSurname.Clear();
+            txtClientAddress.Clear();
+            txtPhoneNumber.Clear();
+            
+        }
+
+        private void maskedTextBox1_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+
+        }
+
+        private void btnMenuCLogin_Click(object sender, EventArgs e)
+        {
+            tabControl1.SelectedTab = tpLogin;
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

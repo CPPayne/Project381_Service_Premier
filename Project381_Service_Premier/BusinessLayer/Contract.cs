@@ -9,8 +9,8 @@ namespace Project381_Service_Premier.BusinessLayer
    class Contract
    {
         int contractID;
-
         private int level;
         private DateTime startDate;
+        private Package package;
     }
 }
