@@ -28,7 +28,7 @@ namespace Project381_Service_Premier.BusinessLayer
 
         public override string ToString()
       {
-         return base.ToString();
+            return this.packageName;
       }
 
         public void addPackageToDB()
@@ -42,7 +42,11 @@ namespace Project381_Service_Premier.BusinessLayer
             FileHandler fh = new FileHandler();
             this.services=fh.getServicesForPackage(fh.getPackageID(this.packageName));
         }
-
+        public void setPackageCost()
+        {
+            FileHandler fh = new FileHandler();
+            this.cost = fh.getPackageCostByName(this.packageName);
+        }
 
         public List<Package> getAllPackages()
         {
@@ -50,10 +54,30 @@ namespace Project381_Service_Premier.BusinessLayer
             return fh.getAllPackages();
         }
 
-        public void createService()
-      {
+       
 
-      }
 
+        public override bool Equals(object obj)
+        {
+            return obj is Package package &&
+                   packageName == package.packageName &&
+                   cost == package.cost &&
+                   EqualityComparer<List<Service>>.Default.Equals(services, package.services) &&
+                   PackageName == package.PackageName &&
+                   Cost == package.Cost &&
+                   EqualityComparer<List<Service>>.Default.Equals(Services, package.Services);
+        }
+
+        public override int GetHashCode()
+        {
+            int hashCode = 597446354;
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(packageName);
+            hashCode = hashCode * -1521134295 + cost.GetHashCode();
+            hashCode = hashCode * -1521134295 + EqualityComparer<List<Service>>.Default.GetHashCode(services);
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(PackageName);
+            hashCode = hashCode * -1521134295 + Cost.GetHashCode();
+            hashCode = hashCode * -1521134295 + EqualityComparer<List<Service>>.Default.GetHashCode(Services);
+            return hashCode;
+        }
     }
 }

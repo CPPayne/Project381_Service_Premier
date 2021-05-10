@@ -20,12 +20,17 @@ namespace Project381_Service_Premier
         }
         BindingSource sourceAllService = new BindingSource();
         BindingSource sourceAllPackages = new BindingSource();
+        BindingSource sourceClientContracts = new BindingSource();
+        BindingSource selectedPackageServicesToAdd = new BindingSource();
 
         BindingSource sourceServicePackage = new BindingSource();
         List<Service> allServices = new List<Service>();
         List<Package> allPackages = new List<Package>();
+        List<Contract> clientContr = new List<Contract>();
 
         List<Service> servicesInPackage = new List<Service>();
+
+        List<Contract> loggedClientContracts = new List<Contract>();
 
         Client loggedInClient = new Client();
 
@@ -42,6 +47,23 @@ namespace Project381_Service_Premier
             dgvServices.DataSource = sourceAllService;
         }
 
+        
+        private void updateServiceInPackage(List<Service> services)
+        {
+            selectedPackageServicesToAdd.DataSource = services;
+            dgvServicesInPackage.DataSource = selectedPackageServicesToAdd;
+
+
+        }
+
+        private void updateDBGRIDContracts(string clientID)
+        {
+            Contract cnrt = new Contract();
+
+            clientContr = cnrt.getContractsForClient(clientID);
+            sourceClientContracts.DataSource = clientContr;
+            dgvContracts.DataSource = sourceClientContracts;
+        }
         private void updateServiceDBGRIDpS()
         {
             sourceAllService.DataSource = servicesOfChosenPackages;
@@ -70,6 +92,8 @@ namespace Project381_Service_Premier
             updatePakcageDBGRID();
 
             tabControl1.SelectedTab = tpMainMenu;
+
+            cmbPackages.DataSource = allPackages;
         }
 
       private void btnAnswerCall_Click(object sender, EventArgs e)
@@ -151,10 +175,7 @@ namespace Project381_Service_Premier
 
         private void dgvServices_SelectionChanged(object sender, EventArgs e)
         {
-            //Service selectedService = (Service)sourceAllService.Current;
-            //sType = selectedService.SType;
-            //sName = selectedService.SName;
-            //sSpec = selectedService.SSpecifications;
+
         }
 
         private void btnDeleteServices_Click(object sender, EventArgs e)
@@ -191,6 +212,7 @@ namespace Project381_Service_Premier
             client.GenerateClientID();
             client.addClientToDB();
             //MessageBox.Show(client.ClientID);
+            
 
             txtClientName.Clear();
             txtClientSurname.Clear();
@@ -250,6 +272,7 @@ namespace Project381_Service_Premier
                 txtLoggedName.Text = loggedInClient.Name;
                 txtLoggedSurname.Text = loggedInClient.Surname;
                 txtLoggedNumber.Text = loggedInClient.PhoneNum;
+                updateDBGRIDContracts(loggedInClient.ClientID);
             }
         }
 
@@ -267,6 +290,16 @@ namespace Project381_Service_Premier
             txtLoggedSurname.Clear();
             txtLoggedNumber.Clear();
             tabControl1.SelectedTab = tpMainMenu;
+        }
+
+        private void cmbPackages_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            Package selectedPackageToAdd = new Package();
+            selectedPackageToAdd.PackageName = cmbPackages.Text;
+            selectedPackageToAdd.setPackageCost();
+            selectedPackageToAdd.getPackageServices();
+            updateServiceInPackage(selectedPackageToAdd.Services);
         }
     }
 }

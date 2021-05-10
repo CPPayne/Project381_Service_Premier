@@ -132,6 +132,7 @@ namespace Project381_Service_Premier
             this.btnMenuCRegister = new System.Windows.Forms.Button();
             this.btnMenuCLogin = new System.Windows.Forms.Button();
             this.tpClientContract = new System.Windows.Forms.TabPage();
+            this.txtPackageNameDisp = new System.Windows.Forms.TextBox();
             this.btnLogout = new System.Windows.Forms.Button();
             this.txtLoggedNumber = new System.Windows.Forms.TextBox();
             this.txtLoggedSurname = new System.Windows.Forms.TextBox();
@@ -139,9 +140,9 @@ namespace Project381_Service_Premier
             this.txtloggedClientID = new System.Windows.Forms.TextBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cmbPackages = new System.Windows.Forms.ComboBox();
             this.label47 = new System.Windows.Forms.Label();
-            this.dataGridView4 = new System.Windows.Forms.DataGridView();
+            this.dgvServicesInPackage = new System.Windows.Forms.DataGridView();
             this.label46 = new System.Windows.Forms.Label();
             this.label45 = new System.Windows.Forms.Label();
             this.label44 = new System.Windows.Forms.Label();
@@ -152,10 +153,10 @@ namespace Project381_Service_Premier
             this.btnCreateContract = new System.Windows.Forms.Button();
             this.label41 = new System.Windows.Forms.Label();
             this.dgvContractServices = new System.Windows.Forms.DataGridView();
-            this.label40 = new System.Windows.Forms.Label();
-            this.dgvContractPackages = new System.Windows.Forms.DataGridView();
             this.label39 = new System.Windows.Forms.Label();
             this.dgvContracts = new System.Windows.Forms.DataGridView();
+            this.txtPackCostDisp = new System.Windows.Forms.TextBox();
+            this.label40 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.CallCentre.SuspendLayout();
             this.tpRegister.SuspendLayout();
@@ -169,9 +170,8 @@ namespace Project381_Service_Premier
             this.tpLogin.SuspendLayout();
             this.tpMainMenu.SuspendLayout();
             this.tpClientContract.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvServicesInPackage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvContractServices)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvContractPackages)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvContracts)).BeginInit();
             this.SuspendLayout();
             // 
@@ -1184,6 +1184,9 @@ namespace Project381_Service_Premier
             // 
             // tpClientContract
             // 
+            this.tpClientContract.Controls.Add(this.txtPackCostDisp);
+            this.tpClientContract.Controls.Add(this.label40);
+            this.tpClientContract.Controls.Add(this.txtPackageNameDisp);
             this.tpClientContract.Controls.Add(this.btnLogout);
             this.tpClientContract.Controls.Add(this.txtLoggedNumber);
             this.tpClientContract.Controls.Add(this.txtLoggedSurname);
@@ -1191,9 +1194,9 @@ namespace Project381_Service_Premier
             this.tpClientContract.Controls.Add(this.txtloggedClientID);
             this.tpClientContract.Controls.Add(this.dateTimePicker1);
             this.tpClientContract.Controls.Add(this.comboBox2);
-            this.tpClientContract.Controls.Add(this.comboBox1);
+            this.tpClientContract.Controls.Add(this.cmbPackages);
             this.tpClientContract.Controls.Add(this.label47);
-            this.tpClientContract.Controls.Add(this.dataGridView4);
+            this.tpClientContract.Controls.Add(this.dgvServicesInPackage);
             this.tpClientContract.Controls.Add(this.label46);
             this.tpClientContract.Controls.Add(this.label45);
             this.tpClientContract.Controls.Add(this.label44);
@@ -1204,8 +1207,6 @@ namespace Project381_Service_Premier
             this.tpClientContract.Controls.Add(this.btnCreateContract);
             this.tpClientContract.Controls.Add(this.label41);
             this.tpClientContract.Controls.Add(this.dgvContractServices);
-            this.tpClientContract.Controls.Add(this.label40);
-            this.tpClientContract.Controls.Add(this.dgvContractPackages);
             this.tpClientContract.Controls.Add(this.label39);
             this.tpClientContract.Controls.Add(this.dgvContracts);
             this.tpClientContract.Location = new System.Drawing.Point(4, 22);
@@ -1215,6 +1216,14 @@ namespace Project381_Service_Premier
             this.tpClientContract.TabIndex = 9;
             this.tpClientContract.Text = "Client Contract";
             this.tpClientContract.UseVisualStyleBackColor = true;
+            // 
+            // txtPackageNameDisp
+            // 
+            this.txtPackageNameDisp.Enabled = false;
+            this.txtPackageNameDisp.Location = new System.Drawing.Point(585, 53);
+            this.txtPackageNameDisp.Name = "txtPackageNameDisp";
+            this.txtPackageNameDisp.Size = new System.Drawing.Size(118, 20);
+            this.txtPackageNameDisp.TabIndex = 24;
             // 
             // btnLogout
             // 
@@ -1274,13 +1283,14 @@ namespace Project381_Service_Premier
             this.comboBox2.Size = new System.Drawing.Size(179, 21);
             this.comboBox2.TabIndex = 17;
             // 
-            // comboBox1
+            // cmbPackages
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(189, 585);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(179, 21);
-            this.comboBox1.TabIndex = 16;
+            this.cmbPackages.FormattingEnabled = true;
+            this.cmbPackages.Location = new System.Drawing.Point(189, 585);
+            this.cmbPackages.Name = "cmbPackages";
+            this.cmbPackages.Size = new System.Drawing.Size(179, 21);
+            this.cmbPackages.TabIndex = 16;
+            this.cmbPackages.SelectedIndexChanged += new System.EventHandler(this.cmbPackages_SelectedIndexChanged);
             // 
             // label47
             // 
@@ -1291,13 +1301,14 @@ namespace Project381_Service_Premier
             this.label47.TabIndex = 15;
             this.label47.Text = "Selected Package Services";
             // 
-            // dataGridView4
+            // dgvServicesInPackage
             // 
-            this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView4.Location = new System.Drawing.Point(474, 585);
-            this.dataGridView4.Name = "dataGridView4";
-            this.dataGridView4.Size = new System.Drawing.Size(275, 103);
-            this.dataGridView4.TabIndex = 14;
+            this.dgvServicesInPackage.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvServicesInPackage.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvServicesInPackage.Location = new System.Drawing.Point(474, 585);
+            this.dgvServicesInPackage.Name = "dgvServicesInPackage";
+            this.dgvServicesInPackage.Size = new System.Drawing.Size(352, 103);
+            this.dgvServicesInPackage.TabIndex = 14;
             // 
             // label46
             // 
@@ -1374,41 +1385,24 @@ namespace Project381_Service_Premier
             // label41
             // 
             this.label41.AutoSize = true;
-            this.label41.Location = new System.Drawing.Point(727, 45);
+            this.label41.Location = new System.Drawing.Point(471, 56);
             this.label41.Name = "label41";
-            this.label41.Size = new System.Drawing.Size(105, 13);
+            this.label41.Size = new System.Drawing.Size(108, 13);
             this.label41.TabIndex = 5;
-            this.label41.Text = "Services in Package";
+            this.label41.Text = "Services in Package:\r\n";
             // 
             // dgvContractServices
             // 
             this.dgvContractServices.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvContractServices.Location = new System.Drawing.Point(668, 81);
+            this.dgvContractServices.Location = new System.Drawing.Point(474, 81);
             this.dgvContractServices.Name = "dgvContractServices";
             this.dgvContractServices.Size = new System.Drawing.Size(229, 355);
             this.dgvContractServices.TabIndex = 4;
             // 
-            // label40
-            // 
-            this.label40.AutoSize = true;
-            this.label40.Location = new System.Drawing.Point(419, 45);
-            this.label40.Name = "label40";
-            this.label40.Size = new System.Drawing.Size(109, 13);
-            this.label40.TabIndex = 3;
-            this.label40.Text = "Packages in Contract";
-            // 
-            // dgvContractPackages
-            // 
-            this.dgvContractPackages.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvContractPackages.Location = new System.Drawing.Point(363, 81);
-            this.dgvContractPackages.Name = "dgvContractPackages";
-            this.dgvContractPackages.Size = new System.Drawing.Size(229, 355);
-            this.dgvContractPackages.TabIndex = 2;
-            // 
             // label39
             // 
             this.label39.AutoSize = true;
-            this.label39.Location = new System.Drawing.Point(126, 45);
+            this.label39.Location = new System.Drawing.Point(117, 45);
             this.label39.Name = "label39";
             this.label39.Size = new System.Drawing.Size(85, 13);
             this.label39.TabIndex = 1;
@@ -1421,6 +1415,23 @@ namespace Project381_Service_Premier
             this.dgvContracts.Name = "dgvContracts";
             this.dgvContracts.Size = new System.Drawing.Size(229, 355);
             this.dgvContracts.TabIndex = 0;
+            // 
+            // txtPackCostDisp
+            // 
+            this.txtPackCostDisp.Enabled = false;
+            this.txtPackCostDisp.Location = new System.Drawing.Point(570, 699);
+            this.txtPackCostDisp.Name = "txtPackCostDisp";
+            this.txtPackCostDisp.Size = new System.Drawing.Size(179, 20);
+            this.txtPackCostDisp.TabIndex = 26;
+            // 
+            // label40
+            // 
+            this.label40.AutoSize = true;
+            this.label40.Location = new System.Drawing.Point(471, 702);
+            this.label40.Name = "label40";
+            this.label40.Size = new System.Drawing.Size(74, 13);
+            this.label40.TabIndex = 25;
+            this.label40.Text = "Package Cost";
             // 
             // Form1
             // 
@@ -1452,9 +1463,8 @@ namespace Project381_Service_Premier
             this.tpMainMenu.PerformLayout();
             this.tpClientContract.ResumeLayout(false);
             this.tpClientContract.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvServicesInPackage)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvContractServices)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvContractPackages)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvContracts)).EndInit();
             this.ResumeLayout(false);
 
@@ -1561,8 +1571,6 @@ namespace Project381_Service_Premier
         private System.Windows.Forms.TabPage tpClientContract;
         private System.Windows.Forms.Label label41;
         private System.Windows.Forms.DataGridView dgvContractServices;
-        private System.Windows.Forms.Label label40;
-        private System.Windows.Forms.DataGridView dgvContractPackages;
         private System.Windows.Forms.Label label39;
         private System.Windows.Forms.DataGridView dgvContracts;
         private System.Windows.Forms.Label label46;
@@ -1574,14 +1582,14 @@ namespace Project381_Service_Premier
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Button btnCreateContract;
         private System.Windows.Forms.Label label47;
-        private System.Windows.Forms.DataGridView dataGridView4;
+        private System.Windows.Forms.DataGridView dgvServicesInPackage;
         private System.Windows.Forms.TextBox txtLoggedNumber;
         private System.Windows.Forms.TextBox txtLoggedSurname;
         private System.Windows.Forms.TextBox txtLoggedName;
         private System.Windows.Forms.TextBox txtloggedClientID;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cmbPackages;
         private System.Windows.Forms.TextBox txtClientUsername;
         private System.Windows.Forms.TextBox txtClientPassword;
         private System.Windows.Forms.Label label48;
@@ -1589,6 +1597,9 @@ namespace Project381_Service_Premier
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button btnLogout;
+        private System.Windows.Forms.TextBox txtPackageNameDisp;
+        private System.Windows.Forms.TextBox txtPackCostDisp;
+        private System.Windows.Forms.Label label40;
     }
 }
 
