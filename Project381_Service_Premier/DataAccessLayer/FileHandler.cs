@@ -25,10 +25,10 @@ namespace Project381_Service_Premier.DataAccessLayer
         SqlDataReader reader;   
         SqlDataReader reader2;
 
-        public void addclient(string cId, string cName, string cSurname, string cAddress, string cNumber, bool isBusiness)
+        public void addclient(string cId, string cName, string cSurname, string cAddress, string cNumber, bool isBusiness, string username, string password)
         {
 
-            string query = @"INSERT INTO Client (ClientID,ClientName ,ClientSurname,ClientAdress,PhoneNumber,BusinessBoolean) VALUES ( '" + cId + "', '" + cName + "', '" + cSurname + "', '" + cAddress + "', '" + cNumber + "', '" + isBusiness + "' )";
+            string query = @"INSERT INTO Client (ClientID,ClientName ,ClientSurname,ClientAdress,PhoneNumber,BusinessBoolean,ClientUsername,ClientPassword) VALUES ( '" + cId + "', '" + cName + "', '" + cSurname + "', '" + cAddress + "', '" + cNumber + "', '" + isBusiness + "', '" + username+ "', '" +password+ "' )";
 
             conn = new SqlConnection(connect);
             
@@ -92,7 +92,6 @@ namespace Project381_Service_Premier.DataAccessLayer
             return clientExist;
         }
 
-        //Register method
         public void addService(string sType, string sName, string sSpecifications)
         {
             //SqlConnection conn;
@@ -120,6 +119,7 @@ namespace Project381_Service_Premier.DataAccessLayer
                 conn.Close();
             }
         }
+
         public void addPackage(string pName, Decimal pCost, List<Service> packageServices)
         {
             //SqlConnection conn = new SqlConnection(connect);
@@ -205,11 +205,7 @@ namespace Project381_Service_Premier.DataAccessLayer
             }
         }
 
-        
-
-           
-
-            public List<Service> getAllServices()
+        public List<Service> getAllServices()
         {
             SqlConnection conn = new SqlConnection(connect);
             SqlCommand command;
@@ -428,10 +424,6 @@ namespace Project381_Service_Premier.DataAccessLayer
             return packageID;
         }
 
-
-
-       
-
         public string getServiceID(string name)
         {
 
@@ -472,9 +464,6 @@ namespace Project381_Service_Premier.DataAccessLayer
             return ServiceID;
         }
 
-       
-
-        //Update method
         public void Update(int sID, string sName, string sSurnane, string cID)
         {
             SqlConnection conn = new SqlConnection(connect);
@@ -504,10 +493,81 @@ namespace Project381_Service_Premier.DataAccessLayer
             }
         }
 
-        //public List<Call> GetClientCallHistory()
-        //{
+        public bool checkLogin(string username, string password)
+        {
+            string query = @"SELECT * FROM Client WHERE ClientUsername = ('" + username + "') AND ClientPassword = ('"+password+"')";
 
-        //}
+            //connect
+            conn = new SqlConnection(connect);
+
+            conn.Open();
+
+            command = new SqlCommand(query, conn);
+            bool clientFound = false;
+            //run query command
+            try
+            {
+                //read data SqlDataReader
+                reader = command.ExecuteReader();
+                if (reader.Read())
+                {
+
+                    clientFound = true;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+            //Return the student list
+            return clientFound;
+        }
+
+        public Client getClient(string username, string password)
+        {
+            string query = @"SELECT * FROM Client WHERE ClientUsername = ('" + username + "') AND ClientPassword = ('" + password + "')";
+
+            //connect
+            conn = new SqlConnection(connect);
+
+            conn.Open();
+
+            command = new SqlCommand(query, conn);
+            Client loggedClient = new Client();
+            //run query command
+            try
+            {
+                //read data SqlDataReader
+                reader = command.ExecuteReader();
+                if (reader.Read())
+                {
+
+                    loggedClient.ClientID = reader[0].ToString();
+                    loggedClient.Name = reader[1].ToString();
+                    loggedClient.Surname = reader[2].ToString();
+                    loggedClient.Address = reader[3].ToString();
+                    loggedClient.PhoneNum = reader[4].ToString();
+                    loggedClient.IsBusiness = Convert.ToBoolean(reader[5].ToString());
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+            //Return the student list
+            return loggedClient;
+        }
 
         public void GetClientWorkHistory() { }
 
