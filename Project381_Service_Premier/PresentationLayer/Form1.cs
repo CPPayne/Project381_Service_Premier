@@ -89,7 +89,7 @@ namespace Project381_Service_Premier
          string serviceName = txtAddServiceName.Text;
          string serviceDescription = rtbServiceSpecification.Text;
 
-         Service newService = new Service(serviceType, serviceName, serviceDescription);
+         Service newService = new Service(serviceName, serviceType,  serviceDescription);
          newService.addServiceToDB();
          updateServiceDBGRID();
 
