@@ -130,7 +130,7 @@ namespace Project381_Service_Premier
 
 
             Service newService = new Service(selectedService.SType, selectedService.SName, selectedService.SSpecifications);
-            MessageBox.Show(newService.SType);
+            //MessageBox.Show(newService.SType);
             servicesInPackage.Add(newService);
             foreach(Service serv in servicesInPackage)
             {
@@ -162,7 +162,7 @@ namespace Project381_Service_Premier
             FileHandler fh = new FileHandler();
 
             //MessageBox.Show(fh.Search("test"));
-            MessageBox.Show(fh.getServiceID("test"));
+            MessageBox.Show(fh.getServiceID("a"));
         }
 
         private void dgvPackages_SelectionChanged(object sender, EventArgs e)

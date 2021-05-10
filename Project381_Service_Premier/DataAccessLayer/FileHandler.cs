@@ -17,13 +17,16 @@ namespace Project381_Service_Premier.DataAccessLayer
         //Set connection string
         string connect = "Data Source=.; Initial Catalog= servicePremierDB; Integrated Security= SSPI";
         SqlConnection conn;
-        SqlConnection conn2; 
+        SqlConnection conn2;
+        SqlConnection conn3;
 
         SqlCommand command;
-        SqlCommand command2;     
+        SqlCommand command2;
+        SqlCommand command3;
 
         SqlDataReader reader;   
         SqlDataReader reader2;
+        SqlDataReader reader3;
 
         public void addclient(string cId, string cName, string cSurname, string cAddress, string cNumber, bool isBusiness, string username, string password)
         {
@@ -143,18 +146,27 @@ namespace Project381_Service_Premier.DataAccessLayer
             {
                 command.ExecuteNonQuery();
                 packageID = int.Parse(getPackageID(pName));
-                //addPackageServicesToDB(packageServices, packageID);
                 foreach (Service service in packageServices)
                 {
-                    serviceID = int.Parse(getServiceID(service.SName));
-                    string query2 = @"INSERT INTO Service_Packages VALUES ( '" + packageID + "', '" + serviceID + "' )";
-
-
-                    conn2.Open();
-                    command2 = new SqlCommand(query2, conn2);
-                    command2.ExecuteNonQuery();
-                    conn2.Close();
+                    MessageBox.Show(getServiceID(service.SName));
                 }
+
+                //MessageBox.Show(Convert.ToString(packageID));
+                //addPackageServicesToDB(packageServices, packageID);
+                //conn2.Open();
+                //foreach (Service service in packageServices)
+                //{
+                //    serviceID = int.Parse(getServiceID(service.SName));
+                //    MessageBox.Show(Convert.ToString(serviceID));
+                //    //string query2 = @"INSERT INTO Service_Packages () VALUES ( '" + packageID + "', '" + serviceID + "' )";
+
+                //    string query2 = @"SELECT * FROM ServiceC";
+                    
+                //    command2 = new SqlCommand(query2, conn2);
+                //    command2.ExecuteNonQuery();
+                    
+                //}
+                //conn2.Close();
                 //conn.Close();
                 MessageBox.Show("Package Added");
 
@@ -166,7 +178,7 @@ namespace Project381_Service_Premier.DataAccessLayer
             finally
             {
                 conn.Close();
-                conn2.Close();
+                //conn2.Close();
 
             }
         }
@@ -431,25 +443,21 @@ namespace Project381_Service_Premier.DataAccessLayer
             string query = @"SELECT * FROM ServiceC WHERE ServiceName = ('" + name + "')";
 
             //connect
-            conn = new SqlConnection(connect);
+            conn3 = new SqlConnection(connect);
 
-            conn.Open();
+            conn3.Open();
 
-            command = new SqlCommand(query, conn);
+            command3 = new SqlCommand(query, conn3);
 
             string ServiceID = "";
             //run query command
             try
             {
                 //read data SqlDataReader
-                reader = command.ExecuteReader();
-                if (reader.Read())
+                reader3 = command3.ExecuteReader();
+                if (reader3.Read())
                 {
-
-                    ServiceID = reader[0].ToString();
-
-
-
+                    ServiceID = reader3[0].ToString();
                 }
             }
             catch (Exception ex)
@@ -458,7 +466,7 @@ namespace Project381_Service_Premier.DataAccessLayer
             }
             finally
             {
-                conn.Close();
+                conn3.Close();
             }
             //Return the student list
             return ServiceID;
