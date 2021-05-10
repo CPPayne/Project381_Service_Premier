@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Project381_Service_Premier.BusinessLayer;
 using Project381_Service_Premier.DataAccessLayer;
+
 namespace Project381_Service_Premier.BusinessLayer
 {
-   //namespace Project381_Service_Premier.businesslogic
+
    class Client
    {
 
