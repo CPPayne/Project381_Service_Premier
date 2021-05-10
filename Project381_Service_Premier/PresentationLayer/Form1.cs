@@ -129,12 +129,12 @@ namespace Project381_Service_Premier
             Service selectedService = (Service)sourceAllService.Current;
 
 
-            Service newService = new Service(selectedService.SType, selectedService.SName, selectedService.SSpecifications);
+            Service newService = new Service(selectedService.SName, selectedService.SType, selectedService.SSpecifications);
             //MessageBox.Show(newService.SType);
             servicesInPackage.Add(newService);
             foreach(Service serv in servicesInPackage)
             {
-               MessageBox.Show(serv.SType);
+               MessageBox.Show(serv.SName);
             }
 
 
@@ -162,7 +162,7 @@ namespace Project381_Service_Premier
             FileHandler fh = new FileHandler();
 
             //MessageBox.Show(fh.Search("test"));
-            MessageBox.Show(fh.getServiceID("a"));
+            MessageBox.Show(fh.getServiceID("Telephone maintenance"));
         }
 
         private void dgvPackages_SelectionChanged(object sender, EventArgs e)

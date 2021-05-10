@@ -95,11 +95,11 @@ namespace Project381_Service_Premier.DataAccessLayer
             return clientExist;
         }
 
-        public void addService(string sType, string sName, string sSpecifications)
+        public void addService(string sName,string sType, string sSpecifications)
         {
             //SqlConnection conn;
            // SqlCommand command;
-            string query = @"INSERT INTO ServiceC VALUES ( '" + sType + "', '" + sName + "', '" + sSpecifications + "' )";
+            string query = @"INSERT INTO ServiceC (ServiceName, ServiceType, ServiceSpecification) VALUES ( '" + sName + "', '" + sType + "', '" + sSpecifications + "' )";
 
             conn = new SqlConnection(connect);
 
