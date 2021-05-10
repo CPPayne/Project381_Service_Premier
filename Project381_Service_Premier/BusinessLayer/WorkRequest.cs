@@ -29,9 +29,9 @@ namespace Project381_Service_Premier.BusinessLayer
                    expertise_required == request.expertise_required;
         }
 
-        public override int GetHashCode()
-        {
-            return HashCode.Combine(id, description, expertise_required);
-        }
+        //public override int GetHashCode()
+        //{
+        //    return HashCode.Combine(id, description, expertise_required);
+        //}
     }
 }

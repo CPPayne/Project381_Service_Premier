@@ -21,9 +21,9 @@ namespace Project381_Service_Premier.BusinessLayer
                    Expertise == technician.Expertise;
         }
 
-        public override int GetHashCode()
-        {
-            return HashCode.Combine(Expertise);
-        }
+        //public override int GetHashCode()
+        //{
+        //    return HashCode.Combine(Expertise);
+        //}
     }
 }

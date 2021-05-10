@@ -42,10 +42,10 @@ namespace Project381_Service_Premier.DataAccessLayer
 
 
 
-         try
-         {
-            command.ExecuteNonQuery();
-            MessageBox.Show("Details of new client saved:");
+            try
+            {
+                command.ExecuteNonQuery();
+                MessageBox.Show("Client Registered, Please log in!" );
 
          }
          catch (Exception ex)
@@ -64,22 +64,21 @@ namespace Project381_Service_Premier.DataAccessLayer
          bool clientExist = false;
          string query = @"SELECT * FROM Client WHERE ClientID = ('" + clientID + "')";
 
-         //connect
-         conn = new SqlConnection(connect);
+
+            conn = new SqlConnection(connect);
 
          conn.Open();
 
          command = new SqlCommand(query, conn);
 
-         //run query command
-         try
-         {
-            //read data SqlDataReader
-            reader = command.ExecuteReader();
-            if (reader.Read())
+
+            try
             {
-               clientExist = true;
-            }
+                reader = command.ExecuteReader();
+                if (reader.Read())
+                {
+                    clientExist = true;
+                }
 
          }
          catch (Exception ex)
@@ -95,11 +94,10 @@ namespace Project381_Service_Premier.DataAccessLayer
          return clientExist;
       }
 
-      public void addService(string sName, string sType, string sSpecifications)
-      {
-         //SqlConnection conn;
-         // SqlCommand command;
-         string query = @"INSERT INTO ServiceC (ServiceName, ServiceType, ServiceSpecification) VALUES ( '" + sName + "', '" + sType + "', '" + sSpecifications + "' )";
+        public void addService(string sName,string sType, string sSpecifications)
+        {
+
+            string query = @"INSERT INTO ServiceC (ServiceName, ServiceType, ServiceSpecification) VALUES ( '" + sName + "', '" + sType + "', '" + sSpecifications + "' )";
 
          conn = new SqlConnection(connect);
 
@@ -123,15 +121,12 @@ namespace Project381_Service_Premier.DataAccessLayer
          }
       }
 
-      public void addPackage(string pName, Decimal pCost, List<Service> packageServices)
-      {
-         //SqlConnection conn = new SqlConnection(connect);
-         //SqlCommand command;
-         //SqlConnection conn2 = new SqlConnection(connect); ;
-         //SqlCommand command2;
-         int serviceID;
-         int packageID;
-         string query = @"INSERT INTO PPackage VALUES ( '" + pName + "', '" + pCost + "' )";
+        public void addPackage(string pName, Decimal pCost, List<Service> packageServices)
+        {
+
+            int serviceID;
+            int packageID;
+            string query = @"INSERT INTO PPackage VALUES ( '" + pName + "', '" + pCost + "' )";
 
          conn = new SqlConnection(connect);
          conn2 = new SqlConnection(connect);
@@ -146,22 +141,14 @@ namespace Project381_Service_Premier.DataAccessLayer
             {
                 command.ExecuteNonQuery();
                 packageID = int.Parse(getPackageID(pName));
-                //foreach (Service service in packageServices)
-                //{
-                //    MessageBox.Show(getServiceID(service.SName));
-                //}
 
-                //MessageBox.Show(Convert.ToString(packageID));
                 //addPackageServicesToDB(packageServices, packageID);
                
                 foreach (Service service in packageServices)
                 {
                     conn2.Open();
                     serviceID = int.Parse(getServiceID(service.SName));
-                    //MessageBox.Show(Convert.ToString(serviceID));
                     string query2 = @"INSERT INTO Service_Packages VALUES ( '" + packageID + "', '" + serviceID + "' )";
-
-                    //string query2 = @"SELECT * FROM ServiceC";
 
                     command2 = new SqlCommand(query2, conn2);
                     command2.ExecuteNonQuery();
@@ -172,26 +159,21 @@ namespace Project381_Service_Premier.DataAccessLayer
                 conn.Close();
                 MessageBox.Show("Package Added");
 
-         }
-         catch (Exception ex)
-         {
-            MessageBox.Show("Details of new service not saved: " + ex.Message);
-         }
-         finally
-         {
-            conn.Close();
-            //conn2.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Details of new service not saved: " + ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
 
-         }
-      }
-
-      public void addPackageServicesToDB(List<Service> packageServices, int packageID)
-      {
-         //SqlConnection conn;
-         //SqlCommand command;
-
-         int serviceID;
-         conn2 = new SqlConnection(connect);
+        public void addPackageServicesToDB(List<Service> packageServices, int packageID)
+        {
+            int serviceID;
+            conn2 = new SqlConnection(connect);
 
 
          try
@@ -284,11 +266,10 @@ namespace Project381_Service_Premier.DataAccessLayer
             while (reader.Read())
             {
 
-               string packID = reader.GetValue(0).ToString();
-               objPackage.PackageName = reader.GetValue(1).ToString();
-               objPackage.Cost = Decimal.Parse(reader.GetValue(2).ToString());
-               //Maybe convert string to int if error.
-               objPackage.Services = getServicesForPackage(packID);
+                    string packID = reader.GetValue(0).ToString();
+                    objPackage.PackageName = reader.GetValue(1).ToString();
+                    objPackage.Cost = Decimal.Parse(reader.GetValue(2).ToString());
+                    objPackage.Services = getServicesForPackage(packID);
 
 
 
@@ -396,91 +377,120 @@ namespace Project381_Service_Premier.DataAccessLayer
          return objPackage.Services;
       }
 
-      public string getPackageID(string name)
-      {
-         //SqlConnection conn = new SqlConnection(connect);
-         //SqlCommand command;
-         //SqlDataReader reader;
+        public string getPackageID(string name)
+        {
 
          string query = @"SELECT * FROM PPackage WHERE PackageName = ('" + name + "')";
 
-         //connect
-         conn = new SqlConnection(connect);
+
+            conn = new SqlConnection(connect);
 
          conn.Open();
 
          command = new SqlCommand(query, conn);
 
-         string packageID = "";
-         //run query command
-         try
-         {
-            //read data SqlDataReader
-            reader = command.ExecuteReader();
-            if (reader.Read())
+            string packageID = "";
+            try
             {
+                reader = command.ExecuteReader();
+                if (reader.Read())
+                {
 
                packageID = reader[0].ToString();
 
 
 
+                }
             }
-         }
-         catch (Exception ex)
-         {
-            MessageBox.Show("Error: " + ex.Message);
-         }
-         finally
-         {
-            conn.Close();
-         }
-         //Return the student list
-         return packageID;
-      }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return packageID;
+        }
 
-      public string getServiceID(string name)
-      {
+        public Package getPackageByID(string id)
+        {
+
+            string query = @"SELECT * FROM PPackage WHERE PackageID = ('" + id + "')";
+
+
+            conn2 = new SqlConnection(connect);
+
+            conn2.Open();
+
+            command2 = new SqlCommand(query, conn);
+
+            Package objPackage = new Package();
+
+            try
+            {
+                reader2 = command2.ExecuteReader();
+                if (reader2.Read())
+                {
+
+                    objPackage.PackageName = reader2[1].ToString();
+                    objPackage.Cost = int.Parse(reader2[2].ToString());
+
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("getPackageByID: " + ex.Message);
+            }
+            finally
+            {
+                conn2.Close();
+            }
+            return objPackage;
+        }
+
+        public string getServiceID(string name)
+        {
 
 
          string query = @"SELECT * FROM ServiceC WHERE ServiceName = ('" + name + "')";
 
-         //connect
-         conn3 = new SqlConnection(connect);
+            conn3 = new SqlConnection(connect);
 
          conn3.Open();
 
          command3 = new SqlCommand(query, conn3);
 
-         string ServiceID = "";
-         //run query command
-         try
-         {
-            //read data SqlDataReader
-            reader3 = command3.ExecuteReader();
-            if (reader3.Read())
-            {
-               ServiceID = reader3[0].ToString();
-            }
-         }
-         catch (Exception ex)
-         {
-            MessageBox.Show("Error: " + ex.Message);
-         }
-         finally
-         {
-            conn3.Close();
-         }
-         //Return the student list
-         return ServiceID;
-      }
+            string ServiceID = "";
 
-      public void Update(int sID, string sName, string sSurnane, string cID)
-      {
-         SqlConnection conn = new SqlConnection(connect);
-         SqlCommand command;
-         SqlDataReader reader;
-         string query = @"UPDATE Students SET StudentID = ('" + sID + "'), FirstName = ('" + sName + "'), " +
-             "LastName = ('" + sSurnane + "'), CourseID = ('" + cID + "') WHERE StudentID = ('" + sID + "')";
+            try
+            {
+
+                reader3 = command3.ExecuteReader();
+                if (reader3.Read())
+                {
+                    ServiceID = reader3[0].ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+            finally
+            {
+                conn3.Close();
+            }
+
+            return ServiceID;
+        }
+
+        public void Update(int sID, string sName, string sSurnane, string cID)
+        {
+            SqlConnection conn = new SqlConnection(connect);
+            SqlCommand command;
+            string query = @"UPDATE Students SET StudentID = ('" + sID + "'), FirstName = ('" + sName + "'), " +
+                "LastName = ('" + sSurnane + "'), CourseID = ('" + cID + "') WHERE StudentID = ('" + sID + "')";
 
          conn = new SqlConnection(connect);
 
@@ -507,55 +517,55 @@ namespace Project381_Service_Premier.DataAccessLayer
       {
          string query = @"SELECT * FROM Client WHERE ClientUsername = ('" + username + "') AND ClientPassword = ('" + password + "')";
 
-         //connect
-         conn = new SqlConnection(connect);
+
+            conn = new SqlConnection(connect);
 
          conn.Open();
 
-         command = new SqlCommand(query, conn);
-         bool clientFound = false;
-         //run query command
-         try
-         {
-            //read data SqlDataReader
-            reader = command.ExecuteReader();
-            if (reader.Read())
+            command = new SqlCommand(query, conn);
+            bool clientFound = false;
+
+            try
             {
+
+                reader = command.ExecuteReader();
+                if (reader.Read())
+                {
 
                clientFound = true;
             }
 
-         }
-         catch (Exception ex)
-         {
-            MessageBox.Show("Error: " + ex.Message);
-         }
-         finally
-         {
-            conn.Close();
-         }
-         //Return the student list
-         return clientFound;
-      }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+            return clientFound;
+        }
 
       public Client getClient(string username, string password)
       {
          string query = @"SELECT * FROM Client WHERE ClientUsername = ('" + username + "') AND ClientPassword = ('" + password + "')";
 
-         //connect
-         conn = new SqlConnection(connect);
+
+            conn = new SqlConnection(connect);
 
          conn.Open();
 
-         command = new SqlCommand(query, conn);
-         Client loggedClient = new Client();
-         //run query command
-         try
-         {
-            //read data SqlDataReader
-            reader = command.ExecuteReader();
-            if (reader.Read())
+            command = new SqlCommand(query, conn);
+            Client loggedClient = new Client();
+
+            try
             {
+
+                reader = command.ExecuteReader();
+                if (reader.Read())
+                {
 
                loggedClient.ClientID = reader[0].ToString();
                loggedClient.Name = reader[1].ToString();
@@ -566,20 +576,97 @@ namespace Project381_Service_Premier.DataAccessLayer
 
             }
 
-         }
-         catch (Exception ex)
-         {
-            MessageBox.Show("Error: " + ex.Message);
-         }
-         finally
-         {
-            conn.Close();
-         }
-         //Return the student list
-         return loggedClient;
-      }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
 
-      public void GetClientWorkHistory() { }
+            return loggedClient;
+        }
+
+        public List<Contract> getContractsForClient(string clientId)
+        {
+            SqlConnection conn = new SqlConnection(connect);
+            SqlCommand command;
+            SqlDataReader reader;
+
+            string query = @"SELECT * FROM ContractC WHERE ClientID  = ('" + clientId + "')";
+
+            Contract objContract = new Contract();
+
+            conn.Open();
+
+            command = new SqlCommand(query, conn);
+            List<Contract> contractsForClient = new List<Contract>();
+
+
+            try
+            {
+
+                reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+
+                    objContract.StartDate = Convert.ToDateTime(reader.GetValue(1).ToString());
+                    string packageID = reader.GetValue(3).ToString();
+                    objContract.ContractLevel = reader.GetValue(4).ToString();
+                    objContract.cPackage = getPackageByID(packageID);
+                    contractsForClient.Add(new Contract(objContract.ContractLevel,objContract.StartDate,objContract.cPackage));
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("getContractsForClient: " + ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return contractsForClient;
+        }
+        public Decimal getPackageCostByName(string packageName)
+        {
+            string query = @"SELECT * FROM PPackage WHERE PackageName = ('" + packageName + "')";
+
+
+            conn = new SqlConnection(connect);
+
+            conn.Open();
+
+            command = new SqlCommand(query, conn);
+
+            Decimal cost = 0;
+
+            try
+            {
+                reader = command.ExecuteReader();
+                if (reader.Read())
+                {
+
+                    cost = Convert.ToDecimal(reader.GetValue(2).ToString());
+
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("getPackageByID: " + ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return cost;
+        }
+
+
+        public void GetClientWorkHistory() { }
 
       public void GetTechnicianWorkHistory() { }
 
@@ -595,12 +682,11 @@ namespace Project381_Service_Premier.DataAccessLayer
          return base.GetHashCode();
       }
 
-      public override string ToString()
-      {
-         return base.ToString();
-      }
-      //Ek hou van aartappels
-   }
+        public override string ToString()
+        {
+            return base.ToString();
+        }
+    }
 }
 
 

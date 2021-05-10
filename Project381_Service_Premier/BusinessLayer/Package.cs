@@ -28,7 +28,7 @@ namespace Project381_Service_Premier.BusinessLayer
 
       public override string ToString()
       {
-         return base.ToString();
+            return this.packageName;
       }
 
       public void addPackageToDB()
@@ -37,23 +37,47 @@ namespace Project381_Service_Premier.BusinessLayer
          fh.addPackage(this.packageName, this.cost, this.Services);
       }
 
-      public void getPackageServices()
-      {
-         FileHandler fh = new FileHandler();
-         this.services = fh.getServicesForPackage(fh.getPackageID(this.packageName));
-      }
+        public void getPackageServices()
+        {
+            FileHandler fh = new FileHandler();
+            this.services=fh.getServicesForPackage(fh.getPackageID(this.packageName));
+        }
+        public void setPackageCost()
+        {
+            FileHandler fh = new FileHandler();
+            this.cost = fh.getPackageCostByName(this.packageName);
+        }
+
+        public List<Package> getAllPackages()
+        {
+            FileHandler fh = new FileHandler();
+            return fh.getAllPackages();
+        }
+
+       
 
 
-      public List<Package> getAllPackages()
-      {
-         FileHandler fh = new FileHandler();
-         return fh.getAllPackages();
-      }
+        public override bool Equals(object obj)
+        {
+            return obj is Package package &&
+                   packageName == package.packageName &&
+                   cost == package.cost &&
+                   EqualityComparer<List<Service>>.Default.Equals(services, package.services) &&
+                   PackageName == package.PackageName &&
+                   Cost == package.Cost &&
+                   EqualityComparer<List<Service>>.Default.Equals(Services, package.Services);
+        }
 
-      public void createService()
-      {
-
-      }
-
-   }
+        public override int GetHashCode()
+        {
+            int hashCode = 597446354;
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(packageName);
+            hashCode = hashCode * -1521134295 + cost.GetHashCode();
+            hashCode = hashCode * -1521134295 + EqualityComparer<List<Service>>.Default.GetHashCode(services);
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(PackageName);
+            hashCode = hashCode * -1521134295 + Cost.GetHashCode();
+            hashCode = hashCode * -1521134295 + EqualityComparer<List<Service>>.Default.GetHashCode(Services);
+            return hashCode;
+        }
+    }
 }

@@ -12,22 +12,27 @@ using Project381_Service_Premier.DataAccessLayer;
 
 namespace Project381_Service_Premier
 {
-   public partial class Form1 : Form
-   {
-      public Form1()
-      {
-         InitializeComponent();
-      }
-      BindingSource sourceAllService = new BindingSource();
-      BindingSource sourceAllPackages = new BindingSource();
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+        }
+        BindingSource sourceAllService = new BindingSource();
+        BindingSource sourceAllPackages = new BindingSource();
+        BindingSource sourceClientContracts = new BindingSource();
+        BindingSource selectedPackageServicesToAdd = new BindingSource();
 
-      BindingSource sourceServicePackage = new BindingSource();
-      List<Service> allServices = new List<Service>();
-      List<Package> allPackages = new List<Package>();
+        BindingSource sourceServicePackage = new BindingSource();
+        List<Service> allServices = new List<Service>();
+        List<Package> allPackages = new List<Package>();
+        List<Contract> clientContr = new List<Contract>();
 
       List<Service> servicesInPackage = new List<Service>();
 
-      Client loggedInClient = new Client();
+        List<Contract> loggedClientContracts = new List<Contract>();
+
+        Client loggedInClient = new Client();
 
 
       string pName;
@@ -43,11 +48,28 @@ namespace Project381_Service_Premier
          dgvServices.DataSource = sourceAllService;
       }
 
-      private void updateServiceDBGRIDpS()
-      {
-         sourceAllService.DataSource = servicesOfChosenPackages;
-         dgvServices.DataSource = sourceAllService;
-      }
+        
+        private void updateServiceInPackage(List<Service> services)
+        {
+            selectedPackageServicesToAdd.DataSource = services;
+            dgvServicesInPackage.DataSource = selectedPackageServicesToAdd;
+
+
+        }
+
+        private void updateDBGRIDContracts(string clientID)
+        {
+            Contract cnrt = new Contract();
+
+            clientContr = cnrt.getContractsForClient(clientID);
+            sourceClientContracts.DataSource = clientContr;
+            dgvContracts.DataSource = sourceClientContracts;
+        }
+        private void updateServiceDBGRIDpS()
+        {
+            sourceAllService.DataSource = servicesOfChosenPackages;
+            dgvServices.DataSource = sourceAllService;
+        }
 
       private void updatePakcageDBGRID()
       {
@@ -70,8 +92,10 @@ namespace Project381_Service_Premier
          updateServiceDBGRID();
          updatePakcageDBGRID();
 
-         tabControl1.SelectedTab = tpMainMenu;
-      }
+            tabControl1.SelectedTab = tpMainMenu;
+
+            cmbPackages.DataSource = allPackages;
+        }
 
       private void btnAnswerCall_Click(object sender, EventArgs e)
       {
@@ -151,13 +175,10 @@ namespace Project381_Service_Premier
 
       }
 
-      private void dgvServices_SelectionChanged(object sender, EventArgs e)
-      {
-         //Service selectedService = (Service)sourceAllService.Current;
-         //sType = selectedService.SType;
-         //sName = selectedService.SName;
-         //sSpec = selectedService.SSpecifications;
-      }
+        private void dgvServices_SelectionChanged(object sender, EventArgs e)
+        {
+
+        }
 
       private void btnDeleteServices_Click(object sender, EventArgs e)
       {
@@ -189,19 +210,20 @@ namespace Project381_Service_Premier
          string phoneNumber = txtPhoneNumber.Text;
          bool isBusiness = cbxBusiness.Checked;
 
-         Client client = new Client(name, surname, phoneNumber, address, isBusiness, username, password);
-         client.GenerateClientID();
-         client.addClientToDB();
-         //MessageBox.Show(client.ClientID);
+            Client client = new Client(name, surname, phoneNumber, address, isBusiness, username, password);
+            client.GenerateClientID();
+            client.addClientToDB();
+            //MessageBox.Show(client.ClientID);
+            
 
-         txtClientName.Clear();
-         txtClientSurname.Clear();
-         txtClientAddress.Clear();
-         txtPhoneNumber.Clear();
-         txtClientUsername.Clear();
-         txtClientPassword.Clear();
-
-      }
+            txtClientName.Clear();
+            txtClientSurname.Clear();
+            txtClientAddress.Clear();
+            txtPhoneNumber.Clear();
+            txtClientUsername.Clear();
+            txtClientPassword.Clear();
+            
+        }
 
       private void maskedTextBox1_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
       {
@@ -245,15 +267,16 @@ namespace Project381_Service_Premier
 
          bool logged = loggedInClient.login(usernameInput, passwordInput);
 
-         if (logged)
-         {
-            tabControl1.SelectedTab = tpClientContract;
-            txtloggedClientID.Text = loggedInClient.ClientID;
-            txtLoggedName.Text = loggedInClient.Name;
-            txtLoggedSurname.Text = loggedInClient.Surname;
-            txtLoggedNumber.Text = loggedInClient.PhoneNum;
-         }
-      }
+            if (logged)
+            {
+                tabControl1.SelectedTab = tpClientContract;
+                txtloggedClientID.Text = loggedInClient.ClientID;
+                txtLoggedName.Text = loggedInClient.Name;
+                txtLoggedSurname.Text = loggedInClient.Surname;
+                txtLoggedNumber.Text = loggedInClient.PhoneNum;
+                updateDBGRIDContracts(loggedInClient.ClientID);
+            }
+        }
 
       private void btnMtoSchedule_Click(object sender, EventArgs e)
       {
@@ -261,16 +284,24 @@ namespace Project381_Service_Premier
 
       }
 
-      private void btnLogout_Click(object sender, EventArgs e)
-      {
-         loggedInClient = new Client();
-         txtloggedClientID.Clear();
-         txtLoggedName.Clear();
-         txtLoggedSurname.Clear();
-         txtLoggedNumber.Clear();
-         tabControl1.SelectedTab = tpMainMenu;
-      }
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            loggedInClient = new Client();
+            txtloggedClientID.Clear();
+            txtLoggedName.Clear();
+            txtLoggedSurname.Clear();
+            txtLoggedNumber.Clear();
+            tabControl1.SelectedTab = tpMainMenu;
+        }
 
-      
-   }
+        private void cmbPackages_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            Package selectedPackageToAdd = new Package();
+            selectedPackageToAdd.PackageName = cmbPackages.Text;
+            selectedPackageToAdd.setPackageCost();
+            selectedPackageToAdd.getPackageServices();
+            updateServiceInPackage(selectedPackageToAdd.Services);
+        }
+    }
 }
