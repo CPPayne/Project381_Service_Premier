@@ -27,6 +27,7 @@ namespace Project381_Service_Premier
 
       List<Service> servicesInPackage = new List<Service>();
 
+        Client loggedInClient = new Client();
 
 
       string pName;
@@ -69,8 +70,8 @@ namespace Project381_Service_Premier
          updateServiceDBGRID();
          updatePakcageDBGRID();
 
-
-      }
+            tabControl1.SelectedTab = tpMainMenu;
+        }
 
       private void btnAnswerCall_Click(object sender, EventArgs e)
       {
@@ -130,13 +131,13 @@ namespace Project381_Service_Premier
          Service selectedService = (Service)sourceAllService.Current;
 
 
-         Service newService = new Service(selectedService.SType, selectedService.SName, selectedService.SSpecifications);
-         MessageBox.Show(newService.SType);
-         servicesInPackage.Add(newService);
-         foreach (Service serv in servicesInPackage)
-         {
-            MessageBox.Show(serv.SType);
-         }
+            Service newService = new Service(selectedService.SType, selectedService.SName, selectedService.SSpecifications);
+            //MessageBox.Show(newService.SType);
+            servicesInPackage.Add(newService);
+            foreach(Service serv in servicesInPackage)
+            {
+               MessageBox.Show(serv.SType);
+            }
 
 
          //updatePackageServiceDBGRID(servicesInPackage);
@@ -161,9 +162,9 @@ namespace Project381_Service_Premier
          List<Service> dispServ = new List<Service>();
          FileHandler fh = new FileHandler();
 
-         //MessageBox.Show(fh.Search("test"));
-         MessageBox.Show(fh.getServiceID("test"));
-      }
+            //MessageBox.Show(fh.Search("test"));
+            MessageBox.Show(fh.getServiceID("a"));
+        }
 
       private void dgvPackages_SelectionChanged(object sender, EventArgs e)
       {
@@ -176,25 +177,29 @@ namespace Project381_Service_Premier
          updateServiceDBGRIDpS();
       }
 
-      private void btnRegister_Click(object sender, EventArgs e)
-      {
-         string name = txtClientName.Text;
-         string surname = txtClientSurname.Text;
-         string address = txtClientAddress.Text;
-         string phoneNumber = txtPhoneNumber.Text;
-         bool isBusiness = cbxBusiness.Checked;
+        private void btnRegister_Click(object sender, EventArgs e)
+        {
+            string username = txtClientUsername.Text;
+            string password = txtClientPassword.Text;
+            string name = txtClientName.Text;
+            string surname = txtClientSurname.Text;
+            string address = txtClientAddress.Text;
+            string phoneNumber = txtPhoneNumber.Text;
+            bool isBusiness = cbxBusiness.Checked;
 
-         Client client = new Client(name, surname, phoneNumber, address, isBusiness);
-         client.GenerateClientID();
-         client.addClientToDB();
-         //MessageBox.Show(client.ClientID);
+            Client client = new Client(name, surname, phoneNumber, address, isBusiness, username, password);
+            client.GenerateClientID();
+            client.addClientToDB();
+            //MessageBox.Show(client.ClientID);
 
-         txtClientName.Clear();
-         txtClientSurname.Clear();
-         txtClientAddress.Clear();
-         txtPhoneNumber.Clear();
-
-      }
+            txtClientName.Clear();
+            txtClientSurname.Clear();
+            txtClientAddress.Clear();
+            txtPhoneNumber.Clear();
+            txtClientUsername.Clear();
+            txtClientPassword.Clear();
+            
+        }
 
       private void maskedTextBox1_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
       {
@@ -206,14 +211,62 @@ namespace Project381_Service_Premier
          tabControl1.SelectedTab = tpLogin;
       }
 
-      private void textBox3_TextChanged(object sender, EventArgs e)
-      {
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
 
-      }
+        }
 
-      private void button1_Click(object sender, EventArgs e)
-      {
-         
-      }
-   }
+        private void label48_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnMenuCRegister_Click(object sender, EventArgs e)
+        {
+            tabControl1.SelectedTab = tpRegister;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            tabControl1.SelectedTab = tpMainMenu;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            tabControl1.SelectedTab = tpMainMenu;
+        }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            string usernameInput = txtLoginUsername.Text;
+            string passwordInput = txtLoginPassword.Text;
+
+            bool logged = loggedInClient.login(usernameInput, passwordInput);
+
+            if (logged)
+            {
+                tabControl1.SelectedTab = tpClientContract;
+                txtloggedClientID.Text = loggedInClient.ClientID;
+                txtLoggedName.Text = loggedInClient.Name;
+                txtLoggedSurname.Text = loggedInClient.Surname;
+                txtLoggedNumber.Text = loggedInClient.PhoneNum;
+            }
+        }
+
+        private void btnMtoSchedule_Click(object sender, EventArgs e)
+        {
+
+            
+        }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            loggedInClient = new Client();
+            txtloggedClientID.Clear();
+            txtLoggedName.Clear();
+            txtLoggedSurname.Clear();
+            txtLoggedNumber.Clear();
+            tabControl1.SelectedTab = tpMainMenu;
+        }
+    }
 }

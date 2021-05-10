@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using Project381_Service_Premier.BusinessLayer;
 using Project381_Service_Premier.DataAccessLayer;
 namespace Project381_Service_Premier.BusinessLayer
@@ -17,6 +18,8 @@ namespace Project381_Service_Premier.BusinessLayer
       private string address;
       private string clientID;
       private bool isBusiness;
+      private string username;
+      private string password;
 
         public string Name { get => name; set => name = value; }
         public string Surname { get => surname; set => surname = value; }
@@ -32,6 +35,21 @@ namespace Project381_Service_Premier.BusinessLayer
             this.PhoneNum = phoneNum;
             this.Address = address;
             this.IsBusiness = isBusiness;
+        }
+
+        public Client()
+        {
+        }
+
+        public Client(string name, string surname, string phoneNum, string address, bool isBusiness, string username, string password)
+        {
+            this.name = name;
+            this.surname = surname;
+            this.phoneNum = phoneNum;
+            this.address = address;
+            this.isBusiness = isBusiness;
+            this.username = username;
+            this.password = password;
         }
 
         public Client get_client_by_phone(string phoneNum)
@@ -87,7 +105,30 @@ namespace Project381_Service_Premier.BusinessLayer
         public void addClientToDB()
         {
             FileHandler dbaccess = new FileHandler();
-            dbaccess.addclient(ClientID, Name, Surname, Address, PhoneNum, IsBusiness);
+            dbaccess.addclient(ClientID, Name, Surname, Address, PhoneNum, IsBusiness, username, password);
+        }
+
+        public bool login(string username, string password)
+        {
+            FileHandler fh = new FileHandler();
+
+            if(fh.checkLogin(username, password))
+            {
+                Client temp = new Client();
+                temp = fh.getClient(username, password);
+                this.ClientID = temp.ClientID;
+                this.name = temp.name;
+                this.surname = temp.surname;
+                this.address = temp.address;
+                this.phoneNum = temp.phoneNum;
+                this.isBusiness = temp.isBusiness;
+                return true;
+            }
+            else
+            {
+                MessageBox.Show("Incorrect Username or Password");
+                return false;
+            }
         }
 
         public override string ToString()

@@ -12,5 +12,6 @@ namespace Project381_Service_Premier.BusinessLayer
         private int level;
         private DateTime startDate;
         private Package package;
+        private Client clientID;
     }
 }
