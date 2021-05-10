@@ -89,9 +89,9 @@ namespace Project381_Service_Premier
          string serviceName = txtAddServiceName.Text;
          string serviceDescription = rtbServiceSpecification.Text;
 
-         Service newService = new Service(serviceName, serviceType,  serviceDescription);
-         newService.addServiceToDB();
-         updateServiceDBGRID();
+            Service newService = new Service( serviceName, serviceType, serviceDescription);
+            newService.addServiceToDB();
+            updateServiceDBGRID();
 
          txtAddServiceType.Clear();
          txtAddServiceName.Clear();
@@ -134,20 +134,22 @@ namespace Project381_Service_Premier
             Service newService = new Service(selectedService.SName, selectedService.SType, selectedService.SSpecifications);
             //MessageBox.Show(newService.SType);
             servicesInPackage.Add(newService);
-            foreach(Service serv in servicesInPackage)
-            {
-               MessageBox.Show(serv.SName);
-            }
+            //foreach(Service serv in servicesInPackage)
+            //{
+            //   MessageBox.Show(serv.SName);
+            //}
 
 
          //updatePackageServiceDBGRID(servicesInPackage);
          sourceServicePackage.DataSource = servicesInPackage;
          dgvPackageServices.DataSource = sourceServicePackage;
 
-         pName = null;
-         pCost = 0;
-         servicesOfChosenPackages.Clear();
-      }
+            sourceServicePackage.ResetBindings(false);
+            pName = null;
+            pCost = 0;
+            servicesOfChosenPackages.Clear();
+
+        }
 
       private void dgvServices_SelectionChanged(object sender, EventArgs e)
       {

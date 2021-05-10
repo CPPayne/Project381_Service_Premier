@@ -136,39 +136,41 @@ namespace Project381_Service_Premier.DataAccessLayer
          conn = new SqlConnection(connect);
          conn2 = new SqlConnection(connect);
 
-         conn.Open();
-         conn2.Open();
-
-         command = new SqlCommand(query, conn);
+            conn.Open();
 
 
-         try
-         {
-            command.ExecuteNonQuery();
-            packageID = int.Parse(getPackageID(pName));
-            foreach (Service service in packageServices)
+            command = new SqlCommand(query, conn);
+
+
+            try
             {
-               MessageBox.Show(getServiceID(service.SName));
-            }
+                command.ExecuteNonQuery();
+                packageID = int.Parse(getPackageID(pName));
+                //foreach (Service service in packageServices)
+                //{
+                //    MessageBox.Show(getServiceID(service.SName));
+                //}
 
-            //MessageBox.Show(Convert.ToString(packageID));
-            //addPackageServicesToDB(packageServices, packageID);
-            //conn2.Open();
-            //foreach (Service service in packageServices)
-            //{
-            //    serviceID = int.Parse(getServiceID(service.SName));
-            //    MessageBox.Show(Convert.ToString(serviceID));
-            //    //string query2 = @"INSERT INTO Service_Packages () VALUES ( '" + packageID + "', '" + serviceID + "' )";
+                //MessageBox.Show(Convert.ToString(packageID));
+                //addPackageServicesToDB(packageServices, packageID);
+               
+                foreach (Service service in packageServices)
+                {
+                    conn2.Open();
+                    serviceID = int.Parse(getServiceID(service.SName));
+                    //MessageBox.Show(Convert.ToString(serviceID));
+                    string query2 = @"INSERT INTO Service_Packages VALUES ( '" + packageID + "', '" + serviceID + "' )";
 
-            //    string query2 = @"SELECT * FROM ServiceC";
+                    //string query2 = @"SELECT * FROM ServiceC";
 
-            //    command2 = new SqlCommand(query2, conn2);
-            //    command2.ExecuteNonQuery();
+                    command2 = new SqlCommand(query2, conn2);
+                    command2.ExecuteNonQuery();
+                    conn2.Close();
 
-            //}
-            //conn2.Close();
-            //conn.Close();
-            MessageBox.Show("Package Added");
+                }
+                conn2.Close();
+                conn.Close();
+                MessageBox.Show("Package Added");
 
          }
          catch (Exception ex)
