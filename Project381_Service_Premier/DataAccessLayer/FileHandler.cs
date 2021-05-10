@@ -28,6 +28,7 @@ namespace Project381_Service_Premier.DataAccessLayer
       SqlDataReader reader2;
       SqlDataReader reader3;
 
+
       public void addclient(string cId, string cName, string cSurname, string cAddress, string cNumber, bool isBusiness, string username, string password)
       {
 
@@ -121,6 +122,35 @@ namespace Project381_Service_Premier.DataAccessLayer
          }
       }
 
+        public void addContractToDB(DateTime contractStart, string ClientID, string packageID, string ContractLevel)
+        {
+            string query = @"INSERT INTO ContractC  VALUES ( '" + contractStart+ "', '" + ClientID + "', '" + packageID + "', '" + ContractLevel  + "' )";
+
+            conn = new SqlConnection(connect);
+
+            conn.Open();
+
+            command = new SqlCommand(query, conn);
+
+
+
+
+            try
+            {
+                command.ExecuteNonQuery();
+                MessageBox.Show("Contract Created");
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Contract Creation Failed! " + ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
         public void addPackage(string pName, Decimal pCost, List<Service> packageServices)
         {
 
@@ -201,7 +231,7 @@ namespace Project381_Service_Premier.DataAccessLayer
          }
       }
 
-      public List<Service> getAllServices()
+        public List<Service> getAllServices()
       {
          SqlConnection conn = new SqlConnection(connect);
          SqlCommand command;
@@ -243,7 +273,7 @@ namespace Project381_Service_Premier.DataAccessLayer
          return allServices;
       }
 
-      public List<Package> getAllPackages()
+        public List<Package> getAllPackages()
       {
          SqlConnection conn = new SqlConnection(connect);
          SqlCommand command;
@@ -287,7 +317,7 @@ namespace Project381_Service_Premier.DataAccessLayer
          return allPackages;
       }
 
-      public List<Service> getServicesForPackage(string packageID)
+        public List<Service> getServicesForPackage(string packageID)
       {
          SqlConnection conn = new SqlConnection(connect);
          SqlCommand command;
@@ -329,7 +359,7 @@ namespace Project381_Service_Premier.DataAccessLayer
          return servicesForPack;
       }
 
-      public List<Service> getSinglePackageServices(string packageName)
+        public List<Service> getSinglePackageServices(string packageName)
       {
          SqlConnection conn = new SqlConnection(connect);
          SqlCommand command;
@@ -383,7 +413,7 @@ namespace Project381_Service_Premier.DataAccessLayer
          string query = @"SELECT * FROM PPackage WHERE PackageName = ('" + name + "')";
 
 
-            conn = new SqlConnection(connect);
+         conn = new SqlConnection(connect);
 
          conn.Open();
 
@@ -419,22 +449,22 @@ namespace Project381_Service_Premier.DataAccessLayer
             string query = @"SELECT * FROM PPackage WHERE PackageID = ('" + id + "')";
 
 
-            conn2 = new SqlConnection(connect);
+            conn = new SqlConnection(connect);
 
-            conn2.Open();
+            conn.Open();
 
-            command2 = new SqlCommand(query, conn);
+            command = new SqlCommand(query, conn);
 
             Package objPackage = new Package();
 
             try
             {
-                reader2 = command2.ExecuteReader();
-                if (reader2.Read())
+                reader = command.ExecuteReader();
+                if (reader.Read())
                 {
 
-                    objPackage.PackageName = reader2[1].ToString();
-                    objPackage.Cost = int.Parse(reader2[2].ToString());
+                    objPackage.PackageName = reader[1].ToString();
+                    objPackage.Cost = Decimal.Parse(reader[2].ToString());
 
 
                 }
@@ -445,7 +475,7 @@ namespace Project381_Service_Premier.DataAccessLayer
             }
             finally
             {
-                conn2.Close();
+                conn.Close();
             }
             return objPackage;
         }
@@ -513,7 +543,7 @@ namespace Project381_Service_Premier.DataAccessLayer
          }
       }
 
-      public bool checkLogin(string username, string password)
+        public bool checkLogin(string username, string password)
       {
          string query = @"SELECT * FROM Client WHERE ClientUsername = ('" + username + "') AND ClientPassword = ('" + password + "')";
 
@@ -548,7 +578,7 @@ namespace Project381_Service_Premier.DataAccessLayer
             return clientFound;
         }
 
-      public Client getClient(string username, string password)
+        public Client getClient(string username, string password)
       {
          string query = @"SELECT * FROM Client WHERE ClientUsername = ('" + username + "') AND ClientPassword = ('" + password + "')";
 
@@ -668,16 +698,16 @@ namespace Project381_Service_Premier.DataAccessLayer
 
         public void GetClientWorkHistory() { }
 
-      public void GetTechnicianWorkHistory() { }
+        public void GetTechnicianWorkHistory() { }
 
-      public void GetCallLog() { }
+        public void GetCallLog() { }
 
-      public override bool Equals(object obj)
+        public override bool Equals(object obj)
       {
          return base.Equals(obj);
       }
 
-      public override int GetHashCode()
+        public override int GetHashCode()
       {
          return base.GetHashCode();
       }
@@ -716,89 +746,5 @@ namespace Project381_Service_Premier.DataAccessLayer
 //    }
 //}
 
-//public bool Search(int sID)
-//{
-//    //query select all collumns provided stdID = value
 
-//    string query = @"SELECT * FROM Students WHERE StudentID = ('" + sID + "')";
 
-//    //connect
-//    conn = new SqlConnection(connect);
-
-//    conn.Open();
-
-//    command = new SqlCommand(query, conn);
-//    List<Student> myStudent = new List<Student>();
-
-//    //run query command
-//    try
-//    {
-//        //read data SqlDataReader
-//        reader = command.ExecuteReader();
-//        if (reader.Read())
-//        {
-//            //Store each collumn value in student class variables/field
-//            objStudent.StudentID = int.Parse(reader[0].ToString());
-//            objStudent.StudentName = reader[1].ToString();
-//            objStudent.StudentSurname = reader[2].ToString();
-//            objStudent.CourseID = reader[3].ToString();
-
-//            //Add field values to a Student type list
-//            myStudent.Add(new Student(objStudent.StudentID, objStudent.StudentName, objStudent.StudentSurname, objStudent.CourseID));
-//        }
-//    }
-//    catch (Exception ex)
-//    {
-//        MessageBox.Show("Error: " + ex.Message);
-//    }
-//    finally
-//    {
-//        conn.Close();
-//    }
-
-//    return myStudent;
-//}
-
-//Search method
-//public List<Student> Search(int sID)
-//{
-//    //query select all collumns provided stdID = value
-
-//    string query = @"SELECT * FROM Students WHERE StudentID = ('" + sID + "')";
-
-//    //connect
-//    conn = new SqlConnection(connect);
-
-//    conn.Open();
-
-//    command = new SqlCommand(query, conn);
-//    List<Student> myStudent = new List<Student>();
-
-//    //run query command
-//    try
-//    {
-//        //read data SqlDataReader
-//        reader = command.ExecuteReader();
-//        if (reader.Read())
-//        {
-//            //Store each collumn value in student class variables/field
-//            objStudent.StudentID = int.Parse(reader[0].ToString());
-//            objStudent.StudentName = reader[1].ToString();
-//            objStudent.StudentSurname = reader[2].ToString();
-//            objStudent.CourseID = reader[3].ToString();
-
-//            //Add field values to a Student type list
-//            myStudent.Add(new Student(objStudent.StudentID, objStudent.StudentName, objStudent.StudentSurname, objStudent.CourseID));
-//        }
-//    }
-//    catch (Exception ex)
-//    {
-//        MessageBox.Show("Error: " + ex.Message);
-//    }
-//    finally
-//    {
-//        conn.Close();
-//    }
-
-//    return myStudent;
-//}

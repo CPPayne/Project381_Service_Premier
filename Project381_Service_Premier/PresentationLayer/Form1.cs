@@ -35,7 +35,8 @@ namespace Project381_Service_Premier
         Client loggedInClient = new Client();
 
 
-      string pName;
+
+        string pName;
       Decimal pCost;
       List<Service> servicesOfChosenPackages = new List<Service>();
 
@@ -269,12 +270,34 @@ namespace Project381_Service_Premier
 
             if (logged)
             {
-                tabControl1.SelectedTab = tpClientContract;
+                
                 txtloggedClientID.Text = loggedInClient.ClientID;
                 txtLoggedName.Text = loggedInClient.Name;
                 txtLoggedSurname.Text = loggedInClient.Surname;
                 txtLoggedNumber.Text = loggedInClient.PhoneNum;
                 updateDBGRIDContracts(loggedInClient.ClientID);
+                
+
+                
+
+                if (loggedInClient.IsBusiness)
+                {
+                    rb4.Enabled = true;
+                    rb5.Enabled = true;
+                    rb4.Visible = true;
+                    rb5.Visible = true;
+                }
+                else
+                {
+                    rb4.Enabled = false;
+                    rb5.Enabled = false;
+                    rb4.Visible = false;
+                    rb5.Visible = false;
+                }
+
+                txtLoginPassword.Clear();
+                txtLoginUsername.Clear();
+                tabControl1.SelectedTab = tpClientContract;
             }
         }
 
@@ -302,6 +325,23 @@ namespace Project381_Service_Premier
             selectedPackageToAdd.setPackageCost();
             selectedPackageToAdd.getPackageServices();
             updateServiceInPackage(selectedPackageToAdd.Services);
+        }
+
+        private void btnCreateContract_Click(object sender, EventArgs e)
+        {
+            string packageName = cmbPackages.Text;
+            string contractLevel = rb1.Checked ? "1" : (rb2.Checked ? "2" : (rb3.Checked ? "3" : (rb4.Checked ? "4":"5"))) ;
+            DateTime startDate = DTPClientContract.Value.Date;
+            MessageBox.Show(startDate.ToString("dd/MM/yyyy"));
+
+            Contract newContract = new Contract();
+            Package tempPack = new Package();
+            string packageID = tempPack.getPackageID(packageName);
+
+            newContract.ContractLevel = contractLevel;
+            newContract.StartDate = startDate;
+
+            newContract.addContractToDB(loggedInClient.ClientID,packageID);
         }
     }
 }

@@ -45,5 +45,11 @@ namespace Project381_Service_Premier.BusinessLayer
             FileHandler fh = new FileHandler();
             return fh.getContractsForClient(clientId);
         }
+
+        public void addContractToDB(string clientID, string packageID)
+        {
+            FileHandler fh = new FileHandler();
+            fh.addContractToDB(this.startDate, clientID,  packageID, this.contractLevel);
+        }
     }
 }

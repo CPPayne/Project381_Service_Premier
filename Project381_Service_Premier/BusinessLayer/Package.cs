@@ -26,7 +26,19 @@ namespace Project381_Service_Premier.BusinessLayer
 
       }
 
-      public override string ToString()
+      public string getPackageID(string packageName)
+        {
+            FileHandler fh = new FileHandler();
+            return fh.getPackageID(packageName);
+        }
+
+        public string getPackageID()
+        {
+            FileHandler fh = new FileHandler();
+            return fh.getPackageID(this.packageName);
+        }
+
+        public override string ToString()
       {
             return this.packageName;
       }

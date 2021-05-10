@@ -138,8 +138,7 @@ namespace Project381_Service_Premier
             this.txtLoggedSurname = new System.Windows.Forms.TextBox();
             this.txtLoggedName = new System.Windows.Forms.TextBox();
             this.txtloggedClientID = new System.Windows.Forms.TextBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.DTPClientContract = new System.Windows.Forms.DateTimePicker();
             this.cmbPackages = new System.Windows.Forms.ComboBox();
             this.label47 = new System.Windows.Forms.Label();
             this.dgvServicesInPackage = new System.Windows.Forms.DataGridView();
@@ -157,6 +156,11 @@ namespace Project381_Service_Premier
             this.dgvContracts = new System.Windows.Forms.DataGridView();
             this.txtPackCostDisp = new System.Windows.Forms.TextBox();
             this.label40 = new System.Windows.Forms.Label();
+            this.rb1 = new System.Windows.Forms.RadioButton();
+            this.rb2 = new System.Windows.Forms.RadioButton();
+            this.rb3 = new System.Windows.Forms.RadioButton();
+            this.rb4 = new System.Windows.Forms.RadioButton();
+            this.rb5 = new System.Windows.Forms.RadioButton();
             this.tabControl1.SuspendLayout();
             this.CallCentre.SuspendLayout();
             this.tpRegister.SuspendLayout();
@@ -437,6 +441,7 @@ namespace Project381_Service_Premier
             // 
             this.txtClientPassword.Location = new System.Drawing.Point(106, 84);
             this.txtClientPassword.Name = "txtClientPassword";
+            this.txtClientPassword.PasswordChar = '*';
             this.txtClientPassword.Size = new System.Drawing.Size(197, 20);
             this.txtClientPassword.TabIndex = 37;
             // 
@@ -1097,6 +1102,7 @@ namespace Project381_Service_Premier
             // 
             this.txtLoginPassword.Location = new System.Drawing.Point(90, 112);
             this.txtLoginPassword.Name = "txtLoginPassword";
+            this.txtLoginPassword.PasswordChar = '*';
             this.txtLoginPassword.Size = new System.Drawing.Size(100, 20);
             this.txtLoginPassword.TabIndex = 7;
             // 
@@ -1184,6 +1190,11 @@ namespace Project381_Service_Premier
             // 
             // tpClientContract
             // 
+            this.tpClientContract.Controls.Add(this.rb5);
+            this.tpClientContract.Controls.Add(this.rb4);
+            this.tpClientContract.Controls.Add(this.rb3);
+            this.tpClientContract.Controls.Add(this.rb2);
+            this.tpClientContract.Controls.Add(this.rb1);
             this.tpClientContract.Controls.Add(this.txtPackCostDisp);
             this.tpClientContract.Controls.Add(this.label40);
             this.tpClientContract.Controls.Add(this.txtPackageNameDisp);
@@ -1192,8 +1203,7 @@ namespace Project381_Service_Premier
             this.tpClientContract.Controls.Add(this.txtLoggedSurname);
             this.tpClientContract.Controls.Add(this.txtLoggedName);
             this.tpClientContract.Controls.Add(this.txtloggedClientID);
-            this.tpClientContract.Controls.Add(this.dateTimePicker1);
-            this.tpClientContract.Controls.Add(this.comboBox2);
+            this.tpClientContract.Controls.Add(this.DTPClientContract);
             this.tpClientContract.Controls.Add(this.cmbPackages);
             this.tpClientContract.Controls.Add(this.label47);
             this.tpClientContract.Controls.Add(this.dgvServicesInPackage);
@@ -1268,20 +1278,12 @@ namespace Project381_Service_Premier
             this.txtloggedClientID.TabIndex = 19;
             this.txtloggedClientID.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
-            // dateTimePicker1
+            // DTPClientContract
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(189, 659);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(179, 20);
-            this.dateTimePicker1.TabIndex = 18;
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(189, 623);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(179, 21);
-            this.comboBox2.TabIndex = 17;
+            this.DTPClientContract.Location = new System.Drawing.Point(189, 659);
+            this.DTPClientContract.Name = "DTPClientContract";
+            this.DTPClientContract.Size = new System.Drawing.Size(179, 20);
+            this.DTPClientContract.TabIndex = 18;
             // 
             // cmbPackages
             // 
@@ -1381,6 +1383,7 @@ namespace Project381_Service_Premier
             this.btnCreateContract.TabIndex = 6;
             this.btnCreateContract.Text = "Create Contract";
             this.btnCreateContract.UseVisualStyleBackColor = true;
+            this.btnCreateContract.Click += new System.EventHandler(this.btnCreateContract_Click);
             // 
             // label41
             // 
@@ -1432,6 +1435,61 @@ namespace Project381_Service_Premier
             this.label40.Size = new System.Drawing.Size(74, 13);
             this.label40.TabIndex = 25;
             this.label40.Text = "Package Cost";
+            // 
+            // rb1
+            // 
+            this.rb1.AutoSize = true;
+            this.rb1.Location = new System.Drawing.Point(189, 621);
+            this.rb1.Name = "rb1";
+            this.rb1.Size = new System.Drawing.Size(31, 17);
+            this.rb1.TabIndex = 27;
+            this.rb1.TabStop = true;
+            this.rb1.Text = "1";
+            this.rb1.UseVisualStyleBackColor = true;
+            // 
+            // rb2
+            // 
+            this.rb2.AutoSize = true;
+            this.rb2.Location = new System.Drawing.Point(226, 621);
+            this.rb2.Name = "rb2";
+            this.rb2.Size = new System.Drawing.Size(31, 17);
+            this.rb2.TabIndex = 28;
+            this.rb2.TabStop = true;
+            this.rb2.Text = "2";
+            this.rb2.UseVisualStyleBackColor = true;
+            // 
+            // rb3
+            // 
+            this.rb3.AutoSize = true;
+            this.rb3.Location = new System.Drawing.Point(263, 623);
+            this.rb3.Name = "rb3";
+            this.rb3.Size = new System.Drawing.Size(31, 17);
+            this.rb3.TabIndex = 29;
+            this.rb3.TabStop = true;
+            this.rb3.Text = "3";
+            this.rb3.UseVisualStyleBackColor = true;
+            // 
+            // rb4
+            // 
+            this.rb4.AutoSize = true;
+            this.rb4.Location = new System.Drawing.Point(300, 623);
+            this.rb4.Name = "rb4";
+            this.rb4.Size = new System.Drawing.Size(31, 17);
+            this.rb4.TabIndex = 30;
+            this.rb4.TabStop = true;
+            this.rb4.Text = "4";
+            this.rb4.UseVisualStyleBackColor = true;
+            // 
+            // rb5
+            // 
+            this.rb5.AutoSize = true;
+            this.rb5.Location = new System.Drawing.Point(337, 623);
+            this.rb5.Name = "rb5";
+            this.rb5.Size = new System.Drawing.Size(31, 17);
+            this.rb5.TabIndex = 31;
+            this.rb5.TabStop = true;
+            this.rb5.Text = "5";
+            this.rb5.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -1587,8 +1645,7 @@ namespace Project381_Service_Premier
         private System.Windows.Forms.TextBox txtLoggedSurname;
         private System.Windows.Forms.TextBox txtLoggedName;
         private System.Windows.Forms.TextBox txtloggedClientID;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.DateTimePicker DTPClientContract;
         private System.Windows.Forms.ComboBox cmbPackages;
         private System.Windows.Forms.TextBox txtClientUsername;
         private System.Windows.Forms.TextBox txtClientPassword;
@@ -1600,6 +1657,11 @@ namespace Project381_Service_Premier
         private System.Windows.Forms.TextBox txtPackageNameDisp;
         private System.Windows.Forms.TextBox txtPackCostDisp;
         private System.Windows.Forms.Label label40;
+        private System.Windows.Forms.RadioButton rb5;
+        private System.Windows.Forms.RadioButton rb4;
+        private System.Windows.Forms.RadioButton rb3;
+        private System.Windows.Forms.RadioButton rb2;
+        private System.Windows.Forms.RadioButton rb1;
     }
 }
 

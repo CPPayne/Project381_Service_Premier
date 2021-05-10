@@ -67,7 +67,7 @@ namespace Project381_Service_Premier.BusinessLayer
                     tempSchedules[tempSchedules.Count - 1].Day++;
                     tempSchedules[tempSchedules.Count - 1].Buffer--;
                     //verify buffer > 0
-                    fh.IncrementDayDecrementBuffer();
+                    //fh.IncrementDayDecrementBuffer();
                 }
                 AllSchedules.AddRange(tempSchedules);
             }
