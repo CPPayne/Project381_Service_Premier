@@ -38,7 +38,7 @@ namespace Project381_Service_Premier.BusinessLayer
 
         public void CalcualteAppointmentTime()
       {
-         
+
       }
 
 
@@ -85,5 +85,39 @@ namespace Project381_Service_Premier.BusinessLayer
       {
          return base.ToString();
       }
+
+
+      private int day;
+      private int buffer;
+
+      private void SortSchedules()
+      {
+         FileHandler fh = new FileHandler();
+         List<Schedule> AllSchedules = new List<Schedule>();
+         for (int i = 0; i < 50; i++)
+         {
+            List<Schedule> tempSchedules = new List<Schedule>();
+            foreach (Schedule schedule in AllSchedules)
+            {
+               if (schedule.day == i)
+               {
+                  tempSchedules.Add(schedule);
+                  AllSchedules.Remove(schedule);
+               }
+            }
+            tempSchedules.Sort((x, y) => x.buffer.CompareTo(y.buffer));
+
+            while (tempSchedules.Count > 6)
+            {
+               tempSchedules[tempSchedules.Count - 1].day++;
+               tempSchedules[tempSchedules.Count - 1].buffer--;
+               //verify buffer > 0
+               fh.IncrementDayDecrementBuffer();
+            }
+            AllSchedules.AddRange(tempSchedules);
+         }
+         AllSchedules.Sort((x, y) => x.day.CompareTo(y.day));
+      }
+
    }
 }
