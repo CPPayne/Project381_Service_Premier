@@ -695,6 +695,74 @@ namespace Project381_Service_Premier.DataAccessLayer
             return cost;
         }
 
+        public void IncrementDayDecrementBufferInDB(Schedule scheduleToUpdate)
+        {
+            SqlConnection conn = new SqlConnection(connect);
+            SqlCommand command;
+            string query = @"UPDATE Schedule SET ScheduleDate = ('" + scheduleToUpdate.Date + "'), sBuffer = ('" + scheduleToUpdate.Buffer +"')";
+
+            conn = new SqlConnection(connect);
+
+            conn.Open();
+
+            command = new SqlCommand(query, conn);
+
+            try
+            {
+                command.ExecuteNonQuery();
+                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        public List<Service> getSchedulesFromToday()
+        {
+            SqlConnection conn = new SqlConnection(connect);
+            SqlCommand command;
+            SqlDataReader reader;
+
+            string query = @"SELECT * FROM Schedule WHERE ScheduleDate >= ";
+
+            Service objService = new Service();
+            conn = new SqlConnection(connect);
+
+            conn.Open();
+
+            command = new SqlCommand(query, conn);
+            List<Service> allServices = new List<Service>();
+
+
+            try
+            {
+
+                reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+
+                    objService.SName = reader.GetValue(1).ToString();
+                    objService.SType = reader.GetValue(2).ToString();
+                    objService.SSpecifications = reader.GetValue(3).ToString();
+
+                    allServices.Add(new Service(objService.SName, objService.SType, objService.SSpecifications));
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return allServices;
+        }
 
         public void GetClientWorkHistory() { }
 
