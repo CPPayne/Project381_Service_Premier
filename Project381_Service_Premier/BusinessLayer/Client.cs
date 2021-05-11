@@ -132,6 +132,13 @@ namespace Project381_Service_Premier.BusinessLayer
             }
         }
 
+
+        public List<string> getListOfAllPhoneNumbers()
+        {
+            FileHandler fh = new FileHandler();
+            return fh.getListOfAllPhoneNumbers();
+        }
+
         public override string ToString()
       {
          return base.ToString();

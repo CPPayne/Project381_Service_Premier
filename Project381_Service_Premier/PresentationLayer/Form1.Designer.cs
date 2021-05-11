@@ -31,6 +31,9 @@ namespace Project381_Service_Premier
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.CallCentre = new System.Windows.Forms.TabPage();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.lblCaller = new System.Windows.Forms.Label();
+            this.btnSimCall = new System.Windows.Forms.Button();
             this.txtIsBusiness = new System.Windows.Forms.TextBox();
             this.label29 = new System.Windows.Forms.Label();
             this.txtPackageName = new System.Windows.Forms.TextBox();
@@ -163,11 +166,9 @@ namespace Project381_Service_Premier
             this.dgvContracts = new System.Windows.Forms.DataGridView();
             this.tpClientLoggedMenu = new System.Windows.Forms.TabPage();
             this.btnClientToContract = new System.Windows.Forms.Button();
-            this.btnSimCall = new System.Windows.Forms.Button();
-            this.lblCaller = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.tabControl1.SuspendLayout();
             this.CallCentre.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tpRegister.SuspendLayout();
             this.tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTechnicians)).BeginInit();
@@ -183,7 +184,6 @@ namespace Project381_Service_Premier
             ((System.ComponentModel.ISupportInitialize)(this.dgvContractServices)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvContracts)).BeginInit();
             this.tpClientLoggedMenu.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -235,6 +235,33 @@ namespace Project381_Service_Premier
             this.CallCentre.TabIndex = 0;
             this.CallCentre.Text = "CallCentre";
             this.CallCentre.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(395, 405);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(240, 163);
+            this.dataGridView1.TabIndex = 31;
+            // 
+            // lblCaller
+            // 
+            this.lblCaller.AutoSize = true;
+            this.lblCaller.Location = new System.Drawing.Point(122, 61);
+            this.lblCaller.Name = "lblCaller";
+            this.lblCaller.Size = new System.Drawing.Size(41, 13);
+            this.lblCaller.TabIndex = 30;
+            this.lblCaller.Text = "label50";
+            // 
+            // btnSimCall
+            // 
+            this.btnSimCall.Location = new System.Drawing.Point(117, 6);
+            this.btnSimCall.Name = "btnSimCall";
+            this.btnSimCall.Size = new System.Drawing.Size(99, 35);
+            this.btnSimCall.TabIndex = 29;
+            this.btnSimCall.Text = "Simulate Call";
+            this.btnSimCall.UseVisualStyleBackColor = true;
+            this.btnSimCall.Click += new System.EventHandler(this.btnSimCall_Click);
             // 
             // txtIsBusiness
             // 
@@ -365,6 +392,7 @@ namespace Project381_Service_Premier
             this.btnEndCall.TabIndex = 15;
             this.btnEndCall.Text = "End call";
             this.btnEndCall.UseVisualStyleBackColor = true;
+            this.btnEndCall.Click += new System.EventHandler(this.btnEndCall_Click);
             // 
             // label3
             // 
@@ -1522,32 +1550,6 @@ namespace Project381_Service_Premier
             this.btnClientToContract.Text = "button3";
             this.btnClientToContract.UseVisualStyleBackColor = true;
             // 
-            // btnSimCall
-            // 
-            this.btnSimCall.Location = new System.Drawing.Point(117, 6);
-            this.btnSimCall.Name = "btnSimCall";
-            this.btnSimCall.Size = new System.Drawing.Size(99, 35);
-            this.btnSimCall.TabIndex = 29;
-            this.btnSimCall.Text = "Simulate Call";
-            this.btnSimCall.UseVisualStyleBackColor = true;
-            // 
-            // lblCaller
-            // 
-            this.lblCaller.AutoSize = true;
-            this.lblCaller.Location = new System.Drawing.Point(145, 62);
-            this.lblCaller.Name = "lblCaller";
-            this.lblCaller.Size = new System.Drawing.Size(41, 13);
-            this.lblCaller.TabIndex = 30;
-            this.lblCaller.Text = "label50";
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(395, 405);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(240, 163);
-            this.dataGridView1.TabIndex = 31;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1560,6 +1562,7 @@ namespace Project381_Service_Premier
             this.tabControl1.ResumeLayout(false);
             this.CallCentre.ResumeLayout(false);
             this.CallCentre.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.tpRegister.ResumeLayout(false);
             this.tpRegister.PerformLayout();
             this.tabPage4.ResumeLayout(false);
@@ -1582,7 +1585,6 @@ namespace Project381_Service_Premier
             ((System.ComponentModel.ISupportInitialize)(this.dgvContractServices)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvContracts)).EndInit();
             this.tpClientLoggedMenu.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }

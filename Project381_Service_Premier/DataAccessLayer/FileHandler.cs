@@ -95,6 +95,79 @@ namespace Project381_Service_Premier.DataAccessLayer
          return clientExist;
       }
 
+
+        public bool checkIfScheduleIdExists(string ScheduleID)
+        {
+
+            bool ScheduleIDExist = false;
+            string query = @"SELECT * FROM Schedule WHERE ScheduleID = ('" + ScheduleID + "')";
+
+
+            conn = new SqlConnection(connect);
+
+            conn.Open();
+
+            command = new SqlCommand(query, conn);
+
+
+            try
+            {
+                reader = command.ExecuteReader();
+                if (reader.Read())
+                {
+                    ScheduleIDExist = true;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+            finally
+            {
+
+                conn.Close();
+
+            }
+            return ScheduleIDExist;
+        }
+
+        public List<string> getListOfAllPhoneNumbers()
+        {
+
+            string query = @"SELECT PhoneNumber FROM Client";
+
+            string phoneNumber;
+
+            conn = new SqlConnection(connect);
+
+            conn.Open();
+
+            command = new SqlCommand(query, conn);
+            List<string> allPhoneNumbers = new List<string>();
+
+
+            try
+            {
+
+                reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+
+                    phoneNumber = reader.GetValue(0).ToString();
+                    allPhoneNumbers.Add(phoneNumber);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return allPhoneNumbers;
+        }
         public void addService(string sName,string sType, string sSpecifications)
         {
 

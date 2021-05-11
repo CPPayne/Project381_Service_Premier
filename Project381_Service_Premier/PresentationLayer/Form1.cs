@@ -18,12 +18,16 @@ namespace Project381_Service_Premier
         {
             InitializeComponent();
         }
+
+
+
         BindingSource sourceAllService = new BindingSource();
         BindingSource sourceAllPackages = new BindingSource();
         BindingSource sourceClientContracts = new BindingSource();
         BindingSource selectedPackageServicesToAdd = new BindingSource();
 
         BindingSource sourceServicePackage = new BindingSource();
+
         List<Service> allServices = new List<Service>();
         List<Package> allPackages = new List<Package>();
         List<Contract> clientContr = new List<Contract>();
@@ -32,8 +36,11 @@ namespace Project381_Service_Premier
 
         List<Contract> loggedClientContracts = new List<Contract>();
 
+        List<string> listOfAllClientNumSimulation = new List<string>();
+
         Client loggedInClient = new Client();
 
+        string simulationNumber;
 
 
         string pName;
@@ -96,6 +103,9 @@ namespace Project381_Service_Premier
             tabControl1.SelectedTab = tpMainMenu;
 
             cmbPackages.DataSource = allPackages;
+
+            Client simulateNumClient = new Client();
+            listOfAllClientNumSimulation = simulateNumClient.getListOfAllPhoneNumbers();
         }
 
       private void btnAnswerCall_Click(object sender, EventArgs e)
@@ -342,6 +352,21 @@ namespace Project381_Service_Premier
             newContract.StartDate = startDate;
 
             newContract.addContractToDB(loggedInClient.ClientID,packageID);
+        }
+        Random rndNum = new Random();
+        private void btnSimCall_Click(object sender, EventArgs e)
+        {
+
+            int randomNum = rndNum.Next(0, listOfAllClientNumSimulation.Count );
+
+            simulationNumber = listOfAllClientNumSimulation[randomNum];
+
+            lblCaller.Text = "CALL INCOMING: " + simulationNumber;
+        }
+
+        private void btnEndCall_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
