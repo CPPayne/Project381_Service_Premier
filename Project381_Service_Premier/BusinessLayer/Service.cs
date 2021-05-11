@@ -5,15 +5,16 @@ namespace Project381_Service_Premier.BusinessLayer
 {
    class Service
    {
-      private string sType;
-      private string sName;
-      private string sSpecifications;
+        private string sName;
+        private string sType;
+        private string sSpecifications;
 
-      public Service(string sType, string sName, string sSpecifications)
+      public Service(string sName, string sType, string sSpecifications)
       {
-         this.SType = sType;
-         this.SName = sName;
-         this.SSpecifications = sSpecifications;
+        this.SName = sName;
+        this.SType = sType;
+         
+        this.SSpecifications = sSpecifications;
       }
 
       public Service()
@@ -30,7 +31,7 @@ namespace Project381_Service_Premier.BusinessLayer
         public void addServiceToDB()
       {
          FileHandler dbaccess = new FileHandler();
-         dbaccess.addService(sType, sName, sSpecifications);
+         dbaccess.addService(sName, sType, sSpecifications);
       }
 
       public string SType { get => sType; set => sType = value; }
