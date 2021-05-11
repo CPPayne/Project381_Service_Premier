@@ -139,12 +139,15 @@ namespace Project381_Service_Premier
 
 
             //updatePackageServiceDBGRID(servicesInPackage);
+            //
             sourceServicePackage.DataSource = servicesInPackage;
             dgvPackageServices.DataSource = sourceServicePackage;
+            //dgvPackageServices.Refresh();
+            sourceServicePackage.ResetBindings(false);
 
-            pName = null;
-            pCost = 0;
-            servicesOfChosenPackages.Clear();
+            //pName = null;
+            //pCost = 0;
+            //servicesOfChosenPackages.Clear();
 
         }
 

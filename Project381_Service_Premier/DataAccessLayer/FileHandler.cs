@@ -15,7 +15,7 @@ namespace Project381_Service_Premier.DataAccessLayer
 
 
         //Set connection string
-        string connect = "Data Source=.; Initial Catalog= servicePremierDB; Integrated Security= SSPI";
+        string connect = "Data Source=DANIEL\\DANIELSQL;Initial Catalog=servicePremierDB;Integrated Security=True";
         SqlConnection conn;
         SqlConnection conn2; 
 
