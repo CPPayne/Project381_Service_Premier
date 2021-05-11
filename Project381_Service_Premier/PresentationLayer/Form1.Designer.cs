@@ -44,7 +44,6 @@ namespace Project381_Service_Premier
             this.label5 = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtProblemType = new System.Windows.Forms.TextBox();
             this.rtbDescription = new System.Windows.Forms.RichTextBox();
             this.btnEndCall = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
@@ -101,7 +100,6 @@ namespace Project381_Service_Premier
             this.label26 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
-            this.txtAddServiceType = new System.Windows.Forms.TextBox();
             this.label51 = new System.Windows.Forms.Label();
             this.dgvPackages = new System.Windows.Forms.DataGridView();
             this.label52 = new System.Windows.Forms.Label();
@@ -132,6 +130,13 @@ namespace Project381_Service_Premier
             this.btnMenuCRegister = new System.Windows.Forms.Button();
             this.btnMenuCLogin = new System.Windows.Forms.Button();
             this.tpClientContract = new System.Windows.Forms.TabPage();
+            this.rb5 = new System.Windows.Forms.RadioButton();
+            this.rb4 = new System.Windows.Forms.RadioButton();
+            this.rb3 = new System.Windows.Forms.RadioButton();
+            this.rb2 = new System.Windows.Forms.RadioButton();
+            this.rb1 = new System.Windows.Forms.RadioButton();
+            this.txtPackCostDisp = new System.Windows.Forms.TextBox();
+            this.label40 = new System.Windows.Forms.Label();
             this.txtPackageNameDisp = new System.Windows.Forms.TextBox();
             this.btnLogout = new System.Windows.Forms.Button();
             this.txtLoggedNumber = new System.Windows.Forms.TextBox();
@@ -154,13 +159,10 @@ namespace Project381_Service_Premier
             this.dgvContractServices = new System.Windows.Forms.DataGridView();
             this.label39 = new System.Windows.Forms.Label();
             this.dgvContracts = new System.Windows.Forms.DataGridView();
-            this.txtPackCostDisp = new System.Windows.Forms.TextBox();
-            this.label40 = new System.Windows.Forms.Label();
-            this.rb1 = new System.Windows.Forms.RadioButton();
-            this.rb2 = new System.Windows.Forms.RadioButton();
-            this.rb3 = new System.Windows.Forms.RadioButton();
-            this.rb4 = new System.Windows.Forms.RadioButton();
-            this.rb5 = new System.Windows.Forms.RadioButton();
+            this.txtCallDuration = new System.Windows.Forms.TextBox();
+            this.lblCallDuration = new System.Windows.Forms.Label();
+            this.cbProblemType = new System.Windows.Forms.ComboBox();
+            this.cbAddServiceType = new System.Windows.Forms.ComboBox();
             this.tabControl1.SuspendLayout();
             this.CallCentre.SuspendLayout();
             this.tpRegister.SuspendLayout();
@@ -197,6 +199,9 @@ namespace Project381_Service_Premier
             // 
             // CallCentre
             // 
+            this.CallCentre.Controls.Add(this.cbProblemType);
+            this.CallCentre.Controls.Add(this.lblCallDuration);
+            this.CallCentre.Controls.Add(this.txtCallDuration);
             this.CallCentre.Controls.Add(this.txtIsBusiness);
             this.CallCentre.Controls.Add(this.label29);
             this.CallCentre.Controls.Add(this.txtPackageName);
@@ -210,7 +215,6 @@ namespace Project381_Service_Premier
             this.CallCentre.Controls.Add(this.label5);
             this.CallCentre.Controls.Add(this.txtName);
             this.CallCentre.Controls.Add(this.label4);
-            this.CallCentre.Controls.Add(this.txtProblemType);
             this.CallCentre.Controls.Add(this.rtbDescription);
             this.CallCentre.Controls.Add(this.btnEndCall);
             this.CallCentre.Controls.Add(this.label3);
@@ -331,13 +335,6 @@ namespace Project381_Service_Premier
             this.label4.TabIndex = 16;
             this.label4.Text = "Name";
             // 
-            // txtProblemType
-            // 
-            this.txtProblemType.Location = new System.Drawing.Point(113, 286);
-            this.txtProblemType.Name = "txtProblemType";
-            this.txtProblemType.Size = new System.Drawing.Size(193, 20);
-            this.txtProblemType.TabIndex = 12;
-            // 
             // rtbDescription
             // 
             this.rtbDescription.Location = new System.Drawing.Point(23, 312);
@@ -354,6 +351,7 @@ namespace Project381_Service_Premier
             this.btnEndCall.TabIndex = 15;
             this.btnEndCall.Text = "End call";
             this.btnEndCall.UseVisualStyleBackColor = true;
+            this.btnEndCall.Click += new System.EventHandler(this.btnEndCall_Click);
             // 
             // label3
             // 
@@ -620,6 +618,7 @@ namespace Project381_Service_Premier
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.cbAddServiceType);
             this.tabPage1.Controls.Add(this.btnAddServiceToPackage);
             this.tabPage1.Controls.Add(this.label19);
             this.tabPage1.Controls.Add(this.lbxPackages);
@@ -646,7 +645,6 @@ namespace Project381_Service_Premier
             this.tabPage1.Controls.Add(this.label26);
             this.tabPage1.Controls.Add(this.label22);
             this.tabPage1.Controls.Add(this.label21);
-            this.tabPage1.Controls.Add(this.txtAddServiceType);
             this.tabPage1.Controls.Add(this.label51);
             this.tabPage1.Controls.Add(this.dgvPackages);
             this.tabPage1.Controls.Add(this.label52);
@@ -897,13 +895,6 @@ namespace Project381_Service_Premier
             this.label21.Size = new System.Drawing.Size(79, 20);
             this.label21.TabIndex = 69;
             this.label21.Text = "Packages";
-            // 
-            // txtAddServiceType
-            // 
-            this.txtAddServiceType.Location = new System.Drawing.Point(1048, 386);
-            this.txtAddServiceType.Name = "txtAddServiceType";
-            this.txtAddServiceType.Size = new System.Drawing.Size(308, 20);
-            this.txtAddServiceType.TabIndex = 62;
             // 
             // label51
             // 
@@ -1227,6 +1218,78 @@ namespace Project381_Service_Premier
             this.tpClientContract.Text = "Client Contract";
             this.tpClientContract.UseVisualStyleBackColor = true;
             // 
+            // rb5
+            // 
+            this.rb5.AutoSize = true;
+            this.rb5.Location = new System.Drawing.Point(337, 623);
+            this.rb5.Name = "rb5";
+            this.rb5.Size = new System.Drawing.Size(31, 17);
+            this.rb5.TabIndex = 31;
+            this.rb5.TabStop = true;
+            this.rb5.Text = "5";
+            this.rb5.UseVisualStyleBackColor = true;
+            // 
+            // rb4
+            // 
+            this.rb4.AutoSize = true;
+            this.rb4.Location = new System.Drawing.Point(300, 623);
+            this.rb4.Name = "rb4";
+            this.rb4.Size = new System.Drawing.Size(31, 17);
+            this.rb4.TabIndex = 30;
+            this.rb4.TabStop = true;
+            this.rb4.Text = "4";
+            this.rb4.UseVisualStyleBackColor = true;
+            // 
+            // rb3
+            // 
+            this.rb3.AutoSize = true;
+            this.rb3.Location = new System.Drawing.Point(263, 623);
+            this.rb3.Name = "rb3";
+            this.rb3.Size = new System.Drawing.Size(31, 17);
+            this.rb3.TabIndex = 29;
+            this.rb3.TabStop = true;
+            this.rb3.Text = "3";
+            this.rb3.UseVisualStyleBackColor = true;
+            // 
+            // rb2
+            // 
+            this.rb2.AutoSize = true;
+            this.rb2.Location = new System.Drawing.Point(226, 621);
+            this.rb2.Name = "rb2";
+            this.rb2.Size = new System.Drawing.Size(31, 17);
+            this.rb2.TabIndex = 28;
+            this.rb2.TabStop = true;
+            this.rb2.Text = "2";
+            this.rb2.UseVisualStyleBackColor = true;
+            // 
+            // rb1
+            // 
+            this.rb1.AutoSize = true;
+            this.rb1.Location = new System.Drawing.Point(189, 621);
+            this.rb1.Name = "rb1";
+            this.rb1.Size = new System.Drawing.Size(31, 17);
+            this.rb1.TabIndex = 27;
+            this.rb1.TabStop = true;
+            this.rb1.Text = "1";
+            this.rb1.UseVisualStyleBackColor = true;
+            // 
+            // txtPackCostDisp
+            // 
+            this.txtPackCostDisp.Enabled = false;
+            this.txtPackCostDisp.Location = new System.Drawing.Point(570, 699);
+            this.txtPackCostDisp.Name = "txtPackCostDisp";
+            this.txtPackCostDisp.Size = new System.Drawing.Size(179, 20);
+            this.txtPackCostDisp.TabIndex = 26;
+            // 
+            // label40
+            // 
+            this.label40.AutoSize = true;
+            this.label40.Location = new System.Drawing.Point(471, 702);
+            this.label40.Name = "label40";
+            this.label40.Size = new System.Drawing.Size(74, 13);
+            this.label40.TabIndex = 25;
+            this.label40.Text = "Package Cost";
+            // 
             // txtPackageNameDisp
             // 
             this.txtPackageNameDisp.Enabled = false;
@@ -1419,77 +1482,48 @@ namespace Project381_Service_Premier
             this.dgvContracts.Size = new System.Drawing.Size(229, 355);
             this.dgvContracts.TabIndex = 0;
             // 
-            // txtPackCostDisp
+            // txtCallDuration
             // 
-            this.txtPackCostDisp.Enabled = false;
-            this.txtPackCostDisp.Location = new System.Drawing.Point(570, 699);
-            this.txtPackCostDisp.Name = "txtPackCostDisp";
-            this.txtPackCostDisp.Size = new System.Drawing.Size(179, 20);
-            this.txtPackCostDisp.TabIndex = 26;
+            this.txtCallDuration.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCallDuration.Location = new System.Drawing.Point(546, 43);
+            this.txtCallDuration.Name = "txtCallDuration";
+            this.txtCallDuration.ReadOnly = true;
+            this.txtCallDuration.Size = new System.Drawing.Size(100, 26);
+            this.txtCallDuration.TabIndex = 29;
+            this.txtCallDuration.Text = "00:00:00";
+            this.txtCallDuration.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // label40
+            // lblCallDuration
             // 
-            this.label40.AutoSize = true;
-            this.label40.Location = new System.Drawing.Point(471, 702);
-            this.label40.Name = "label40";
-            this.label40.Size = new System.Drawing.Size(74, 13);
-            this.label40.TabIndex = 25;
-            this.label40.Text = "Package Cost";
+            this.lblCallDuration.AutoSize = true;
+            this.lblCallDuration.Location = new System.Drawing.Point(543, 27);
+            this.lblCallDuration.Name = "lblCallDuration";
+            this.lblCallDuration.Size = new System.Drawing.Size(70, 13);
+            this.lblCallDuration.TabIndex = 30;
+            this.lblCallDuration.Text = "Call Duration:";
             // 
-            // rb1
+            // cbProblemType
             // 
-            this.rb1.AutoSize = true;
-            this.rb1.Location = new System.Drawing.Point(189, 621);
-            this.rb1.Name = "rb1";
-            this.rb1.Size = new System.Drawing.Size(31, 17);
-            this.rb1.TabIndex = 27;
-            this.rb1.TabStop = true;
-            this.rb1.Text = "1";
-            this.rb1.UseVisualStyleBackColor = true;
+            this.cbProblemType.FormattingEnabled = true;
+            this.cbProblemType.Items.AddRange(new object[] {
+            "Maintenance",
+            "Repair",
+            "Installation"});
+            this.cbProblemType.Location = new System.Drawing.Point(113, 289);
+            this.cbProblemType.Name = "cbProblemType";
+            this.cbProblemType.Size = new System.Drawing.Size(193, 21);
+            this.cbProblemType.TabIndex = 31;
             // 
-            // rb2
+            // cbAddServiceType
             // 
-            this.rb2.AutoSize = true;
-            this.rb2.Location = new System.Drawing.Point(226, 621);
-            this.rb2.Name = "rb2";
-            this.rb2.Size = new System.Drawing.Size(31, 17);
-            this.rb2.TabIndex = 28;
-            this.rb2.TabStop = true;
-            this.rb2.Text = "2";
-            this.rb2.UseVisualStyleBackColor = true;
-            // 
-            // rb3
-            // 
-            this.rb3.AutoSize = true;
-            this.rb3.Location = new System.Drawing.Point(263, 623);
-            this.rb3.Name = "rb3";
-            this.rb3.Size = new System.Drawing.Size(31, 17);
-            this.rb3.TabIndex = 29;
-            this.rb3.TabStop = true;
-            this.rb3.Text = "3";
-            this.rb3.UseVisualStyleBackColor = true;
-            // 
-            // rb4
-            // 
-            this.rb4.AutoSize = true;
-            this.rb4.Location = new System.Drawing.Point(300, 623);
-            this.rb4.Name = "rb4";
-            this.rb4.Size = new System.Drawing.Size(31, 17);
-            this.rb4.TabIndex = 30;
-            this.rb4.TabStop = true;
-            this.rb4.Text = "4";
-            this.rb4.UseVisualStyleBackColor = true;
-            // 
-            // rb5
-            // 
-            this.rb5.AutoSize = true;
-            this.rb5.Location = new System.Drawing.Point(337, 623);
-            this.rb5.Name = "rb5";
-            this.rb5.Size = new System.Drawing.Size(31, 17);
-            this.rb5.TabIndex = 31;
-            this.rb5.TabStop = true;
-            this.rb5.Text = "5";
-            this.rb5.UseVisualStyleBackColor = true;
+            this.cbAddServiceType.FormattingEnabled = true;
+            this.cbAddServiceType.Items.AddRange(new object[] {
+            "Repair",
+            "Maintenance"});
+            this.cbAddServiceType.Location = new System.Drawing.Point(1048, 385);
+            this.cbAddServiceType.Name = "cbAddServiceType";
+            this.cbAddServiceType.Size = new System.Drawing.Size(306, 21);
+            this.cbAddServiceType.TabIndex = 104;
             // 
             // Form1
             // 
@@ -1499,6 +1533,7 @@ namespace Project381_Service_Premier
             this.Controls.Add(this.tabControl1);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.tabControl1.ResumeLayout(false);
             this.CallCentre.ResumeLayout(false);
@@ -1545,7 +1580,6 @@ namespace Project381_Service_Premier
       private System.Windows.Forms.Label label5;
       private System.Windows.Forms.TextBox txtName;
       private System.Windows.Forms.Label label4;
-      private System.Windows.Forms.TextBox txtProblemType;
       private System.Windows.Forms.RichTextBox rtbDescription;
       private System.Windows.Forms.Button btnEndCall;
       private System.Windows.Forms.Label label3;
@@ -1577,7 +1611,6 @@ namespace Project381_Service_Premier
       private System.Windows.Forms.Label label26;
       private System.Windows.Forms.Label label22;
       private System.Windows.Forms.Label label21;
-      private System.Windows.Forms.TextBox txtAddServiceType;
       private System.Windows.Forms.Label label51;
       private System.Windows.Forms.DataGridView dgvPackages;
       private System.Windows.Forms.Label label52;
@@ -1662,6 +1695,10 @@ namespace Project381_Service_Premier
         private System.Windows.Forms.RadioButton rb3;
         private System.Windows.Forms.RadioButton rb2;
         private System.Windows.Forms.RadioButton rb1;
+        private System.Windows.Forms.Label lblCallDuration;
+        private System.Windows.Forms.TextBox txtCallDuration;
+        private System.Windows.Forms.ComboBox cbProblemType;
+        private System.Windows.Forms.ComboBox cbAddServiceType;
     }
 }
 

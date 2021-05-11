@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Timers;
 using System.Windows.Forms;
 using Project381_Service_Premier.BusinessLayer;
 using Project381_Service_Premier.DataAccessLayer;
@@ -14,6 +15,10 @@ namespace Project381_Service_Premier
 {
     public partial class Form1 : Form
     {
+        private System.Timers.Timer t;
+        private string _CallDuration ;
+        int h, m, s;
+
         public Form1()
         {
             InitializeComponent();
@@ -96,11 +101,37 @@ namespace Project381_Service_Premier
             tabControl1.SelectedTab = tpMainMenu;
 
             cmbPackages.DataSource = allPackages;
+
+            //timer
+            t = new System.Timers.Timer();
+            t.Interval = 1000; //1s
+            t.Elapsed += OnTimeEvent;
         }
 
-      private void btnAnswerCall_Click(object sender, EventArgs e)
-      {
+        private void OnTimeEvent(object sender, ElapsedEventArgs e)
+        {
+            Invoke(new Action(() =>
+            {
+                s += 1;
 
+                if (s == 60)
+                {
+                    s = 0;
+                    m += 1;
+                }
+                if (m == 60)
+                {
+                    m = 0;
+                    h += 1;
+                }
+                txtCallDuration.Text = string.Format("{0}:{1}:{2}", h.ToString().PadLeft(2, '0'), m.ToString().PadLeft(2, '0'), s.ToString().PadLeft(2, '0'));
+            }));
+        }
+
+        private void btnAnswerCall_Click(object sender, EventArgs e)
+      {
+            txtCallDuration.ForeColor = Color.Green;
+            t.Start();
       }
 
       private void btnDeletePackage_Click(object sender, EventArgs e)
@@ -110,7 +141,7 @@ namespace Project381_Service_Premier
 
       private void btnCompleteService_Click(object sender, EventArgs e)
       {
-         string serviceType = txtAddServiceType.Text;
+         string serviceType = cbAddServiceType.Text;
          string serviceName = txtAddServiceName.Text;
          string serviceDescription = rtbServiceSpecification.Text;
 
@@ -118,7 +149,6 @@ namespace Project381_Service_Premier
          newService.addServiceToDB();
          updateServiceDBGRID();
 
-         txtAddServiceType.Clear();
          txtAddServiceName.Clear();
          rtbServiceSpecification.Clear();
 
@@ -317,6 +347,19 @@ namespace Project381_Service_Premier
             txtLoggedSurname.Clear();
             txtLoggedNumber.Clear();
             tabControl1.SelectedTab = tpMainMenu;
+        }
+
+        private void btnEndCall_Click(object sender, EventArgs e)
+        {
+            txtCallDuration.ForeColor = Color.Green;
+            t.Start();
+            _CallDuration = txtCallDuration.Text;
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            t.Stop();
+            Application.DoEvents();
         }
 
         private void cmbPackages_SelectedIndexChanged(object sender, EventArgs e)
