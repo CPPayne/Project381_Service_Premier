@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Timers;
 using System.Windows.Forms;
 using Project381_Service_Premier.BusinessLayer;
 using Project381_Service_Premier.DataAccessLayer;
@@ -14,6 +15,11 @@ namespace Project381_Service_Premier
 {
     public partial class Form1 : Form
     {
+
+        private System.Timers.Timer t;
+        private string _CallDuration;
+        int h, m, s;
+
         public Form1()
         {
             InitializeComponent();
@@ -106,12 +112,37 @@ namespace Project381_Service_Premier
 
             Client simulateNumClient = new Client();
             listOfAllClientNumSimulation = simulateNumClient.getListOfAllPhoneNumbers();
+
+            t = new System.Timers.Timer();
+            t.Interval = 1000; //1s
+            t.Elapsed += OnTimeEvent;
         }
 
-      private void btnAnswerCall_Click(object sender, EventArgs e)
-      {
+        private void OnTimeEvent(object sender, ElapsedEventArgs e)
+        {
+            Invoke(new Action(() =>
+            {
+                s += 1;
 
-      }
+                if (s == 60)
+                {
+                    s = 0;
+                    m += 1;
+                }
+                if (m == 60)
+                {
+                    m = 0;
+                    h += 1;
+                }
+                txtCallDuration.Text = string.Format("{0}:{1}:{2}", h.ToString().PadLeft(2, '0'), m.ToString().PadLeft(2, '0'), s.ToString().PadLeft(2, '0'));
+            }));
+        }
+
+        private void btnAnswerCall_Click(object sender, EventArgs e)
+      {
+            txtCallDuration.ForeColor = Color.Green;
+            t.Start();
+        }
 
       private void btnDeletePackage_Click(object sender, EventArgs e)
       {
@@ -366,7 +397,14 @@ namespace Project381_Service_Premier
 
         private void btnEndCall_Click(object sender, EventArgs e)
         {
+            txtCallDuration.ForeColor = Color.Red;
+            t.Stop();
+            _CallDuration = txtCallDuration.Text;
 
+            MessageBox.Show("The call has ended.");
+            txtCallDuration.ForeColor = Color.Black;
+
+            txtCallDuration.Text = "00:00:00";
         }
     }
 }

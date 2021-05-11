@@ -166,6 +166,8 @@ namespace Project381_Service_Premier
             this.dgvContracts = new System.Windows.Forms.DataGridView();
             this.tpClientLoggedMenu = new System.Windows.Forms.TabPage();
             this.btnClientToContract = new System.Windows.Forms.Button();
+            this.txtCallDuration = new System.Windows.Forms.TextBox();
+            this.label50 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.CallCentre.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -205,6 +207,8 @@ namespace Project381_Service_Premier
             // 
             // CallCentre
             // 
+            this.CallCentre.Controls.Add(this.label50);
+            this.CallCentre.Controls.Add(this.txtCallDuration);
             this.CallCentre.Controls.Add(this.dataGridView1);
             this.CallCentre.Controls.Add(this.lblCaller);
             this.CallCentre.Controls.Add(this.btnSimCall);
@@ -1550,6 +1554,25 @@ namespace Project381_Service_Premier
             this.btnClientToContract.Text = "button3";
             this.btnClientToContract.UseVisualStyleBackColor = true;
             // 
+            // txtCallDuration
+            // 
+            this.txtCallDuration.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCallDuration.Location = new System.Drawing.Point(570, 102);
+            this.txtCallDuration.Name = "txtCallDuration";
+            this.txtCallDuration.Size = new System.Drawing.Size(100, 26);
+            this.txtCallDuration.TabIndex = 32;
+            this.txtCallDuration.Text = "00:00:00";
+            this.txtCallDuration.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label50
+            // 
+            this.label50.AutoSize = true;
+            this.label50.Location = new System.Drawing.Point(567, 86);
+            this.label50.Name = "label50";
+            this.label50.Size = new System.Drawing.Size(70, 13);
+            this.label50.TabIndex = 33;
+            this.label50.Text = "Call Duration:";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1728,6 +1751,8 @@ namespace Project381_Service_Premier
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label lblCaller;
         private System.Windows.Forms.Button btnSimCall;
+        private System.Windows.Forms.Label label50;
+        private System.Windows.Forms.TextBox txtCallDuration;
     }
 }
 
