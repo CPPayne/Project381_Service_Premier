@@ -7,15 +7,15 @@ using Project381_Service_Premier.DataAccessLayer;
 
 namespace Project381_Service_Premier.BusinessLayer
 {
-   class Contract
-   {
+    class Contract
+    {
 
         private string contractLevel;
         private DateTime startDate;
         private Package package;
         private Client client;
 
-        public Contract( string contractLevel, DateTime startDate, Package package, Client client)
+        public Contract(string contractLevel, DateTime startDate, Package package, Client client)
         {
 
             this.ContractLevel = contractLevel;
@@ -49,7 +49,7 @@ namespace Project381_Service_Premier.BusinessLayer
         public void addContractToDB(string clientID, string packageID)
         {
             FileHandler fh = new FileHandler();
-            fh.addContractToDB(this.startDate, clientID,  packageID, this.contractLevel);
+            fh.addContractToDB(this.startDate, clientID, packageID, this.contractLevel);
         }
     }
 }

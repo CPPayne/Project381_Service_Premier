@@ -10,17 +10,17 @@ using Project381_Service_Premier.DataAccessLayer;
 namespace Project381_Service_Premier.BusinessLayer
 {
 
-   class Client
-   {
+    class Client
+    {
 
-      private string name;
-      private string surname;
-      private string phoneNum;
-      private string address;
-      private string clientID;
-      private bool isBusiness;
-      private string username;
-      private string password;
+        private string name;
+        private string surname;
+        private string phoneNum;
+        private string address;
+        private string clientID;
+        private bool isBusiness;
+        private string username;
+        private string password;
 
         public string Name { get => name; set => name = value; }
         public string Surname { get => surname; set => surname = value; }
@@ -53,18 +53,19 @@ namespace Project381_Service_Premier.BusinessLayer
             this.password = password;
         }
 
-        public Client get_client_by_phone(string phoneNum)
-      {
-         return null;
-      }
+        public Client getClientByNumber(string phoneNum)
+        {
+            FileHandler fh = new FileHandler();
+            return fh.getClientByNum(phoneNum);
+        }
 
-      public void GenerateClientID()
-      {
-          int max = 10000000;
-          int min = 1;
-          string completeID;
-          Random rndLetter = new Random();
-          FileHandler fh = new FileHandler();
+        public void GenerateClientID()
+        {
+            int max = 10000000;
+            int min = 1;
+            string completeID;
+            Random rndLetter = new Random();
+            FileHandler fh = new FileHandler();
 
             while (true)
             {
@@ -81,27 +82,27 @@ namespace Project381_Service_Premier.BusinessLayer
                     break;
                 }
             }
-          
 
-          
-      }
+
+
+        }
 
         private static string pad_an_int(int N, int P)
-      {
-
-        string s = "{0:";
-        for (int i = 0; i < P; i++)
         {
-            s += "0";
+
+            string s = "{0:";
+            for (int i = 0; i < P; i++)
+            {
+                s += "0";
+            }
+            s += "}";
+
+
+            string value = string.Format(s, N);
+
+
+            return value;
         }
-         s += "}";
-
-
-         string value = string.Format(s, N);
-
-
-         return value;
-      }
 
         public void addClientToDB()
         {
@@ -113,7 +114,7 @@ namespace Project381_Service_Premier.BusinessLayer
         {
             FileHandler fh = new FileHandler();
 
-            if(fh.checkLogin(username, password))
+            if (fh.checkLogin(username, password))
             {
                 Client temp = new Client();
                 temp = fh.getClient(username, password);
@@ -140,18 +141,18 @@ namespace Project381_Service_Premier.BusinessLayer
         }
 
         public override string ToString()
-      {
-         return base.ToString();
-      }
+        {
+            return base.ToString();
+        }
 
-      public override bool Equals(object obj)
-      {
-         return base.Equals(obj);
-      }
+        public override bool Equals(object obj)
+        {
+            return base.Equals(obj);
+        }
 
-      public override int GetHashCode()
-      {
-         return base.GetHashCode();
-      }
-   }
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
+    }
 }

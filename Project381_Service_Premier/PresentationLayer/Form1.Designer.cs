@@ -31,10 +31,10 @@ namespace Project381_Service_Premier
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.CallCentre = new System.Windows.Forms.TabPage();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.label50 = new System.Windows.Forms.Label();
+            this.txtCallDuration = new System.Windows.Forms.TextBox();
             this.lblCaller = new System.Windows.Forms.Label();
             this.btnSimCall = new System.Windows.Forms.Button();
-            this.txtIsBusiness = new System.Windows.Forms.TextBox();
             this.label29 = new System.Windows.Forms.Label();
             this.txtPackageName = new System.Windows.Forms.TextBox();
             this.label28 = new System.Windows.Forms.Label();
@@ -118,7 +118,6 @@ namespace Project381_Service_Premier
             this.label33 = new System.Windows.Forms.Label();
             this.label34 = new System.Windows.Forms.Label();
             this.label35 = new System.Windows.Forms.Label();
-            this.label36 = new System.Windows.Forms.Label();
             this.button9 = new System.Windows.Forms.Button();
             this.tpLogin = new System.Windows.Forms.TabPage();
             this.button2 = new System.Windows.Forms.Button();
@@ -166,11 +165,10 @@ namespace Project381_Service_Premier
             this.dgvContracts = new System.Windows.Forms.DataGridView();
             this.tpClientLoggedMenu = new System.Windows.Forms.TabPage();
             this.btnClientToContract = new System.Windows.Forms.Button();
-            this.txtCallDuration = new System.Windows.Forms.TextBox();
-            this.label50 = new System.Windows.Forms.Label();
+            this.btnNextClient = new System.Windows.Forms.Button();
+            this.cbBusiness = new System.Windows.Forms.CheckBox();
             this.tabControl1.SuspendLayout();
             this.CallCentre.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tpRegister.SuspendLayout();
             this.tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTechnicians)).BeginInit();
@@ -207,12 +205,12 @@ namespace Project381_Service_Premier
             // 
             // CallCentre
             // 
+            this.CallCentre.Controls.Add(this.cbBusiness);
+            this.CallCentre.Controls.Add(this.btnNextClient);
             this.CallCentre.Controls.Add(this.label50);
             this.CallCentre.Controls.Add(this.txtCallDuration);
-            this.CallCentre.Controls.Add(this.dataGridView1);
             this.CallCentre.Controls.Add(this.lblCaller);
             this.CallCentre.Controls.Add(this.btnSimCall);
-            this.CallCentre.Controls.Add(this.txtIsBusiness);
             this.CallCentre.Controls.Add(this.label29);
             this.CallCentre.Controls.Add(this.txtPackageName);
             this.CallCentre.Controls.Add(this.label28);
@@ -240,13 +238,24 @@ namespace Project381_Service_Premier
             this.CallCentre.Text = "CallCentre";
             this.CallCentre.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
+            // label50
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(395, 405);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(240, 163);
-            this.dataGridView1.TabIndex = 31;
+            this.label50.AutoSize = true;
+            this.label50.Location = new System.Drawing.Point(349, 45);
+            this.label50.Name = "label50";
+            this.label50.Size = new System.Drawing.Size(70, 13);
+            this.label50.TabIndex = 33;
+            this.label50.Text = "Call Duration:";
+            // 
+            // txtCallDuration
+            // 
+            this.txtCallDuration.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCallDuration.Location = new System.Drawing.Point(352, 61);
+            this.txtCallDuration.Name = "txtCallDuration";
+            this.txtCallDuration.Size = new System.Drawing.Size(100, 26);
+            this.txtCallDuration.TabIndex = 32;
+            this.txtCallDuration.Text = "00:00:00";
+            this.txtCallDuration.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lblCaller
             // 
@@ -266,13 +275,6 @@ namespace Project381_Service_Premier
             this.btnSimCall.Text = "Simulate Call";
             this.btnSimCall.UseVisualStyleBackColor = true;
             this.btnSimCall.Click += new System.EventHandler(this.btnSimCall_Click);
-            // 
-            // txtIsBusiness
-            // 
-            this.txtIsBusiness.Location = new System.Drawing.Point(117, 291);
-            this.txtIsBusiness.Name = "txtIsBusiness";
-            this.txtIsBusiness.Size = new System.Drawing.Size(193, 20);
-            this.txtIsBusiness.TabIndex = 28;
             // 
             // label29
             // 
@@ -301,6 +303,7 @@ namespace Project381_Service_Premier
             // 
             // txtNumber
             // 
+            this.txtNumber.Enabled = false;
             this.txtNumber.Location = new System.Drawing.Point(117, 265);
             this.txtNumber.Name = "txtNumber";
             this.txtNumber.Size = new System.Drawing.Size(193, 20);
@@ -317,6 +320,7 @@ namespace Project381_Service_Premier
             // 
             // txtAddress
             // 
+            this.txtAddress.Enabled = false;
             this.txtAddress.Location = new System.Drawing.Point(117, 239);
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Size = new System.Drawing.Size(193, 20);
@@ -333,6 +337,7 @@ namespace Project381_Service_Premier
             // 
             // txtSurname
             // 
+            this.txtSurname.Enabled = false;
             this.txtSurname.Location = new System.Drawing.Point(117, 213);
             this.txtSurname.Name = "txtSurname";
             this.txtSurname.Size = new System.Drawing.Size(193, 20);
@@ -359,6 +364,7 @@ namespace Project381_Service_Premier
             // 
             // txtName
             // 
+            this.txtName.Enabled = false;
             this.txtName.Location = new System.Drawing.Point(117, 187);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(193, 20);
@@ -1010,7 +1016,6 @@ namespace Project381_Service_Premier
             this.tabPage6.Controls.Add(this.label33);
             this.tabPage6.Controls.Add(this.label34);
             this.tabPage6.Controls.Add(this.label35);
-            this.tabPage6.Controls.Add(this.label36);
             this.tabPage6.Controls.Add(this.button9);
             this.tabPage6.Location = new System.Drawing.Point(4, 22);
             this.tabPage6.Name = "tabPage6";
@@ -1022,14 +1027,14 @@ namespace Project381_Service_Premier
             // 
             // textBox27
             // 
-            this.textBox27.Location = new System.Drawing.Point(133, 113);
+            this.textBox27.Location = new System.Drawing.Point(112, 69);
             this.textBox27.Name = "textBox27";
             this.textBox27.Size = new System.Drawing.Size(100, 20);
             this.textBox27.TabIndex = 26;
             // 
             // textBox28
             // 
-            this.textBox28.Location = new System.Drawing.Point(133, 87);
+            this.textBox28.Location = new System.Drawing.Point(112, 111);
             this.textBox28.Name = "textBox28";
             this.textBox28.Size = new System.Drawing.Size(100, 20);
             this.textBox28.TabIndex = 25;
@@ -1045,7 +1050,7 @@ namespace Project381_Service_Premier
             // label33
             // 
             this.label33.AutoSize = true;
-            this.label33.Location = new System.Drawing.Point(44, 116);
+            this.label33.Location = new System.Drawing.Point(23, 72);
             this.label33.Name = "label33";
             this.label33.Size = new System.Drawing.Size(62, 13);
             this.label33.TabIndex = 23;
@@ -1054,7 +1059,7 @@ namespace Project381_Service_Premier
             // label34
             // 
             this.label34.AutoSize = true;
-            this.label34.Location = new System.Drawing.Point(44, 90);
+            this.label34.Location = new System.Drawing.Point(23, 114);
             this.label34.Name = "label34";
             this.label34.Size = new System.Drawing.Size(76, 13);
             this.label34.TabIndex = 22;
@@ -1069,18 +1074,9 @@ namespace Project381_Service_Premier
             this.label35.TabIndex = 21;
             this.label35.Text = "Comment";
             // 
-            // label36
-            // 
-            this.label36.AutoSize = true;
-            this.label36.Location = new System.Drawing.Point(44, 62);
-            this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(76, 13);
-            this.label36.TabIndex = 20;
-            this.label36.Text = "Work Request";
-            // 
             // button9
             // 
-            this.button9.Location = new System.Drawing.Point(28, 232);
+            this.button9.Location = new System.Drawing.Point(23, 163);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(210, 23);
             this.button9.TabIndex = 18;
@@ -1547,31 +1543,31 @@ namespace Project381_Service_Premier
             // 
             // btnClientToContract
             // 
-            this.btnClientToContract.Location = new System.Drawing.Point(577, 200);
+            this.btnClientToContract.Location = new System.Drawing.Point(564, 138);
             this.btnClientToContract.Name = "btnClientToContract";
             this.btnClientToContract.Size = new System.Drawing.Size(75, 23);
             this.btnClientToContract.TabIndex = 0;
             this.btnClientToContract.Text = "button3";
             this.btnClientToContract.UseVisualStyleBackColor = true;
             // 
-            // txtCallDuration
+            // btnNextClient
             // 
-            this.txtCallDuration.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCallDuration.Location = new System.Drawing.Point(570, 102);
-            this.txtCallDuration.Name = "txtCallDuration";
-            this.txtCallDuration.Size = new System.Drawing.Size(100, 26);
-            this.txtCallDuration.TabIndex = 32;
-            this.txtCallDuration.Text = "00:00:00";
-            this.txtCallDuration.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.btnNextClient.Location = new System.Drawing.Point(117, 606);
+            this.btnNextClient.Name = "btnNextClient";
+            this.btnNextClient.Size = new System.Drawing.Size(75, 23);
+            this.btnNextClient.TabIndex = 34;
+            this.btnNextClient.Text = "Next Client";
+            this.btnNextClient.UseVisualStyleBackColor = true;
             // 
-            // label50
+            // cbBusiness
             // 
-            this.label50.AutoSize = true;
-            this.label50.Location = new System.Drawing.Point(567, 86);
-            this.label50.Name = "label50";
-            this.label50.Size = new System.Drawing.Size(70, 13);
-            this.label50.TabIndex = 33;
-            this.label50.Text = "Call Duration:";
+            this.cbBusiness.AutoSize = true;
+            this.cbBusiness.Enabled = false;
+            this.cbBusiness.Location = new System.Drawing.Point(117, 293);
+            this.cbBusiness.Name = "cbBusiness";
+            this.cbBusiness.Size = new System.Drawing.Size(15, 14);
+            this.cbBusiness.TabIndex = 35;
+            this.cbBusiness.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -1585,7 +1581,6 @@ namespace Project381_Service_Premier
             this.tabControl1.ResumeLayout(false);
             this.CallCentre.ResumeLayout(false);
             this.CallCentre.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.tpRegister.ResumeLayout(false);
             this.tpRegister.PerformLayout();
             this.tabPage4.ResumeLayout(false);
@@ -1616,7 +1611,6 @@ namespace Project381_Service_Premier
 
       private System.Windows.Forms.TabControl tabControl1;
       private System.Windows.Forms.TabPage CallCentre;
-      private System.Windows.Forms.TextBox txtIsBusiness;
       private System.Windows.Forms.Label label29;
       private System.Windows.Forms.TextBox txtPackageName;
       private System.Windows.Forms.Label label28;
@@ -1675,7 +1669,6 @@ namespace Project381_Service_Premier
       private System.Windows.Forms.Label label33;
       private System.Windows.Forms.Label label34;
       private System.Windows.Forms.Label label35;
-      private System.Windows.Forms.Label label36;
       private System.Windows.Forms.Button button9;
       private System.Windows.Forms.TabPage tpLogin;
       private System.Windows.Forms.Button btnLogin;
@@ -1748,11 +1741,12 @@ namespace Project381_Service_Premier
         private System.Windows.Forms.RadioButton rb1;
         private System.Windows.Forms.TabPage tpClientLoggedMenu;
         private System.Windows.Forms.Button btnClientToContract;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label lblCaller;
         private System.Windows.Forms.Button btnSimCall;
         private System.Windows.Forms.Label label50;
         private System.Windows.Forms.TextBox txtCallDuration;
+        private System.Windows.Forms.Button btnNextClient;
+        private System.Windows.Forms.CheckBox cbBusiness;
     }
 }
 

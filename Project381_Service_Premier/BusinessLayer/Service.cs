@@ -3,25 +3,25 @@ using System.Collections.Generic;
 
 namespace Project381_Service_Premier.BusinessLayer
 {
-   class Service
-   {
+    class Service
+    {
         private string sName;
         private string sType;
         private string sSpecifications;
 
-      public Service(string sName, string sType, string sSpecifications)
-      {
-        this.SName = sName;
-        this.SType = sType;
-         
-        this.SSpecifications = sSpecifications;
-      }
+        public Service(string sName, string sType, string sSpecifications)
+        {
+            this.SName = sName;
+            this.SType = sType;
 
-      public Service()
-      {
+            this.SSpecifications = sSpecifications;
+        }
 
-      }
-        
+        public Service()
+        {
+
+        }
+
         public List<Service> getAllServices()
         {
             FileHandler fh = new FileHandler();
@@ -29,24 +29,24 @@ namespace Project381_Service_Premier.BusinessLayer
         }
 
         public void addServiceToDB()
-      {
-         FileHandler dbaccess = new FileHandler();
-         dbaccess.addService(sName, sType, sSpecifications);
-      }
+        {
+            FileHandler dbaccess = new FileHandler();
+            dbaccess.addService(sName, sType, sSpecifications);
+        }
 
-      public string SType { get => sType; set => sType = value; }
-      public string SName { get => sName; set => sName = value; }
-      public string SSpecifications { get => sSpecifications; set => sSpecifications = value; }
+        public string SType { get => sType; set => sType = value; }
+        public string SName { get => sName; set => sName = value; }
+        public string SSpecifications { get => sSpecifications; set => sSpecifications = value; }
 
-      public override bool Equals(object obj)
-      {
-         return base.Equals(obj);
-      }
+        public override bool Equals(object obj)
+        {
+            return base.Equals(obj);
+        }
 
-      public override int GetHashCode()
-      {
-         return base.GetHashCode();
-      }
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
 
         public string getID()
         {
@@ -56,10 +56,10 @@ namespace Project381_Service_Premier.BusinessLayer
         }
 
         public override string ToString()
-      {
-         return base.ToString();
-      }
+        {
+            return base.ToString();
+        }
 
 
-   }
+    }
 }

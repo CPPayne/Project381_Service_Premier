@@ -5,8 +5,8 @@ using Project381_Service_Premier.DataAccessLayer;
 
 namespace Project381_Service_Premier.BusinessLayer
 {
-   class Schedule
-   {
+    class Schedule
+    {
         private DateTime date;
         private string client;
         private string technician;
@@ -14,7 +14,7 @@ namespace Project381_Service_Premier.BusinessLayer
         private int buffer;
         private int workRequestID;
 
-        public Schedule( DateTime dateStart, string client, string technician, string scheduleID,int buffer,int workRequestID)
+        public Schedule(DateTime dateStart, string client, string technician, string scheduleID, int buffer, int workRequestID)
         {
 
             this.date = dateStart;
@@ -43,7 +43,7 @@ namespace Project381_Service_Premier.BusinessLayer
         //private void SortSchedules(List<Schedule> allSchedules)
         //{
         //    FileHandler fh = new FileHandler();
-         
+
         //    for (int i = 0; i < 50; i++)
         //    {
         //        List<Schedule> tempSchedules = new List<Schedule>();
@@ -79,14 +79,14 @@ namespace Project381_Service_Premier.BusinessLayer
             Random rndLetter = new Random();
             FileHandler fh = new FileHandler();
 
-            string FirstLetter = date.Month == 1 ? "Ja" : date.Month == 2 ? "F" : date.Month == 3 ? "M" : date.Month == 4 ? "A" : 
+            string FirstLetter = date.Month == 1 ? "Ja" : date.Month == 2 ? "F" : date.Month == 3 ? "M" : date.Month == 4 ? "A" :
                 date.Month == 5 ? "M" : date.Month == 6 ? "Ju" : date.Month == 7 ? "Jl" : date.Month == 8 ? "Au" : date.Month == 9 ? "S" :
                 date.Month == 10 ? "O" : date.Month == 11 ? "N" : date.Month == 12 ? "D" : "Not a Month";
 
             while (true)
             {
                 completeID = "";
-                
+
 
                 completeID = pad_an_int(rndLetter.Next(min, max), 5);
 
@@ -123,22 +123,22 @@ namespace Project381_Service_Premier.BusinessLayer
 
 
         public override bool Equals(object obj)
-      {
-         return base.Equals(obj);
-      }
+        {
+            return base.Equals(obj);
+        }
 
-      public override int GetHashCode()
-      {
-         return base.GetHashCode();
-      }
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
 
-      public override string ToString()
-      {
-         return base.ToString();
-      }
+        public override string ToString()
+        {
+            return base.ToString();
+        }
 
 
-   
 
-   }
+
+    }
 }
