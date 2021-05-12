@@ -225,7 +225,7 @@ namespace Project381_Service_Premier
                 newPackage.addPackageToDB();
 
 
-                servicesInPackage.Clear();
+                servicesInPackage = new List<Service>();
                 txtAddPName.Clear();
                 txtPackageCost.Clear();
                 updatePakcageDBGRID();
@@ -433,6 +433,8 @@ namespace Project381_Service_Premier
             string description = rtbDescription.Text;
             WorkRequest newWorkrequest = new WorkRequest(typeOfProblem,description, clientCALL.CallID,clientCalling.ClientID, DateTime.Now);
             newWorkrequest.addWorkRequestToDB();
+            newWorkrequest.GenerateWorkRequestID();
+
 
         }
 

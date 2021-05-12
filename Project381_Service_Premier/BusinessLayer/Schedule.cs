@@ -8,13 +8,13 @@ namespace Project381_Service_Premier.BusinessLayer
     class Schedule
     {
         private DateTime date;
-        private string client;
-        private string technician;
+        private string clientID;
+        private int technicianID;
         private string scheduleID;
         private int buffer;
-        private int workRequestID;
+        private string workRequestID;
 
-        public Schedule(DateTime dateStart, string client, string technician, string scheduleID, int buffer, int workRequestID)
+        public Schedule(DateTime dateStart, string client, int technician, string scheduleID, int buffer, string workRequestID)
         {
 
             this.date = dateStart;
@@ -26,17 +26,48 @@ namespace Project381_Service_Premier.BusinessLayer
         }
 
         public DateTime Date { get => date; set => date = value; }
-        internal string Client { get => client; set => client = value; }
-        internal string Technician { get => technician; set => technician = value; }
+        internal string Client { get => clientID; set => clientID = value; }
+        internal int Technician { get => technicianID; set => technicianID = value; }
         public string ScheduleID { get => scheduleID; set => scheduleID = value; }
         public int Buffer { get => buffer; set => buffer = value; }
-        public int WorkRequestID { get => workRequestID; set => workRequestID = value; }
+        public string WorkRequestID { get => workRequestID; set => workRequestID = value; }
 
         public Schedule() { }
+
+        public void addWorkRequestToSchedule(WorkRequest workrequest)
+        {
+            this.date = workrequest.DateCreated;
+            this.clientID = workrequest.ClientID;
+            GenerateScheduleID();
+            this.buffer = calculateBuffer(workrequest.ProblemType);
+            this.workRequestID = workrequest.WorkRequestID;
+            this.technicianID = assignTechnician();
+        }
+
+        public int assignTechnician()
+        {
+            int test =32;
+            return test;
+        }
 
         public void addScheduleToDB()
         {
 
+        }
+
+        public int calculateBuffer(string serviceType)
+        {
+            FileHandler fh = new FileHandler();
+            string contractLevel = fh.getContractLevel(clientID, serviceType);
+            /*level 1 = 7
+             * level 2 = 5
+             * level 3 = 3
+             * level 4 = 2
+             * level 5 = 1
+             */
+            int buffer =  contractLevel=="1" ? 7 : (contractLevel == "2" ? 5 : (contractLevel == "3" ? 3 : (contractLevel == "4" ? 2 : 1)));
+
+            return buffer;
         }
 
 

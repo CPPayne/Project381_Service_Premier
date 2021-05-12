@@ -95,9 +95,9 @@ namespace Project381_Service_Premier.DataAccessLayer
             return clientExist;
         }
 
-        public void addWorkRequestToDB(string problemType, string problemDescription, string callID, string clientID)
+        public void addWorkRequestToDB(string workrequestID, string problemType, string problemDescription, string callID, string clientID)
         {
-            string query = @"INSERT INTO WorkRequest (ProblemType, Descriptions, CallID,ClientID) VALUES ( '" + problemType + "', '" + problemDescription + "', '" + callID + "','" + clientID+ "' )";
+            string query = @"INSERT INTO WorkRequest (WorkRequestID,ProblemType, Descriptions, CallID,ClientID) VALUES ( '"+ workrequestID + "', '" + problemType + "', '" + problemDescription + "', '" + callID + "','" + clientID+ "' )";
 
             conn = new SqlConnection(connect);
 
@@ -192,6 +192,42 @@ namespace Project381_Service_Premier.DataAccessLayer
 
             }
             return callIDExist;
+        }
+
+        public bool checkIfWorkRequestIDExist(string workRequestID)
+        {
+
+            bool workRequestIDExist = false;
+            string query = @"SELECT * FROM WorkRequest WHERE WorkRequestID = ('" + workRequestID + "')";
+
+
+            conn = new SqlConnection(connect);
+
+            conn.Open();
+
+            command = new SqlCommand(query, conn);
+
+
+            try
+            {
+                reader = command.ExecuteReader();
+                if (reader.Read())
+                {
+                    workRequestIDExist = true;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+            finally
+            {
+
+                conn.Close();
+
+            }
+            return workRequestIDExist;
         }
 
         public List<string> getListOfAllPhoneNumbers()
@@ -825,6 +861,43 @@ namespace Project381_Service_Premier.DataAccessLayer
             }
 
             return loggedClient;
+        }
+
+
+        public string getContractLevel(string clientID, string serviceType)
+        {
+            string query = @"SELECT ContractLevel FROM ContractC WHERE ClientID = ('" + clientID + "') AND PackageID IN (SELECT PackageID FROM Service_Packages WHERE ServiceID IN (SELECT ServiceID FROM ServiceC WHERE ServiceType = ('" + serviceType + "'))";
+
+
+            conn = new SqlConnection(connect);
+
+            conn.Open();
+
+            command = new SqlCommand(query, conn);
+            string contractLevel="";
+
+            try
+            {
+
+                reader = command.ExecuteReader();
+                if (reader.Read())
+                {
+
+                    contractLevel = reader.GetValue(0).ToString();
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+            return contractLevel;
         }
 
         public List<string> getTypesOfSerivesAvailable(string packageID)
