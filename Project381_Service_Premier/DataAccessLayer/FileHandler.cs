@@ -370,7 +370,7 @@ namespace Project381_Service_Premier.DataAccessLayer
 
         public void addContractToDB(DateTime contractStart, string ClientID, string packageID, string ContractLevel)
         {
-            string query = @"INSERT INTO ContractC  VALUES ( '" + contractStart + "', '" + ClientID + "', '" + packageID + "', '" + ContractLevel + "' )";
+            string query = @"INSERT INTO ContractC  VALUES ( '" + contractStart + "', '"+ contractStart + "', '" + ClientID + "', '" + packageID + "', '" + ContractLevel + "' )";
 
             conn = new SqlConnection(connect);
 
@@ -1001,11 +1001,12 @@ namespace Project381_Service_Premier.DataAccessLayer
                 while (reader.Read())
                 {
 
+                    int contractID = int.Parse(reader.GetValue(0).ToString());
                     objContract.StartDate = Convert.ToDateTime(reader.GetValue(1).ToString());
                     string packageID = reader.GetValue(3).ToString();
                     objContract.ContractLevel = reader.GetValue(4).ToString();
                     objContract.cPackage = getPackageByID(packageID);
-                    contractsForClient.Add(new Contract(objContract.ContractLevel, objContract.StartDate, objContract.cPackage));
+                    contractsForClient.Add(new Contract(contractID, objContract.ContractLevel, objContract.StartDate, objContract.cPackage));
 
                 }
             }

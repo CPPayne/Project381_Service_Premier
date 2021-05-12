@@ -88,5 +88,7 @@ namespace Project381_Service_Premier.BusinessLayer
             hashCode = hashCode * -1521134295 + EqualityComparer<List<Service>>.Default.GetHashCode(Services);
             return hashCode;
         }
+
+
     }
 }

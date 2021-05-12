@@ -16,6 +16,8 @@ namespace Project381_Service_Premier.BusinessLayer
         private Client client;
         private List<string> typesOfServicesForContract;
 
+        private int contractID;
+
         public Contract(string contractLevel, DateTime startDate, Package package, Client client)
         {
 
@@ -31,6 +33,16 @@ namespace Project381_Service_Premier.BusinessLayer
             this.StartDate = startDate;
             this.package = package;
         }
+
+        public Contract(int contractID,string contractLevel, DateTime startDate, Package package)
+        {
+
+            this.ContractID = contractID;
+            this.ContractLevel = contractLevel;
+            this.StartDate = startDate;
+            this.package = package;
+        }
+
         public Contract()
         {
         }
@@ -41,6 +53,7 @@ namespace Project381_Service_Premier.BusinessLayer
         internal Package cPackage { get => package; set => package = value; }
         internal Client cClient { get => client; set => client = value; }
         public List<string> TypesOfServicesForContract { get => typesOfServicesForContract; }
+        public int ContractID { get => contractID; set => contractID = value; }
 
         public List<Contract> getContractsForClient(string clientId)
         {
@@ -59,6 +72,12 @@ namespace Project381_Service_Premier.BusinessLayer
         {
             FileHandler fh = new FileHandler();
             fh.addContractToDB(this.startDate, clientID, packageID, this.contractLevel);
+        }
+
+        public override string ToString()
+        {
+
+            return this.package.PackageName + " " + this.ContractLevel + " " + this.startDate;
         }
     }
 }

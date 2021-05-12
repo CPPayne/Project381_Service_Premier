@@ -409,13 +409,13 @@ namespace Project381_Service_Premier
 
                 txtLoginPassword.Clear();
                 txtLoginUsername.Clear();
-                tabControl1.SelectedTab = tpClientContract;
+                tabControl1.SelectedTab = tpClientLoggedMenu;
             }
         }
 
         private void btnMtoSchedule_Click(object sender, EventArgs e)
         {
-
+            tabControl1.SelectedTab = tpSchedule;
 
         }
 
@@ -444,7 +444,6 @@ namespace Project381_Service_Premier
             string packageName = cmbPackages.Text;
             string contractLevel = rb1.Checked ? "1" : (rb2.Checked ? "2" : (rb3.Checked ? "3" : (rb4.Checked ? "4" : "5")));
             DateTime startDate = DTPClientContract.Value.Date;
-            MessageBox.Show(startDate.ToString("dd/MM/yyyy"));
 
             Contract newContract = new Contract();
             Package tempPack = new Package();
@@ -454,6 +453,8 @@ namespace Project381_Service_Premier
             newContract.StartDate = startDate;
 
             newContract.addContractToDB(loggedInClient.ClientID, packageID);
+
+            updateDBGRIDContracts(loggedInClient.ClientID);
         }
         Random rndNum = new Random();
 
@@ -467,6 +468,61 @@ namespace Project381_Service_Premier
             newWorkrequest.GenerateWorkRequestID();
 
 
+        }
+
+        private void btnClientToContract_Click(object sender, EventArgs e)
+        {
+            tabControl1.SelectedTab = tpClientContract;
+        }
+
+        private void btnClientMTClientF_Click(object sender, EventArgs e)
+        {
+            tabControl1.SelectedTab = tpFeedback;
+        }
+
+        private void btnClientMTMainM_Click(object sender, EventArgs e)
+        {
+            tabControl1.SelectedTab = tpMainMenu;
+        }
+
+        private void btnFeedback_Click(object sender, EventArgs e)
+        {
+            tabControl1.SelectedTab = tpFeedback;
+        }
+
+        private void btnClienFTMainM_Click(object sender, EventArgs e)
+        {
+            tabControl1.SelectedTab = tpClientLoggedMenu;
+        }
+
+        private void btnNextClient_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnClientCClientM_Click(object sender, EventArgs e)
+        {
+            tabControl1.SelectedTab = tpClientLoggedMenu;
+        }
+
+        private void btnMainMTCallC_Click(object sender, EventArgs e)
+        {
+            tabControl1.SelectedTab = tpCallCentre;
+        }
+
+        private void btnMainMTPackM_Click(object sender, EventArgs e)
+        {
+            tabControl1.SelectedTab = tpPackageManagement;
+        }
+
+        private void btnMainMenuCmain_Click(object sender, EventArgs e)
+        {
+            tabControl1.SelectedTab = tpMainMenu;
+        }
+
+        private void btnMainMenuCCentre_Click(object sender, EventArgs e)
+        {
+            tabControl1.SelectedTab = tpMainMenu;
         }
 
         private void btnSimCall_Click(object sender, EventArgs e)
