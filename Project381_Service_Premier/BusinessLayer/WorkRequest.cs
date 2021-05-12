@@ -1,37 +1,43 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Project381_Service_Premier.DataAccessLayer;
 
 namespace Project381_Service_Premier.BusinessLayer
 {
     class WorkRequest
     {
-        private int id;
+        private string problemType;
         private string description;
-        private string expertise_required;
+        private string callID;
+        private string clientID;
+        private DateTime dateCreated;
 
-        public WorkRequest(int id, string description, string expertise_required)
+        public WorkRequest(string problemType, string description, string callID, string clientID, DateTime dateCreated)
         {
-            this.Id = id;
-            this.Description = description;
-            this.Expertise_required = expertise_required;
+            this.problemType = problemType;
+            this.description = description;
+            this.callID = callID;
+            this.clientID = clientID;
+            this.dateCreated = dateCreated;
         }
 
-        public int Id { get => id; set => id = value; }
+        public WorkRequest()
+        {
+        }
+
+        public string ProblemType { get => problemType; set => problemType = value; }
         public string Description { get => description; set => description = value; }
-        public string Expertise_required { get => expertise_required; set => expertise_required = value; }
+        public string CallID { get => callID; set => callID = value; }
+        public string ClientID { get => clientID; set => clientID = value; }
+        public DateTime DateCreated { get => dateCreated; set => dateCreated = value; }
 
-        public override bool Equals(object obj)
+
+
+        public void addWorkRequestToDB()
         {
-            return obj is WorkRequest request &&
-                   id == request.id &&
-                   description == request.description &&
-                   expertise_required == request.expertise_required;
+            FileHandler fh = new FileHandler();
+            fh.addWorkRequestToDB(this.problemType, this.description, this.callID, this.clientID);
         }
-
-        //public override int GetHashCode()
-        //{
-        //    return HashCode.Combine(id, description, expertise_required);
-        //}
     }
 }

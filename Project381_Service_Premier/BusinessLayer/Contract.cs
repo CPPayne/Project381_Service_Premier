@@ -14,6 +14,7 @@ namespace Project381_Service_Premier.BusinessLayer
         private DateTime startDate;
         private Package package;
         private Client client;
+        private List<string> typesOfServicesForContract;
 
         public Contract(string contractLevel, DateTime startDate, Package package, Client client)
         {
@@ -39,11 +40,19 @@ namespace Project381_Service_Premier.BusinessLayer
         public DateTime StartDate { get => startDate; set => startDate = value; }
         internal Package cPackage { get => package; set => package = value; }
         internal Client cClient { get => client; set => client = value; }
+        public List<string> TypesOfServicesForContract { get => typesOfServicesForContract; }
 
         public List<Contract> getContractsForClient(string clientId)
         {
             FileHandler fh = new FileHandler();
             return fh.getContractsForClient(clientId);
+        }
+
+        public void getTypeOfServicesForContract()
+        {
+            FileHandler fh = new FileHandler();
+            typesOfServicesForContract = fh.getTypesOfSerivesAvailable(this.package.getPackageID());
+            
         }
 
         public void addContractToDB(string clientID, string packageID)

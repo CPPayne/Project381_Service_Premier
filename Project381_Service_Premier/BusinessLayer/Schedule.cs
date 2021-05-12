@@ -70,7 +70,7 @@ namespace Project381_Service_Premier.BusinessLayer
         //}
 
 
-        public void GenerateClientID()
+        public void GenerateScheduleID()
         {
             int max = 10000;
             int min = 1;

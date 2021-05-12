@@ -36,10 +36,12 @@ namespace Project381_Service_Premier.BusinessLayer
             this.PhoneNum = phoneNum;
             this.Address = address;
             this.IsBusiness = isBusiness;
+
         }
 
         public Client()
         {
+
         }
 
         public Client(string name, string surname, string phoneNum, string address, bool isBusiness, string username, string password)
@@ -51,6 +53,7 @@ namespace Project381_Service_Premier.BusinessLayer
             this.isBusiness = isBusiness;
             this.username = username;
             this.password = password;
+
         }
 
         public Client getClientByNumber(string phoneNum)

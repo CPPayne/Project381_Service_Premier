@@ -49,7 +49,6 @@ namespace Project381_Service_Premier
             this.label5 = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtProblemType = new System.Windows.Forms.TextBox();
             this.rtbDescription = new System.Windows.Forms.RichTextBox();
             this.btnEndCall = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
@@ -167,6 +166,7 @@ namespace Project381_Service_Premier
             this.dgvContracts = new System.Windows.Forms.DataGridView();
             this.tpClientLoggedMenu = new System.Windows.Forms.TabPage();
             this.btnClientToContract = new System.Windows.Forms.Button();
+            this.cbTypeOfProblems = new System.Windows.Forms.ComboBox();
             this.tabControl1.SuspendLayout();
             this.CallCentre.SuspendLayout();
             this.tpRegister.SuspendLayout();
@@ -205,6 +205,7 @@ namespace Project381_Service_Premier
             // 
             // CallCentre
             // 
+            this.CallCentre.Controls.Add(this.cbTypeOfProblems);
             this.CallCentre.Controls.Add(this.lsbConPackage);
             this.CallCentre.Controls.Add(this.cbBusiness);
             this.CallCentre.Controls.Add(this.btnNextClient);
@@ -223,7 +224,6 @@ namespace Project381_Service_Premier
             this.CallCentre.Controls.Add(this.label5);
             this.CallCentre.Controls.Add(this.txtName);
             this.CallCentre.Controls.Add(this.label4);
-            this.CallCentre.Controls.Add(this.txtProblemType);
             this.CallCentre.Controls.Add(this.rtbDescription);
             this.CallCentre.Controls.Add(this.btnEndCall);
             this.CallCentre.Controls.Add(this.label3);
@@ -399,13 +399,6 @@ namespace Project381_Service_Premier
             this.label4.TabIndex = 16;
             this.label4.Text = "Name";
             // 
-            // txtProblemType
-            // 
-            this.txtProblemType.Location = new System.Drawing.Point(117, 379);
-            this.txtProblemType.Name = "txtProblemType";
-            this.txtProblemType.Size = new System.Drawing.Size(193, 20);
-            this.txtProblemType.TabIndex = 12;
-            // 
             // rtbDescription
             // 
             this.rtbDescription.Location = new System.Drawing.Point(27, 405);
@@ -451,6 +444,7 @@ namespace Project381_Service_Premier
             this.btnLogDetails.TabIndex = 3;
             this.btnLogDetails.Text = "Log call details / work request";
             this.btnLogDetails.UseVisualStyleBackColor = true;
+            this.btnLogDetails.Click += new System.EventHandler(this.btnLogDetails_Click);
             // 
             // btnAnswerCall
             // 
@@ -1570,6 +1564,14 @@ namespace Project381_Service_Premier
             this.btnClientToContract.Text = "button3";
             this.btnClientToContract.UseVisualStyleBackColor = true;
             // 
+            // cbTypeOfProblems
+            // 
+            this.cbTypeOfProblems.FormattingEnabled = true;
+            this.cbTypeOfProblems.Location = new System.Drawing.Point(117, 379);
+            this.cbTypeOfProblems.Name = "cbTypeOfProblems";
+            this.cbTypeOfProblems.Size = new System.Drawing.Size(193, 21);
+            this.cbTypeOfProblems.TabIndex = 37;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1623,7 +1625,6 @@ namespace Project381_Service_Premier
       private System.Windows.Forms.Label label5;
       private System.Windows.Forms.TextBox txtName;
       private System.Windows.Forms.Label label4;
-      private System.Windows.Forms.TextBox txtProblemType;
       private System.Windows.Forms.RichTextBox rtbDescription;
       private System.Windows.Forms.Button btnEndCall;
       private System.Windows.Forms.Label label3;
@@ -1748,6 +1749,7 @@ namespace Project381_Service_Premier
         private System.Windows.Forms.Button btnNextClient;
         private System.Windows.Forms.CheckBox cbBusiness;
         private System.Windows.Forms.ListBox lsbConPackage;
+        private System.Windows.Forms.ComboBox cbTypeOfProblems;
     }
 }
 

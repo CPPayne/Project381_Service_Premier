@@ -49,7 +49,8 @@ namespace Project381_Service_Premier
         Client clientCalling = new Client();
         List<string> listOfAllClientNumSimulation = new List<string>();
         List<Contract> callingClientContracts = new List<Contract>();
-
+        List<string> availableServiceTypeForCallingContract = new List<string>();
+        Call clientCALL = new Call();
         //=================================================================================================================================
         string pName;
         Decimal pCost;
@@ -144,12 +145,17 @@ namespace Project381_Service_Premier
         {
             if(simulationNumber != "")
             {
+                availableServiceTypeForCallingContract.Clear();
                 txtCallDuration.ForeColor = Color.Green;
                 t.Start();
 
                 Contract getConctracts = new Contract();
                 clientCalling = clientCalling.getClientByNumber(simulationNumber);
                 callingClientContracts = getConctracts.getContractsForClient(clientCalling.ClientID);
+
+                clientCALL.GenerateCallID();
+                clientCALL.CallDate = DateTime.Now;
+                clientCALL.ClientID = clientCalling.ClientID;
 
                 txtName.Text = clientCalling.Name;
                 txtSurname.Text = clientCalling.Surname;
@@ -160,7 +166,17 @@ namespace Project381_Service_Premier
                 foreach(Contract contr in callingClientContracts)
                 {
                     lsbConPackage.Items.Add(contr.cPackage);
+                    contr.getTypeOfServicesForContract();
+                    foreach(string item in contr.TypesOfServicesForContract)
+                    {
+                        if (!availableServiceTypeForCallingContract.Contains(item))
+                        {
+                            availableServiceTypeForCallingContract.AddRange(contr.TypesOfServicesForContract);
+                        }
+                    }
+                    
                 }
+                cbTypeOfProblems.DataSource = availableServiceTypeForCallingContract;
 
             }
             else
@@ -207,6 +223,9 @@ namespace Project381_Service_Premier
             {
                 Package newPackage = new Package(packageName, packageCost, servicesInPackage);
                 newPackage.addPackageToDB();
+
+
+                servicesInPackage.Clear();
                 txtAddPName.Clear();
                 txtPackageCost.Clear();
                 updatePakcageDBGRID();
@@ -225,15 +244,9 @@ namespace Project381_Service_Premier
 
 
             Service newService = new Service(selectedService.SName, selectedService.SType, selectedService.SSpecifications);
-            //MessageBox.Show(newService.SType);
+
             servicesInPackage.Add(newService);
-            //foreach(Service serv in servicesInPackage)
-            //{
-            //   MessageBox.Show(serv.SName);
-            //}
 
-
-            //updatePackageServiceDBGRID(servicesInPackage);
             sourceServicePackage.DataSource = servicesInPackage;
             dgvPackageServices.DataSource = sourceServicePackage;
 
@@ -412,6 +425,17 @@ namespace Project381_Service_Premier
             newContract.addContractToDB(loggedInClient.ClientID, packageID);
         }
         Random rndNum = new Random();
+
+        private void btnLogDetails_Click(object sender, EventArgs e)
+        {
+
+            string typeOfProblem = cbTypeOfProblems.Text;
+            string description = rtbDescription.Text;
+            WorkRequest newWorkrequest = new WorkRequest(typeOfProblem,description, clientCALL.CallID,clientCalling.ClientID, DateTime.Now);
+            newWorkrequest.addWorkRequestToDB();
+
+        }
+
         private void btnSimCall_Click(object sender, EventArgs e)
         {
 
@@ -433,11 +457,11 @@ namespace Project381_Service_Premier
 
             txtCallDuration.Text = "00:00:00";
 
-            Call newCall = new Call();
-            newCall.CallDate = DateTime.Now;
-            newCall.CallDuration = _CallDuration;
-            newCall.ClientID = clientCalling.ClientID;
-            newCall.addCallToDB();
+
+            
+            clientCALL.CallDuration = _CallDuration;
+            
+            clientCALL.addCallToDB();
         }
     }
 }

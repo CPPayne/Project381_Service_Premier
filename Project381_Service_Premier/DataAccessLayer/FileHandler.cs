@@ -95,6 +95,32 @@ namespace Project381_Service_Premier.DataAccessLayer
             return clientExist;
         }
 
+        public void addWorkRequestToDB(string problemType, string problemDescription, string callID, string clientID)
+        {
+            string query = @"INSERT INTO WorkRequest (ProblemType, Descriptions, CallID,ClientID) VALUES ( '" + problemType + "', '" + problemDescription + "', '" + callID + "','" + clientID+ "' )";
+
+            conn = new SqlConnection(connect);
+
+            conn.Open();
+
+            command = new SqlCommand(query, conn);
+
+
+            try
+            {
+                command.ExecuteNonQuery();
+                MessageBox.Show("WorkRequest added added!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("WorkRequest not saved: " + ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+        }
 
         public bool checkIfScheduleIdExists(string ScheduleID)
         {
@@ -130,6 +156,42 @@ namespace Project381_Service_Premier.DataAccessLayer
 
             }
             return ScheduleIDExist;
+        }
+
+        public bool checkIfCallIDExist(string callID)
+        {
+
+            bool callIDExist = false;
+            string query = @"SELECT * FROM Calls WHERE CallID = ('" + callID + "')";
+
+
+            conn = new SqlConnection(connect);
+
+            conn.Open();
+
+            command = new SqlCommand(query, conn);
+
+
+            try
+            {
+                reader = command.ExecuteReader();
+                if (reader.Read())
+                {
+                    callIDExist = true;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+            finally
+            {
+
+                conn.Close();
+
+            }
+            return callIDExist;
         }
 
         public List<string> getListOfAllPhoneNumbers()
@@ -195,10 +257,10 @@ namespace Project381_Service_Premier.DataAccessLayer
             }
         }
 
-        public void addCallToDB(string clientID, DateTime date, string callDuration)
+        public void addCallToDB(string callID, string clientID, DateTime date, string callDuration)
         {
 
-            string query = @"INSERT INTO Calls (CallDate,callDuration ,ClientID) VALUES ( '" + date + "', '" + callDuration + "', '" + clientID + "' )";
+            string query = @"INSERT INTO Calls (CallID,CallDate,callDuration ,ClientID) VALUES ( '" + callID + "', '" + date + "', '" + callDuration + "', '" + clientID + "' )";
 
             conn = new SqlConnection(connect);
 
@@ -763,6 +825,42 @@ namespace Project381_Service_Premier.DataAccessLayer
             }
 
             return loggedClient;
+        }
+
+        public List<string> getTypesOfSerivesAvailable(string packageID)
+        {
+
+
+            string query = @"SELECT DISTINCT ServiceType FROM ServiceC WHERE ServiceID IN (SELECT ServiceID FROM Service_Packages WHERE PackageID = '" + packageID + "')";
+
+            string serviceType;
+            conn = new SqlConnection(connect);
+            conn.Open();
+
+            command = new SqlCommand(query, conn);
+            List<string> listOfServiceTypes = new List<string>();
+
+
+            try
+            {
+
+                reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+
+                    serviceType = reader.GetValue(0).ToString();
+                    listOfServiceTypes.Add(serviceType);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return listOfServiceTypes;
         }
 
         public List<Contract> getContractsForClient(string clientId)
