@@ -422,6 +422,12 @@ namespace Project381_Service_Premier
             txtCallDuration.ForeColor = Color.Black;
 
             txtCallDuration.Text = "00:00:00";
+
+            Call newCall = new Call();
+            newCall.CallDate = DateTime.Now;
+            newCall.CallDuration = _CallDuration;
+            newCall.ClientID = clientCalling.ClientID;
+            newCall.addCallToDB();
         }
     }
 }

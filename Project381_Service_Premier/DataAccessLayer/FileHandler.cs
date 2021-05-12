@@ -195,6 +195,35 @@ namespace Project381_Service_Premier.DataAccessLayer
             }
         }
 
+        public void addCallToDB(string clientID, DateTime date, string callDuration)
+        {
+
+            string query = @"INSERT INTO Calls (CallDate,callDuration ,ClientID) VALUES ( '" + date + "', '" + callDuration + "', '" + clientID + "' )";
+
+            conn = new SqlConnection(connect);
+
+            conn.Open();
+
+            command = new SqlCommand(query, conn);
+
+
+
+
+            try
+            {
+                command.ExecuteNonQuery();
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Call not saved in DB " + ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
         public Client getClientByNum(string phoneNum)
         {
             SqlConnection conn = new SqlConnection(connect);
