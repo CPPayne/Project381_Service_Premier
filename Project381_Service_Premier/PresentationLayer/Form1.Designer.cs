@@ -31,12 +31,14 @@ namespace Project381_Service_Premier
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.CallCentre = new System.Windows.Forms.TabPage();
+            this.lsbConPackage = new System.Windows.Forms.ListBox();
+            this.cbBusiness = new System.Windows.Forms.CheckBox();
+            this.btnNextClient = new System.Windows.Forms.Button();
             this.label50 = new System.Windows.Forms.Label();
             this.txtCallDuration = new System.Windows.Forms.TextBox();
             this.lblCaller = new System.Windows.Forms.Label();
             this.btnSimCall = new System.Windows.Forms.Button();
             this.label29 = new System.Windows.Forms.Label();
-            this.txtPackageName = new System.Windows.Forms.TextBox();
             this.label28 = new System.Windows.Forms.Label();
             this.txtNumber = new System.Windows.Forms.TextBox();
             this.label27 = new System.Windows.Forms.Label();
@@ -165,8 +167,6 @@ namespace Project381_Service_Premier
             this.dgvContracts = new System.Windows.Forms.DataGridView();
             this.tpClientLoggedMenu = new System.Windows.Forms.TabPage();
             this.btnClientToContract = new System.Windows.Forms.Button();
-            this.btnNextClient = new System.Windows.Forms.Button();
-            this.cbBusiness = new System.Windows.Forms.CheckBox();
             this.tabControl1.SuspendLayout();
             this.CallCentre.SuspendLayout();
             this.tpRegister.SuspendLayout();
@@ -205,6 +205,7 @@ namespace Project381_Service_Premier
             // 
             // CallCentre
             // 
+            this.CallCentre.Controls.Add(this.lsbConPackage);
             this.CallCentre.Controls.Add(this.cbBusiness);
             this.CallCentre.Controls.Add(this.btnNextClient);
             this.CallCentre.Controls.Add(this.label50);
@@ -212,7 +213,6 @@ namespace Project381_Service_Premier
             this.CallCentre.Controls.Add(this.lblCaller);
             this.CallCentre.Controls.Add(this.btnSimCall);
             this.CallCentre.Controls.Add(this.label29);
-            this.CallCentre.Controls.Add(this.txtPackageName);
             this.CallCentre.Controls.Add(this.label28);
             this.CallCentre.Controls.Add(this.txtNumber);
             this.CallCentre.Controls.Add(this.label27);
@@ -237,6 +237,33 @@ namespace Project381_Service_Premier
             this.CallCentre.TabIndex = 0;
             this.CallCentre.Text = "CallCentre";
             this.CallCentre.UseVisualStyleBackColor = true;
+            // 
+            // lsbConPackage
+            // 
+            this.lsbConPackage.FormattingEnabled = true;
+            this.lsbConPackage.Location = new System.Drawing.Point(394, 217);
+            this.lsbConPackage.Name = "lsbConPackage";
+            this.lsbConPackage.Size = new System.Drawing.Size(437, 69);
+            this.lsbConPackage.TabIndex = 36;
+            // 
+            // cbBusiness
+            // 
+            this.cbBusiness.AutoSize = true;
+            this.cbBusiness.Enabled = false;
+            this.cbBusiness.Location = new System.Drawing.Point(117, 293);
+            this.cbBusiness.Name = "cbBusiness";
+            this.cbBusiness.Size = new System.Drawing.Size(15, 14);
+            this.cbBusiness.TabIndex = 35;
+            this.cbBusiness.UseVisualStyleBackColor = true;
+            // 
+            // btnNextClient
+            // 
+            this.btnNextClient.Location = new System.Drawing.Point(117, 606);
+            this.btnNextClient.Name = "btnNextClient";
+            this.btnNextClient.Size = new System.Drawing.Size(75, 23);
+            this.btnNextClient.TabIndex = 34;
+            this.btnNextClient.Text = "Next Client";
+            this.btnNextClient.UseVisualStyleBackColor = true;
             // 
             // label50
             // 
@@ -285,21 +312,14 @@ namespace Project381_Service_Premier
             this.label29.TabIndex = 27;
             this.label29.Text = "Business Boolean";
             // 
-            // txtPackageName
-            // 
-            this.txtPackageName.Location = new System.Drawing.Point(117, 317);
-            this.txtPackageName.Name = "txtPackageName";
-            this.txtPackageName.Size = new System.Drawing.Size(193, 20);
-            this.txtPackageName.TabIndex = 26;
-            // 
             // label28
             // 
             this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(33, 317);
+            this.label28.Location = new System.Drawing.Point(391, 194);
             this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(79, 13);
+            this.label28.Size = new System.Drawing.Size(84, 13);
             this.label28.TabIndex = 25;
-            this.label28.Text = "Package name";
+            this.label28.Text = "Client Packages";
             // 
             // txtNumber
             // 
@@ -1550,25 +1570,6 @@ namespace Project381_Service_Premier
             this.btnClientToContract.Text = "button3";
             this.btnClientToContract.UseVisualStyleBackColor = true;
             // 
-            // btnNextClient
-            // 
-            this.btnNextClient.Location = new System.Drawing.Point(117, 606);
-            this.btnNextClient.Name = "btnNextClient";
-            this.btnNextClient.Size = new System.Drawing.Size(75, 23);
-            this.btnNextClient.TabIndex = 34;
-            this.btnNextClient.Text = "Next Client";
-            this.btnNextClient.UseVisualStyleBackColor = true;
-            // 
-            // cbBusiness
-            // 
-            this.cbBusiness.AutoSize = true;
-            this.cbBusiness.Enabled = false;
-            this.cbBusiness.Location = new System.Drawing.Point(117, 293);
-            this.cbBusiness.Name = "cbBusiness";
-            this.cbBusiness.Size = new System.Drawing.Size(15, 14);
-            this.cbBusiness.TabIndex = 35;
-            this.cbBusiness.UseVisualStyleBackColor = true;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1612,7 +1613,6 @@ namespace Project381_Service_Premier
       private System.Windows.Forms.TabControl tabControl1;
       private System.Windows.Forms.TabPage CallCentre;
       private System.Windows.Forms.Label label29;
-      private System.Windows.Forms.TextBox txtPackageName;
       private System.Windows.Forms.Label label28;
       private System.Windows.Forms.TextBox txtNumber;
       private System.Windows.Forms.Label label27;
@@ -1747,6 +1747,7 @@ namespace Project381_Service_Premier
         private System.Windows.Forms.TextBox txtCallDuration;
         private System.Windows.Forms.Button btnNextClient;
         private System.Windows.Forms.CheckBox cbBusiness;
+        private System.Windows.Forms.ListBox lsbConPackage;
     }
 }
 

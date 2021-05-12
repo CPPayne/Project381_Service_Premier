@@ -611,7 +611,7 @@ namespace Project381_Service_Premier.DataAccessLayer
 
                     objPackage.PackageName = reader[1].ToString();
                     objPackage.Cost = Decimal.Parse(reader[2].ToString());
-
+                    objPackage.Services = getServicesForPackage(id);
 
                 }
             }

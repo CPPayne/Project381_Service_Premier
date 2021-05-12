@@ -66,9 +66,6 @@ namespace Project381_Service_Premier.BusinessLayer
             return fh.getAllPackages();
         }
 
-
-
-
         public override bool Equals(object obj)
         {
             return obj is Package package &&

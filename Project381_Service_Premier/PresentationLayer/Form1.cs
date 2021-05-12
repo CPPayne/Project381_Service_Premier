@@ -42,13 +42,15 @@ namespace Project381_Service_Premier
 
         List<Contract> loggedClientContracts = new List<Contract>();
 
-        List<string> listOfAllClientNumSimulation = new List<string>();
-
         Client loggedInClient = new Client();
 
+        //=================================Calling Client and Simulation===================================================================
         string simulationNumber="";
         Client clientCalling = new Client();
+        List<string> listOfAllClientNumSimulation = new List<string>();
+        List<Contract> callingClientContracts = new List<Contract>();
 
+        //=================================================================================================================================
         string pName;
         Decimal pCost;
         List<Service> servicesOfChosenPackages = new List<Service>();
@@ -145,12 +147,20 @@ namespace Project381_Service_Premier
                 txtCallDuration.ForeColor = Color.Green;
                 t.Start();
 
+                Contract getConctracts = new Contract();
                 clientCalling = clientCalling.getClientByNumber(simulationNumber);
+                callingClientContracts = getConctracts.getContractsForClient(clientCalling.ClientID);
+
                 txtName.Text = clientCalling.Name;
                 txtSurname.Text = clientCalling.Surname;
                 txtAddress.Text = clientCalling.Address;
                 txtNumber.Text = clientCalling.PhoneNum;
                 cbBusiness.Checked = clientCalling.IsBusiness;
+
+                foreach(Contract contr in callingClientContracts)
+                {
+                    lsbConPackage.Items.Add(contr.cPackage);
+                }
 
             }
             else
