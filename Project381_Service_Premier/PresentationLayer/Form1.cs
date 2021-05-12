@@ -34,9 +34,12 @@ namespace Project381_Service_Premier
 
         BindingSource sourceServicePackage = new BindingSource();
 
+        BindingSource sourceClientCallHistory = new BindingSource();
+
         List<Service> allServices = new List<Service>();
         List<Package> allPackages = new List<Package>();
         List<Contract> clientContr = new List<Contract>();
+        List<Call> clientCallsHistory = new List<Call>();
 
         List<Service> servicesInPackage = new List<Service>();
 
@@ -157,6 +160,13 @@ namespace Project381_Service_Premier
                 clientCALL.CallDate = DateTime.Now;
                 clientCALL.ClientID = clientCalling.ClientID;
 
+
+
+                clientCallsHistory = clientCALL.getClientCallHis(clientCalling.ClientID);
+                sourceClientCallHistory.DataSource = clientCallsHistory;
+                dgvCallCentrePack.DataSource = sourceClientCallHistory;
+                sourceClientCallHistory.ResetBindings(false);
+
                 txtName.Text = clientCalling.Name;
                 txtSurname.Text = clientCalling.Surname;
                 txtAddress.Text = clientCalling.Address;
@@ -165,7 +175,7 @@ namespace Project381_Service_Premier
 
                 foreach(Contract contr in callingClientContracts)
                 {
-                    lsbConPackage.Items.Add(contr.cPackage);
+                    //lsbConPackage.Items.Add(contr.cPackage);
                     contr.getTypeOfServicesForContract();
                     foreach(string item in contr.TypesOfServicesForContract)
                     {
@@ -177,6 +187,9 @@ namespace Project381_Service_Premier
                     
                 }
                 cbTypeOfProblems.DataSource = availableServiceTypeForCallingContract;
+                txtCallDuration.ForeColor = Color.Black;
+                txtCallDuration.Text = "00:00:00";
+                
 
             }
             else
@@ -229,6 +242,7 @@ namespace Project381_Service_Premier
                 txtAddPName.Clear();
                 txtPackageCost.Clear();
                 updatePakcageDBGRID();
+                
             }
             else
             {
@@ -236,6 +250,15 @@ namespace Project381_Service_Premier
             }
 
 
+        }
+
+        private void updatedgvCallCentrePack()
+        {
+            Package pgs = new Package();
+
+            //allPackages = pgs.getAllPackages();
+           // sourceAllPackages.DataSource = allPa;
+            //dgvPackages.DataSource = sourceAllPackages;
         }
 
         private void btnAddServiceToPackage_Click(object sender, EventArgs e)
@@ -284,6 +307,10 @@ namespace Project381_Service_Premier
 
         private void btnRegister_Click(object sender, EventArgs e)
         {
+            //string[] _registerClientDetails = { "username", "password", "name", "surname", "address", "Phone Number" };
+
+            //Boolean _isEmpty = false;
+
             string username = txtClientUsername.Text;
             string password = txtClientPassword.Text;
             string name = txtClientName.Text;
@@ -291,6 +318,10 @@ namespace Project381_Service_Premier
             string address = txtClientAddress.Text;
             string phoneNumber = txtPhoneNumber.Text;
             bool isBusiness = cbxBusiness.Checked;
+
+
+
+
 
             Client client = new Client(name, surname, phoneNumber, address, isBusiness, username, password);
             client.GenerateClientID();
@@ -457,13 +488,17 @@ namespace Project381_Service_Premier
             MessageBox.Show("The call has ended.");
             txtCallDuration.ForeColor = Color.Black;
 
-            txtCallDuration.Text = "00:00:00";
+            
+            s = 0;
+            m = 0;
+            h = 0;
 
 
             
             clientCALL.CallDuration = _CallDuration;
             
             clientCALL.addCallToDB();
+
         }
     }
 }

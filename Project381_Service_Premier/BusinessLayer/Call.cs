@@ -74,6 +74,13 @@ namespace Project381_Service_Premier.BusinessLayer
 
         }
 
+        public List<Call> getClientCallHis(string clientID)
+        {
+            FileHandler fh = new FileHandler();
+
+            return fh.getAllClientCallHistory(clientID);
+        }
+
         private static string pad_an_int(int N, int P)
         {
 

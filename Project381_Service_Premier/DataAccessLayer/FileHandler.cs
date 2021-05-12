@@ -14,8 +14,9 @@ namespace Project381_Service_Premier.DataAccessLayer
         }
 
 
+
         //Set connection string
-        string connect = "Data Source=.; Initial Catalog= servicePremierDB; Integrated Security= SSPI";
+        string connect = "Data Source=DANIEL\\DANIELSQL;Initial Catalog=servicePremierDB;Integrated Security=True";
         SqlConnection conn;
         SqlConnection conn2;
         SqlConnection conn3;
@@ -122,6 +123,7 @@ namespace Project381_Service_Premier.DataAccessLayer
 
         }
 
+        
         public bool checkIfScheduleIdExists(string ScheduleID)
         {
 
@@ -515,6 +517,46 @@ namespace Project381_Service_Premier.DataAccessLayer
                 conn.Close();
             }
             return allServices;
+        }
+
+        public List<Call> getAllClientCallHistory(string clientID)
+        {
+
+            string query = @"SELECT * FROM Calls WHERE ClientID = ('" + clientID + "')";
+
+            Call objCall= new Call();
+            conn = new SqlConnection(connect);
+
+            conn.Open();
+
+            command = new SqlCommand(query, conn);
+            List<Call> allCall = new List<Call>();
+
+
+            try
+            {
+
+                reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+
+                    objCall.CallID = reader.GetValue(0).ToString();
+                    objCall.CallDate = Convert.ToDateTime(reader.GetValue(1));
+                    objCall.CallDuration = reader.GetValue(2).ToString();
+                    objCall.ClientID = reader.GetValue(3).ToString();
+
+                    allCall.Add(new Call(objCall.CallID, objCall.CallDate, objCall.CallDuration, objCall.ClientID));
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return allCall;
         }
 
         public List<Package> getAllPackages()
