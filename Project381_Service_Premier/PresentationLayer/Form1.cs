@@ -557,23 +557,34 @@ namespace Project381_Service_Premier
                 ////List<Order> SortedList = objListOrder.OrderByDescending(o => o.OrderDate).ToList();
                 List<Schedule> orderedTempList = tempSchedules.OrderBy(o => o.Buffer).ToList();
 
-                foreach (Schedule s in orderedTempList)
+
+
+
+                while (orderedTempList.Count > 6)
                 {
-                    MessageBox.Show(s.Buffer.ToString());
+                    int z = 1;
+
+                    //orderedTempList[orderedTempList.Count - 1].date.AddDays(1);
+                    if (orderedTempList[orderedTempList.Count - 1].Buffer > 0)
+                    {
+                        orderedTempList[orderedTempList.Count - 1].Buffer--;
+                        MessageBox.Show(orderedTempList[orderedTempList.Count - 1].Date.ToString());
+                        orderedTempList[orderedTempList.Count - 1].Date.AddDays(1);
+                        MessageBox.Show(orderedTempList[orderedTempList.Count - 1].Date.ToString("yyyy-MM-dd"));
+                        //fh.IncrementDayDecrementBufferInDB(Convert.ToDateTime(orderedTempList[orderedTempList.Count - 1].Date.ToString("yyyy-MM-dd")), orderedTempList[orderedTempList.Count - 1].Buffer, orderedTempList[orderedTempList.Count - 1].ScheduleID);
+                    }
+                    else
+                    {
+                        break;
+                    }
+                    //else if(orderedTempList[orderedTempList.Count].Buffer = 0)
+                    //{
+
+
+                    //}
+
                 }
-
-
-                //while (orderedTempList.Count > 6)
-                //{
-                //    orderedTempList[orderedTempList.Count - 1].Date.AddDays(1);
-                //    if (orderedTempList[orderedTempList.Count - 1].Buffer > 0)
-                //    {
-                //        orderedTempList[orderedTempList.Count - 1].Buffer--;
-                //    }
-
-                //    fh.IncrementDayDecrementBufferInDB(orderedTempList[orderedTempList.Count - 1]);
-                //}
-                ////allSchedules.AddRange(tempSchedules);
+                //allSchedules.AddRange(tempSchedules);
             }
             //allSchedules.Sort((x, y) => x.date.Day.CompareTo(y.date.Day));
         }

@@ -130,10 +130,16 @@ namespace Project381_Service_Premier.BusinessLayer
                     if (orderedTempList[orderedTempList.Count - 1].Buffer > 0)
                     {
                         orderedTempList[orderedTempList.Count - 1].Buffer--;
-                        MessageBox.Show(orderedTempList[orderedTempList.Count - 1].date.ToString());
-                        orderedTempList[orderedTempList.Count - 1].date.AddDays(1);
-                        MessageBox.Show(orderedTempList[orderedTempList.Count - 1].date.AddDays(1).ToString());
+                        //MessageBox.Show(orderedTempList[orderedTempList.Count - 1].date.ToString());
+                        orderedTempList[orderedTempList.Count - 1].date=orderedTempList[orderedTempList.Count - 1].date.AddDays(1);
+                        //MessageBox.Show(orderedTempList[orderedTempList.Count - 1].date.AddDays(1).ToString());
                         fh.IncrementDayDecrementBufferInDB(Convert.ToDateTime(orderedTempList[orderedTempList.Count - 1].Date.ToString("yyyy-MM-dd")), orderedTempList[orderedTempList.Count - 1].Buffer, orderedTempList[orderedTempList.Count - 1].ScheduleID);
+                        orderedTempList.RemoveAt(orderedTempList.Count - 1);
+
+                    }
+                    else
+                    {
+                        break;
                     }
                     //else if(orderedTempList[orderedTempList.Count].Buffer = 0)
                     //{
