@@ -80,6 +80,7 @@ namespace Project381_Service_Premier
             this.labelSurname = new System.Windows.Forms.Label();
             this.btnRegister = new System.Windows.Forms.Button();
             this.tpSchedule = new System.Windows.Forms.TabPage();
+            this.btnGenerateSchedule = new System.Windows.Forms.Button();
             this.label20 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.txtTechnicianName = new System.Windows.Forms.TextBox();
@@ -196,8 +197,6 @@ namespace Project381_Service_Premier
             this.btnClientMTMainM = new System.Windows.Forms.Button();
             this.btnClientToContract = new System.Windows.Forms.Button();
             this.btnClientMTClientF = new System.Windows.Forms.Button();
-            this.btnGenerateSchedule = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tpCallCentre.SuspendLayout();
             this.panel9.SuspendLayout();
@@ -274,7 +273,6 @@ namespace Project381_Service_Premier
             // panel10
             // 
             this.panel10.BackColor = System.Drawing.Color.Silver;
-            this.panel10.Controls.Add(this.button2);
             this.panel10.Controls.Add(this.btnMainMenuCCentre);
             this.panel10.Controls.Add(this.btnSimCall);
             this.panel10.Controls.Add(this.label53);
@@ -778,6 +776,16 @@ namespace Project381_Service_Premier
             this.tpSchedule.TabIndex = 3;
             this.tpSchedule.Text = "Technician";
             this.tpSchedule.UseVisualStyleBackColor = true;
+            // 
+            // btnGenerateSchedule
+            // 
+            this.btnGenerateSchedule.Location = new System.Drawing.Point(814, 284);
+            this.btnGenerateSchedule.Name = "btnGenerateSchedule";
+            this.btnGenerateSchedule.Size = new System.Drawing.Size(116, 23);
+            this.btnGenerateSchedule.TabIndex = 35;
+            this.btnGenerateSchedule.Text = "Generate Schedule";
+            this.btnGenerateSchedule.UseVisualStyleBackColor = true;
+            this.btnGenerateSchedule.Click += new System.EventHandler(this.btnGenerateSchedule_Click);
             // 
             // label20
             // 
@@ -2037,26 +2045,6 @@ namespace Project381_Service_Premier
             this.btnClientMTClientF.UseVisualStyleBackColor = true;
             this.btnClientMTClientF.Click += new System.EventHandler(this.btnClientMTClientF_Click);
             // 
-            // btnGenerateSchedule
-            // 
-            this.btnGenerateSchedule.Location = new System.Drawing.Point(814, 284);
-            this.btnGenerateSchedule.Name = "btnGenerateSchedule";
-            this.btnGenerateSchedule.Size = new System.Drawing.Size(116, 23);
-            this.btnGenerateSchedule.TabIndex = 35;
-            this.btnGenerateSchedule.Text = "Generate Schedule";
-            this.btnGenerateSchedule.UseVisualStyleBackColor = true;
-            this.btnGenerateSchedule.Click += new System.EventHandler(this.btnGenerateSchedule_Click);
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(545, 425);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 41;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click_1);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2279,7 +2267,6 @@ namespace Project381_Service_Premier
         private System.Windows.Forms.Button btnClientMTMainM;
         private System.Windows.Forms.Button btnClientCClientM;
         private System.Windows.Forms.Button btnGenerateSchedule;
-        private System.Windows.Forms.Button button2;
     }
 }
 
