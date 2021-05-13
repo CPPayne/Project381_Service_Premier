@@ -526,7 +526,59 @@ namespace Project381_Service_Premier
          tabControl1.SelectedTab = tpMainMenu;
       }
 
-      private void btnSimCall_Click(object sender, EventArgs e)
+        private void btnGenerateSchedule_Click(object sender, EventArgs e)
+        {
+            Schedule sch = new Schedule();
+
+
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            FileHandler fh = new FileHandler();
+            List<Schedule> allSchedules = fh.getAllSchedules();
+            for (int i = 0; i < 50; i++)
+            {
+                //allSchedules = fh.getAllSchedules();
+                List<Schedule> tempSchedules = new List<Schedule>();
+                foreach (Schedule schedule in allSchedules)
+                {
+                    if (schedule.Date.Day == i)
+                    {
+                        tempSchedules.Add(schedule);
+                        //allSchedules.Remove(schedule);
+                        //MessageBox.Show($"For day {i} the date is {schedule.Date} and the buffer is {schedule.Buffer}");
+
+                    }
+                }
+
+
+                ////List<Schedule> orderedTempList = tempSchedules.OrderBy(x => x.buffer).ToList();
+                ////List<Order> SortedList = objListOrder.OrderByDescending(o => o.OrderDate).ToList();
+                List<Schedule> orderedTempList = tempSchedules.OrderBy(o => o.Buffer).ToList();
+
+                foreach (Schedule s in orderedTempList)
+                {
+                    MessageBox.Show(s.Buffer.ToString());
+                }
+
+
+                //while (orderedTempList.Count > 6)
+                //{
+                //    orderedTempList[orderedTempList.Count - 1].Date.AddDays(1);
+                //    if (orderedTempList[orderedTempList.Count - 1].Buffer > 0)
+                //    {
+                //        orderedTempList[orderedTempList.Count - 1].Buffer--;
+                //    }
+
+                //    fh.IncrementDayDecrementBufferInDB(orderedTempList[orderedTempList.Count - 1]);
+                //}
+                ////allSchedules.AddRange(tempSchedules);
+            }
+            //allSchedules.Sort((x, y) => x.date.Day.CompareTo(y.date.Day));
+        }
+
+        private void btnSimCall_Click(object sender, EventArgs e)
       {
 
          int randomNum = rndNum.Next(0, listOfAllClientNumSimulation.Count);

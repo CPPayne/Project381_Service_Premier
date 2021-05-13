@@ -16,7 +16,7 @@ namespace Project381_Service_Premier.DataAccessLayer
 
 
       //Set connection string
-      string connect = "Data Source=.;Initial Catalog=servicePremierDB;Integrated Security=True";
+      string connect = "Data Source=DANIEL\\DANIELSQL;Initial Catalog=servicePremierDB;Integrated Security=True";
       SqlConnection conn;
       SqlConnection conn2;
       SqlConnection conn3;
@@ -1053,9 +1053,9 @@ namespace Project381_Service_Premier.DataAccessLayer
          return cost;
       }
 
-      public void IncrementDayDecrementBufferInDB(Schedule scheduleToUpdate)
+        public void IncrementDayDecrementBufferInDB(DateTime date, int buffer, string schduleID)
       {
-         string query = @"UPDATE Schedule SET ScheduleDate = ('" + scheduleToUpdate.Date + "'), sBuffer = ('" + scheduleToUpdate.Buffer + "') WHERE ScheduleID = ('" + scheduleToUpdate.ScheduleID + "')";
+         string query = @"UPDATE Schedule SET ScheduleDate = ('" + date + "'), sBuffer = ('" + buffer + "') WHERE ScheduleID = ('" + schduleID + "')";
          conn = new SqlConnection(connect);
          conn.Open();
          command = new SqlCommand(query, conn);
@@ -1160,9 +1160,10 @@ namespace Project381_Service_Premier.DataAccessLayer
                objSchedule.WorkRequestID = reader.GetValue(2).ToString();
                objSchedule.Technician = int.Parse(reader.GetValue(3).ToString());
                objSchedule.Buffer = int.Parse(reader.GetValue(4).ToString());
-               objSchedule.Client = getClientIDInWorkRequest(objSchedule.WorkRequestID);
+               
+              objSchedule.Client = getClientIDInWorkRequest(objSchedule.WorkRequestID);
 
-               AllSchedules.Add(objSchedule);
+               AllSchedules.Add(new Schedule(objSchedule.Date,objSchedule.Client, objSchedule.Technician, objSchedule.ScheduleID, objSchedule.Buffer, objSchedule.WorkRequestID));
             }
          }
          catch (Exception ex)

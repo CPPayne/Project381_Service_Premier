@@ -196,6 +196,8 @@ namespace Project381_Service_Premier
             this.btnClientMTMainM = new System.Windows.Forms.Button();
             this.btnClientToContract = new System.Windows.Forms.Button();
             this.btnClientMTClientF = new System.Windows.Forms.Button();
+            this.btnGenerateSchedule = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tpCallCentre.SuspendLayout();
             this.panel9.SuspendLayout();
@@ -266,12 +268,13 @@ namespace Project381_Service_Premier
             this.panel9.Controls.Add(this.panel10);
             this.panel9.Location = new System.Drawing.Point(216, 56);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(975, 620);
+            this.panel9.Size = new System.Drawing.Size(974, 620);
             this.panel9.TabIndex = 40;
             // 
             // panel10
             // 
             this.panel10.BackColor = System.Drawing.Color.Silver;
+            this.panel10.Controls.Add(this.button2);
             this.panel10.Controls.Add(this.btnMainMenuCCentre);
             this.panel10.Controls.Add(this.btnSimCall);
             this.panel10.Controls.Add(this.label53);
@@ -300,7 +303,7 @@ namespace Project381_Service_Premier
             this.panel10.Controls.Add(this.txtAddress);
             this.panel10.Location = new System.Drawing.Point(3, 3);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(967, 611);
+            this.panel10.Size = new System.Drawing.Size(967, 614);
             this.panel10.TabIndex = 0;
             // 
             // btnMainMenuCCentre
@@ -762,6 +765,7 @@ namespace Project381_Service_Premier
             // 
             // tpSchedule
             // 
+            this.tpSchedule.Controls.Add(this.btnGenerateSchedule);
             this.tpSchedule.Controls.Add(this.label20);
             this.tpSchedule.Controls.Add(this.label13);
             this.tpSchedule.Controls.Add(this.txtTechnicianName);
@@ -2003,7 +2007,7 @@ namespace Project381_Service_Premier
             // btnClientMTMainM
             // 
             this.btnClientMTMainM.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClientMTMainM.Location = new System.Drawing.Point(21, 104);
+            this.btnClientMTMainM.Location = new System.Drawing.Point(22, 109);
             this.btnClientMTMainM.Name = "btnClientMTMainM";
             this.btnClientMTMainM.Size = new System.Drawing.Size(144, 35);
             this.btnClientMTMainM.TabIndex = 3;
@@ -2014,7 +2018,7 @@ namespace Project381_Service_Premier
             // btnClientToContract
             // 
             this.btnClientToContract.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClientToContract.Location = new System.Drawing.Point(21, 22);
+            this.btnClientToContract.Location = new System.Drawing.Point(22, 27);
             this.btnClientToContract.Name = "btnClientToContract";
             this.btnClientToContract.Size = new System.Drawing.Size(144, 35);
             this.btnClientToContract.TabIndex = 0;
@@ -2025,13 +2029,33 @@ namespace Project381_Service_Premier
             // btnClientMTClientF
             // 
             this.btnClientMTClientF.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClientMTClientF.Location = new System.Drawing.Point(21, 63);
+            this.btnClientMTClientF.Location = new System.Drawing.Point(22, 68);
             this.btnClientMTClientF.Name = "btnClientMTClientF";
             this.btnClientMTClientF.Size = new System.Drawing.Size(144, 35);
             this.btnClientMTClientF.TabIndex = 1;
             this.btnClientMTClientF.Text = "Client Feedback";
             this.btnClientMTClientF.UseVisualStyleBackColor = true;
             this.btnClientMTClientF.Click += new System.EventHandler(this.btnClientMTClientF_Click);
+            // 
+            // btnGenerateSchedule
+            // 
+            this.btnGenerateSchedule.Location = new System.Drawing.Point(814, 284);
+            this.btnGenerateSchedule.Name = "btnGenerateSchedule";
+            this.btnGenerateSchedule.Size = new System.Drawing.Size(116, 23);
+            this.btnGenerateSchedule.TabIndex = 35;
+            this.btnGenerateSchedule.Text = "Generate Schedule";
+            this.btnGenerateSchedule.UseVisualStyleBackColor = true;
+            this.btnGenerateSchedule.Click += new System.EventHandler(this.btnGenerateSchedule_Click);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(545, 425);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 41;
+            this.button2.Text = "button2";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click_1);
             // 
             // Form1
             // 
@@ -2254,6 +2278,8 @@ namespace Project381_Service_Premier
         private System.Windows.Forms.Panel panel14;
         private System.Windows.Forms.Button btnClientMTMainM;
         private System.Windows.Forms.Button btnClientCClientM;
+        private System.Windows.Forms.Button btnGenerateSchedule;
+        private System.Windows.Forms.Button button2;
     }
 }
 
