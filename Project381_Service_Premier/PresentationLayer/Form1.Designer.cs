@@ -125,16 +125,16 @@ namespace Project381_Service_Premier
             this.panel7 = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
             this.label36 = new System.Windows.Forms.Label();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton5 = new System.Windows.Forms.RadioButton();
-            this.button9 = new System.Windows.Forms.Button();
-            this.radioButton4 = new System.Windows.Forms.RadioButton();
+            this.rbr1 = new System.Windows.Forms.RadioButton();
+            this.rbr5 = new System.Windows.Forms.RadioButton();
+            this.btnSendFeedback = new System.Windows.Forms.Button();
+            this.rbr4 = new System.Windows.Forms.RadioButton();
             this.label35 = new System.Windows.Forms.Label();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
+            this.rbr3 = new System.Windows.Forms.RadioButton();
             this.label34 = new System.Windows.Forms.Label();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.richTextBox4 = new System.Windows.Forms.RichTextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.rbr2 = new System.Windows.Forms.RadioButton();
+            this.rtbFeedBackComment = new System.Windows.Forms.RichTextBox();
+            this.cbClientWorkRequest = new System.Windows.Forms.ComboBox();
             this.btnClienFTMainM = new System.Windows.Forms.Button();
             this.tpLogin = new System.Windows.Forms.TabPage();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -1231,16 +1231,16 @@ namespace Project381_Service_Premier
             // 
             this.panel8.BackColor = System.Drawing.Color.Silver;
             this.panel8.Controls.Add(this.label36);
-            this.panel8.Controls.Add(this.radioButton1);
-            this.panel8.Controls.Add(this.radioButton5);
-            this.panel8.Controls.Add(this.button9);
-            this.panel8.Controls.Add(this.radioButton4);
+            this.panel8.Controls.Add(this.rbr1);
+            this.panel8.Controls.Add(this.rbr5);
+            this.panel8.Controls.Add(this.btnSendFeedback);
+            this.panel8.Controls.Add(this.rbr4);
             this.panel8.Controls.Add(this.label35);
-            this.panel8.Controls.Add(this.radioButton3);
+            this.panel8.Controls.Add(this.rbr3);
             this.panel8.Controls.Add(this.label34);
-            this.panel8.Controls.Add(this.radioButton2);
-            this.panel8.Controls.Add(this.richTextBox4);
-            this.panel8.Controls.Add(this.comboBox1);
+            this.panel8.Controls.Add(this.rbr2);
+            this.panel8.Controls.Add(this.rtbFeedBackComment);
+            this.panel8.Controls.Add(this.cbClientWorkRequest);
             this.panel8.Controls.Add(this.btnClienFTMainM);
             this.panel8.Location = new System.Drawing.Point(3, 3);
             this.panel8.Name = "panel8";
@@ -1257,51 +1257,52 @@ namespace Project381_Service_Premier
             this.label36.TabIndex = 34;
             this.label36.Text = "Rating ";
             // 
-            // radioButton1
+            // rbr1
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton1.Location = new System.Drawing.Point(18, 37);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(36, 24);
-            this.radioButton1.TabIndex = 28;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "1";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.rbr1.AutoSize = true;
+            this.rbr1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbr1.Location = new System.Drawing.Point(18, 37);
+            this.rbr1.Name = "rbr1";
+            this.rbr1.Size = new System.Drawing.Size(36, 24);
+            this.rbr1.TabIndex = 28;
+            this.rbr1.TabStop = true;
+            this.rbr1.Text = "1";
+            this.rbr1.UseVisualStyleBackColor = true;
             // 
-            // radioButton5
+            // rbr5
             // 
-            this.radioButton5.AutoSize = true;
-            this.radioButton5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton5.Location = new System.Drawing.Point(186, 37);
-            this.radioButton5.Name = "radioButton5";
-            this.radioButton5.Size = new System.Drawing.Size(36, 24);
-            this.radioButton5.TabIndex = 33;
-            this.radioButton5.TabStop = true;
-            this.radioButton5.Text = "5";
-            this.radioButton5.UseVisualStyleBackColor = true;
+            this.rbr5.AutoSize = true;
+            this.rbr5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbr5.Location = new System.Drawing.Point(186, 37);
+            this.rbr5.Name = "rbr5";
+            this.rbr5.Size = new System.Drawing.Size(36, 24);
+            this.rbr5.TabIndex = 33;
+            this.rbr5.TabStop = true;
+            this.rbr5.Text = "5";
+            this.rbr5.UseVisualStyleBackColor = true;
             // 
-            // button9
+            // btnSendFeedback
             // 
-            this.button9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button9.Location = new System.Drawing.Point(51, 276);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(210, 34);
-            this.button9.TabIndex = 18;
-            this.button9.Text = "Send Feedback";
-            this.button9.UseVisualStyleBackColor = true;
+            this.btnSendFeedback.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSendFeedback.Location = new System.Drawing.Point(51, 276);
+            this.btnSendFeedback.Name = "btnSendFeedback";
+            this.btnSendFeedback.Size = new System.Drawing.Size(210, 34);
+            this.btnSendFeedback.TabIndex = 18;
+            this.btnSendFeedback.Text = "Send Feedback";
+            this.btnSendFeedback.UseVisualStyleBackColor = true;
+            this.btnSendFeedback.Click += new System.EventHandler(this.button9_Click);
             // 
-            // radioButton4
+            // rbr4
             // 
-            this.radioButton4.AutoSize = true;
-            this.radioButton4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton4.Location = new System.Drawing.Point(144, 37);
-            this.radioButton4.Name = "radioButton4";
-            this.radioButton4.Size = new System.Drawing.Size(36, 24);
-            this.radioButton4.TabIndex = 32;
-            this.radioButton4.TabStop = true;
-            this.radioButton4.Text = "4";
-            this.radioButton4.UseVisualStyleBackColor = true;
+            this.rbr4.AutoSize = true;
+            this.rbr4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbr4.Location = new System.Drawing.Point(144, 37);
+            this.rbr4.Name = "rbr4";
+            this.rbr4.Size = new System.Drawing.Size(36, 24);
+            this.rbr4.TabIndex = 32;
+            this.rbr4.TabStop = true;
+            this.rbr4.Text = "4";
+            this.rbr4.UseVisualStyleBackColor = true;
             // 
             // label35
             // 
@@ -1313,17 +1314,17 @@ namespace Project381_Service_Premier
             this.label35.TabIndex = 21;
             this.label35.Text = "Comment";
             // 
-            // radioButton3
+            // rbr3
             // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton3.Location = new System.Drawing.Point(102, 37);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(36, 24);
-            this.radioButton3.TabIndex = 31;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "3";
-            this.radioButton3.UseVisualStyleBackColor = true;
+            this.rbr3.AutoSize = true;
+            this.rbr3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbr3.Location = new System.Drawing.Point(102, 37);
+            this.rbr3.Name = "rbr3";
+            this.rbr3.Size = new System.Drawing.Size(36, 24);
+            this.rbr3.TabIndex = 31;
+            this.rbr3.TabStop = true;
+            this.rbr3.Text = "3";
+            this.rbr3.UseVisualStyleBackColor = true;
             // 
             // label34
             // 
@@ -1335,35 +1336,35 @@ namespace Project381_Service_Premier
             this.label34.TabIndex = 22;
             this.label34.Text = "Work Request";
             // 
-            // radioButton2
+            // rbr2
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton2.Location = new System.Drawing.Point(60, 37);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(36, 24);
-            this.radioButton2.TabIndex = 30;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "2";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.rbr2.AutoSize = true;
+            this.rbr2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbr2.Location = new System.Drawing.Point(60, 37);
+            this.rbr2.Name = "rbr2";
+            this.rbr2.Size = new System.Drawing.Size(36, 24);
+            this.rbr2.TabIndex = 30;
+            this.rbr2.TabStop = true;
+            this.rbr2.Text = "2";
+            this.rbr2.UseVisualStyleBackColor = true;
             // 
-            // richTextBox4
+            // rtbFeedBackComment
             // 
-            this.richTextBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.richTextBox4.Location = new System.Drawing.Point(22, 143);
-            this.richTextBox4.Name = "richTextBox4";
-            this.richTextBox4.Size = new System.Drawing.Size(283, 127);
-            this.richTextBox4.TabIndex = 19;
-            this.richTextBox4.Text = "";
+            this.rtbFeedBackComment.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rtbFeedBackComment.Location = new System.Drawing.Point(22, 143);
+            this.rtbFeedBackComment.Name = "rtbFeedBackComment";
+            this.rtbFeedBackComment.Size = new System.Drawing.Size(283, 127);
+            this.rtbFeedBackComment.TabIndex = 19;
+            this.rtbFeedBackComment.Text = "";
             // 
-            // comboBox1
+            // cbClientWorkRequest
             // 
-            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(131, 79);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(174, 28);
-            this.comboBox1.TabIndex = 29;
+            this.cbClientWorkRequest.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbClientWorkRequest.FormattingEnabled = true;
+            this.cbClientWorkRequest.Location = new System.Drawing.Point(131, 79);
+            this.cbClientWorkRequest.Name = "cbClientWorkRequest";
+            this.cbClientWorkRequest.Size = new System.Drawing.Size(174, 28);
+            this.cbClientWorkRequest.TabIndex = 29;
             // 
             // btnClienFTMainM
             // 
@@ -2152,10 +2153,10 @@ namespace Project381_Service_Premier
       private System.Windows.Forms.TextBox txtAddServiceName;
       private System.Windows.Forms.Label label54;
       private System.Windows.Forms.TabPage tpFeedback;
-      private System.Windows.Forms.RichTextBox richTextBox4;
+      private System.Windows.Forms.RichTextBox rtbFeedBackComment;
       private System.Windows.Forms.Label label34;
       private System.Windows.Forms.Label label35;
-      private System.Windows.Forms.Button button9;
+      private System.Windows.Forms.Button btnSendFeedback;
       private System.Windows.Forms.TabPage tpLogin;
       private System.Windows.Forms.Button btnLogin;
       private System.Windows.Forms.TextBox txtTechnicianName;
@@ -2233,12 +2234,12 @@ namespace Project381_Service_Premier
         private System.Windows.Forms.CheckBox cbBusiness;
         private System.Windows.Forms.ComboBox cbTypeOfProblems;
         private System.Windows.Forms.DataGridView dgvCallCentrePack;
-        private System.Windows.Forms.RadioButton radioButton5;
-        private System.Windows.Forms.RadioButton radioButton4;
-        private System.Windows.Forms.RadioButton radioButton3;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton rbr5;
+        private System.Windows.Forms.RadioButton rbr4;
+        private System.Windows.Forms.RadioButton rbr3;
+        private System.Windows.Forms.RadioButton rbr2;
+        private System.Windows.Forms.ComboBox cbClientWorkRequest;
+        private System.Windows.Forms.RadioButton rbr1;
         private System.Windows.Forms.Button btnClienFTMainM;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel2;

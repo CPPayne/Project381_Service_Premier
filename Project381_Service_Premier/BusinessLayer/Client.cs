@@ -90,6 +90,11 @@ namespace Project381_Service_Premier.BusinessLayer
 
         }
 
+        public void sendFeedback(string workRequestID, int rating, string comment)
+        {
+            FileHandler fh = new FileHandler();
+            fh.addClientFeedbackToDB(workRequestID, this.clientID, comment, rating);
+        }
         private static string pad_an_int(int N, int P)
         {
 

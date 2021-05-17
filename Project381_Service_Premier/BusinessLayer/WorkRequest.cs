@@ -24,6 +24,17 @@ namespace Project381_Service_Premier.BusinessLayer
             
         }
 
+        public WorkRequest(string workRequestID,string problemType, string description, string callID, string clientID, DateTime dateCreated)
+        {
+            this.workRequestID = workRequestID;
+            this.problemType = problemType;
+            this.description = description;
+            this.callID = callID;
+            this.clientID = clientID;
+            this.dateCreated = dateCreated;
+
+        }
+
         public WorkRequest()
         {
         }
@@ -38,7 +49,13 @@ namespace Project381_Service_Premier.BusinessLayer
         public void addWorkRequestToDB()
         {
             FileHandler fh = new FileHandler();
-            fh.addWorkRequestToDB(this.workRequestID, this.problemType, this.description, this.callID, this.clientID);
+            fh.addWorkRequestToDB(this.workRequestID, this.problemType, this.description, this.callID, this.clientID, this.dateCreated);
+        }
+
+        public List<WorkRequest> getWorkRequestForClient(string clientID)
+        {
+            FileHandler fh = new FileHandler();
+            return fh.getWorkRequestsForClient(clientID);
         }
 
         public void GenerateWorkRequestID()
@@ -70,6 +87,11 @@ namespace Project381_Service_Premier.BusinessLayer
 
 
 
+        }
+
+        public override string ToString()
+        {
+            return this.workRequestID;
         }
 
         private static string pad_an_int(int N, int P)

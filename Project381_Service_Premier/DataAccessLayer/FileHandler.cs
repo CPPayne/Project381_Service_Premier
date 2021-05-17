@@ -96,9 +96,9 @@ namespace Project381_Service_Premier.DataAccessLayer
             return clientExist;
         }
 
-        public void addWorkRequestToDB(string workrequestID, string problemType, string problemDescription, string callID, string clientID)
+        public void addWorkRequestToDB(string workrequestID, string problemType, string problemDescription, string callID, string clientID, DateTime dateCreated)
         {
-            string query = @"INSERT INTO WorkRequest (WorkRequestID,ProblemType, Descriptions, CallID,ClientID) VALUES ( '" + workrequestID + "', '" + problemType + "', '" + problemDescription + "', '" + callID + "','" + clientID + "' )";
+            string query = @"INSERT INTO WorkRequest (WorkRequestID,ProblemType, Descriptions, CallID,ClientID,dateCreated) VALUES ( '" + workrequestID + "', '" + problemType + "', '" + problemDescription + "', '" + callID + "','" + clientID + "','" + dateCreated + "' )";
 
             conn = new SqlConnection(connect);
 
@@ -324,6 +324,37 @@ namespace Project381_Service_Premier.DataAccessLayer
                 conn.Close();
             }
         }
+
+        public void addClientFeedbackToDB(string WorkRequestID, string clientID, string Comment, int rating)
+        {
+
+            string query = @"INSERT INTO ClientFeedback (WorkRequestID,ClientID,feedbackComment ,rating) VALUES ( '" + WorkRequestID + "', '" + clientID + "', '" + Comment + "', '" + rating + "' )";
+
+            conn = new SqlConnection(connect);
+
+            conn.Open();
+
+            command = new SqlCommand(query, conn);
+
+
+
+
+            try
+            {
+                command.ExecuteNonQuery();
+                MessageBox.Show("Feedback saved");
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Feedback Saved " + ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
         public Client getClientByNum(string phoneNum)
         {
             SqlConnection conn = new SqlConnection(connect);
@@ -365,6 +396,48 @@ namespace Project381_Service_Premier.DataAccessLayer
                 conn.Close();
             }
             return objClient;
+        }
+
+        public List<WorkRequest> getWorkRequestsForClient(string clientID)
+        {
+
+
+            string query = @"SELECT * FROM WorkRequest WHERE ClientID = ('" + clientID + "')";
+
+            WorkRequest objWorkrequests = new WorkRequest();
+            List<WorkRequest> allWorkrequests = new List<WorkRequest>();
+            conn = new SqlConnection(connect);
+
+            conn.Open();
+
+            command = new SqlCommand(query, conn);
+
+
+            try
+            {
+
+                reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    objWorkrequests.WorkRequestID = reader.GetValue(0).ToString();
+                    objWorkrequests.ProblemType = reader.GetValue(1).ToString();
+                    objWorkrequests.Description = reader.GetValue(2).ToString();
+                    objWorkrequests.CallID = reader.GetValue(3).ToString();
+                    objWorkrequests.ClientID = reader.GetValue(4).ToString();
+                    objWorkrequests.DateCreated = Convert.ToDateTime(reader.GetValue(5).ToString());
+
+                    allWorkrequests.Add(new WorkRequest(objWorkrequests.WorkRequestID,objWorkrequests.ProblemType, objWorkrequests.Description, objWorkrequests.CallID, objWorkrequests.ClientID, objWorkrequests.DateCreated));
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Failed to get workrequests for Client " + ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return allWorkrequests;
         }
 
         public void addContractToDB(DateTime contractStart, string ClientID, string packageID, string ContractLevel)
