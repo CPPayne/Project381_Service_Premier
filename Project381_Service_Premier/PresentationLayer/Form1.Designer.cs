@@ -80,6 +80,10 @@ namespace Project381_Service_Premier
             this.labelSurname = new System.Windows.Forms.Label();
             this.btnRegister = new System.Windows.Forms.Button();
             this.tpSchedule = new System.Windows.Forms.TabPage();
+            this.btnFinish = new System.Windows.Forms.Button();
+            this.btnViewPreviousSchedules = new System.Windows.Forms.Button();
+            this.btnViewAllSchedules = new System.Windows.Forms.Button();
+            this.panel17 = new System.Windows.Forms.Panel();
             this.btnGenerateSchedule = new System.Windows.Forms.Button();
             this.label20 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
@@ -214,10 +218,6 @@ namespace Project381_Service_Premier
             this.label57 = new System.Windows.Forms.Label();
             this.tbTechnicianPass = new System.Windows.Forms.TextBox();
             this.label58 = new System.Windows.Forms.Label();
-            this.panel17 = new System.Windows.Forms.Panel();
-            this.btnViewAllSchedules = new System.Windows.Forms.Button();
-            this.btnViewPreviousSchedules = new System.Windows.Forms.Button();
-            this.btnFinish = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tpCallCentre.SuspendLayout();
             this.panel9.SuspendLayout();
@@ -343,7 +343,7 @@ namespace Project381_Service_Premier
             // btnSimCall
             // 
             this.btnSimCall.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSimCall.Location = new System.Drawing.Point(64, 15);
+            this.btnSimCall.Location = new System.Drawing.Point(56, 45);
             this.btnSimCall.Name = "btnSimCall";
             this.btnSimCall.Size = new System.Drawing.Size(210, 35);
             this.btnSimCall.TabIndex = 29;
@@ -363,13 +363,15 @@ namespace Project381_Service_Premier
             // 
             // btnAnswerCall
             // 
-            this.btnAnswerCall.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAnswerCall.Location = new System.Drawing.Point(64, 91);
+            this.btnAnswerCall.BackColor = System.Drawing.Color.LimeGreen;
+            this.btnAnswerCall.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAnswerCall.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnAnswerCall.Location = new System.Drawing.Point(27, 86);
             this.btnAnswerCall.Name = "btnAnswerCall";
-            this.btnAnswerCall.Size = new System.Drawing.Size(99, 35);
+            this.btnAnswerCall.Size = new System.Drawing.Size(130, 35);
             this.btnAnswerCall.TabIndex = 1;
             this.btnAnswerCall.Text = "Answer call";
-            this.btnAnswerCall.UseVisualStyleBackColor = true;
+            this.btnAnswerCall.UseVisualStyleBackColor = false;
             this.btnAnswerCall.Click += new System.EventHandler(this.btnAnswerCall_Click);
             // 
             // dgvCallCentrePack
@@ -434,20 +436,22 @@ namespace Project381_Service_Premier
             // 
             // btnEndCall
             // 
-            this.btnEndCall.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEndCall.Location = new System.Drawing.Point(175, 91);
+            this.btnEndCall.BackColor = System.Drawing.Color.Red;
+            this.btnEndCall.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEndCall.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnEndCall.Location = new System.Drawing.Point(163, 86);
             this.btnEndCall.Name = "btnEndCall";
-            this.btnEndCall.Size = new System.Drawing.Size(99, 35);
+            this.btnEndCall.Size = new System.Drawing.Size(130, 35);
             this.btnEndCall.TabIndex = 15;
             this.btnEndCall.Text = "End call";
-            this.btnEndCall.UseVisualStyleBackColor = true;
+            this.btnEndCall.UseVisualStyleBackColor = false;
             this.btnEndCall.Click += new System.EventHandler(this.btnEndCall_Click);
             // 
             // label50
             // 
             this.label50.AutoSize = true;
             this.label50.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label50.Location = new System.Drawing.Point(329, 15);
+            this.label50.Location = new System.Drawing.Point(356, 45);
             this.label50.Name = "label50";
             this.label50.Size = new System.Drawing.Size(104, 20);
             this.label50.TabIndex = 33;
@@ -465,7 +469,7 @@ namespace Project381_Service_Premier
             // txtCallDuration
             // 
             this.txtCallDuration.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCallDuration.Location = new System.Drawing.Point(333, 38);
+            this.txtCallDuration.Location = new System.Drawing.Point(360, 68);
             this.txtCallDuration.Name = "txtCallDuration";
             this.txtCallDuration.Size = new System.Drawing.Size(100, 26);
             this.txtCallDuration.TabIndex = 32;
@@ -536,9 +540,9 @@ namespace Project381_Service_Premier
             this.label28.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label28.Location = new System.Drawing.Point(541, 147);
             this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(123, 20);
+            this.label28.Size = new System.Drawing.Size(136, 20);
             this.label28.TabIndex = 25;
-            this.label28.Text = "Client Packages";
+            this.label28.Text = "Client Call History:";
             // 
             // txtSurname
             // 
@@ -807,6 +811,40 @@ namespace Project381_Service_Premier
             this.tpSchedule.TabIndex = 3;
             this.tpSchedule.Text = "Technician";
             this.tpSchedule.UseVisualStyleBackColor = true;
+            // 
+            // btnFinish
+            // 
+            this.btnFinish.Location = new System.Drawing.Point(861, 460);
+            this.btnFinish.Name = "btnFinish";
+            this.btnFinish.Size = new System.Drawing.Size(123, 23);
+            this.btnFinish.TabIndex = 39;
+            this.btnFinish.Text = "Finish Schedule";
+            this.btnFinish.UseVisualStyleBackColor = true;
+            // 
+            // btnViewPreviousSchedules
+            // 
+            this.btnViewPreviousSchedules.Location = new System.Drawing.Point(579, 414);
+            this.btnViewPreviousSchedules.Name = "btnViewPreviousSchedules";
+            this.btnViewPreviousSchedules.Size = new System.Drawing.Size(131, 23);
+            this.btnViewPreviousSchedules.TabIndex = 38;
+            this.btnViewPreviousSchedules.Text = "View Previous Schdules";
+            this.btnViewPreviousSchedules.UseVisualStyleBackColor = true;
+            // 
+            // btnViewAllSchedules
+            // 
+            this.btnViewAllSchedules.Location = new System.Drawing.Point(332, 425);
+            this.btnViewAllSchedules.Name = "btnViewAllSchedules";
+            this.btnViewAllSchedules.Size = new System.Drawing.Size(143, 23);
+            this.btnViewAllSchedules.TabIndex = 37;
+            this.btnViewAllSchedules.Text = "View All Schedules";
+            this.btnViewAllSchedules.UseVisualStyleBackColor = true;
+            // 
+            // panel17
+            // 
+            this.panel17.Location = new System.Drawing.Point(954, 156);
+            this.panel17.Name = "panel17";
+            this.panel17.Size = new System.Drawing.Size(200, 100);
+            this.panel17.TabIndex = 36;
             // 
             // btnGenerateSchedule
             // 
@@ -2257,40 +2295,6 @@ namespace Project381_Service_Premier
             this.label58.Size = new System.Drawing.Size(87, 20);
             this.label58.TabIndex = 8;
             this.label58.Text = "Username:";
-            // 
-            // panel17
-            // 
-            this.panel17.Location = new System.Drawing.Point(954, 156);
-            this.panel17.Name = "panel17";
-            this.panel17.Size = new System.Drawing.Size(200, 100);
-            this.panel17.TabIndex = 36;
-            // 
-            // btnViewAllSchedules
-            // 
-            this.btnViewAllSchedules.Location = new System.Drawing.Point(332, 425);
-            this.btnViewAllSchedules.Name = "btnViewAllSchedules";
-            this.btnViewAllSchedules.Size = new System.Drawing.Size(143, 23);
-            this.btnViewAllSchedules.TabIndex = 37;
-            this.btnViewAllSchedules.Text = "View All Schedules";
-            this.btnViewAllSchedules.UseVisualStyleBackColor = true;
-            // 
-            // btnViewPreviousSchedules
-            // 
-            this.btnViewPreviousSchedules.Location = new System.Drawing.Point(579, 414);
-            this.btnViewPreviousSchedules.Name = "btnViewPreviousSchedules";
-            this.btnViewPreviousSchedules.Size = new System.Drawing.Size(131, 23);
-            this.btnViewPreviousSchedules.TabIndex = 38;
-            this.btnViewPreviousSchedules.Text = "View Previous Schdules";
-            this.btnViewPreviousSchedules.UseVisualStyleBackColor = true;
-            // 
-            // btnFinish
-            // 
-            this.btnFinish.Location = new System.Drawing.Point(861, 460);
-            this.btnFinish.Name = "btnFinish";
-            this.btnFinish.Size = new System.Drawing.Size(123, 23);
-            this.btnFinish.TabIndex = 39;
-            this.btnFinish.Text = "Finish Schedule";
-            this.btnFinish.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 

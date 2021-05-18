@@ -152,6 +152,7 @@ namespace Project381_Service_Premier
         {
             if (simulationNumber != "")
             {
+                btnLogDetails.Enabled = false;
                 availableServiceTypeForCallingContract.Clear();
                 txtCallDuration.ForeColor = Color.Green;
                 t.Start();
@@ -732,6 +733,9 @@ namespace Project381_Service_Premier
         private void btnSimCall_Click(object sender, EventArgs e)
         {
 
+            txtCallDuration.Text = "00:00:00";
+            txtCallDuration.ForeColor = Color.Black;
+
             int randomNum = rndNum.Next(0, listOfAllClientNumSimulation.Count);
 
             simulationNumber = listOfAllClientNumSimulation[randomNum];
@@ -741,12 +745,13 @@ namespace Project381_Service_Premier
 
         private void btnEndCall_Click(object sender, EventArgs e)
         {
+
             txtCallDuration.ForeColor = Color.Red;
             t.Stop();
             _CallDuration = txtCallDuration.Text;
 
             MessageBox.Show("The call has ended.");
-            txtCallDuration.ForeColor = Color.Black;
+           
 
 
             s = 0;
@@ -758,6 +763,7 @@ namespace Project381_Service_Premier
             clientCALL.CallDuration = _CallDuration;
 
             clientCALL.addCallToDB();
+            btnLogDetails.Enabled = true;
 
         }
     }
