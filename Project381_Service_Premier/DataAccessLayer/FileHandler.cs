@@ -16,7 +16,7 @@ namespace Project381_Service_Premier.DataAccessLayer
 
 
         //Set connection string
-        string connect = "Data Source=.;Initial Catalog=servicePremierDB;Integrated Security=True";
+        string connect = "Data Source=DANIEL\\DANIELSQL;Initial Catalog=servicePremierDB;Integrated Security=True";
         SqlConnection conn;
         SqlConnection conn2;
         SqlConnection conn3;
@@ -94,6 +94,78 @@ namespace Project381_Service_Premier.DataAccessLayer
 
             }
             return clientExist;
+        }
+
+        public bool checkIfUsernameExists(string username)
+        {
+
+            bool usernameExist = false;
+            string query = @"SELECT * FROM Client WHERE ClientUsername = ('" + username + "')";
+
+
+            conn = new SqlConnection(connect);
+
+            conn.Open();
+
+            command = new SqlCommand(query, conn);
+
+
+            try
+            {
+                reader = command.ExecuteReader();
+                if (reader.Read())
+                {
+                    usernameExist = true;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+            finally
+            {
+
+                conn.Close();
+
+            }
+            return usernameExist;
+        }
+
+        public bool checkIfNumberExists(string pnumber)
+        {
+
+            bool pnumberExist = false;
+            string query = @"SELECT * FROM Client WHERE PhoneNumber = ('" + pnumber + "')";
+
+
+            conn = new SqlConnection(connect);
+
+            conn.Open();
+
+            command = new SqlCommand(query, conn);
+
+
+            try
+            {
+                reader = command.ExecuteReader();
+                if (reader.Read())
+                {
+                    pnumberExist = true;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+            finally
+            {
+
+                conn.Close();
+
+            }
+            return pnumberExist;
         }
 
         public void addWorkRequestToDB(string workrequestID, string problemType, string problemDescription, string callID, string clientID, DateTime dateCreated)
@@ -267,6 +339,45 @@ namespace Project381_Service_Premier.DataAccessLayer
                 conn.Close();
             }
             return allPhoneNumbers;
+        }
+
+        public WorkRequest getWorkRequestDetails(string workRequestID)
+        {
+
+            string query = @"SELECT * FROM WorkRequest WHERE WorkRequestID = ('" + workRequestID + "')";
+
+            WorkRequest objWorkRequest = new WorkRequest();
+            conn = new SqlConnection(connect);
+
+            conn.Open();
+
+            command = new SqlCommand(query, conn);
+
+
+            try
+            {
+
+                reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+
+                    objWorkRequest.WorkRequestID = reader.GetValue(0).ToString();
+                    objWorkRequest.ProblemType = reader.GetValue(1).ToString();
+                    objWorkRequest.Description = reader.GetValue(2).ToString();
+                    objWorkRequest.CallID = reader.GetValue(3).ToString();
+                    objWorkRequest.ClientID = reader.GetValue(4).ToString();
+                    objWorkRequest.DateCreated = Convert.ToDateTime(reader.GetValue(5).ToString());
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error getWorkRequestDetails: " + ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return objWorkRequest;
         }
         public void addService(string sName, string sType, string sSpecifications)
         {

@@ -124,6 +124,13 @@ namespace Project381_Service_Premier
             this.tpFeedback = new System.Windows.Forms.TabPage();
             this.panel7 = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
+            this.lblWRTpe = new System.Windows.Forms.Label();
+            this.lblWRDate = new System.Windows.Forms.Label();
+            this.rtbWRDescription = new System.Windows.Forms.RichTextBox();
+            this.label62 = new System.Windows.Forms.Label();
+            this.label61 = new System.Windows.Forms.Label();
+            this.label60 = new System.Windows.Forms.Label();
+            this.label59 = new System.Windows.Forms.Label();
             this.label36 = new System.Windows.Forms.Label();
             this.rbr1 = new System.Windows.Forms.RadioButton();
             this.rbr5 = new System.Windows.Forms.RadioButton();
@@ -161,7 +168,6 @@ namespace Project381_Service_Premier
             this.panel6 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.btnClientCClientM = new System.Windows.Forms.Button();
-            this.btnLogout = new System.Windows.Forms.Button();
             this.btnFeedback = new System.Windows.Forms.Button();
             this.label39 = new System.Windows.Forms.Label();
             this.dgvContracts = new System.Windows.Forms.DataGridView();
@@ -197,6 +203,17 @@ namespace Project381_Service_Premier
             this.btnClientMTMainM = new System.Windows.Forms.Button();
             this.btnClientToContract = new System.Windows.Forms.Button();
             this.btnClientMTClientF = new System.Windows.Forms.Button();
+            this.tpTechLogin = new System.Windows.Forms.TabPage();
+            this.panel15 = new System.Windows.Forms.Panel();
+            this.panel16 = new System.Windows.Forms.Panel();
+            this.label55 = new System.Windows.Forms.Label();
+            this.btnTechnicianTMain = new System.Windows.Forms.Button();
+            this.label56 = new System.Windows.Forms.Label();
+            this.btnTechnicianLogin = new System.Windows.Forms.Button();
+            this.tbTechnicianUser = new System.Windows.Forms.TextBox();
+            this.label57 = new System.Windows.Forms.Label();
+            this.tbTechnicianPass = new System.Windows.Forms.TextBox();
+            this.label58 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tpCallCentre.SuspendLayout();
             this.panel9.SuspendLayout();
@@ -229,6 +246,9 @@ namespace Project381_Service_Premier
             this.tpClientLoggedMenu.SuspendLayout();
             this.panel13.SuspendLayout();
             this.panel14.SuspendLayout();
+            this.tpTechLogin.SuspendLayout();
+            this.panel15.SuspendLayout();
+            this.panel16.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -242,6 +262,7 @@ namespace Project381_Service_Premier
             this.tabControl1.Controls.Add(this.tpMainMenu);
             this.tabControl1.Controls.Add(this.tpClientContract);
             this.tabControl1.Controls.Add(this.tpClientLoggedMenu);
+            this.tabControl1.Controls.Add(this.tpTechLogin);
             this.tabControl1.Location = new System.Drawing.Point(12, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -1222,14 +1243,21 @@ namespace Project381_Service_Premier
             // 
             this.panel7.BackColor = System.Drawing.Color.Black;
             this.panel7.Controls.Add(this.panel8);
-            this.panel7.Location = new System.Drawing.Point(512, 174);
+            this.panel7.Location = new System.Drawing.Point(310, 156);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(332, 378);
+            this.panel7.Size = new System.Drawing.Size(817, 433);
             this.panel7.TabIndex = 34;
             // 
             // panel8
             // 
             this.panel8.BackColor = System.Drawing.Color.Silver;
+            this.panel8.Controls.Add(this.lblWRTpe);
+            this.panel8.Controls.Add(this.lblWRDate);
+            this.panel8.Controls.Add(this.rtbWRDescription);
+            this.panel8.Controls.Add(this.label62);
+            this.panel8.Controls.Add(this.label61);
+            this.panel8.Controls.Add(this.label60);
+            this.panel8.Controls.Add(this.label59);
             this.panel8.Controls.Add(this.label36);
             this.panel8.Controls.Add(this.rbr1);
             this.panel8.Controls.Add(this.rbr5);
@@ -1244,8 +1272,74 @@ namespace Project381_Service_Premier
             this.panel8.Controls.Add(this.btnClienFTMainM);
             this.panel8.Location = new System.Drawing.Point(3, 3);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(325, 371);
+            this.panel8.Size = new System.Drawing.Size(811, 427);
             this.panel8.TabIndex = 35;
+            // 
+            // lblWRTpe
+            // 
+            this.lblWRTpe.AutoSize = true;
+            this.lblWRTpe.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblWRTpe.Location = new System.Drawing.Point(425, 102);
+            this.lblWRTpe.Name = "lblWRTpe";
+            this.lblWRTpe.Size = new System.Drawing.Size(0, 20);
+            this.lblWRTpe.TabIndex = 42;
+            // 
+            // lblWRDate
+            // 
+            this.lblWRDate.AutoSize = true;
+            this.lblWRDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblWRDate.Location = new System.Drawing.Point(425, 66);
+            this.lblWRDate.Name = "lblWRDate";
+            this.lblWRDate.Size = new System.Drawing.Size(0, 20);
+            this.lblWRDate.TabIndex = 41;
+            // 
+            // rtbWRDescription
+            // 
+            this.rtbWRDescription.Location = new System.Drawing.Point(375, 160);
+            this.rtbWRDescription.Name = "rtbWRDescription";
+            this.rtbWRDescription.Size = new System.Drawing.Size(251, 96);
+            this.rtbWRDescription.TabIndex = 40;
+            this.rtbWRDescription.Text = "";
+            // 
+            // label62
+            // 
+            this.label62.AutoSize = true;
+            this.label62.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label62.Location = new System.Drawing.Point(371, 136);
+            this.label62.Name = "label62";
+            this.label62.Size = new System.Drawing.Size(93, 20);
+            this.label62.TabIndex = 39;
+            this.label62.Text = "Description:";
+            // 
+            // label61
+            // 
+            this.label61.AutoSize = true;
+            this.label61.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label61.Location = new System.Drawing.Point(371, 102);
+            this.label61.Name = "label61";
+            this.label61.Size = new System.Drawing.Size(47, 20);
+            this.label61.TabIndex = 38;
+            this.label61.Text = "Type:";
+            // 
+            // label60
+            // 
+            this.label60.AutoSize = true;
+            this.label60.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label60.Location = new System.Drawing.Point(371, 66);
+            this.label60.Name = "label60";
+            this.label60.Size = new System.Drawing.Size(48, 20);
+            this.label60.TabIndex = 37;
+            this.label60.Text = "Date:";
+            // 
+            // label59
+            // 
+            this.label59.AutoSize = true;
+            this.label59.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label59.Location = new System.Drawing.Point(371, 28);
+            this.label59.Name = "label59";
+            this.label59.Size = new System.Drawing.Size(212, 20);
+            this.label59.TabIndex = 36;
+            this.label59.Text = "WORK REQUEST DETAILS";
             // 
             // label36
             // 
@@ -1365,6 +1459,7 @@ namespace Project381_Service_Premier
             this.cbClientWorkRequest.Name = "cbClientWorkRequest";
             this.cbClientWorkRequest.Size = new System.Drawing.Size(174, 28);
             this.cbClientWorkRequest.TabIndex = 29;
+            this.cbClientWorkRequest.SelectedIndexChanged += new System.EventHandler(this.cbClientWorkRequest_SelectedIndexChanged);
             // 
             // btnClienFTMainM
             // 
@@ -1440,11 +1535,11 @@ namespace Project381_Service_Premier
             // 
             this.label32.AutoSize = true;
             this.label32.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label32.Location = new System.Drawing.Point(92, 19);
+            this.label32.Location = new System.Drawing.Point(61, 20);
             this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(59, 20);
+            this.label32.Size = new System.Drawing.Size(119, 20);
             this.label32.TabIndex = 10;
-            this.label32.Text = "LOGIN";
+            this.label32.Text = "CLIENT LOGIN";
             // 
             // btnLogin
             // 
@@ -1631,7 +1726,6 @@ namespace Project381_Service_Premier
             // 
             this.panel5.BackColor = System.Drawing.Color.Silver;
             this.panel5.Controls.Add(this.btnClientCClientM);
-            this.panel5.Controls.Add(this.btnLogout);
             this.panel5.Controls.Add(this.btnFeedback);
             this.panel5.Controls.Add(this.label39);
             this.panel5.Controls.Add(this.dgvContracts);
@@ -1677,17 +1771,6 @@ namespace Project381_Service_Premier
             this.btnClientCClientM.UseVisualStyleBackColor = true;
             this.btnClientCClientM.Click += new System.EventHandler(this.btnClientCClientM_Click);
             // 
-            // btnLogout
-            // 
-            this.btnLogout.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogout.Location = new System.Drawing.Point(758, 563);
-            this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(201, 32);
-            this.btnLogout.TabIndex = 23;
-            this.btnLogout.Text = "Logout Client";
-            this.btnLogout.UseVisualStyleBackColor = true;
-            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
-            // 
             // btnFeedback
             // 
             this.btnFeedback.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1729,6 +1812,7 @@ namespace Project381_Service_Premier
             this.rb5.TabStop = true;
             this.rb5.Text = "5";
             this.rb5.UseVisualStyleBackColor = true;
+            this.rb5.CheckedChanged += new System.EventHandler(this.rb5_CheckedChanged);
             // 
             // dgvContractServices
             // 
@@ -1750,6 +1834,7 @@ namespace Project381_Service_Premier
             this.rb4.TabStop = true;
             this.rb4.Text = "4";
             this.rb4.UseVisualStyleBackColor = true;
+            this.rb4.CheckedChanged += new System.EventHandler(this.rb4_CheckedChanged);
             // 
             // label41
             // 
@@ -1772,6 +1857,7 @@ namespace Project381_Service_Premier
             this.rb3.TabStop = true;
             this.rb3.Text = "3";
             this.rb3.UseVisualStyleBackColor = true;
+            this.rb3.CheckedChanged += new System.EventHandler(this.rb3_CheckedChanged);
             // 
             // btnCreateContract
             // 
@@ -1795,6 +1881,7 @@ namespace Project381_Service_Premier
             this.rb2.TabStop = true;
             this.rb2.Text = "2";
             this.rb2.UseVisualStyleBackColor = true;
+            this.rb2.CheckedChanged += new System.EventHandler(this.rb2_CheckedChanged);
             // 
             // label15
             // 
@@ -1817,6 +1904,7 @@ namespace Project381_Service_Premier
             this.rb1.TabStop = true;
             this.rb1.Text = "1";
             this.rb1.UseVisualStyleBackColor = true;
+            this.rb1.CheckedChanged += new System.EventHandler(this.rb1_CheckedChanged);
             // 
             // label23
             // 
@@ -2020,7 +2108,7 @@ namespace Project381_Service_Premier
             this.btnClientMTMainM.Name = "btnClientMTMainM";
             this.btnClientMTMainM.Size = new System.Drawing.Size(144, 35);
             this.btnClientMTMainM.TabIndex = 3;
-            this.btnClientMTMainM.Text = "Main Menu";
+            this.btnClientMTMainM.Text = "LOG OUT";
             this.btnClientMTMainM.UseVisualStyleBackColor = true;
             this.btnClientMTMainM.Click += new System.EventHandler(this.btnClientMTMainM_Click);
             // 
@@ -2045,6 +2133,120 @@ namespace Project381_Service_Premier
             this.btnClientMTClientF.Text = "Client Feedback";
             this.btnClientMTClientF.UseVisualStyleBackColor = true;
             this.btnClientMTClientF.Click += new System.EventHandler(this.btnClientMTClientF_Click);
+            // 
+            // tpTechLogin
+            // 
+            this.tpTechLogin.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tpTechLogin.BackgroundImage")));
+            this.tpTechLogin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.tpTechLogin.Controls.Add(this.panel15);
+            this.tpTechLogin.Location = new System.Drawing.Point(4, 22);
+            this.tpTechLogin.Name = "tpTechLogin";
+            this.tpTechLogin.Padding = new System.Windows.Forms.Padding(3);
+            this.tpTechLogin.Size = new System.Drawing.Size(1384, 725);
+            this.tpTechLogin.TabIndex = 11;
+            this.tpTechLogin.Text = "tpTechLogin";
+            this.tpTechLogin.UseVisualStyleBackColor = true;
+            // 
+            // panel15
+            // 
+            this.panel15.BackColor = System.Drawing.Color.Black;
+            this.panel15.Controls.Add(this.panel16);
+            this.panel15.Location = new System.Drawing.Point(567, 215);
+            this.panel15.Name = "panel15";
+            this.panel15.Size = new System.Drawing.Size(250, 295);
+            this.panel15.TabIndex = 14;
+            // 
+            // panel16
+            // 
+            this.panel16.BackColor = System.Drawing.Color.Silver;
+            this.panel16.Controls.Add(this.label55);
+            this.panel16.Controls.Add(this.btnTechnicianTMain);
+            this.panel16.Controls.Add(this.label56);
+            this.panel16.Controls.Add(this.btnTechnicianLogin);
+            this.panel16.Controls.Add(this.tbTechnicianUser);
+            this.panel16.Controls.Add(this.label57);
+            this.panel16.Controls.Add(this.tbTechnicianPass);
+            this.panel16.Controls.Add(this.label58);
+            this.panel16.Location = new System.Drawing.Point(3, 3);
+            this.panel16.Name = "panel16";
+            this.panel16.Size = new System.Drawing.Size(244, 289);
+            this.panel16.TabIndex = 12;
+            // 
+            // label55
+            // 
+            this.label55.AutoSize = true;
+            this.label55.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label55.Location = new System.Drawing.Point(107, 208);
+            this.label55.Name = "label55";
+            this.label55.Size = new System.Drawing.Size(33, 20);
+            this.label55.TabIndex = 11;
+            this.label55.Text = "OR";
+            // 
+            // btnTechnicianTMain
+            // 
+            this.btnTechnicianTMain.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTechnicianTMain.Location = new System.Drawing.Point(34, 245);
+            this.btnTechnicianTMain.Name = "btnTechnicianTMain";
+            this.btnTechnicianTMain.Size = new System.Drawing.Size(177, 28);
+            this.btnTechnicianTMain.TabIndex = 11;
+            this.btnTechnicianTMain.Text = "Return to Main Menu";
+            this.btnTechnicianTMain.UseVisualStyleBackColor = true;
+            // 
+            // label56
+            // 
+            this.label56.AutoSize = true;
+            this.label56.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label56.Location = new System.Drawing.Point(45, 19);
+            this.label56.Name = "label56";
+            this.label56.Size = new System.Drawing.Size(160, 20);
+            this.label56.TabIndex = 10;
+            this.label56.Text = "TECHNICIAN LOGIN";
+            // 
+            // btnTechnicianLogin
+            // 
+            this.btnTechnicianLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTechnicianLogin.Location = new System.Drawing.Point(49, 162);
+            this.btnTechnicianLogin.Name = "btnTechnicianLogin";
+            this.btnTechnicianLogin.Size = new System.Drawing.Size(142, 28);
+            this.btnTechnicianLogin.TabIndex = 5;
+            this.btnTechnicianLogin.Text = "Login";
+            this.btnTechnicianLogin.UseVisualStyleBackColor = true;
+            this.btnTechnicianLogin.Click += new System.EventHandler(this.btnTechnicianLogin_Click);
+            // 
+            // tbTechnicianUser
+            // 
+            this.tbTechnicianUser.Location = new System.Drawing.Point(111, 76);
+            this.tbTechnicianUser.Name = "tbTechnicianUser";
+            this.tbTechnicianUser.Size = new System.Drawing.Size(100, 20);
+            this.tbTechnicianUser.TabIndex = 6;
+            // 
+            // label57
+            // 
+            this.label57.AutoSize = true;
+            this.label57.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label57.Location = new System.Drawing.Point(18, 121);
+            this.label57.Name = "label57";
+            this.label57.Size = new System.Drawing.Size(82, 20);
+            this.label57.TabIndex = 9;
+            this.label57.Text = "Password:";
+            // 
+            // tbTechnicianPass
+            // 
+            this.tbTechnicianPass.Location = new System.Drawing.Point(111, 123);
+            this.tbTechnicianPass.Name = "tbTechnicianPass";
+            this.tbTechnicianPass.PasswordChar = '*';
+            this.tbTechnicianPass.Size = new System.Drawing.Size(100, 20);
+            this.tbTechnicianPass.TabIndex = 7;
+            // 
+            // label58
+            // 
+            this.label58.AutoSize = true;
+            this.label58.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label58.Location = new System.Drawing.Point(18, 74);
+            this.label58.Name = "label58";
+            this.label58.Size = new System.Drawing.Size(87, 20);
+            this.label58.TabIndex = 8;
+            this.label58.Text = "Username:";
             // 
             // Form1
             // 
@@ -2095,6 +2297,10 @@ namespace Project381_Service_Premier
             this.tpClientLoggedMenu.ResumeLayout(false);
             this.panel13.ResumeLayout(false);
             this.panel14.ResumeLayout(false);
+            this.tpTechLogin.ResumeLayout(false);
+            this.panel15.ResumeLayout(false);
+            this.panel16.ResumeLayout(false);
+            this.panel16.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -2216,7 +2422,6 @@ namespace Project381_Service_Premier
         private System.Windows.Forms.Label label49;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnLoginTMenu;
-        private System.Windows.Forms.Button btnLogout;
         private System.Windows.Forms.TextBox txtPackageNameDisp;
         private System.Windows.Forms.TextBox txtPackCostDisp;
         private System.Windows.Forms.Label label40;
@@ -2265,9 +2470,27 @@ namespace Project381_Service_Premier
         private System.Windows.Forms.Button btnMainMTCallC;
         private System.Windows.Forms.Panel panel13;
         private System.Windows.Forms.Panel panel14;
-        private System.Windows.Forms.Button btnClientMTMainM;
         private System.Windows.Forms.Button btnClientCClientM;
         private System.Windows.Forms.Button btnGenerateSchedule;
+        private System.Windows.Forms.TabPage tpTechLogin;
+        private System.Windows.Forms.Panel panel15;
+        private System.Windows.Forms.Panel panel16;
+        private System.Windows.Forms.Label label55;
+        private System.Windows.Forms.Button btnTechnicianTMain;
+        private System.Windows.Forms.Label label56;
+        private System.Windows.Forms.Button btnTechnicianLogin;
+        private System.Windows.Forms.TextBox tbTechnicianUser;
+        private System.Windows.Forms.Label label57;
+        private System.Windows.Forms.TextBox tbTechnicianPass;
+        private System.Windows.Forms.Label label58;
+        private System.Windows.Forms.Button btnClientMTMainM;
+        private System.Windows.Forms.Label label59;
+        private System.Windows.Forms.RichTextBox rtbWRDescription;
+        private System.Windows.Forms.Label label62;
+        private System.Windows.Forms.Label label61;
+        private System.Windows.Forms.Label label60;
+        private System.Windows.Forms.Label lblWRTpe;
+        private System.Windows.Forms.Label lblWRDate;
     }
 }
 

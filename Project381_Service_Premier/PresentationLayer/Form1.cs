@@ -16,9 +16,13 @@ namespace Project381_Service_Premier
     public partial class Form1 : Form
     {
 
+
         private System.Timers.Timer t;
         private string _CallDuration;
         int h, m, s;
+
+        double packageCost;
+        double multiplier;
 
         public Form1()
         {
@@ -311,6 +315,9 @@ namespace Project381_Service_Premier
 
             //Boolean _isEmpty = false;
 
+            FileHandler fh = new FileHandler();
+
+            bool exsist = false;
             string username = txtClientUsername.Text;
             string password = txtClientPassword.Text;
             string name = txtClientName.Text;
@@ -319,22 +326,41 @@ namespace Project381_Service_Premier
             string phoneNumber = txtPhoneNumber.Text;
             bool isBusiness = cbxBusiness.Checked;
 
+            while (true)
+            {
+                if (fh.checkIfUsernameExists(username) == true || fh.checkIfNumberExists(phoneNumber) == true) 
+                {
+                    if (fh.checkIfUsernameExists(username) == true)
+                    {
+                        MessageBox.Show("Username " + username + " already exists!");
+                        break;
+                    }
+                    else if (fh.checkIfNumberExists(phoneNumber) == true)
+                    {
+                        MessageBox.Show("Phone number " + phoneNumber + " already exists!");
+                        break;
+                    }
+                    
+                }
+                else if (fh.checkIfUsernameExists(username) == false && fh.checkIfNumberExists(phoneNumber) == false)
+                {
+                    Client client = new Client(name, surname, phoneNumber, address, isBusiness, username, password);
+                    client.GenerateClientID();
+                    client.addClientToDB();
+                    //MessageBox.Show(client.ClientID);
 
+                    MessageBox.Show("Client details have been saved");
 
-
-
-            Client client = new Client(name, surname, phoneNumber, address, isBusiness, username, password);
-            client.GenerateClientID();
-            client.addClientToDB();
-            //MessageBox.Show(client.ClientID);
-
-
-            txtClientName.Clear();
-            txtClientSurname.Clear();
-            txtClientAddress.Clear();
-            txtPhoneNumber.Clear();
-            txtClientUsername.Clear();
-            txtClientPassword.Clear();
+                    txtClientName.Clear();
+                    txtClientSurname.Clear();
+                    txtClientAddress.Clear();
+                    txtPhoneNumber.Clear();
+                    txtClientUsername.Clear();
+                    txtClientPassword.Clear();
+                    tabControl1.SelectedTab = tpMainMenu;
+                    break;
+                }
+            }
 
         }
 
@@ -421,40 +447,58 @@ namespace Project381_Service_Premier
 
         private void btnLogout_Click(object sender, EventArgs e)
         {
-            loggedInClient = new Client();
-            txtloggedClientID.Clear();
-            txtLoggedName.Clear();
-            txtLoggedSurname.Clear();
-            txtLoggedNumber.Clear();
-            tabControl1.SelectedTab = tpMainMenu;
+
         }
 
         private void cmbPackages_SelectedIndexChanged(object sender, EventArgs e)
         {
+
+            txtPackCostDisp.Text = "";
 
             Package selectedPackageToAdd = new Package();
             selectedPackageToAdd.PackageName = cmbPackages.Text;
             selectedPackageToAdd.setPackageCost();
             selectedPackageToAdd.getPackageServices();
             updateServiceInPackage(selectedPackageToAdd.Services);
+
+            packageCost = Convert.ToDouble(selectedPackageToAdd.getPackageCost());
+
+            txtPackCostDisp.Text = packageCost.ToString();
+
+            rb1.Checked = true;
+
+
+
+
         }
 
         private void btnCreateContract_Click(object sender, EventArgs e)
         {
+            DateTime startDate = DTPClientContract.Value.Date;
+            DateTime todayDate = DateTime.Now;
+
             string packageName = cmbPackages.Text;
             string contractLevel = rb1.Checked ? "1" : (rb2.Checked ? "2" : (rb3.Checked ? "3" : (rb4.Checked ? "4" : "5")));
-            DateTime startDate = DTPClientContract.Value.Date;
 
-            Contract newContract = new Contract();
-            Package tempPack = new Package();
-            string packageID = tempPack.getPackageID(packageName);
+            if (startDate >= todayDate) 
+            {
+                Contract newContract = new Contract();
+                Package tempPack = new Package();
+                string packageID = tempPack.getPackageID(packageName);
 
-            newContract.ContractLevel = contractLevel;
-            newContract.StartDate = startDate;
+                newContract.ContractLevel = contractLevel;
+                newContract.StartDate = startDate;
 
-            newContract.addContractToDB(loggedInClient.ClientID, packageID);
+                newContract.addContractToDB(loggedInClient.ClientID, packageID);
 
-            updateDBGRIDContracts(loggedInClient.ClientID);
+                updateDBGRIDContracts(loggedInClient.ClientID);
+            }
+            else if (startDate < todayDate)
+            {
+                MessageBox.Show("Cannot store contract. Choose a date that is still to come.");
+            }
+
+
         }
         Random rndNum = new Random();
 
@@ -489,6 +533,11 @@ namespace Project381_Service_Premier
 
         private void btnClientMTMainM_Click(object sender, EventArgs e)
         {
+            loggedInClient = new Client();
+            txtloggedClientID.Clear();
+            txtLoggedName.Clear();
+            txtLoggedSurname.Clear();
+            txtLoggedNumber.Clear();
             tabControl1.SelectedTab = tpMainMenu;
         }
 
@@ -609,6 +658,75 @@ namespace Project381_Service_Premier
             rbr3.Checked = false;
             rbr4.Checked = false;
             rbr5.Checked = false;
+        }
+
+        private void btnTechnicianLogin_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbClientWorkRequest_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            FileHandler fh = new FileHandler();
+            string wrID = cbClientWorkRequest.Text;
+            WorkRequest objWorkRequest = new WorkRequest();
+
+            objWorkRequest = fh.getWorkRequestDetails(wrID);
+
+            lblWRDate.Text = objWorkRequest.DateCreated.ToString();
+            lblWRTpe.Text = objWorkRequest.ProblemType;
+            rtbWRDescription.Text = objWorkRequest.Description;
+
+        }
+
+        private void rb1_CheckedChanged(object sender, EventArgs e)
+        {
+            txtPackCostDisp.Text = "";
+            Package selectedPackageToAdd = new Package();
+             multiplier = 1;
+            //double packagecost = Convert.ToDouble(selectedPackageToAdd.getPackageCost());
+
+            txtPackCostDisp.Text = (packageCost * multiplier).ToString();
+        }
+
+        private void rb2_CheckedChanged(object sender, EventArgs e)
+        {
+            txtPackCostDisp.Text = "";
+            Package selectedPackageToAdd = new Package();
+            multiplier = 1.5;
+            //double packagecost = Convert.ToDouble(selectedPackageToAdd.getPackageCost());
+
+            txtPackCostDisp.Text = (packageCost * multiplier).ToString();
+        }
+
+        private void rb3_CheckedChanged(object sender, EventArgs e)
+        {
+            txtPackCostDisp.Text = "";
+            Package selectedPackageToAdd = new Package();
+            multiplier = 1.75;
+            //double packagecost = Convert.ToDouble(selectedPackageToAdd.getPackageCost());
+
+            txtPackCostDisp.Text = (packageCost * multiplier).ToString();
+        }
+
+        private void rb4_CheckedChanged(object sender, EventArgs e)
+        {
+            txtPackCostDisp.Text = "";
+            Package selectedPackageToAdd = new Package();
+            multiplier = 2;
+            //double packagecost = Convert.ToDouble(selectedPackageToAdd.getPackageCost());
+
+            txtPackCostDisp.Text = (packageCost * multiplier).ToString();
+        }
+
+        private void rb5_CheckedChanged(object sender, EventArgs e)
+        {
+            txtPackCostDisp.Text = "";
+            Package selectedPackageToAdd = new Package();
+            multiplier = 3;
+            //double packagecost = Convert.ToDouble(selectedPackageToAdd.getPackageCost());
+
+            txtPackCostDisp.Text = (packageCost * multiplier).ToString();
         }
 
         private void btnSimCall_Click(object sender, EventArgs e)

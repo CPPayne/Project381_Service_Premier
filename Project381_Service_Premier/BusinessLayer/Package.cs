@@ -60,6 +60,13 @@ namespace Project381_Service_Premier.BusinessLayer
             this.cost = fh.getPackageCostByName(this.packageName);
         }
 
+        public decimal getPackageCost()
+        {
+            FileHandler fh = new FileHandler();
+            this.cost = fh.getPackageCostByName(this.packageName);
+            return cost;
+        }
+
         public List<Package> getAllPackages()
         {
             FileHandler fh = new FileHandler();
