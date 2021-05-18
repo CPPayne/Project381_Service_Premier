@@ -214,6 +214,10 @@ namespace Project381_Service_Premier
             this.label57 = new System.Windows.Forms.Label();
             this.tbTechnicianPass = new System.Windows.Forms.TextBox();
             this.label58 = new System.Windows.Forms.Label();
+            this.panel17 = new System.Windows.Forms.Panel();
+            this.btnViewAllSchedules = new System.Windows.Forms.Button();
+            this.btnViewPreviousSchedules = new System.Windows.Forms.Button();
+            this.btnFinish = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tpCallCentre.SuspendLayout();
             this.panel9.SuspendLayout();
@@ -784,6 +788,12 @@ namespace Project381_Service_Premier
             // 
             // tpSchedule
             // 
+            this.tpSchedule.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tpSchedule.BackgroundImage")));
+            this.tpSchedule.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.tpSchedule.Controls.Add(this.btnFinish);
+            this.tpSchedule.Controls.Add(this.btnViewPreviousSchedules);
+            this.tpSchedule.Controls.Add(this.btnViewAllSchedules);
+            this.tpSchedule.Controls.Add(this.panel17);
             this.tpSchedule.Controls.Add(this.btnGenerateSchedule);
             this.tpSchedule.Controls.Add(this.label20);
             this.tpSchedule.Controls.Add(this.label13);
@@ -2248,6 +2258,40 @@ namespace Project381_Service_Premier
             this.label58.TabIndex = 8;
             this.label58.Text = "Username:";
             // 
+            // panel17
+            // 
+            this.panel17.Location = new System.Drawing.Point(954, 156);
+            this.panel17.Name = "panel17";
+            this.panel17.Size = new System.Drawing.Size(200, 100);
+            this.panel17.TabIndex = 36;
+            // 
+            // btnViewAllSchedules
+            // 
+            this.btnViewAllSchedules.Location = new System.Drawing.Point(332, 425);
+            this.btnViewAllSchedules.Name = "btnViewAllSchedules";
+            this.btnViewAllSchedules.Size = new System.Drawing.Size(143, 23);
+            this.btnViewAllSchedules.TabIndex = 37;
+            this.btnViewAllSchedules.Text = "View All Schedules";
+            this.btnViewAllSchedules.UseVisualStyleBackColor = true;
+            // 
+            // btnViewPreviousSchedules
+            // 
+            this.btnViewPreviousSchedules.Location = new System.Drawing.Point(579, 414);
+            this.btnViewPreviousSchedules.Name = "btnViewPreviousSchedules";
+            this.btnViewPreviousSchedules.Size = new System.Drawing.Size(131, 23);
+            this.btnViewPreviousSchedules.TabIndex = 38;
+            this.btnViewPreviousSchedules.Text = "View Previous Schdules";
+            this.btnViewPreviousSchedules.UseVisualStyleBackColor = true;
+            // 
+            // btnFinish
+            // 
+            this.btnFinish.Location = new System.Drawing.Point(861, 460);
+            this.btnFinish.Name = "btnFinish";
+            this.btnFinish.Size = new System.Drawing.Size(123, 23);
+            this.btnFinish.TabIndex = 39;
+            this.btnFinish.Text = "Finish Schedule";
+            this.btnFinish.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2491,6 +2535,10 @@ namespace Project381_Service_Premier
         private System.Windows.Forms.Label label60;
         private System.Windows.Forms.Label lblWRTpe;
         private System.Windows.Forms.Label lblWRDate;
+        private System.Windows.Forms.Button btnViewPreviousSchedules;
+        private System.Windows.Forms.Button btnViewAllSchedules;
+        private System.Windows.Forms.Panel panel17;
+        private System.Windows.Forms.Button btnFinish;
     }
 }
 
