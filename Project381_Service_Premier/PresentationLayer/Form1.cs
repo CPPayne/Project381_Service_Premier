@@ -50,6 +50,7 @@ namespace Project381_Service_Premier
         List<Contract> loggedClientContracts = new List<Contract>();
 
         Client loggedInClient = new Client();
+        Technician loggedInTechnician = new Technician();
 
         //=================================Calling Client and Simulation===================================================================
         string simulationNumber = "";
@@ -207,6 +208,30 @@ namespace Project381_Service_Premier
 
         private void btnDeletePackage_Click(object sender, EventArgs e)
         {
+            FileHandler fh = new FileHandler();
+            Package selectedPackage = (Package)sourceAllPackages.Current;
+
+
+            string packageID = selectedPackage.getPackageID();
+
+            while (true)
+            {
+                if (fh.checkIfPackInContract(packageID) == false)
+                {
+                    fh.deleteServicePackage(packageID);
+                    fh.deletePackage(packageID);
+                    break;
+                }
+                else if (fh.checkIfPackInContract(packageID) == true)
+                {
+                    MessageBox.Show("Package is still in a contract. Delete contract before you delete the package.");
+                    break;
+                }
+            }
+
+            updatePakcageDBGRID();
+
+
 
         }
 
@@ -292,11 +317,27 @@ namespace Project381_Service_Premier
 
         private void btnDeleteServices_Click(object sender, EventArgs e)
         {
-            List<Service> dispServ = new List<Service>();
             FileHandler fh = new FileHandler();
+            Service selectedService = (Service)sourceAllService.Current;
 
-            //MessageBox.Show(fh.Search("test"));
-            MessageBox.Show(fh.getServiceID("Telephone maintenance"));
+
+            string serviceID = selectedService.getID();
+
+            while (true)
+            {
+                if (fh.checkIfServPackage(serviceID) == false)
+                {
+                    fh.deleteService(serviceID);
+                    break;
+                }
+                else if (fh.checkIfServPackage(serviceID) == true)
+                {
+                    MessageBox.Show("Service is still in a package. Delete package before you delete the service");
+                    break;
+                }
+            }
+
+            updatePakcageDBGRID();
         }
 
         private void dgvPackages_SelectionChanged(object sender, EventArgs e)
@@ -318,7 +359,6 @@ namespace Project381_Service_Premier
 
             FileHandler fh = new FileHandler();
 
-            bool exsist = false;
             string username = txtClientUsername.Text;
             string password = txtClientPassword.Text;
             string name = txtClientName.Text;
@@ -663,7 +703,17 @@ namespace Project381_Service_Premier
 
         private void btnTechnicianLogin_Click(object sender, EventArgs e)
         {
+            string usernameInput = tbTechnicianUser.Text;
+            string passwordInput = tbTechnicianPass.Text;
 
+            bool logged = loggedInTechnician.technicianLogin(usernameInput, passwordInput);
+
+            if (logged)
+            {
+                tbTechnicianUser.Clear();
+                tbTechnicianPass.Clear();
+                tabControl1.SelectedTab = tbTechnicianMenu;
+            }
         }
 
         private void cbClientWorkRequest_SelectedIndexChanged(object sender, EventArgs e)
@@ -728,6 +778,72 @@ namespace Project381_Service_Premier
             //double packagecost = Convert.ToDouble(selectedPackageToAdd.getPackageCost());
 
             txtPackCostDisp.Text = (packageCost * multiplier).ToString();
+        }
+
+        private void dgvContracts_SelectionChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnRegisterTech_Click(object sender, EventArgs e)
+        {
+            FileHandler fh = new FileHandler();
+
+            string username = txtTechUser.Text;
+            string password = txtTechPass.Text;
+            string name = txtTechName.Text;
+            string surname = txtTechSurname.Text;
+
+            while (true)
+            {
+                if (fh.checkIfTechUserExists(username) == true)
+                {
+                        MessageBox.Show("Username " + username + " already exists!");
+                    break;
+
+                }
+                else if (fh.checkIfUsernameExists(username) == false)
+                {
+                    Technician tech = new Technician(name, surname, username, password);
+                    tech.addTechnicianToDB();
+                    //MessageBox.Show(client.ClientID);
+
+                    MessageBox.Show("Technician details have been saved");
+
+                    txtTechName.Clear();
+                    txtTechSurname.Clear();
+                    txtTechUser.Clear();
+                    txtTechPass.Clear();
+                    tabControl1.SelectedTab = tpMainMenu;
+                    break;
+                }
+            }
+        }
+
+        private void btnMenuTLogin_Click(object sender, EventArgs e)
+        {
+            tabControl1.SelectedTab = tpTechLogin;
+        }
+
+        private void btnMenuTRegister_Click(object sender, EventArgs e)
+        {
+            tabControl1.SelectedTab = tpTechnicianRegister;
+        }
+
+        private void button2_Click_2(object sender, EventArgs e)
+        {
+            loggedInTechnician = new Technician();
+            tabControl1.SelectedTab = tpMainMenu;
+        }
+
+        private void btnMtoSchedule_Click_1(object sender, EventArgs e)
+        {
+            tabControl1.SelectedTab = tpSchedule;
+        }
+
+        private void btnRegTechTMain_Click(object sender, EventArgs e)
+        {
+            tabControl1.SelectedTab = tpMainMenu;
         }
 
         private void btnSimCall_Click(object sender, EventArgs e)

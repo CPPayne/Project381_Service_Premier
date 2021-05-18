@@ -60,6 +60,36 @@ namespace Project381_Service_Premier.DataAccessLayer
             }
         }
 
+        public void addTechnician(string tName, string tSurname, string username, string password)
+        {
+
+            string query = @"INSERT INTO Technician (TechnicianName ,TechnicianSurname,TechUsername,TechPassword) VALUES ( '" + tName + "', '" + tSurname + "', '" + username + "', '" + password + "' )";
+
+            conn = new SqlConnection(connect);
+
+            conn.Open();
+
+            command = new SqlCommand(query, conn);
+
+
+
+
+            try
+            {
+                command.ExecuteNonQuery();
+                MessageBox.Show("Technician Registered, Please log in!");
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("details of new client not saved: " + ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
         public bool checkIfClientIdExists(string clientID)
         {
 
@@ -132,6 +162,42 @@ namespace Project381_Service_Premier.DataAccessLayer
             return usernameExist;
         }
 
+        public bool checkIfTechUserExists(string username)
+        {
+
+            bool usernameExist = false;
+            string query = @"SELECT * FROM technician WHERE TechUsername = ('" + username + "')";
+
+
+            conn = new SqlConnection(connect);
+
+            conn.Open();
+
+            command = new SqlCommand(query, conn);
+
+
+            try
+            {
+                reader = command.ExecuteReader();
+                if (reader.Read())
+                {
+                    usernameExist = true;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+            finally
+            {
+
+                conn.Close();
+
+            }
+            return usernameExist;
+        }
+
         public bool checkIfNumberExists(string pnumber)
         {
 
@@ -167,6 +233,158 @@ namespace Project381_Service_Premier.DataAccessLayer
             }
             return pnumberExist;
         }
+
+        public bool checkIfPackInContract(string packageID)
+        {
+
+            bool packageExist = false;
+            string query = @"SELECT * FROM ContractC WHERE PackageID = ('" + int.Parse(packageID) + "')";
+
+
+            conn = new SqlConnection(connect);
+
+            conn.Open();
+
+            command = new SqlCommand(query, conn);
+
+
+            try
+            {
+                reader = command.ExecuteReader();
+                if (reader.Read())
+                {
+                    packageExist = true;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+            finally
+            {
+
+                conn.Close();
+
+            }
+            return packageExist;
+        }
+
+        public void deletePackage(string packageID)
+        {
+            string query = @"DELETE FROM PPackage WHERE PackageID = ('" + packageID + "')";
+
+            conn = new SqlConnection(connect);
+
+            conn.Open();
+
+            command = new SqlCommand(query, conn);
+
+            try
+            {
+                command.ExecuteNonQuery();
+                MessageBox.Show("Deleted the details of package with package ID: " + packageID);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+        }
+
+
+        public void deleteServicePackage(string packageID)
+        {
+            string query = @"DELETE FROM Service_Packages WHERE PackageID = ('" + packageID + "')";
+
+            conn = new SqlConnection(connect);
+
+            conn.Open();
+
+            command = new SqlCommand(query, conn);
+
+            try
+            {
+                command.ExecuteNonQuery();
+                MessageBox.Show("Deleted the details of service_package with package ID: " + packageID);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+        }
+
+        public bool checkIfServPackage(string serviceID)
+        {
+
+            bool serviceExist = false;
+            string query = @"SELECT * FROM Service_Packages WHERE ServiceID = ('" + serviceID + "')";
+
+
+            conn = new SqlConnection(connect);
+
+            conn.Open();
+
+            command = new SqlCommand(query, conn);
+
+
+            try
+            {
+                reader = command.ExecuteReader();
+                if (reader.Read())
+                {
+                    serviceExist = true;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+            finally
+            {
+
+                conn.Close();
+
+            }
+            return serviceExist;
+        }
+
+        public void deleteService(string serviceID)
+        {
+            string query = @"DELETE FROM ServiceC WHERE serviceID = ('" + serviceID + "')";
+
+            conn = new SqlConnection(connect);
+
+            conn.Open();
+
+            command = new SqlCommand(query, conn);
+
+            try
+            {
+                command.ExecuteNonQuery();
+                MessageBox.Show("Deleted the details of service with service ID: " + serviceID);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+        }
+
 
         public void addWorkRequestToDB(string workrequestID, string problemType, string problemDescription, string callID, string clientID, DateTime dateCreated)
         {
@@ -507,6 +725,41 @@ namespace Project381_Service_Premier.DataAccessLayer
                 conn.Close();
             }
             return objClient;
+        }
+
+        public bool  checkTechUsernamePassword(string username, string password)
+        {
+            bool clientExist = false;
+            string query = @"SELECT * FROM Technician WHERE TechUsername = ('" + username + "') AND TechPassword = ('" + password + "')";
+
+
+            conn = new SqlConnection(connect);
+
+            conn.Open();
+
+            command = new SqlCommand(query, conn);
+
+
+            try
+            {
+                reader = command.ExecuteReader();
+                if (reader.Read())
+                {
+                    clientExist = true;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+            finally
+            {
+
+                conn.Close();
+
+            }
+            return clientExist;
         }
 
         public List<WorkRequest> getWorkRequestsForClient(string clientID)
@@ -1047,6 +1300,41 @@ namespace Project381_Service_Premier.DataAccessLayer
             return clientFound;
         }
 
+        public bool checkTechnicianLogin(string username, string password)
+        {
+            string query = @"SELECT * FROM Technician WHERE TechUsername = ('" + username + "') AND TechPassword = ('" + password + "')";
+
+
+            conn = new SqlConnection(connect);
+
+            conn.Open();
+
+            command = new SqlCommand(query, conn);
+            bool clientFound = false;
+
+            try
+            {
+
+                reader = command.ExecuteReader();
+                if (reader.Read())
+                {
+
+                    clientFound = true;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error checkLogin: " + ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+            return clientFound;
+        }
+
         public Client getClient(string username, string password)
         {
             string query = @"SELECT * FROM Client WHERE ClientUsername = ('" + username + "') AND ClientPassword = ('" + password + "')";
@@ -1086,6 +1374,46 @@ namespace Project381_Service_Premier.DataAccessLayer
             }
 
             return loggedClient;
+        }
+
+        public Technician getTechnicianByUsername(string username)
+        {
+            string query = @"SELECT * FROM Technician WHERE TechUsername = ('" + username + "')";
+
+
+            conn = new SqlConnection(connect);
+
+            conn.Open();
+
+            command = new SqlCommand(query, conn);
+            Technician loggedTechnician = new Technician();
+
+            try
+            {
+
+                reader = command.ExecuteReader();
+                if (reader.Read())
+                {
+
+                    loggedTechnician.TechID = reader[0].ToString();
+                    loggedTechnician.Name = reader[1].ToString();
+                    loggedTechnician.Surname = reader[2].ToString();
+                    loggedTechnician.Username = reader[3].ToString();
+                    loggedTechnician.Password = reader[4].ToString();
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error getClient: " + ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+            return loggedTechnician;
         }
 
 
