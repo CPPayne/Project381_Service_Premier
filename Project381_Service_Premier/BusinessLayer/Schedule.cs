@@ -16,24 +16,34 @@ namespace Project381_Service_Premier.BusinessLayer
         private int buffer;
         private string workRequestID;
 
-        public Schedule(DateTime dateStart, string client, int technician, string scheduleID, int buffer, string workRequestID)
+        public DateTime Date { get => date; set => date = value; }
+        public string ClientID { get => clientID; set => clientID = value; }
+        public int TechnicianID { get => technicianID; set => technicianID = value; }
+        public string ScheduleID { get => scheduleID; set => scheduleID = value; }
+        public int Buffer { get => buffer; set => buffer = value; }
+        public string WorkRequestID { get => workRequestID; set => workRequestID = value; }
+
+        public Schedule(DateTime dateStart, string client, int technicianID, string scheduleID, int buffer, string workRequestID)
         {
 
             this.date = dateStart;
-            this.Client = client;
-            this.Technician = technician;
+            this.ClientID = client;
+            this.TechnicianID = technicianID;
             this.ScheduleID = scheduleID;
             this.Buffer = buffer;
             this.WorkRequestID = workRequestID;
         }
 
+        public Schedule(DateTime dateStart, int technicianID, string scheduleID, int buffer, string workRequestID)
+        {
 
-        public DateTime Date { get => date; set => date = value; }
-        internal string Client { get => clientID; set => clientID = value; }
-        internal int Technician { get => technicianID; set => technicianID = value; }
-        public string ScheduleID { get => scheduleID; set => scheduleID = value; }
-        public int Buffer { get => buffer; set => buffer = value; }
-        public string WorkRequestID { get => workRequestID; set => workRequestID = value; }
+            this.date = dateStart;
+            this.TechnicianID = technicianID;
+            this.ScheduleID = scheduleID;
+            this.Buffer = buffer;
+            this.WorkRequestID = workRequestID;
+        }
+
 
         public Schedule() { }
 
@@ -59,6 +69,12 @@ namespace Project381_Service_Premier.BusinessLayer
         {
             FileHandler fh = new FileHandler();
             fh.addScheduleToDB(schedule);
+        }
+
+        public List<Schedule> GetAlltechSched(string techID)
+        {
+            FileHandler fh = new FileHandler();
+            return fh.getAllTechSechedules(techID);
         }
 
         public int calculateBuffer(string serviceType)

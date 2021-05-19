@@ -16,7 +16,7 @@ namespace Project381_Service_Premier.DataAccessLayer
 
 
         //Set connection string
-        string connect = "Data Source=DANIEL\\DANIELSQL;Initial Catalog=servicePremierDB;Integrated Security=True";
+        string connect = "Data Source=.;Initial Catalog=servicePremierDB;Integrated Security=True";
         SqlConnection conn;
         SqlConnection conn2;
         SqlConnection conn3;
@@ -955,13 +955,11 @@ namespace Project381_Service_Premier.DataAccessLayer
             return allServices;
         }
 
-        public List<Schedule> getAllSechedules(string techID, DateTime today)
+        public List<Schedule> getAllTechSechedules(string techID)
         {
-            SqlConnection conn = new SqlConnection(connect);
-            SqlCommand command;
-            SqlDataReader reader;
 
-            string query = @"SELECT * FROM Schedule WHERE technicianID = ('" + techID + "') AND ScheduleDate >= ( '" + today + "' ) ";
+
+            string query = @"SELECT * FROM Schedule WHERE technicianID = ('" + techID + "') ";
 
             Schedule objSchedule = new Schedule();
             conn = new SqlConnection(connect);
@@ -979,11 +977,14 @@ namespace Project381_Service_Premier.DataAccessLayer
                 while (reader.Read())
                 {
 
-                    objSchedule.SName = reader.GetValue(1).ToString();
-                    objSchedule.SType = reader.GetValue(2).ToString();
-                    objSchedule.SSpecifications = reader.GetValue(3).ToString();
+                    objSchedule.ScheduleID = reader.GetValue(0).ToString();
+                    objSchedule.Date = Convert.ToDateTime(reader.GetValue(1).ToString());
+                    objSchedule.WorkRequestID = reader.GetValue(2).ToString();
+                  
+                    objSchedule.TechnicianID = int.Parse(reader.GetValue(3).ToString());
+                    objSchedule.Buffer = int.Parse(reader.GetValue(4).ToString());
 
-                    allSchedule.Add(new Schedule(objService.SName, objService.SType, objService.SSpecifications));
+                    allSchedule.Add(new Schedule(objSchedule.Date, objSchedule.TechnicianID, Convert.ToString(objSchedule.ScheduleID), objSchedule.Buffer, objSchedule.WorkRequestID ));
                 }
             }
             catch (Exception ex)

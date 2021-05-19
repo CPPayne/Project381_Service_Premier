@@ -50,7 +50,7 @@ namespace Project381_Service_Premier
         List<Call> clientCallsHistory = new List<Call>();
 
         List<Service> servicesInPackage = new List<Service>();
-
+        List<Schedule> allScheds = new List<Schedule>();
         List<Contract> loggedClientContracts = new List<Contract>();
 
         Client loggedInClient = new Client();
@@ -853,18 +853,22 @@ namespace Project381_Service_Premier
 
         private void btnViewAllSchedules_Click(object sender, EventArgs e)
         {
-            FileHandler fh = new FileHandler();
 
             DateTime today = DateTime.Now;
             
 
 
-            Service svc = new Service();
+            Schedule svc = new Schedule();
 
-            allServices = svc.getAllServices();
-            sourceAllService.DataSource = allServices;
-            dgvServices.DataSource = sourceAllService;
+            allScheds = svc.GetAlltechSched(loggedInTechnician.TechID);
+            sourceAllSchedules.DataSource = allScheds;
+            dgvSchedules.DataSource = sourceAllSchedules;
 
+        }
+
+        private void dgvSchedules_SelectionChanged(object sender, EventArgs e)
+        {
+            Schedule selectedSched = (Schedule)sourceAllService.Current;
         }
 
         private void btnSimCall_Click(object sender, EventArgs e)
