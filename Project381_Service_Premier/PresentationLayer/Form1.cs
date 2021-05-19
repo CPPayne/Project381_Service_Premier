@@ -24,6 +24,8 @@ namespace Project381_Service_Premier
         double packageCost;
         double multiplier;
 
+        string techUser;
+
         public Form1()
         {
             InitializeComponent();
@@ -35,6 +37,8 @@ namespace Project381_Service_Premier
         BindingSource sourceAllPackages = new BindingSource();
         BindingSource sourceClientContracts = new BindingSource();
         BindingSource selectedPackageServicesToAdd = new BindingSource();
+
+        BindingSource sourceAllSchedules = new BindingSource();
 
         BindingSource sourceServicePackage = new BindingSource();
 
@@ -712,6 +716,7 @@ namespace Project381_Service_Premier
             {
                 tbTechnicianUser.Clear();
                 tbTechnicianPass.Clear();
+                techUser = usernameInput;
                 tabControl1.SelectedTab = tbTechnicianMenu;
             }
         }
@@ -844,6 +849,22 @@ namespace Project381_Service_Premier
         private void btnRegTechTMain_Click(object sender, EventArgs e)
         {
             tabControl1.SelectedTab = tpMainMenu;
+        }
+
+        private void btnViewAllSchedules_Click(object sender, EventArgs e)
+        {
+            FileHandler fh = new FileHandler();
+
+            DateTime today = DateTime.Now;
+            
+
+
+            Service svc = new Service();
+
+            allServices = svc.getAllServices();
+            sourceAllService.DataSource = allServices;
+            dgvServices.DataSource = sourceAllService;
+
         }
 
         private void btnSimCall_Click(object sender, EventArgs e)
