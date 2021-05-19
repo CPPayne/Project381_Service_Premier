@@ -1023,7 +1023,7 @@ namespace Project381_Service_Premier.DataAccessLayer
             }
             return allServices;
         }
-
+        
         //public List<Schedule> getAllSechedules(string techID, DateTime today)
         //{
         //    SqlConnection conn = new SqlConnection(connect);
@@ -1505,7 +1505,7 @@ namespace Project381_Service_Premier.DataAccessLayer
                 if (reader.Read())
                 {
 
-                    loggedTechnician.TechID = reader[0].ToString();
+                    loggedTechnician.TechID = int.Parse(reader[0].ToString());
                     loggedTechnician.Name = reader[1].ToString();
                     loggedTechnician.Surname = reader[2].ToString();
                     loggedTechnician.Username = reader[3].ToString();
@@ -1781,12 +1781,12 @@ namespace Project381_Service_Premier.DataAccessLayer
                     objSchedule.ScheduleID = reader.GetValue(0).ToString();
                     objSchedule.Date = reader.GetDateTime(1);
                     objSchedule.WorkRequestID = reader.GetValue(2).ToString();
-                    objSchedule.Technician = int.Parse(reader.GetValue(3).ToString());
+                    objSchedule.TechnicianID = int.Parse(reader.GetValue(3).ToString());
                     objSchedule.Buffer = int.Parse(reader.GetValue(4).ToString());
 
                     objSchedule.Client = getClientIDInWorkRequest(objSchedule.WorkRequestID);
 
-                    AllSchedules.Add(new Schedule(objSchedule.Date, objSchedule.Client, objSchedule.Technician, objSchedule.ScheduleID, objSchedule.Buffer, objSchedule.WorkRequestID));
+                    AllSchedules.Add(new Schedule(objSchedule.Date, objSchedule.Client, objSchedule.TechnicianID, objSchedule.ScheduleID, objSchedule.Buffer, objSchedule.WorkRequestID));
                 }
             }
             catch (Exception ex)
@@ -1855,7 +1855,7 @@ namespace Project381_Service_Premier.DataAccessLayer
         }
         public void addScheduleToDB(Schedule schedule)
         {
-            string query = @"INSERT INTO Schedule (ScheduleID,ScheduleDate,WorkRequestID,technicianID,sBuffer) VALUES ( '" + schedule.ScheduleID + "', '" + schedule.Date + "', '" + schedule.WorkRequestID + "', '" + schedule.Technician + "', '" + schedule.Buffer + "')";
+            string query = @"INSERT INTO Schedule (ScheduleID,ScheduleDate,WorkRequestID,technicianID,sBuffer) VALUES ( '" + schedule.ScheduleID + "', '" + schedule.Date + "', '" + schedule.WorkRequestID + "', '" + schedule.TechnicianID + "', '" + schedule.Buffer + "')";
             conn = new SqlConnection(connect);
             conn.Open();
             command = new SqlCommand(query, conn);
@@ -1873,6 +1873,89 @@ namespace Project381_Service_Premier.DataAccessLayer
             {
                 conn.Close();
             }
+        }
+        public List<Schedule> getAllTechSechedules(int techID)
+        {
+
+
+            string query = @"SELECT * FROM Schedule WHERE technicianID = ('" + techID + "') ";
+
+            Schedule objSchedule = new Schedule();
+            conn = new SqlConnection(connect);
+
+            conn.Open();
+
+            command = new SqlCommand(query, conn);
+            List<Schedule> allSchedule = new List<Schedule>();
+
+
+            try
+            {
+
+                reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+
+                    objSchedule.ScheduleID = reader.GetValue(0).ToString();
+                    objSchedule.Date = Convert.ToDateTime(reader.GetValue(1).ToString());
+                    objSchedule.WorkRequestID = reader.GetValue(2).ToString();
+
+                    objSchedule.TechnicianID = int.Parse(reader.GetValue(3).ToString());
+                    objSchedule.Buffer = int.Parse(reader.GetValue(4).ToString());
+
+                    allSchedule.Add(new Schedule(objSchedule.Date,objSchedule.TechnicianID,objSchedule.ScheduleID,objSchedule.Buffer,objSchedule.WorkRequestID));
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error getSchedulesFromToday: " + ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return allSchedule;
+        }
+
+        public Client getWRClientD(string scheduleID)
+        {
+            string query = @"SELECT * FROM Client WHERE ClientID IN (SELECT ClientID FROM WorkRequest WHERE WorkRequestID IN (SELECT WorkRequestID FROM Schedule WHERE ScheduleID = ('" + scheduleID + "')))";
+
+
+            conn = new SqlConnection(connect);
+
+            conn.Open();
+
+            command = new SqlCommand(query, conn);
+            Client chosenClient = new Client();
+
+            try
+            {
+
+                reader = command.ExecuteReader();
+                if (reader.Read())
+                {
+
+                    chosenClient.ClientID = reader[0].ToString();
+                    chosenClient.Name = reader[1].ToString();
+                    chosenClient.Surname = reader[2].ToString();
+                    chosenClient.Address = reader[3].ToString();
+                    chosenClient.PhoneNum = reader[4].ToString();
+                    chosenClient.IsBusiness = Convert.ToBoolean(reader[5].ToString());
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error getClient: " + ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+            return chosenClient;
         }
     }
 }

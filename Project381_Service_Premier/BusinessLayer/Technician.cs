@@ -12,13 +12,13 @@ namespace Project381_Service_Premier.BusinessLayer
     {
         private string name;
         private string surname;
-        private string techID;
+        private int techID;
         private string username;
         private string password;
 
         public string Name { get => name; set => name = value; }
         public string Surname { get => surname; set => surname = value; }
-        public string TechID { get => techID; set => techID = value; }
+        public int TechID { get => techID; set => techID = value; }
         public string Username { get => username; set => username = value; }
         public string Password{ get => password; set => password = value; }
 

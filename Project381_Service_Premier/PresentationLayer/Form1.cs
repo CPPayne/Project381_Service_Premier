@@ -46,10 +46,15 @@ namespace Project381_Service_Premier
 
         BindingSource sourceClientCallHistory = new BindingSource();
 
+        //
+        BindingSource sourceViewAllSched = new BindingSource();
+
         List<Service> allServices = new List<Service>();
         List<Package> allPackages = new List<Package>();
         List<Contract> clientContr = new List<Contract>();
         List<Call> clientCallsHistory = new List<Call>();
+        //
+        List<Schedule> viewAllScheudles = new List<Schedule>();
 
         List<Service> servicesInPackage = new List<Service>();
 
@@ -79,6 +84,21 @@ namespace Project381_Service_Premier
             allServices = svc.getAllServices();
             sourceAllService.DataSource = allServices;
             dgvServices.DataSource = sourceAllService;
+        }
+
+        private void updateScheduleDBG(int techID)
+        {
+            Schedule sch = new Schedule();
+
+            viewAllScheudles = sch.getTechSchedules(techID);
+            sourceViewAllSched.DataSource = viewAllScheudles;
+            dgvSchedules.DataSource = sourceViewAllSched;
+        }
+
+        private void updateScheduleDBGPast(int techID)
+        {
+            sourceViewAllSched.DataSource = viewAllScheudles;
+            dgvSchedules.DataSource = sourceViewAllSched;
         }
 
 
@@ -728,6 +748,7 @@ namespace Project381_Service_Premier
                 tbTechnicianUser.Clear();
                 tbTechnicianPass.Clear();
                 techUser = usernameInput;
+                updateScheduleDBG(loggedInTechnician.TechID);
                 tabControl1.SelectedTab = tbTechnicianMenu;
             }
         }
@@ -887,20 +908,62 @@ namespace Project381_Service_Premier
             FileHandler fh = new FileHandler();
 
             DateTime today = DateTime.Now;
-            
 
+            Contract con = new Contract();
 
-            Service svc = new Service();
-
-            allServices = svc.getAllServices();
-            sourceAllService.DataSource = allServices;
-            dgvServices.DataSource = sourceAllService;
+            updateScheduleDBG(loggedInTechnician.TechID);
 
         }
 
         private void btnTechnicianTMain_Click(object sender, EventArgs e)
         {
             tabControl1.SelectedTab = tbTechnicianMenu;
+        }
+
+        private void dgvSchedules_SelectionChanged(object sender, EventArgs e)
+        {
+            Schedule selectedSchdule = (Schedule)sourceViewAllSched.Current;
+            Client choseclient = new Client();
+
+            Schedule sched = new Schedule(selectedSchdule.Date, selectedSchdule.ScheduleID, selectedSchdule.Buffer,selectedSchdule.WorkRequestID);
+
+
+            string schedID = sched.ScheduleID;
+
+            choseclient = selectedSchdule.getClientBySchedule(schedID);
+
+            lblCName.Text = choseclient.Name;
+            lblSName.Text = choseclient.Surname;
+            lblCAddress.Text = choseclient.Address;
+            lblCPhoneNum.Text = choseclient.PhoneNum;
+        }
+
+        private void dgvContracts_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void btnScheduleTMain_Click(object sender, EventArgs e)
+        {
+            tabControl1.SelectedTab = tbTechnicianMenu;
+        }
+
+        private void btnViewPreviousSchedules_Click(object sender, EventArgs e)
+        {
+            List<Schedule> tmp = new List<Schedule>();
+
+            foreach (Schedule schedule in viewAllScheudles)
+            {
+                if (schedule.Date.Day < DateTime.Now.Day -1)
+                {
+                    tmp.Add(schedule);
+
+                }
+            }
+            viewAllScheudles = new List<Schedule>();
+            viewAllScheudles = tmp;
+            updateScheduleDBGPast(loggedInTechnician.TechID);
+
         }
 
         private void btnSimCall_Click(object sender, EventArgs e)

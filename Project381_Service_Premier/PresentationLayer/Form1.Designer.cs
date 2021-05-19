@@ -228,6 +228,10 @@ namespace Project381_Service_Premier
             this.panel21 = new System.Windows.Forms.Panel();
             this.btnMtoSchedule = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.lblCName = new System.Windows.Forms.Label();
+            this.lblSName = new System.Windows.Forms.Label();
+            this.lblCAddress = new System.Windows.Forms.Label();
+            this.lblCPhoneNum = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tpCallCentre.SuspendLayout();
             this.panel9.SuspendLayout();
@@ -836,6 +840,10 @@ namespace Project381_Service_Premier
             // panel17
             // 
             this.panel17.BackColor = System.Drawing.Color.Silver;
+            this.panel17.Controls.Add(this.lblCPhoneNum);
+            this.panel17.Controls.Add(this.lblCAddress);
+            this.panel17.Controls.Add(this.lblSName);
+            this.panel17.Controls.Add(this.lblCName);
             this.panel17.Controls.Add(this.label13);
             this.panel17.Controls.Add(this.btnScheduleTMain);
             this.panel17.Controls.Add(this.label18);
@@ -851,11 +859,11 @@ namespace Project381_Service_Premier
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(491, 38);
+            this.label13.Location = new System.Drawing.Point(475, 38);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(60, 20);
+            this.label13.Size = new System.Drawing.Size(106, 20);
             this.label13.TabIndex = 43;
-            this.label13.Text = "label13";
+            this.label13.Text = "Client Details:";
             // 
             // btnScheduleTMain
             // 
@@ -865,6 +873,7 @@ namespace Project381_Service_Premier
             this.btnScheduleTMain.TabIndex = 42;
             this.btnScheduleTMain.Text = "Go to Technician Menu";
             this.btnScheduleTMain.UseVisualStyleBackColor = true;
+            this.btnScheduleTMain.Click += new System.EventHandler(this.btnScheduleTMain_Click);
             // 
             // label18
             // 
@@ -894,6 +903,7 @@ namespace Project381_Service_Premier
             this.dgvSchedules.Name = "dgvSchedules";
             this.dgvSchedules.Size = new System.Drawing.Size(452, 319);
             this.dgvSchedules.TabIndex = 40;
+            this.dgvSchedules.SelectionChanged += new System.EventHandler(this.dgvSchedules_SelectionChanged);
             // 
             // btnViewPreviousSchedules
             // 
@@ -904,6 +914,7 @@ namespace Project381_Service_Premier
             this.btnViewPreviousSchedules.TabIndex = 38;
             this.btnViewPreviousSchedules.Text = "View Previous Schdules";
             this.btnViewPreviousSchedules.UseVisualStyleBackColor = true;
+            this.btnViewPreviousSchedules.Click += new System.EventHandler(this.btnViewPreviousSchedules_Click);
             // 
             // btnFinish
             // 
@@ -1782,6 +1793,7 @@ namespace Project381_Service_Premier
             this.dgvContracts.Name = "dgvContracts";
             this.dgvContracts.Size = new System.Drawing.Size(399, 186);
             this.dgvContracts.TabIndex = 0;
+            this.dgvContracts.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvContracts_CellContentClick);
             this.dgvContracts.SelectionChanged += new System.EventHandler(this.dgvContracts_SelectionChanged);
             // 
             // rb5
@@ -2432,6 +2444,38 @@ namespace Project381_Service_Premier
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click_2);
             // 
+            // lblCName
+            // 
+            this.lblCName.AutoSize = true;
+            this.lblCName.Location = new System.Drawing.Point(475, 69);
+            this.lblCName.Name = "lblCName";
+            this.lblCName.Size = new System.Drawing.Size(0, 20);
+            this.lblCName.TabIndex = 44;
+            // 
+            // lblSName
+            // 
+            this.lblSName.AutoSize = true;
+            this.lblSName.Location = new System.Drawing.Point(475, 99);
+            this.lblSName.Name = "lblSName";
+            this.lblSName.Size = new System.Drawing.Size(0, 20);
+            this.lblSName.TabIndex = 45;
+            // 
+            // lblCAddress
+            // 
+            this.lblCAddress.AutoSize = true;
+            this.lblCAddress.Location = new System.Drawing.Point(475, 130);
+            this.lblCAddress.Name = "lblCAddress";
+            this.lblCAddress.Size = new System.Drawing.Size(0, 20);
+            this.lblCAddress.TabIndex = 46;
+            // 
+            // lblCPhoneNum
+            // 
+            this.lblCPhoneNum.AutoSize = true;
+            this.lblCPhoneNum.Location = new System.Drawing.Point(475, 163);
+            this.lblCPhoneNum.Name = "lblCPhoneNum";
+            this.lblCPhoneNum.Size = new System.Drawing.Size(0, 20);
+            this.lblCPhoneNum.TabIndex = 47;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2698,6 +2742,10 @@ namespace Project381_Service_Premier
         private System.Windows.Forms.Panel panel17;
         private System.Windows.Forms.Button btnScheduleTMain;
         private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label lblCPhoneNum;
+        private System.Windows.Forms.Label lblCAddress;
+        private System.Windows.Forms.Label lblSName;
+        private System.Windows.Forms.Label lblCName;
     }
 }
 
