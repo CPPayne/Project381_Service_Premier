@@ -955,47 +955,47 @@ namespace Project381_Service_Premier.DataAccessLayer
             return allServices;
         }
 
-        public List<Schedule> getAllSechedules(string techID, DateTime today)
-        {
-            SqlConnection conn = new SqlConnection(connect);
-            SqlCommand command;
-            SqlDataReader reader;
+        //public List<Schedule> getAllSechedules(string techID, DateTime today)
+        //{
+        //    SqlConnection conn = new SqlConnection(connect);
+        //    SqlCommand command;
+        //    SqlDataReader reader;
 
-            string query = @"SELECT * FROM Schedule WHERE technicianID = ('" + techID + "') AND ScheduleDate >= ( '" + today + "' ) ";
+        //    string query = @"SELECT * FROM Schedule WHERE technicianID = ('" + techID + "') AND ScheduleDate >= ( '" + today + "' ) ";
 
-            Schedule objSchedule = new Schedule();
-            conn = new SqlConnection(connect);
+        //    Schedule objSchedule = new Schedule();
+        //    conn = new SqlConnection(connect);
 
-            conn.Open();
+        //    conn.Open();
 
-            command = new SqlCommand(query, conn);
-            List<Schedule> allSchedule = new List<Schedule>();
+        //    command = new SqlCommand(query, conn);
+        //    List<Schedule> allSchedule = new List<Schedule>();
 
 
-            try
-            {
+        //    try
+        //    {
 
-                reader = command.ExecuteReader();
-                while (reader.Read())
-                {
+        //        reader = command.ExecuteReader();
+        //        while (reader.Read())
+        //        {
 
-                    objSchedule.SName = reader.GetValue(1).ToString();
-                    objSchedule.SType = reader.GetValue(2).ToString();
-                    objSchedule.SSpecifications = reader.GetValue(3).ToString();
+        //            objSchedule.SName = reader.GetValue(1).ToString();
+        //            objSchedule.SType = reader.GetValue(2).ToString();
+        //            objSchedule.SSpecifications = reader.GetValue(3).ToString();
 
-                    allSchedule.Add(new Schedule(objService.SName, objService.SType, objService.SSpecifications));
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error getSchedulesFromToday: " + ex.Message);
-            }
-            finally
-            {
-                conn.Close();
-            }
-            return allSchedule;
-        }
+        //            allSchedule.Add(new Schedule(objService.SName, objService.SType, objService.SSpecifications));
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show("Error getSchedulesFromToday: " + ex.Message);
+        //    }
+        //    finally
+        //    {
+        //        conn.Close();
+        //    }
+        //    return allSchedule;
+        //}
         public List<Call> getAllClientCallHistory(string clientID)
         {
 
