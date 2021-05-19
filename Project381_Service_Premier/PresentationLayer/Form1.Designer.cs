@@ -80,9 +80,15 @@ namespace Project381_Service_Premier
             this.labelSurname = new System.Windows.Forms.Label();
             this.btnRegister = new System.Windows.Forms.Button();
             this.tpSchedule = new System.Windows.Forms.TabPage();
-            this.btnFinish = new System.Windows.Forms.Button();
-            this.btnViewPreviousSchedules = new System.Windows.Forms.Button();
+            this.panel22 = new System.Windows.Forms.Panel();
+            this.panel17 = new System.Windows.Forms.Panel();
+            this.label13 = new System.Windows.Forms.Label();
+            this.btnScheduleTMain = new System.Windows.Forms.Button();
+            this.label18 = new System.Windows.Forms.Label();
             this.btnViewAllSchedules = new System.Windows.Forms.Button();
+            this.dgvSchedules = new System.Windows.Forms.DataGridView();
+            this.btnViewPreviousSchedules = new System.Windows.Forms.Button();
+            this.btnFinish = new System.Windows.Forms.Button();
             this.tpPackageManagement = new System.Windows.Forms.TabPage();
             this.btnMainMenuCmain = new System.Windows.Forms.Button();
             this.btnAddServiceToPackage = new System.Windows.Forms.Button();
@@ -222,12 +228,6 @@ namespace Project381_Service_Premier
             this.panel21 = new System.Windows.Forms.Panel();
             this.btnMtoSchedule = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.dgvSchedules = new System.Windows.Forms.DataGridView();
-            this.label18 = new System.Windows.Forms.Label();
-            this.panel17 = new System.Windows.Forms.Panel();
-            this.panel22 = new System.Windows.Forms.Panel();
-            this.btnScheduleTMain = new System.Windows.Forms.Button();
-            this.label13 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tpCallCentre.SuspendLayout();
             this.panel9.SuspendLayout();
@@ -237,6 +237,9 @@ namespace Project381_Service_Premier
             this.panel11.SuspendLayout();
             this.panel12.SuspendLayout();
             this.tpSchedule.SuspendLayout();
+            this.panel22.SuspendLayout();
+            this.panel17.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSchedules)).BeginInit();
             this.tpPackageManagement.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPackageServices)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPackages)).BeginInit();
@@ -268,9 +271,6 @@ namespace Project381_Service_Premier
             this.tbTechnicianMenu.SuspendLayout();
             this.panel20.SuspendLayout();
             this.panel21.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvSchedules)).BeginInit();
-            this.panel17.SuspendLayout();
-            this.panel22.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -824,25 +824,56 @@ namespace Project381_Service_Premier
             this.tpSchedule.Text = "Technician";
             this.tpSchedule.UseVisualStyleBackColor = true;
             // 
-            // btnFinish
+            // panel22
             // 
-            this.btnFinish.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFinish.Location = new System.Drawing.Point(466, 363);
-            this.btnFinish.Name = "btnFinish";
-            this.btnFinish.Size = new System.Drawing.Size(155, 32);
-            this.btnFinish.TabIndex = 39;
-            this.btnFinish.Text = "Finish Schedule";
-            this.btnFinish.UseVisualStyleBackColor = true;
+            this.panel22.BackColor = System.Drawing.Color.Black;
+            this.panel22.Controls.Add(this.panel17);
+            this.panel22.Location = new System.Drawing.Point(416, 125);
+            this.panel22.Name = "panel22";
+            this.panel22.Size = new System.Drawing.Size(634, 474);
+            this.panel22.TabIndex = 43;
             // 
-            // btnViewPreviousSchedules
+            // panel17
             // 
-            this.btnViewPreviousSchedules.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnViewPreviousSchedules.Location = new System.Drawing.Point(217, 363);
-            this.btnViewPreviousSchedules.Name = "btnViewPreviousSchedules";
-            this.btnViewPreviousSchedules.Size = new System.Drawing.Size(194, 32);
-            this.btnViewPreviousSchedules.TabIndex = 38;
-            this.btnViewPreviousSchedules.Text = "View Previous Schdules";
-            this.btnViewPreviousSchedules.UseVisualStyleBackColor = true;
+            this.panel17.BackColor = System.Drawing.Color.Silver;
+            this.panel17.Controls.Add(this.label13);
+            this.panel17.Controls.Add(this.btnScheduleTMain);
+            this.panel17.Controls.Add(this.label18);
+            this.panel17.Controls.Add(this.btnViewAllSchedules);
+            this.panel17.Controls.Add(this.dgvSchedules);
+            this.panel17.Controls.Add(this.btnViewPreviousSchedules);
+            this.panel17.Controls.Add(this.btnFinish);
+            this.panel17.Location = new System.Drawing.Point(3, 3);
+            this.panel17.Name = "panel17";
+            this.panel17.Size = new System.Drawing.Size(626, 467);
+            this.panel17.TabIndex = 42;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(491, 38);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(60, 20);
+            this.label13.TabIndex = 43;
+            this.label13.Text = "label13";
+            // 
+            // btnScheduleTMain
+            // 
+            this.btnScheduleTMain.Location = new System.Drawing.Point(217, 418);
+            this.btnScheduleTMain.Name = "btnScheduleTMain";
+            this.btnScheduleTMain.Size = new System.Drawing.Size(194, 31);
+            this.btnScheduleTMain.TabIndex = 42;
+            this.btnScheduleTMain.Text = "Go to Technician Menu";
+            this.btnScheduleTMain.UseVisualStyleBackColor = true;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(3, 15);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(122, 20);
+            this.label18.TabIndex = 41;
+            this.label18.Text = "View Schedules";
             // 
             // btnViewAllSchedules
             // 
@@ -854,6 +885,35 @@ namespace Project381_Service_Premier
             this.btnViewAllSchedules.Text = "View All Schedules";
             this.btnViewAllSchedules.UseVisualStyleBackColor = true;
             this.btnViewAllSchedules.Click += new System.EventHandler(this.btnViewAllSchedules_Click);
+            // 
+            // dgvSchedules
+            // 
+            this.dgvSchedules.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvSchedules.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvSchedules.Location = new System.Drawing.Point(7, 38);
+            this.dgvSchedules.Name = "dgvSchedules";
+            this.dgvSchedules.Size = new System.Drawing.Size(452, 319);
+            this.dgvSchedules.TabIndex = 40;
+            // 
+            // btnViewPreviousSchedules
+            // 
+            this.btnViewPreviousSchedules.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnViewPreviousSchedules.Location = new System.Drawing.Point(217, 363);
+            this.btnViewPreviousSchedules.Name = "btnViewPreviousSchedules";
+            this.btnViewPreviousSchedules.Size = new System.Drawing.Size(194, 32);
+            this.btnViewPreviousSchedules.TabIndex = 38;
+            this.btnViewPreviousSchedules.Text = "View Previous Schdules";
+            this.btnViewPreviousSchedules.UseVisualStyleBackColor = true;
+            // 
+            // btnFinish
+            // 
+            this.btnFinish.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFinish.Location = new System.Drawing.Point(466, 363);
+            this.btnFinish.Name = "btnFinish";
+            this.btnFinish.Size = new System.Drawing.Size(155, 32);
+            this.btnFinish.TabIndex = 39;
+            this.btnFinish.Text = "Finish Schedule";
+            this.btnFinish.UseVisualStyleBackColor = true;
             // 
             // tpPackageManagement
             // 
@@ -2114,6 +2174,7 @@ namespace Project381_Service_Premier
             this.btnTechnicianTMain.TabIndex = 11;
             this.btnTechnicianTMain.Text = "Return to Main Menu";
             this.btnTechnicianTMain.UseVisualStyleBackColor = true;
+            this.btnTechnicianTMain.Click += new System.EventHandler(this.btnTechnicianTMain_Click);
             // 
             // label56
             // 
@@ -2371,66 +2432,6 @@ namespace Project381_Service_Premier
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click_2);
             // 
-            // dgvSchedules
-            // 
-            this.dgvSchedules.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvSchedules.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvSchedules.Location = new System.Drawing.Point(7, 38);
-            this.dgvSchedules.Name = "dgvSchedules";
-            this.dgvSchedules.Size = new System.Drawing.Size(452, 319);
-            this.dgvSchedules.TabIndex = 40;
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(3, 15);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(122, 20);
-            this.label18.TabIndex = 41;
-            this.label18.Text = "View Schedules";
-            // 
-            // panel17
-            // 
-            this.panel17.BackColor = System.Drawing.Color.Silver;
-            this.panel17.Controls.Add(this.label13);
-            this.panel17.Controls.Add(this.btnScheduleTMain);
-            this.panel17.Controls.Add(this.label18);
-            this.panel17.Controls.Add(this.btnViewAllSchedules);
-            this.panel17.Controls.Add(this.dgvSchedules);
-            this.panel17.Controls.Add(this.btnViewPreviousSchedules);
-            this.panel17.Controls.Add(this.btnFinish);
-            this.panel17.Location = new System.Drawing.Point(3, 3);
-            this.panel17.Name = "panel17";
-            this.panel17.Size = new System.Drawing.Size(626, 467);
-            this.panel17.TabIndex = 42;
-            // 
-            // panel22
-            // 
-            this.panel22.BackColor = System.Drawing.Color.Black;
-            this.panel22.Controls.Add(this.panel17);
-            this.panel22.Location = new System.Drawing.Point(416, 125);
-            this.panel22.Name = "panel22";
-            this.panel22.Size = new System.Drawing.Size(634, 474);
-            this.panel22.TabIndex = 43;
-            // 
-            // btnScheduleTMain
-            // 
-            this.btnScheduleTMain.Location = new System.Drawing.Point(217, 418);
-            this.btnScheduleTMain.Name = "btnScheduleTMain";
-            this.btnScheduleTMain.Size = new System.Drawing.Size(194, 31);
-            this.btnScheduleTMain.TabIndex = 42;
-            this.btnScheduleTMain.Text = "Go to Technician Menu";
-            this.btnScheduleTMain.UseVisualStyleBackColor = true;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(491, 38);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(60, 20);
-            this.label13.TabIndex = 43;
-            this.label13.Text = "label13";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2451,6 +2452,10 @@ namespace Project381_Service_Premier
             this.panel12.ResumeLayout(false);
             this.panel12.PerformLayout();
             this.tpSchedule.ResumeLayout(false);
+            this.panel22.ResumeLayout(false);
+            this.panel17.ResumeLayout(false);
+            this.panel17.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSchedules)).EndInit();
             this.tpPackageManagement.ResumeLayout(false);
             this.tpPackageManagement.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPackageServices)).EndInit();
@@ -2489,10 +2494,6 @@ namespace Project381_Service_Premier
             this.tbTechnicianMenu.ResumeLayout(false);
             this.panel20.ResumeLayout(false);
             this.panel21.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvSchedules)).EndInit();
-            this.panel17.ResumeLayout(false);
-            this.panel17.PerformLayout();
-            this.panel22.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

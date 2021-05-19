@@ -867,6 +867,11 @@ namespace Project381_Service_Premier
 
         }
 
+        private void btnTechnicianTMain_Click(object sender, EventArgs e)
+        {
+            tabControl1.SelectedTab = tbTechnicianMenu;
+        }
+
         private void btnSimCall_Click(object sender, EventArgs e)
         {
 
