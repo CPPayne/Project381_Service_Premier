@@ -804,9 +804,39 @@ namespace Project381_Service_Premier.DataAccessLayer
             return allWorkrequests;
         }
 
+        public string getPackageNameByContract(int conID)
+        {
+            string query =@"SELECT PackageName FROM PPackage WHERE PackageID IN (SELECT PackageID FROM ContractC WHERE ContractID = ('" + conID + "'))";
+
+            conn = new SqlConnection(connect);
+
+            conn.Open();
+
+            command = new SqlCommand(query, conn);
+
+            string packagename = "";
+            try
+            {
+
+                reader = command.ExecuteReader();
+                if (reader.Read())
+                {
+                    packagename = reader.GetValue(0).ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Failed to get workrequests for Client " + ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return packagename;
+        }
         public void addContractToDB(DateTime contractStart, string ClientID, string packageID, string ContractLevel)
         {
-            string query = @"INSERT INTO ContractC  VALUES ( '" + contractStart + "', '" + contractStart + "', '" + ClientID + "', '" + packageID + "', '" + ContractLevel + "' )";
+            string query = @"INSERT INTO ContractC  VALUES ( '" + contractStart + "', '" + ClientID + "', '" + packageID + "', '" + ContractLevel + "' )";
 
             conn = new SqlConnection(connect);
 
@@ -955,6 +985,45 @@ namespace Project381_Service_Premier.DataAccessLayer
             return allServices;
         }
 
+        public List<Service> getServFromCon(int conID)
+        {
+
+            string query = @"SELECT * FROM ServiceC WHERE ServiceID IN (SELECT ServiceID FROM Service_Packages WHERE PackageID IN (SELECT PackageID FROM ContractC WHERE ContractID = ('" + conID + "')))";
+
+            Service objService = new Service();
+            conn = new SqlConnection(connect);
+
+            conn.Open();
+
+            command = new SqlCommand(query, conn);
+            List<Service> allServices = new List<Service>();
+
+
+            try
+            {
+
+                reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+
+                    objService.SName = reader.GetValue(1).ToString();
+                    objService.SType = reader.GetValue(2).ToString();
+                    objService.SSpecifications = reader.GetValue(3).ToString();
+
+                    allServices.Add(new Service(objService.SName, objService.SType, objService.SSpecifications));
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error getAllServices: " + ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return allServices;
+        }
+
         //public List<Schedule> getAllSechedules(string techID, DateTime today)
         //{
         //    SqlConnection conn = new SqlConnection(connect);
@@ -963,21 +1032,21 @@ namespace Project381_Service_Premier.DataAccessLayer
 
         //    string query = @"SELECT * FROM Schedule WHERE technicianID = ('" + techID + "') AND ScheduleDate >= ( '" + today + "' ) ";
 
-        //    Schedule objSchedule = new Schedule();
-        //    conn = new SqlConnection(connect);
+        //Schedule objSchedule = new Schedule();
+        //conn = new SqlConnection(connect);
 
-        //    conn.Open();
+        //conn.Open();
 
-        //    command = new SqlCommand(query, conn);
-        //    List<Schedule> allSchedule = new List<Schedule>();
+        //command = new SqlCommand(query, conn);
+        //List<Schedule> allSchedule = new List<Schedule>();
 
 
-        //    try
+        //try
+        //{
+
+        //    reader = command.ExecuteReader();
+        //    while (reader.Read())
         //    {
-
-        //        reader = command.ExecuteReader();
-        //        while (reader.Read())
-        //        {
 
         //            objSchedule.SName = reader.GetValue(1).ToString();
         //            objSchedule.SType = reader.GetValue(2).ToString();

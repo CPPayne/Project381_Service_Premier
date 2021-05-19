@@ -74,10 +74,22 @@ namespace Project381_Service_Premier.BusinessLayer
             fh.addContractToDB(this.startDate, clientID, packageID, this.contractLevel);
         }
 
+        public string getPackNameFromCont(int conID)
+        {
+            FileHandler fh = new FileHandler();
+            return fh.getPackageNameByContract(conID);
+        }
+
         public override string ToString()
         {
 
             return this.package.PackageName + " " + this.ContractLevel + " " + this.startDate;
+        }
+
+        public List<Service> getServicesFromCon(int conID)
+        {
+            FileHandler fh = new FileHandler();
+            return fh.getServFromCon(conID);
         }
     }
 }

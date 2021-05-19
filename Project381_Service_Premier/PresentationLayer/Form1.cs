@@ -38,6 +38,8 @@ namespace Project381_Service_Premier
         BindingSource sourceClientContracts = new BindingSource();
         BindingSource selectedPackageServicesToAdd = new BindingSource();
 
+        BindingSource servicesFromCon = new BindingSource();
+
         BindingSource sourceAllSchedules = new BindingSource();
 
         BindingSource sourceServicePackage = new BindingSource();
@@ -67,6 +69,8 @@ namespace Project381_Service_Premier
         string pName;
         Decimal pCost;
         List<Service> servicesOfChosenPackages = new List<Service>();
+
+        List<Service> servInConList = new List<Service>();
 
         private void updateServiceDBGRID()
         {
@@ -98,6 +102,13 @@ namespace Project381_Service_Premier
         {
             sourceAllService.DataSource = servicesOfChosenPackages;
             dgvServices.DataSource = sourceAllService;
+        }
+
+        private void updateServiceFromCon()
+        {
+            servicesFromCon.DataSource = servInConList;
+            dgvContractServices.DataSource = servicesFromCon;
+      
         }
 
         private void updatePakcageDBGRID()
@@ -787,6 +798,26 @@ namespace Project381_Service_Premier
 
         private void dgvContracts_SelectionChanged(object sender, EventArgs e)
         {
+            Contract selectedContract = (Contract)sourceClientContracts.Current;
+            int conID = selectedContract.ContractID;
+
+            txtPackageNameDisp.Text = selectedContract.getPackNameFromCont(conID);
+
+            
+            servInConList = selectedContract.getServicesFromCon(conID);
+            
+            updateServiceFromCon();
+            servicesFromCon.ResetBindings(false);
+
+
+
+
+
+
+
+            //new Service selectedserv
+
+
 
         }
 
